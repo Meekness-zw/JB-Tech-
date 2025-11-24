@@ -8032,9 +8032,3 @@ fieldset#contact__form__message {
     font-size: 13px;
     line-height: 1.79em
 }
-
-@media screen and (min-width:1024px) {
-    .terms__section__body {
-        font-size: 14px
-    }
-}

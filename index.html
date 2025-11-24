@@ -1267,7 +1267,7 @@
             <script>window.jQuery || document.write('<script src="https://www.maman-corp.com/assets/js/lib/jquery-3.1.1.min.js"><\/script>')</script>
 
         <script src="js/main-loading-fallback.js"></script>
-        <script src="js/scripts.js"></script>
+    <script src="js/scripts.js"></script>
 
         <script src="js/footer-newsletter.js"></script>
 
@@ -1309,6 +1309,39 @@
           document.addEventListener('DOMContentLoaded', forcePageInitialization);
         }
       })();
+    </script>
+
+    <!-- Override legacy scroll hijackers after scripts.js bootstraps -->
+    <script>
+      window.addEventListener('load', function () {
+        // Give scripts.js time to wire up before we replace handlers.
+        setTimeout(function () {
+          var arrow = document.getElementById('home-landing__scroll');
+          if (arrow && arrow.parentNode) {
+            var clone = arrow.cloneNode(true);
+            arrow.parentNode.replaceChild(clone, arrow);
+            clone.addEventListener('click', function (event) {
+              event.preventDefault();
+              event.stopPropagation();
+              var next = document.querySelector('#home-screen-1') || document.querySelector('[name="story"]');
+              if (next) {
+                next.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }
+            }, { passive: false });
+          }
+
+          var floatingCta = document.getElementById('home-scroll-cta__btn');
+          if (floatingCta) {
+            var floatingClone = floatingCta.cloneNode(true);
+            floatingCta.parentNode.replaceChild(floatingClone, floatingCta);
+            floatingClone.addEventListener('click', function (event) {
+              event.preventDefault();
+              event.stopPropagation();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, { passive: false });
+          }
+        }, 1200);
+      });
     </script>
 
     <!-- Video playback fix for home landing section - simplified like step-1 -->

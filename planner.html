@@ -1,0 +1,2366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Planning Tool</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary-blue: #245B8A;
+            --dark-blue: #1a4666;
+            --light-blue: #5BA5A5;
+            --light-gray: #F5F5F5;
+            --white: #FFFFFF;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+        }
+
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--gray-900);
+            background: linear-gradient(to bottom right, var(--gray-50), var(--gray-100));
+            min-height: 100vh;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 48rem;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--dark-blue);
+            transform: scale(1.05);
+        }
+
+        .btn-secondary {
+            background-color: var(--gray-200);
+            color: var(--gray-800);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--gray-300);
+            transform: scale(1.05);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-top: 3rem;
+        }
+
+        .header h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .header h1 {
+                font-size: 3rem;
+            }
+        }
+
+        .header p {
+            font-size: 1.125rem;
+            color: var(--gray-600);
+        }
+
+        /* Progress Indicator */
+        .progress {
+            margin-bottom: 2rem;
+        }
+
+        .progress-steps {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .progress-step {
+            display: flex;
+            align-items: center;
+        }
+
+        .step-circle {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .step-circle.active {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            transform: scale(1.1);
+        }
+
+        .step-circle.completed {
+            background-color: var(--light-blue);
+            color: var(--white);
+        }
+
+        .step-circle.inactive {
+            background-color: var(--gray-300);
+            color: var(--gray-600);
+        }
+
+        .step-connector {
+            width: 4rem;
+            height: 0.25rem;
+            margin: 0 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .step-connector.active {
+            background-color: var(--light-blue);
+        }
+
+        .step-connector.inactive {
+            background-color: var(--gray-300);
+        }
+
+        .progress-text {
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            font-weight: 500;
+        }
+
+        /* Step Content */
+        .step-content {
+            background-color: var(--white);
+            border-radius: 1rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @media (min-width: 768px) {
+            .step-content {
+                padding: 3rem;
+            }
+        }
+
+        .step-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .step-icon {
+            width: 4rem;
+            height: 4rem;
+            background-color: rgba(36, 91, 138, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+        .step-icon i {
+            font-size: 2rem;
+            color: var(--primary-blue);
+        }
+
+        .step-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .step-title {
+                font-size: 1.875rem;
+            }
+        }
+
+        .step-description {
+            color: var(--gray-600);
+        }
+
+        /* Step 1: RFP Question */
+        .step-1-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        @media (min-width: 640px) {
+            .step-1-actions {
+                flex-direction: row;
+            }
+        }
+
+        /* Step 2: File Upload */
+        .file-upload-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 16rem;
+            border: 2px dashed var(--gray-300);
+            border-radius: 0.5rem;
+            cursor: pointer;
+            background-color: var(--gray-50);
+            margin-bottom: 2rem;
+            transition: background-color 0.3s;
+        }
+
+        .file-upload-area:hover {
+            background-color: var(--gray-100);
+        }
+
+        .file-upload-icon {
+            font-size: 3rem;
+            color: var(--gray-400);
+            margin-bottom: 1rem;
+        }
+
+        .file-upload-text {
+            text-align: center;
+        }
+
+        .file-upload-text p {
+            margin-bottom: 0.25rem;
+        }
+
+        .file-upload-text .main-text {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--gray-500);
+        }
+
+        .file-upload-text .sub-text {
+            font-size: 0.75rem;
+            color: var(--gray-500);
+        }
+
+        .file-upload-input {
+            display: none;
+        }
+
+        .file-preview {
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: rgba(36, 91, 138, 0.1);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .file-preview-icon {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+        }
+
+        .file-info {
+            flex: 1;
+        }
+
+        .file-name {
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        .file-size {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+        }
+
+        .file-success {
+            font-size: 1.5rem;
+            color: #10b981;
+        }
+
+        /* Step 3: Contact Form */
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--gray-700);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--gray-300);
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 2px rgba(36, 91, 138, 0.2);
+        }
+
+        .form-textarea {
+            resize: none;
+            height: 8rem;
+        }
+
+        .step-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .step-actions .btn {
+            flex: 1;
+        }
+
+        /* Animation Classes */
+        .step-enter {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+
+        .step-enter-active {
+            opacity: 1;
+            transform: translateX(0);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .step-exit {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .step-exit-active {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        /* Hidden Class */
+        .hidden {
+            display: none;
+        }
+    <style>
+      /* Navbar - completely non-blocking for scroll system */
+      #new-navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 3;
+        background: transparent;
+        /* Make entire navbar allow scroll through */
+        pointer-events: none;
+        /* Prevent any touch/scroll interference */
+        touch-action: none;
+        /* Ensure it doesn't block layout */
+        will-change: auto;
+      }
+      
+      /* Only interactive elements are clickable */
+      #new-navbar a,
+      #new-navbar button {
+        pointer-events: auto;
+        cursor: pointer;
+      }
+      
+      /* Mobile menu elements - non-blocking when closed */
+      #new-navbar .navbar-mobile-backdrop:not(.active),
+      #new-navbar .navbar-mobile-menu:not(.active) {
+        pointer-events: none;
+      }
+      
+      /* Mobile menu elements - blocking when active */
+      #new-navbar .navbar-mobile-backdrop.active,
+      #new-navbar .navbar-mobile-menu.active {
+        pointer-events: auto;
+      }
+      
+      /* Container doesn't block */
+      #new-navbar .navbar-container {
+        pointer-events: none;
+      }
+
+      .navbar-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1rem;
+      }
+
+      @media (min-width: 640px) {
+        .navbar-container {
+          padding: 1rem 1.5rem;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .navbar-container {
+          padding: 1rem 2rem;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .navbar-container {
+          padding: 1rem 3rem;
+        }
+      }
+
+      @media (min-width: 1280px) {
+        .navbar-container {
+          padding: 1rem 4rem;
+        }
+      }
+
+      .navbar-logo {
+        display: flex;
+        align-items: center;
+        position: relative;
+        z-index: 10;
+        text-decoration: none;
+      }
+
+      .navbar-logo-svg {
+        height: 4rem;
+        width: auto;
+      }
+
+      @media (min-width: 640px) {
+        .navbar-logo-svg {
+          height: 5rem;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .navbar-logo-svg {
+          height: 6rem;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .navbar-logo-svg {
+          height: 7rem;
+        }
+      }
+
+      .navbar-desktop-nav {
+        display: none;
+        gap: 1.5rem;
+        color: white;
+        font-weight: 600;
+        align-items: center;
+      }
+
+      @media (min-width: 1024px) {
+        .navbar-desktop-nav {
+          display: flex;
+        }
+      }
+
+      @media (min-width: 1280px) {
+        .navbar-desktop-nav {
+          gap: 2.5rem;
+        }
+      }
+
+      .navbar-link {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        color: white;
+      }
+
+      .navbar-link-indicator {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background: white;
+        border-radius: 50%;
+        padding: 0.25rem;
+      }
+
+      .navbar-link.active .navbar-link-indicator {
+        display: flex;
+      }
+
+      .navbar-link-indicator svg {
+        width: 14px;
+        height: 14px;
+        color: #1C2D41;
+      }
+
+      .navbar-link-text {
+        color: white;
+      }
+
+      .navbar-desktop-buttons {
+        display: none;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.5rem 0;
+      }
+
+      @media (min-width: 1024px) {
+        .navbar-desktop-buttons {
+          display: flex;
+        }
+      }
+
+      .navbar-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 0.5rem 0.75rem;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background-color 0.3s;
+      }
+
+      .navbar-btn-primary {
+        color: #245B8A;
+        background: white;
+        border: 1px solid #245B8A;
+      }
+
+      .navbar-btn-primary:hover {
+        background: #f3f4f6;
+      }
+
+      .navbar-btn-secondary {
+        color: white;
+        background: #245B8A;
+      }
+
+      .navbar-btn-secondary:hover {
+        background: #1a4666;
+      }
+
+      .navbar-mobile-toggle {
+        display: block;
+        color: white;
+        padding: 0.5rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+
+      @media (min-width: 1024px) {
+        .navbar-mobile-toggle {
+          display: none;
+        }
+      }
+
+      .navbar-mobile-backdrop {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 40;
+      }
+
+      @media (min-width: 1024px) {
+        .navbar-mobile-backdrop {
+          display: none !important;
+        }
+      }
+
+      .navbar-mobile-backdrop.active {
+        display: block;
+        animation: fadeIn 0.3s;
+      }
+
+      .navbar-mobile-menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 280px;
+        background: #1C2D41;
+        z-index: 50;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+      }
+
+      @media (min-width: 1024px) {
+        .navbar-mobile-menu {
+          display: none;
+        }
+      }
+
+      .navbar-mobile-menu.active {
+        transform: translateX(0);
+      }
+
+      .navbar-mobile-menu-header {
+        display: flex;
+        justify-content: flex-end;
+        padding: 1rem;
+      }
+
+      .navbar-mobile-close {
+        color: white;
+        padding: 0.5rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+        border-radius: 0.5rem;
+        transition: background-color 0.3s;
+      }
+
+      .navbar-mobile-close:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .navbar-mobile-menu-content {
+        display: flex;
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 1rem;
+      }
+
+      .navbar-mobile-link {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        color: white;
+        font-weight: 600;
+        padding: 0.75rem 0;
+        transition: color 0.3s;
+      }
+
+      .navbar-mobile-link:hover {
+        color: #245B8A;
+      }
+
+      .navbar-mobile-link.active .navbar-link-indicator {
+        display: flex;
+      }
+
+      .navbar-mobile-divider {
+        border-top: 1px solid #4b5563;
+        margin: 0.5rem 0;
+      }
+
+      .navbar-mobile-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 0.75rem 1rem;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background-color 0.3s;
+      }
+
+      .navbar-mobile-btn-primary {
+        color: #245B8A;
+        background: white;
+        border: 1px solid #245B8A;
+      }
+
+      .navbar-mobile-btn-primary:hover {
+        background: #f3f4f6;
+      }
+
+      .navbar-mobile-btn-secondary {
+        color: white;
+        background: #245B8A;
+      }
+
+      .navbar-mobile-btn-secondary:hover {
+        background: #1a4666;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .navbar-link-indicator svg {
+        width: 14px;
+        height: 14px;
+        display: block;
+      }
+
+        /* Services Page Specific Styles - Override main.css where needed */
+        body.page-services {
+            background-color: #F5F5F5;
+            color: #333;
+        }
+        
+        /* Services page wrapper */
+        .services-page-wrapper {
+            padding-top: 100px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Reset and Base Styles - Services Page Specific */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #245B8A;
+            --primary-dark: #1a4666;
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #F5F5F5;
+            --white: #fff;
+            --gray-100: #f8f9fa;
+            --gray-200: #e9ecef;
+            --gray-300: #dee2e6;
+            --gray-400: #ced4da;
+            --gray-500: #adb5bd;
+        }
+
+        body.page-services {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            box-shadow: 0 4px 12px rgba(36, 91, 138, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .section-tag {
+            display: inline-block;
+            padding: 6px 16px;
+            background-color: rgba(36, 91, 138, 0.1);
+            border: 1px solid rgba(36, 91, 138, 0.3);
+            border-radius: 50px;
+            margin-bottom: 16px;
+        }
+
+        .section-tag span {
+            color: var(--primary-color);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .section-heading {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .section-heading span {
+            color: var(--primary-color);
+        }
+
+        .section-subheading {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            margin-bottom: 32px;
+            max-width: 600px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .animate-fade-in-delay {
+            animation: fadeIn 0.8s ease-out 0.2s backwards;
+        }
+
+        .animate-slide-up {
+            animation: slideUp 1s ease-out 0.3s backwards;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 40px 20px;
+            z-index: 10;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .hero-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 60px;
+            }
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            margin-bottom: 32px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .stat-box {
+            background-color: var(--gray-100);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        /* Image Section */
+        .image-section {
+            position: relative;
+            padding: 0 20px 40px;
+        }
+
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        @media (min-width: 768px) {
+            .image-container img {
+                height: 500px;
+            }
+        }
+
+        .image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+        }
+
+        .image-badge {
+            position: absolute;
+            bottom: 24px;
+            left: 24px;
+            background-color: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            padding: 12px 24px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .badge-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .badge-subtitle {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        /* Services Intro */
+        .services-intro {
+            padding: 60px 20px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 60px;
+        }
+
+        @media (min-width: 1024px) {
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 80px;
+            }
+        }
+
+        .feature-list {
+            margin-top: 32px;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            background-color: rgba(36, 91, 138, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .feature-icon i {
+            color: var(--primary-color);
+            font-size: 20px;
+        }
+
+        .feature-title {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .feature-description {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .services-card {
+            background: linear-gradient(135deg, rgba(36, 91, 138, 0.05), rgba(36, 91, 138, 0.03));
+            border: 1px solid rgba(36, 91, 138, 0.2);
+            border-radius: 16px;
+            padding: 32px;
+        }
+
+        .services-description {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+
+        .services-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        @media (min-width: 640px) {
+            .services-actions {
+                flex-direction: row;
+            }
+            
+            .services-actions .btn {
+                width: auto;
+            }
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 40px 20px;
+            width: 100%;
+        }
+
+        .service-item {
+            border-top: 2px dashed var(--gray-300);
+            padding: 32px 0;
+            transition: border-color 0.3s;
+        }
+
+        .service-item.active {
+            border-color: var(--primary-color);
+        }
+
+        .service-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            cursor: pointer;
+            gap: 40px;
+        }
+
+        .service-number {
+            font-size: 3rem;
+            font-weight: 700;
+            transition: color 0.3s;
+            min-width: 80px;
+        }
+
+        .service-item.active .service-number {
+            color: var(--primary-color);
+        }
+
+        .service-item:not(.active) .service-number {
+            color: var(--gray-300);
+        }
+
+        .service-content {
+            flex: 1;
+        }
+
+        .service-title {
+            font-size: 2rem;
+            font-weight: 700;
+            transition: color 0.3s;
+            margin-bottom: 16px;
+        }
+
+        .service-item.active .service-title {
+            color: var(--primary-color);
+        }
+
+        .service-item:not(.active) .service-title {
+            color: var(--text-dark);
+        }
+
+        .service-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, opacity 0.5s ease;
+            opacity: 0;
+        }
+
+        .service-item.active .service-details {
+            opacity: 1;
+        }
+
+        .service-details-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            margin-top: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .service-details-grid {
+                flex-direction: row;
+            }
+        }
+
+        .service-image {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+
+        @media (min-width: 768px) {
+            .service-image {
+                width: 45%;
+            }
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        @media (min-width: 768px) {
+            .service-image img {
+                height: 260px;
+            }
+        }
+
+        .service-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .service-image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
+        }
+
+        .service-points {
+            flex: 1;
+        }
+
+        .points-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .points-list {
+            list-style: none;
+        }
+
+        .point-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .point-bullet {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            margin-top: 8px;
+            flex-shrink: 0;
+        }
+
+        .service-arrow {
+            transition: all 0.3s;
+            flex-shrink: 0;
+            margin-top: 8px;
+        }
+
+        .service-item.active .service-arrow {
+            transform: rotate(90deg);
+            color: var(--primary-color);
+        }
+
+        .service-item:not(.active) .service-arrow {
+            color: var(--gray-400);
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 60px 20px;
+            background: linear-gradient(to bottom, var(--gray-100), var(--white));
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .process-grid {
+                grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            padding: 0 20px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            align-items: stretch;
+        }
+        }
+
+        .process-card {
+            background-color: var(--white);
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (min-width: 768px) {
+            .process-card {
+                padding: 32px;
+            }
+        }
+
+        .process-card:hover {
+            border-color: rgba(36, 91, 138, 0.2);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+
+        .process-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 128px;
+            height: 128px;
+            background-color: rgba(36, 91, 138, 0.05);
+            border-radius: 50%;
+            transform: translate(50%, -50%);
+            transition: transform 0.5s;
+        }
+
+        .process-card:hover::before {
+            transform: translate(50%, -50%) scale(1.5);
+        }
+
+        .process-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 8px;
+            background-color: rgba(36, 91, 138, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            transition: background-color 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-card:hover .process-icon {
+            background-color: var(--primary-color);
+        }
+
+        .process-icon i {
+            font-size: 24px;
+            color: var(--primary-color);
+            transition: color 0.3s;
+        }
+
+        .process-card:hover .process-icon i {
+            color: var(--white);
+        }
+
+        .process-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: rgba(36, 91, 138, 0.2);
+            margin-bottom: 16px;
+            transition: color 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-card:hover .process-number {
+            color: rgba(36, 91, 138, 0.3);
+        }
+
+        .process-divider {
+            width: 48px;
+            height: 2px;
+            background: linear-gradient(to right, var(--primary-color), transparent);
+            border-radius: 1px;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-subtitle {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-description {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+            flex-grow: 1;
+        }
+
+        .process-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-color);
+            font-size: 14px;
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-card:hover .process-link {
+            opacity: 1;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 60px 20px;
+            background: linear-gradient(135deg, var(--gray-100), var(--gray-200));
+            position: relative;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        @media (min-width: 1024px) {
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 60px;
+            }
+        }
+
+        .contact-form-container {
+            background-color: var(--white);
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+
+        @media (min-width: 768px) {
+            .contact-form-container {
+                padding: 48px;
+            }
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .required {
+            color: #e53e3e;
+        }
+
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            background-color: var(--white);
+            border: 2px solid var(--gray-200);
+            border-radius: 8px;
+            padding: 12px 16px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .form-textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .form-container {
+            border: 2px dashed var(--gray-300);
+            border-radius: 8px;
+            padding: 24px;
+            background-color: rgba(248, 249, 250, 0.5);
+        }
+
+        @media (min-width: 768px) {
+            .form-container {
+                padding: 32px;
+            }
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        @media (min-width: 768px) {
+            .contact-info {
+                padding: 48px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .contact-info {
+                position: sticky;
+                top: 20px;
+            }
+        }
+
+        .contact-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 256px;
+            height: 256px;
+            background-color: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            transform: translate(50%, -50%);
+        }
+
+        .contact-info::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 192px;
+            height: 192px;
+            background-color: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            transform: translate(-50%, 50%);
+        }
+
+        .contact-info-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        .contact-info-description {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 32px;
+            font-size: 14px;
+        }
+
+        .contact-methods {
+            margin-bottom: 40px;
+        }
+
+        .contact-method {
+            background-color: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.2);
+            margin-bottom: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .contact-method:hover {
+            background-color: rgba(255,255,255,0.15);
+        }
+
+        .method-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .method-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            background-color: rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: background-color 0.3s;
+        }
+
+        .contact-method:hover .method-icon {
+            background-color: rgba(255,255,255,0.3);
+        }
+
+        .method-icon i {
+            color: var(--white);
+            font-size: 20px;
+        }
+
+        .method-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 4px;
+        }
+
+        .method-value {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .method-subvalue {
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .social-links {
+            margin-top: 32px;
+        }
+
+        .social-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            background-color: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .social-icon:hover {
+            background-color: rgba(255,255,255,0.3);
+        }
+
+        .social-icon i {
+            color: var(--white);
+            font-size: 20px;
+        }
+    </style>
+    </head>
+<body>
+
+    </div>
+    <!-- New Navbar -->
+        <div id="new-navbar" style="background: transparent;">
+          <div class="navbar-container">
+            <!-- Logo with Animation -->
+            <a href="/index.html" class="navbar-logo">
+              <svg 
+                viewBox="0 0 2000 2000" 
+                class="navbar-logo-svg"
+                style="margin-top: -0.5rem; margin-bottom: -0.5rem;"
+              >
+                <style>
+                  .navbar-logo path, .navbar-logo rect {
+                    fill: none;
+                    stroke: #ffffff;
+                    stroke-width: 4;
+                    stroke-dasharray: 2000;
+                    stroke-dashoffset: 2000;
+                    animation: navbar-draw 2.5s ease-out forwards;
+                  }
+                  
+                  @keyframes navbar-draw {
+                    0% {
+                      stroke-dashoffset: 2000;
+                      fill: transparent;
+                    }
+                    70% {
+                      stroke-dashoffset: 0;
+                      fill: transparent;
+                    }
+                    100% {
+                      stroke-dashoffset: 0;
+                      fill: #ffffff;
+                    }
+                  }
+                  
+                  .navbar-logo path:nth-child(1) { animation-delay: 0.1s; }
+                  .navbar-logo rect:nth-child(2) { animation-delay: 0.3s; }
+                  .navbar-logo rect:nth-child(3) { animation-delay: 0.5s; }
+                  .navbar-logo rect:nth-child(4) { animation-delay: 0.7s; }
+                  .navbar-logo path:nth-child(n+5) { 
+                    animation: navbar-draw 1.5s ease-out forwards;
+                    animation-delay: 1s !important;
+                  }
+                  
+                  .navbar-logo path, .navbar-logo rect {
+                    transition: fill 0.5s ease-in-out;
+                  }
+                </style>
+                <path d="M694.24,902.84h92c0,10.92.12,21.74,0,32.55-.36,28.82,3.78,34.42,32.84,37.44a144.18,144.18,0,0,0,39.06-1.72c20-3.47,24.41-9.3,24.56-29.74.41-55,.36-109.92.45-164.88,0-23.5,0-47,0-71a15,15,0,0,1,14.78-15h1.3q151.57-.06,303.14.12a277.55,277.55,0,0,1,40.7,3.25c35,5.29,56.07,23.94,62,58.82,3.43,20.05,3.47,41.21,1.53,61.53-2.61,27.2-19.23,44.6-45.88,52-2.78.77-5.42,2-11.06,4.13,7.23,1.57,11.35,2.5,15.48,3.35,26.6,5.46,44.45,20.71,46.88,48.2,2.07,23.4,3.25,47.54-.15,70.62-5.3,36-31.3,58.7-72.94,59.88-78.2,2.2-156.5.63-236,.63V850.27a14,14,0,0,1,13.95-14H1019c53-.14,106.09,0,159.13-.53,29.78-.3,45.07-27,30.8-53.68-2.31-4.32-7.7-8.11-12.49-9.74-6-2.06-12.92-2.19-19.45-2.21q-99.27-.21-198.55,0c-3.88,0-7.76.49-17.39,1.16,24.76,13.66,19,33.28,19.13,51.11.23,47.9.36,95.81-.05,143.71-.48,54.4-26.31,85.25-80.29,88.52-44.66,2.71-89.87,1.19-134.53-2.33-38-3-59.28-26.76-65.91-69.65C695.46,957,695.89,930.61,694.24,902.84Zm405.54,70.84c30.84,0,60.89.57,90.91-.28,12.26-.34,23-6.75,25.54-19.75,2.86-14.79,4.23-30.18-7-43-1.9-2.17-4.88-4.81-7.37-4.84-34-.32-67.94-.21-102.11-.21Z"/>
+                <rect x="792.4" y="694.72" width="79.63" height="73.16" rx="14.52"/>
+                <rect x="853.54" y="613.34" width="69.35" height="68.6" rx="14.78"/>
+                <rect x="797.83" y="590.38" width="46.28" height="45.92" rx="9.87"/>
+                <path d="M454.44,1146.31V1232h-30v-85.7H396.3V1120.7h88.14v25.61Z"/>
+                <path d="M524.73,1145.17v20.06H572.1v20.63H524.73v21.69h51.61V1232H494.72V1120.7h80.64v24.47Z"/>
+                <path d="M656.25,1189.93h29.44v3.35q-.08,9.54-.49,13.21-.9,7.83-4,12.39-7.19,10.68-20.8,13-5.13.9-21.93.9-12.65,0-15.82-.25a45.84,45.84,0,0,1-15.25-3.34q-17.53-8-19.08-33.76-.66-11-.65-29,0-12.48,1.47-19.16,2.19-10.36,8.8-16.64,7.9-7.5,20.55-9.62,6.6-1.14,23.16-1.14,18.18,0,25.36,2.36,16.14,5.31,17.77,25.93.26,2.94.41,12.32H655.6c-.05-.87-.08-1.61-.08-2.2q-.16-8.82-5.22-11.26-3.09-1.55-13.45-1.55-14.19,0-16.88,7.75-1.63,4.65-1.63,33.11,0,12.47,3.5,16.47,3.75,4.4,15.9,4.4,9.87,0,13.54-2,5-2.94,5-11.82Z"/>
+                <path d="M796.35,1120.7V1232h-30v-43.79H727.85V1232h-30V1120.7h30v41.92h38.49V1120.7Z"/>
+                <path d="M925.67,1120.7V1232H875.05l-31.39-85.71h-1.32l.49,10.27q.81,17.13.81,30.91V1232H814.45V1120.7h50.23l17.69,46.89q7.83,20.79,13.7,37.76h1.23l-.49-10q-.73-15-.74-30.09V1120.7Z"/>
+                <path d="M992.7,1119.89q20.55,0,29.36,3.83,15.64,6.85,19.24,24.38,1.47,7.19,1.47,28.87,0,18.18-1.14,24.87-3.27,19.08-18.1,26-10.6,5-34.58,5-23.24,0-33.11-6-12.55-7.74-15.49-23.07-1.22-6.45-1.22-21.45,0-28.05,2.93-38.57,4.08-14.6,21.45-20.71Q972.15,1119.89,992.7,1119.89Zm-.9,25.6q-10.35-.08-14.19,1.55-6.27,2.61-7.58,13.86c-.16,1.26-.24,7-.24,17.13q0,17.21,2,22.34,1.88,4.82,8.48,6.2a64.78,64.78,0,0,0,11.26.65q7.83,0,10.92-.9a11.32,11.32,0,0,0,7.63-7.13q2.16-5.51,2.16-24,0-18.18-2-22.87t-7.83-6.07A50.08,50.08,0,0,0,991.8,1145.49Z"/>
+                <path d="M1087,1120.7v85.71h46.73V1232H1057V1120.7Z"/>
+                <path d="M1194.36,1119.89q20.55,0,29.35,3.83,15.66,6.85,19.25,24.38,1.47,7.19,1.46,28.87,0,18.18-1.14,24.87-3.26,19.08-18.1,26-10.61,5-34.57,5-23.25,0-33.11-6-12.55-7.74-15.49-23.07-1.23-6.45-1.23-21.45,0-28.05,2.94-38.57,4.08-14.6,21.45-20.71Q1173.81,1119.89,1194.36,1119.89Zm-.9,25.6q-10.35-.08-14.19,1.55-6.29,2.61-7.58,13.86c-.16,1.26-.25,7-.25,17.13q0,17.21,2,22.34,1.88,4.82,8.48,6.2a64.73,64.73,0,0,0,11.25.65q7.83,0,10.93-.9a11.36,11.36,0,0,0,7.63-7.13q2.14-5.51,2.16-24,0-18.18-2-22.87t-7.83-6.07A50.15,50.15,0,0,0,1193.46,1145.49Z"/>
+                <path d="M1306.4,1169.14h50.31q.4,17.44.41,24.54,0,14.52-3.1,21.7-5.71,13.2-21.85,16.06-7.83,1.38-27.4,1.39-18,0-25.36-2.12-17.06-5-22.43-22.67-2.28-7.5-2.28-21.45,0-19.72.73-31.31,1.23-19.48,14.36-28,7.9-5.14,19.4-6.61a183,183,0,0,1,20.8-.81q20.46,0,28.13,2.44,10.92,3.51,15.17,12.73,3,6.68,3.42,20.22h-30.17q-1-7.33-6.12-9.38-3-1.22-12.15-1.22t-14.1,1.63q-8,2.68-8.65,14.68-.24,4.73-.24,14.27,0,20.46,2,25.68,2.76,7.1,18.18,7.1,11.34,0,15.49-2,6.29-3.18,6.28-13c0-.6,0-1.66-.08-3.18H1306.4Z"/>
+                <path d="M1401.15,1120.7V1232h-30V1120.7Z"/>
+                <path d="M1449.1,1145.17v20.06h47.37v20.63H1449.1v21.69h51.61V1232h-81.62V1120.7h80.65v24.47Z"/>
+                <path d="M1604.52,1155.44h-28.38q0-5.39-.81-7.5a7.07,7.07,0,0,0-5.3-4.57,45.81,45.81,0,0,0-9.54-.73q-9.56,0-12.56,1.14-5.62,2.12-5.63,9.79,0,6.27,3.18,8.15,2.37,1.38,11.74,2,8.73.48,17.37,1.06a77.59,77.59,0,0,1,17.13,3q9.85,3.09,13.45,11.09,2.68,5.86,2.69,17.85,0,13.54-2.6,20-4.74,11.67-21.27,14.76-6.93,1.31-21.92,1.31-23,0-32.42-2.86-15-4.56-16.78-22.67c-.28-2.77-.41-6.55-.41-11.33h28.29v2.2q0,7.57,4.24,9.7,3.1,1.56,16.64,1.55c4.62,0,7.25,0,7.91-.08a10.78,10.78,0,0,0,6.85-3.26c1.41-1.58,2.12-4.21,2.12-7.91q0-6.43-4-8.56-2.37-1.23-10.11-1.72-25.61-1.55-33.11-3.34-11.32-2.77-15.57-11.49-3.27-6.69-3.26-20,0-19.74,9.29-26.34,6.62-4.65,18.51-6.12a187.39,187.39,0,0,1,19.74-.73q27,0,35.22,6.2,9.46,7.08,9.46,24.21C1604.68,1151.28,1604.63,1153,1604.52,1155.44Z"/>
+              </svg>
+            </a>
+    
+            <!-- Desktop Navigation Links -->
+            <div class="navbar-desktop-nav">
+              <a href="/index.html" class="navbar-link" data-path="/index.html">
+                <span class="navbar-link-indicator">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C2D41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </span>
+                <span class="navbar-link-text">Home</span>
+              </a>
+              <a href="/services.html" class="navbar-link" data-path="/services.html">
+                <span class="navbar-link-indicator">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C2D41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </span>
+                <span class="navbar-link-text">Services</span>
+              </a>
+              <a href="/projects.html" class="navbar-link" data-path="/projects.html">
+                <span class="navbar-link-indicator">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C2D41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </span>
+                <span class="navbar-link-text">Projects</span>
+              </a>
+              <a href="/about.html" class="navbar-link" data-path="/about.html">
+                <span class="navbar-link-indicator">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C2D41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </span>
+                <span class="navbar-link-text">About Us</span>
+              </a>
+        </div>
+    
+            <!-- Desktop Buttons -->
+            <div class="navbar-desktop-buttons">
+              <a href="/planner.html" class="navbar-btn navbar-btn-primary">
+                <span>Project Planning Tool</span>
+                <svg class="navbar-btn-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+              <a href="/contact.html" class="navbar-btn navbar-btn-secondary">
+                <span>Contact Us</span>
+                <svg class="navbar-btn-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+    
+            <!-- Mobile Menu Button -->
+            <button class="navbar-mobile-toggle" id="navbar-mobile-toggle" aria-label="Toggle menu">
+              <svg class="navbar-menu-icon" id="navbar-menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </svg>
+              <svg class="navbar-close-icon" id="navbar-close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+    
+          <!-- Mobile Menu Overlay -->
+          <div class="navbar-mobile-backdrop" id="navbar-mobile-backdrop"></div>
+    
+          <!-- Mobile Menu -->
+          <div class="navbar-mobile-menu" id="navbar-mobile-menu">
+            <div class="navbar-mobile-menu-header">
+              <button class="navbar-mobile-close" id="navbar-mobile-close" aria-label="Close menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+            </div>
+            <div class="navbar-mobile-menu-content">
+              <a href="/index.html" class="navbar-mobile-link" data-path="/index.html">
+                <span class="navbar-link-indicator">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C2D41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </span>
+                <span>Home</span>
+              </a>
+              <a href="/services.html" class="navbar-mobile-link" data-path="/services.html">
+                <span class="navbar-link-indicator">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C2D41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </span>
+                <span>Services</span>
+              </a>
+              <a href="/projects.html" class="navbar-mobile-link" data-path="/projects.html">
+                <span class="navbar-link-indicator">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C2D41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </span>
+                <span>Projects</span>
+              </a>
+              <a href="/about.html" class="navbar-mobile-link" data-path="/about.html">
+                <span class="navbar-link-indicator">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C2D41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </span>
+                <span>About Us</span>
+              </a>
+              <div class="navbar-mobile-divider"></div>
+              <a href="/planner.html" class="navbar-mobile-btn navbar-mobile-btn-primary">
+                <span>Project Planning Tool</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+              <a href="/contact.html" class="navbar-mobile-btn navbar-mobile-btn-secondary">
+                <span>Contact Us</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- End New Navbar -->
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Project Planning Tool</h1>
+            <p>Let's get started with your project requirements</p>
+        </div>
+
+        <!-- Progress Indicator -->
+        <div class="progress">
+            <div class="progress-steps">
+                <div class="progress-step">
+                    <div id="step1-circle" class="step-circle active">1</div>
+                </div>
+                <div class="step-connector" id="step1-connector"></div>
+                <div class="progress-step">
+                    <div id="step2-circle" class="step-circle inactive">2</div>
+                </div>
+                <div class="step-connector" id="step2-connector"></div>
+                <div class="progress-step">
+                    <div id="step3-circle" class="step-circle inactive">3</div>
+                </div>
+            </div>
+            <p class="progress-text">Step <span id="current-step">1</span> of <span id="total-steps">3</span></p>
+        </div>
+
+        <!-- Step Content -->
+        <div id="step-container">
+            <!-- Step 1: RFP Question -->
+            <div id="step1" class="step-content">
+                <div class="step-header">
+                    <div class="step-icon">
+                        <i class="far fa-file-alt"></i>
+                    </div>
+                    <h2 class="step-title">Would you like to submit an RFP file?</h2>
+                    <p class="step-description">If you have a Request for Proposal document ready, you can upload it now.</p>
+                </div>
+
+                <div class="step-1-actions">
+                    <button id="yes-rfp" class="btn btn-primary">
+                        Yes, I have an RFP
+                    </button>
+                    <button id="no-rfp" class="btn btn-secondary">
+                        No, skip this step
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 2: File Upload -->
+            <div id="step2" class="step-content hidden">
+                <div class="step-header">
+                    <div class="step-icon">
+                        <i class="fas fa-upload"></i>
+                    </div>
+                    <h2 class="step-title">Upload your RFP file</h2>
+                    <p class="step-description">Please select your Request for Proposal document</p>
+                </div>
+
+                <div class="file-upload-container">
+                    <label for="file-upload" class="file-upload-area">
+                        <div class="file-upload-icon">
+                            <i class="fas fa-upload"></i>
+                        </div>
+                        <div class="file-upload-text">
+                            <p class="main-text">Click to upload or drag and drop</p>
+                            <p class="sub-text">PDF, DOC, DOCX (MAX. 10MB)</p>
+                        </div>
+                    </label>
+                    <input id="file-upload" type="file" class="file-upload-input" accept=".pdf,.doc,.docx">
+                    
+                    <div id="file-preview" class="file-preview hidden">
+                        <div class="file-preview-icon">
+                            <i class="far fa-file-alt"></i>
+                        </div>
+                        <div class="file-info">
+                            <p id="file-name" class="file-name"></p>
+                            <p id="file-size" class="file-size"></p>
+                        </div>
+                        <div class="file-success">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-actions">
+                    <button id="step2-back" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i>
+                        Back
+                    </button>
+                    <button id="step2-next" class="btn btn-primary" disabled>
+                        Next
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 3: Contact Form -->
+            <div id="step3" class="step-content hidden">
+                <div class="step-header">
+                    <h2 class="step-title">Tell us about your project</h2>
+                    <p class="step-description">Please provide your contact information and project details</p>
+                </div>
+
+                <form id="contact-form" class="form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="firstName" class="form-label">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" class="form-input" placeholder="John" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName" class="form-label">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" class="form-input" placeholder="Doe" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email *</label>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="john.doe@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone" class="form-label">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" class="form-input" placeholder="(555) 123-4567" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="projectDescription" class="form-label">Project Description *</label>
+                        <textarea id="projectDescription" name="projectDescription" class="form-textarea" placeholder="Tell us a little about your project..." required></textarea>
+                    </div>
+
+                    <div class="step-actions">
+                        <button type="button" id="step3-back" class="btn btn-secondary">
+                            <i class="fas fa-arrow-left"></i>
+                            Back
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            Submit
+                            <i class="fas fa-check-circle"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // State management
+        const state = {
+            currentStep: 1,
+            wantsRFP: null,
+            selectedFile: null,
+            formData: {
+                firstName: '',
+                lastName: '',
+                email: '',
+                phone: '',
+                projectDescription: ''
+            }
+        };
+
+        // DOM Elements
+        const step1 = document.getElementById('step1');
+        const step2 = document.getElementById('step2');
+        const step3 = document.getElementById('step3');
+        
+        const step1Circle = document.getElementById('step1-circle');
+        const step2Circle = document.getElementById('step2-circle');
+        const step3Circle = document.getElementById('step3-circle');
+        
+        const step1Connector = document.getElementById('step1-connector');
+        const step2Connector = document.getElementById('step2-connector');
+        
+        const currentStepText = document.getElementById('current-step');
+        const totalStepsText = document.getElementById('total-steps');
+        
+        const yesRfpBtn = document.getElementById('yes-rfp');
+        const noRfpBtn = document.getElementById('no-rfp');
+        
+        const fileUpload = document.getElementById('file-upload');
+        const filePreview = document.getElementById('file-preview');
+        const fileName = document.getElementById('file-name');
+        const fileSize = document.getElementById('file-size');
+        const step2Next = document.getElementById('step2-next');
+        const step2Back = document.getElementById('step2-back');
+        
+        const contactForm = document.getElementById('contact-form');
+        const step3Back = document.getElementById('step3-back');
+
+        // Initialize
+        function init() {
+            updateProgressIndicator();
+            setupEventListeners();
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Step 1 buttons
+            yesRfpBtn.addEventListener('click', () => handleRFPChoice(true));
+            noRfpBtn.addEventListener('click', () => handleRFPChoice(false));
+            
+            // Step 2 file upload
+            fileUpload.addEventListener('change', handleFileChange);
+            step2Next.addEventListener('click', () => goToStep(3));
+            step2Back.addEventListener('click', handleBack);
+            
+            // Step 3 form
+            step3Back.addEventListener('click', handleBack);
+            contactForm.addEventListener('submit', handleSubmit);
+            
+            // Form inputs for real-time validation
+            document.querySelectorAll('.form-input, .form-textarea').forEach(input => {
+                input.addEventListener('input', handleInputChange);
+            });
+        }
+
+        // Handle RFP choice
+        function handleRFPChoice(choice) {
+            state.wantsRFP = choice;
+            
+            if (choice) {
+                goToStep(2);
+            } else {
+                goToStep(3);
+            }
+            
+            updateProgressIndicator();
+        }
+
+        // Handle file change
+        function handleFileChange(e) {
+            if (e.target.files && e.target.files[0]) {
+                const file = e.target.files[0];
+                state.selectedFile = file;
+                
+                // Show file preview
+                fileName.textContent = file.name;
+                fileSize.textContent = `${(file.size / 1024 / 1024).toFixed(2)} MB`;
+                filePreview.classList.remove('hidden');
+                
+                // Enable next button
+                step2Next.disabled = false;
+            }
+        }
+
+        // Handle input change
+        function handleInputChange(e) {
+            state.formData[e.target.name] = e.target.value;
+        }
+
+        // Handle form submission
+        function handleSubmit(e) {
+            e.preventDefault();
+            
+            // Validate form
+            const requiredFields = ['firstName', 'lastName', 'email', 'phone', 'projectDescription'];
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!state.formData[field]) {
+                    isValid = false;
+                    document.getElementById(field).classList.add('error');
+                } else {
+                    document.getElementById(field).classList.remove('error');
+                }
+            });
+            
+            if (!isValid) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            // Submit data
+            console.log('Submitted Data:', {
+                wantsRFP: state.wantsRFP,
+                file: state.selectedFile,
+                ...state.formData
+            });
+            
+            alert('Form submitted successfully! Check console for data.');
+        }
+
+        // Handle back navigation
+        function handleBack() {
+            if (state.currentStep === 3 && !state.wantsRFP) {
+                goToStep(1);
+                state.wantsRFP = null;
+            } else if (state.currentStep === 3 && state.wantsRFP) {
+                goToStep(2);
+            } else if (state.currentStep === 2) {
+                goToStep(1);
+                state.wantsRFP = null;
+            }
+            
+            updateProgressIndicator();
+        }
+
+        // Navigate to step
+        function goToStep(step) {
+            // Hide all steps
+            step1.classList.add('hidden');
+            step2.classList.add('hidden');
+            step3.classList.add('hidden');
+            
+            // Show current step with animation
+            const targetStep = document.getElementById(`step${step}`);
+            targetStep.classList.remove('hidden');
+            targetStep.classList.add('step-enter');
+            
+            setTimeout(() => {
+                targetStep.classList.remove('step-enter');
+                targetStep.classList.add('step-enter-active');
+            }, 10);
+            
+            state.currentStep = step;
+            currentStepText.textContent = step;
+            
+            // Update total steps based on RFP choice
+            const totalSteps = state.wantsRFP === false ? 2 : 3;
+            totalStepsText.textContent = totalSteps;
+        }
+
+        // Update progress indicator
+        function updateProgressIndicator() {
+            // Reset all steps
+            step1Circle.className = 'step-circle';
+            step2Circle.className = 'step-circle';
+            step3Circle.className = 'step-circle';
+            
+            step1Connector.className = 'step-connector';
+            step2Connector.className = 'step-connector';
+            
+            // Update based on current step
+            if (state.currentStep === 1) {
+                step1Circle.classList.add('active');
+                step1Connector.classList.add('inactive');
+                step2Connector.classList.add('inactive');
+            } else if (state.currentStep === 2) {
+                step1Circle.classList.add('completed');
+                step2Circle.classList.add('active');
+                step1Connector.classList.add('active');
+                step2Connector.classList.add('inactive');
+            } else if (state.currentStep === 3) {
+                step1Circle.classList.add('completed');
+                step2Circle.classList.add('completed');
+                step3Circle.classList.add('active');
+                step1Connector.classList.add('active');
+                
+                if (state.wantsRFP) {
+                    step2Connector.classList.add('active');
+                } else {
+                    step2Connector.classList.add('inactive');
+                }
+            }
+        }
+
+        // Initialize the application
+        init();
+    </script>
+<!-- Navbar JavaScript -->
+    <script>
+      (function() {
+        function initNavbar() {
+          try {
+            const navbar = {
+              isMenuOpen: false,
+              currentPath: window.location.pathname,
+
+              init: function() {
+                this.setupMobileMenu();
+                this.setupActiveLinks();
+              },
+
+              setupMobileMenu: function() {
+                const toggle = document.getElementById('navbar-mobile-toggle');
+                const close = document.getElementById('navbar-mobile-close');
+                const backdrop = document.getElementById('navbar-mobile-backdrop');
+                const menu = document.getElementById('navbar-mobile-menu');
+                const menuIcon = document.getElementById('navbar-menu-icon');
+                const closeIcon = document.getElementById('navbar-close-icon');
+
+                if (!toggle || !close || !backdrop || !menu) return;
+
+                const openMenu = () => {
+                  this.isMenuOpen = true;
+                  backdrop.classList.add('active');
+                  menu.classList.add('active');
+                  if (menuIcon) menuIcon.style.display = 'none';
+                  if (closeIcon) closeIcon.style.display = 'block';
+                };
+
+                const closeMenu = () => {
+                  this.isMenuOpen = false;
+                  backdrop.classList.remove('active');
+                  menu.classList.remove('active');
+                  if (menuIcon) menuIcon.style.display = 'block';
+                  if (closeIcon) closeIcon.style.display = 'none';
+                };
+
+                toggle.addEventListener('click', openMenu);
+                close.addEventListener('click', closeMenu);
+                backdrop.addEventListener('click', closeMenu);
+
+                const mobileLinks = document.querySelectorAll('.navbar-mobile-link, .navbar-mobile-btn');
+                mobileLinks.forEach(link => {
+                  link.addEventListener('click', closeMenu);
+                });
+              },
+
+              setupActiveLinks: function() {
+                const links = document.querySelectorAll('.navbar-link, .navbar-mobile-link');
+                links.forEach(link => {
+                  const path = link.getAttribute('data-path') || link.getAttribute('href');
+                  if (path && (this.currentPath === path || this.currentPath.endsWith(path))) {
+                    link.classList.add('active');
+                  }
+                });
+              }
+            };
+
+            navbar.init();
+          } catch(e) {
+            console.error('Navbar init error:', e);
+          }
+        }
+
+        if (document.readyState === 'complete') {
+          initNavbar();
+        } else {
+          window.addEventListener('load', function() {
+            initNavbar();
+          });
+        }
+      })();
+    </script>
+</body>
+</html>

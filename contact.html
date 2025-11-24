@@ -1,0 +1,2533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - JB Technologies</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary-color: #245B8A;
+            --secondary-color: #E8F4F4;
+            --dark-text: #1C2D41;
+            --gray-text: #6B7280;
+            --light-gray: #F5F5F5;
+            --white: #FFFFFF;
+            --border-color: #E5E7EB;
+            --success-color: #4A7C59;
+        }
+
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--light-gray);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header Section */
+        .header {
+            background-color: var(--white);
+            padding: 2rem 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .header {
+                padding: 3rem 2rem;
+            }
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .header-content {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+
+        .header-text h1 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: var(--dark-text);
+            line-height: 1.2;
+        }
+
+        @media (min-width: 640px) {
+            .header-text h1 {
+                font-size: 2.25rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .header-text h1 {
+                font-size: 3rem;
+            }
+        }
+
+        .header-description {
+            max-width: 28rem;
+            margin-top: 0.5rem;
+        }
+
+        .header-description p {
+            color: var(--gray-text);
+            font-size: 0.875rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .header-description p {
+                font-size: 1rem;
+            }
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.625rem 1.25rem;
+            font-weight: 600;
+            border-radius: 0.375rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.875rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: #1a4666;
+        }
+
+        /* Main Content Section */
+        .main-content {
+            padding: 2rem 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .main-content {
+                padding: 3rem 2rem;
+            }
+        }
+
+        .contact-card {
+            background-color: var(--white);
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        @media (min-width: 1024px) {
+            .contact-card {
+                display: grid;
+                grid-template-columns: 320px 1fr;
+            }
+        }
+
+        /* Left Sidebar - Tabs */
+        .sidebar {
+            background-color: #F8F9FA;
+            padding: 1.5rem;
+            border-right: 1px solid var(--border-color);
+        }
+
+        @media (min-width: 768px) {
+            .sidebar {
+                padding: 2rem;
+            }
+        }
+
+        .tab {
+            margin-bottom: 1rem;
+        }
+
+        .tab-item {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+        }
+
+        .tab-item.active {
+            background-color: var(--white);
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .tab-item:not(.active):hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .tab-content {
+            display: flex;
+            align-items: center;
+            gap: 0.625rem;
+        }
+
+        .tab-number {
+            font-size: 1.125rem;
+            font-weight: 700;
+        }
+
+        .tab-item.active .tab-number {
+            color: var(--primary-color);
+        }
+
+        .tab-item:not(.active) .tab-number {
+            color: #9CA3AF;
+        }
+
+        .tab-title {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .tab-item.active .tab-title {
+            color: var(--primary-color);
+        }
+
+        .tab-item:not(.active) .tab-title {
+            color: var(--gray-text);
+        }
+
+        .tab-indicator {
+            margin-left: auto;
+        }
+
+        .indicator {
+            width: 1.75rem;
+            height: 1.75rem;
+            border-radius: 50%;
+            background-color: var(--success-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .indicator i {
+            color: var(--white);
+            font-size: 0.875rem;
+            transform: rotate(-45deg);
+        }
+
+        /* Right Side - Content */
+        .content {
+            background-color: var(--secondary-color);
+            padding: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .content {
+                padding: 2rem;
+            }
+        }
+
+        .content-header {
+            margin-bottom: 1.25rem;
+        }
+
+        .content-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .badge-dot {
+            width: 0.375rem;
+            height: 0.375rem;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+        }
+
+        .badge-text {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .content-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .content-description {
+            color: var(--gray-text);
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        /* Form Styles */
+        .form-container {
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            padding: 1.25rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 0.875rem;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--gray-text);
+            margin-bottom: 0.375rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.5rem 0.75rem;
+            background-color: var(--white);
+            border: 1px solid #D1D5DB;
+            border-radius: 0.25rem;
+            font-size: 0.875rem;
+            color: #111827;
+            transition: all 0.2s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(36, 91, 138, 0.2);
+        }
+
+        .form-textarea {
+            resize: none;
+            min-height: 6rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.875rem;
+        }
+
+        @media (min-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* Booking Form Styles */
+        .dropdown-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+        }
+
+        @media (min-width: 640px) {
+            .dropdown-row {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .dropdown-btn {
+            width: 100%;
+            padding: 0.625rem 0.75rem;
+            background-color: var(--light-gray);
+            border: 1px solid var(--border-color);
+            border-radius: 0.25rem;
+            text-align: left;
+            font-size: 0.875rem;
+            color: var(--gray-text);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .dropdown-btn:hover {
+            background-color: #F9FAFB;
+        }
+
+        .dropdown-btn i {
+            color: #9CA3AF;
+            font-size: 0.875rem;
+        }
+
+        /* Calendar Styles */
+        .calendar-header {
+            margin-bottom: 1rem;
+        }
+
+        .calendar-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 0.75rem;
+        }
+
+        .calendar-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .calendar-month {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--gray-text);
+        }
+
+        .calendar-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-btn {
+            padding: 0.25rem;
+            border-radius: 0.25rem;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background-color: #F3F4F6;
+        }
+
+        .nav-btn i {
+            color: var(--gray-text);
+            font-size: 0.875rem;
+        }
+
+        /* Calendar Grid */
+        .calendar-grid {
+            margin-bottom: 1.25rem;
+        }
+
+        .day-headers {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .day-header {
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--gray-text);
+            padding: 0.5rem 0;
+        }
+
+        .calendar-days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
+        }
+
+        .calendar-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            border-radius: 0.25rem;
+            position: relative;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .calendar-day.prev-month,
+        .calendar-day.next-month {
+            color: #D1D5DB;
+        }
+
+        .calendar-day.unavailable {
+            background-color: #E5E7EB;
+            color: #9CA3AF;
+            cursor: not-allowed;
+        }
+
+        .calendar-day.selected {
+            background-color: #6B9BD1;
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .calendar-day.available:not(.selected):hover {
+            background-color: #F3F4F6;
+            color: #111827;
+        }
+
+        .calendar-day.booked::after {
+            content: '';
+            position: absolute;
+            width: 0.375rem;
+            height: 0.375rem;
+            background-color: #9CA3AF;
+            border-radius: 50%;
+            bottom: 0.25rem;
+        }
+
+        /* Timezone Section */
+        .timezone {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+            color: var(--gray-text);
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .timezone i {
+            font-size: 0.875rem;
+        }
+
+        .timezone-select {
+            margin-left: auto;
+            cursor: pointer;
+        }
+
+        .timezone-select i {
+            font-size: 0.75rem;
+        }
+
+        /* Info Message */
+        .info-message {
+            background-color: #FEF2F2;
+            border: 1px solid #FECACA;
+            border-radius: 0.375rem;
+            padding: 0.75rem;
+            margin-bottom: 1.25rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .info-icon {
+            color: #EF4444;
+            font-size: 0.875rem;
+            flex-shrink: 0;
+            margin-top: 0.125rem;
+        }
+
+        .info-text {
+            font-size: 0.75rem;
+            color: var(--gray-text);
+            line-height: 1.5;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1023px) {
+            .sidebar {
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+        }
+
+        @media (max-width: 639px) {
+            .dropdown-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    <style>
+      /* Navbar - completely non-blocking for scroll system */
+      #new-navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 3;
+        background: transparent;
+        /* Make entire navbar allow scroll through */
+        pointer-events: none;
+        /* Prevent any touch/scroll interference */
+        touch-action: none;
+        /* Ensure it doesn't block layout */
+        will-change: auto;
+      }
+      
+      /* Only interactive elements are clickable */
+      #new-navbar a,
+      #new-navbar button {
+        pointer-events: auto;
+        cursor: pointer;
+      }
+      
+      /* Mobile menu elements - non-blocking when closed */
+      #new-navbar .navbar-mobile-backdrop:not(.active),
+      #new-navbar .navbar-mobile-menu:not(.active) {
+        pointer-events: none;
+      }
+      
+      /* Mobile menu elements - blocking when active */
+      #new-navbar .navbar-mobile-backdrop.active,
+      #new-navbar .navbar-mobile-menu.active {
+        pointer-events: auto;
+      }
+      
+      /* Container doesn't block */
+      #new-navbar .navbar-container {
+        pointer-events: none;
+      }
+
+      .navbar-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1rem;
+      }
+
+      @media (min-width: 640px) {
+        .navbar-container {
+          padding: 1rem 1.5rem;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .navbar-container {
+          padding: 1rem 2rem;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .navbar-container {
+          padding: 1rem 3rem;
+        }
+      }
+
+      @media (min-width: 1280px) {
+        .navbar-container {
+          padding: 1rem 4rem;
+        }
+      }
+
+      .navbar-logo {
+        display: flex;
+        align-items: center;
+        position: relative;
+        z-index: 10;
+        text-decoration: none;
+      }
+
+      .navbar-logo-svg {
+        height: 4rem;
+        width: auto;
+      }
+
+      @media (min-width: 640px) {
+        .navbar-logo-svg {
+          height: 5rem;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .navbar-logo-svg {
+          height: 6rem;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .navbar-logo-svg {
+          height: 7rem;
+        }
+      }
+
+      .navbar-desktop-nav {
+        display: none;
+        gap: 1.5rem;
+        color: white;
+        font-weight: 600;
+        align-items: center;
+      }
+
+      @media (min-width: 1024px) {
+        .navbar-desktop-nav {
+          display: flex;
+        }
+      }
+
+      @media (min-width: 1280px) {
+        .navbar-desktop-nav {
+          gap: 2.5rem;
+        }
+      }
+
+      .navbar-link {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        color: white;
+      }
+
+      .navbar-link-indicator {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background: white;
+        border-radius: 50%;
+        padding: 0.25rem;
+      }
+
+      .navbar-link.active .navbar-link-indicator {
+        display: flex;
+      }
+
+      .navbar-link-indicator svg {
+        width: 14px;
+        height: 14px;
+        color: #1C2D41;
+      }
+
+      .navbar-link-text {
+        color: white;
+      }
+
+      .navbar-desktop-buttons {
+        display: none;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.5rem 0;
+      }
+
+      @media (min-width: 1024px) {
+        .navbar-desktop-buttons {
+          display: flex;
+        }
+      }
+
+      .navbar-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 0.5rem 0.75rem;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background-color 0.3s;
+      }
+
+      .navbar-btn-primary {
+        color: #245B8A;
+        background: white;
+        border: 1px solid #245B8A;
+      }
+
+      .navbar-btn-primary:hover {
+        background: #f3f4f6;
+      }
+
+      .navbar-btn-secondary {
+        color: white;
+        background: #245B8A;
+      }
+
+      .navbar-btn-secondary:hover {
+        background: #1a4666;
+      }
+
+      .navbar-mobile-toggle {
+        display: block;
+        color: white;
+        padding: 0.5rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+
+      @media (min-width: 1024px) {
+        .navbar-mobile-toggle {
+          display: none;
+        }
+      }
+
+      .navbar-mobile-backdrop {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 40;
+      }
+
+      @media (min-width: 1024px) {
+        .navbar-mobile-backdrop {
+          display: none !important;
+        }
+      }
+
+      .navbar-mobile-backdrop.active {
+        display: block;
+        animation: fadeIn 0.3s;
+      }
+
+      .navbar-mobile-menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 280px;
+        background: #1C2D41;
+        z-index: 50;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+      }
+
+      @media (min-width: 1024px) {
+        .navbar-mobile-menu {
+          display: none;
+        }
+      }
+
+      .navbar-mobile-menu.active {
+        transform: translateX(0);
+      }
+
+      .navbar-mobile-menu-header {
+        display: flex;
+        justify-content: flex-end;
+        padding: 1rem;
+      }
+
+      .navbar-mobile-close {
+        color: white;
+        padding: 0.5rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+        border-radius: 0.5rem;
+        transition: background-color 0.3s;
+      }
+
+      .navbar-mobile-close:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .navbar-mobile-menu-content {
+        display: flex;
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 1rem;
+      }
+
+      .navbar-mobile-link {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        color: white;
+        font-weight: 600;
+        padding: 0.75rem 0;
+        transition: color 0.3s;
+      }
+
+      .navbar-mobile-link:hover {
+        color: #245B8A;
+      }
+
+      .navbar-mobile-link.active .navbar-link-indicator {
+        display: flex;
+      }
+
+      .navbar-mobile-divider {
+        border-top: 1px solid #4b5563;
+        margin: 0.5rem 0;
+      }
+
+      .navbar-mobile-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 0.75rem 1rem;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background-color 0.3s;
+      }
+
+      .navbar-mobile-btn-primary {
+        color: #245B8A;
+        background: white;
+        border: 1px solid #245B8A;
+      }
+
+      .navbar-mobile-btn-primary:hover {
+        background: #f3f4f6;
+      }
+
+      .navbar-mobile-btn-secondary {
+        color: white;
+        background: #245B8A;
+      }
+
+      .navbar-mobile-btn-secondary:hover {
+        background: #1a4666;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .navbar-link-indicator svg {
+        width: 14px;
+        height: 14px;
+        display: block;
+      }
+
+        /* Services Page Specific Styles - Override main.css where needed */
+        body.page-services {
+            background-color: #F5F5F5;
+            color: #333;
+        }
+        
+        /* Services page wrapper */
+        .services-page-wrapper {
+            padding-top: 100px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Reset and Base Styles - Services Page Specific */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #245B8A;
+            --primary-dark: #1a4666;
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #F5F5F5;
+            --white: #fff;
+            --gray-100: #f8f9fa;
+            --gray-200: #e9ecef;
+            --gray-300: #dee2e6;
+            --gray-400: #ced4da;
+            --gray-500: #adb5bd;
+        }
+
+        body.page-services {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            box-shadow: 0 4px 12px rgba(36, 91, 138, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .section-tag {
+            display: inline-block;
+            padding: 6px 16px;
+            background-color: rgba(36, 91, 138, 0.1);
+            border: 1px solid rgba(36, 91, 138, 0.3);
+            border-radius: 50px;
+            margin-bottom: 16px;
+        }
+
+        .section-tag span {
+            color: var(--primary-color);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .section-heading {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .section-heading span {
+            color: var(--primary-color);
+        }
+
+        .section-subheading {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            margin-bottom: 32px;
+            max-width: 600px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .animate-fade-in-delay {
+            animation: fadeIn 0.8s ease-out 0.2s backwards;
+        }
+
+        .animate-slide-up {
+            animation: slideUp 1s ease-out 0.3s backwards;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 40px 20px;
+            z-index: 10;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .hero-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 60px;
+            }
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            margin-bottom: 32px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .stat-box {
+            background-color: var(--gray-100);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        /* Image Section */
+        .image-section {
+            position: relative;
+            padding: 0 20px 40px;
+        }
+
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        @media (min-width: 768px) {
+            .image-container img {
+                height: 500px;
+            }
+        }
+
+        .image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+        }
+
+        .image-badge {
+            position: absolute;
+            bottom: 24px;
+            left: 24px;
+            background-color: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            padding: 12px 24px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .badge-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .badge-subtitle {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        /* Services Intro */
+        .services-intro {
+            padding: 60px 20px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 60px;
+        }
+
+        @media (min-width: 1024px) {
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 80px;
+            }
+        }
+
+        .feature-list {
+            margin-top: 32px;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            background-color: rgba(36, 91, 138, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .feature-icon i {
+            color: var(--primary-color);
+            font-size: 20px;
+        }
+
+        .feature-title {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .feature-description {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .services-card {
+            background: linear-gradient(135deg, rgba(36, 91, 138, 0.05), rgba(36, 91, 138, 0.03));
+            border: 1px solid rgba(36, 91, 138, 0.2);
+            border-radius: 16px;
+            padding: 32px;
+        }
+
+        .services-description {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+
+        .services-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        @media (min-width: 640px) {
+            .services-actions {
+                flex-direction: row;
+            }
+            
+            .services-actions .btn {
+                width: auto;
+            }
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 40px 20px;
+            width: 100%;
+        }
+
+        .service-item {
+            border-top: 2px dashed var(--gray-300);
+            padding: 32px 0;
+            transition: border-color 0.3s;
+        }
+
+        .service-item.active {
+            border-color: var(--primary-color);
+        }
+
+        .service-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            cursor: pointer;
+            gap: 40px;
+        }
+
+        .service-number {
+            font-size: 3rem;
+            font-weight: 700;
+            transition: color 0.3s;
+            min-width: 80px;
+        }
+
+        .service-item.active .service-number {
+            color: var(--primary-color);
+        }
+
+        .service-item:not(.active) .service-number {
+            color: var(--gray-300);
+        }
+
+        .service-content {
+            flex: 1;
+        }
+
+        .service-title {
+            font-size: 2rem;
+            font-weight: 700;
+            transition: color 0.3s;
+            margin-bottom: 16px;
+        }
+
+        .service-item.active .service-title {
+            color: var(--primary-color);
+        }
+
+        .service-item:not(.active) .service-title {
+            color: var(--text-dark);
+        }
+
+        .service-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, opacity 0.5s ease;
+            opacity: 0;
+        }
+
+        .service-item.active .service-details {
+            opacity: 1;
+        }
+
+        .service-details-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            margin-top: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .service-details-grid {
+                flex-direction: row;
+            }
+        }
+
+        .service-image {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+
+        @media (min-width: 768px) {
+            .service-image {
+                width: 45%;
+            }
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        @media (min-width: 768px) {
+            .service-image img {
+                height: 260px;
+            }
+        }
+
+        .service-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .service-image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
+        }
+
+        .service-points {
+            flex: 1;
+        }
+
+        .points-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .points-list {
+            list-style: none;
+        }
+
+        .point-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .point-bullet {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            margin-top: 8px;
+            flex-shrink: 0;
+        }
+
+        .service-arrow {
+            transition: all 0.3s;
+            flex-shrink: 0;
+            margin-top: 8px;
+        }
+
+        .service-item.active .service-arrow {
+            transform: rotate(90deg);
+            color: var(--primary-color);
+        }
+
+        .service-item:not(.active) .service-arrow {
+            color: var(--gray-400);
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 60px 20px;
+            background: linear-gradient(to bottom, var(--gray-100), var(--white));
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .process-grid {
+                grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            padding: 0 20px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            align-items: stretch;
+        }
+        }
+
+        .process-card {
+            background-color: var(--white);
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (min-width: 768px) {
+            .process-card {
+                padding: 32px;
+            }
+        }
+
+        .process-card:hover {
+            border-color: rgba(36, 91, 138, 0.2);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+
+        .process-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 128px;
+            height: 128px;
+            background-color: rgba(36, 91, 138, 0.05);
+            border-radius: 50%;
+            transform: translate(50%, -50%);
+            transition: transform 0.5s;
+        }
+
+        .process-card:hover::before {
+            transform: translate(50%, -50%) scale(1.5);
+        }
+
+        .process-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 8px;
+            background-color: rgba(36, 91, 138, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            transition: background-color 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-card:hover .process-icon {
+            background-color: var(--primary-color);
+        }
+
+        .process-icon i {
+            font-size: 24px;
+            color: var(--primary-color);
+            transition: color 0.3s;
+        }
+
+        .process-card:hover .process-icon i {
+            color: var(--white);
+        }
+
+        .process-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: rgba(36, 91, 138, 0.2);
+            margin-bottom: 16px;
+            transition: color 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-card:hover .process-number {
+            color: rgba(36, 91, 138, 0.3);
+        }
+
+        .process-divider {
+            width: 48px;
+            height: 2px;
+            background: linear-gradient(to right, var(--primary-color), transparent);
+            border-radius: 1px;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-subtitle {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-description {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+            flex-grow: 1;
+        }
+
+        .process-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-color);
+            font-size: 14px;
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-card:hover .process-link {
+            opacity: 1;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 60px 20px;
+            background: linear-gradient(135deg, var(--gray-100), var(--gray-200));
+            position: relative;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        @media (min-width: 1024px) {
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 60px;
+            }
+        }
+
+        .contact-form-container {
+            background-color: var(--white);
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+
+        @media (min-width: 768px) {
+            .contact-form-container {
+                padding: 48px;
+            }
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .required {
+            color: #e53e3e;
+        }
+
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            background-color: var(--white);
+            border: 2px solid var(--gray-200);
+            border-radius: 8px;
+            padding: 12px 16px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .form-textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .form-container {
+            border: 2px dashed var(--gray-300);
+            border-radius: 8px;
+            padding: 24px;
+            background-color: rgba(248, 249, 250, 0.5);
+        }
+
+        @media (min-width: 768px) {
+            .form-container {
+                padding: 32px;
+            }
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        @media (min-width: 768px) {
+            .contact-info {
+                padding: 48px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .contact-info {
+                position: sticky;
+                top: 20px;
+            }
+        }
+
+        .contact-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 256px;
+            height: 256px;
+            background-color: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            transform: translate(50%, -50%);
+        }
+
+        .contact-info::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 192px;
+            height: 192px;
+            background-color: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            transform: translate(-50%, 50%);
+        }
+
+        .contact-info-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        .contact-info-description {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 32px;
+            font-size: 14px;
+        }
+
+        .contact-methods {
+            margin-bottom: 40px;
+        }
+
+        .contact-method {
+            background-color: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.2);
+            margin-bottom: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .contact-method:hover {
+            background-color: rgba(255,255,255,0.15);
+        }
+
+        .method-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .method-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            background-color: rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: background-color 0.3s;
+        }
+
+        .contact-method:hover .method-icon {
+            background-color: rgba(255,255,255,0.3);
+        }
+
+        .method-icon i {
+            color: var(--white);
+            font-size: 20px;
+        }
+
+        .method-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 4px;
+        }
+
+        .method-value {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .method-subvalue {
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .social-links {
+            margin-top: 32px;
+        }
+
+        .social-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            background-color: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .social-icon:hover {
+            background-color: rgba(255,255,255,0.3);
+        }
+
+        .social-icon i {
+            color: var(--white);
+            font-size: 20px;
+        }
+    </style>
+    </head>
+<body>
+
+    </div>
+    <!-- New Navbar -->
+        <div id="new-navbar" style="background: transparent;">
+          <div class="navbar-container">
+            <!-- Logo with Animation -->
+            <a href="/index.html" class="navbar-logo">
+              <svg 
+                viewBox="0 0 2000 2000" 
+                class="navbar-logo-svg"
+                style="margin-top: -0.5rem; margin-bottom: -0.5rem;"
+              >
+                <style>
+                  .navbar-logo path, .navbar-logo rect {
+                    fill: none;
+                    stroke: #ffffff;
+                    stroke-width: 4;
+                    stroke-dasharray: 2000;
+                    stroke-dashoffset: 2000;
+                    animation: navbar-draw 2.5s ease-out forwards;
+                  }
+                  
+                  @keyframes navbar-draw {
+                    0% {
+                      stroke-dashoffset: 2000;
+                      fill: transparent;
+                    }
+                    70% {
+                      stroke-dashoffset: 0;
+                      fill: transparent;
+                    }
+                    100% {
+                      stroke-dashoffset: 0;
+                      fill: #ffffff;
+                    }
+                  }
+                  
+                  .navbar-logo path:nth-child(1) { animation-delay: 0.1s; }
+                  .navbar-logo rect:nth-child(2) { animation-delay: 0.3s; }
+                  .navbar-logo rect:nth-child(3) { animation-delay: 0.5s; }
+                  .navbar-logo rect:nth-child(4) { animation-delay: 0.7s; }
+                  .navbar-logo path:nth-child(n+5) { 
+                    animation: navbar-draw 1.5s ease-out forwards;
+                    animation-delay: 1s !important;
+                  }
+                  
+                  .navbar-logo path, .navbar-logo rect {
+                    transition: fill 0.5s ease-in-out;
+                  }
+                </style>
+                <path d="M694.24,902.84h92c0,10.92.12,21.74,0,32.55-.36,28.82,3.78,34.42,32.84,37.44a144.18,144.18,0,0,0,39.06-1.72c20-3.47,24.41-9.3,24.56-29.74.41-55,.36-109.92.45-164.88,0-23.5,0-47,0-71a15,15,0,0,1,14.78-15h1.3q151.57-.06,303.14.12a277.55,277.55,0,0,1,40.7,3.25c35,5.29,56.07,23.94,62,58.82,3.43,20.05,3.47,41.21,1.53,61.53-2.61,27.2-19.23,44.6-45.88,52-2.78.77-5.42,2-11.06,4.13,7.23,1.57,11.35,2.5,15.48,3.35,26.6,5.46,44.45,20.71,46.88,48.2,2.07,23.4,3.25,47.54-.15,70.62-5.3,36-31.3,58.7-72.94,59.88-78.2,2.2-156.5.63-236,.63V850.27a14,14,0,0,1,13.95-14H1019c53-.14,106.09,0,159.13-.53,29.78-.3,45.07-27,30.8-53.68-2.31-4.32-7.7-8.11-12.49-9.74-6-2.06-12.92-2.19-19.45-2.21q-99.27-.21-198.55,0c-3.88,0-7.76.49-17.39,1.16,24.76,13.66,19,33.28,19.13,51.11.23,47.9.36,95.81-.05,143.71-.48,54.4-26.31,85.25-80.29,88.52-44.66,2.71-89.87,1.19-134.53-2.33-38-3-59.28-26.76-65.91-69.65C695.46,957,695.89,930.61,694.24,902.84Zm405.54,70.84c30.84,0,60.89.57,90.91-.28,12.26-.34,23-6.75,25.54-19.75,2.86-14.79,4.23-30.18-7-43-1.9-2.17-4.88-4.81-7.37-4.84-34-.32-67.94-.21-102.11-.21Z"/>
+                <rect x="792.4" y="694.72" width="79.63" height="73.16" rx="14.52"/>
+                <rect x="853.54" y="613.34" width="69.35" height="68.6" rx="14.78"/>
+                <rect x="797.83" y="590.38" width="46.28" height="45.92" rx="9.87"/>
+                <path d="M454.44,1146.31V1232h-30v-85.7H396.3V1120.7h88.14v25.61Z"/>
+                <path d="M524.73,1145.17v20.06H572.1v20.63H524.73v21.69h51.61V1232H494.72V1120.7h80.64v24.47Z"/>
+                <path d="M656.25,1189.93h29.44v3.35q-.08,9.54-.49,13.21-.9,7.83-4,12.39-7.19,10.68-20.8,13-5.13.9-21.93.9-12.65,0-15.82-.25a45.84,45.84,0,0,1-15.25-3.34q-17.53-8-19.08-33.76-.66-11-.65-29,0-12.48,1.47-19.16,2.19-10.36,8.8-16.64,7.9-7.5,20.55-9.62,6.6-1.14,23.16-1.14,18.18,0,25.36,2.36,16.14,5.31,17.77,25.93.26,2.94.41,12.32H655.6c-.05-.87-.08-1.61-.08-2.2q-.16-8.82-5.22-11.26-3.09-1.55-13.45-1.55-14.19,0-16.88,7.75-1.63,4.65-1.63,33.11,0,12.47,3.5,16.47,3.75,4.4,15.9,4.4,9.87,0,13.54-2,5-2.94,5-11.82Z"/>
+                <path d="M796.35,1120.7V1232h-30v-43.79H727.85V1232h-30V1120.7h30v41.92h38.49V1120.7Z"/>
+                <path d="M925.67,1120.7V1232H875.05l-31.39-85.71h-1.32l.49,10.27q.81,17.13.81,30.91V1232H814.45V1120.7h50.23l17.69,46.89q7.83,20.79,13.7,37.76h1.23l-.49-10q-.73-15-.74-30.09V1120.7Z"/>
+                <path d="M992.7,1119.89q20.55,0,29.36,3.83,15.64,6.85,19.24,24.38,1.47,7.19,1.47,28.87,0,18.18-1.14,24.87-3.27,19.08-18.1,26-10.6,5-34.58,5-23.24,0-33.11-6-12.55-7.74-15.49-23.07-1.22-6.45-1.22-21.45,0-28.05,2.93-38.57,4.08-14.6,21.45-20.71Q972.15,1119.89,992.7,1119.89Zm-.9,25.6q-10.35-.08-14.19,1.55-6.27,2.61-7.58,13.86c-.16,1.26-.24,7-.24,17.13q0,17.21,2,22.34,1.88,4.82,8.48,6.2a64.78,64.78,0,0,0,11.26.65q7.83,0,10.92-.9a11.32,11.32,0,0,0,7.63-7.13q2.16-5.51,2.16-24,0-18.18-2-22.87t-7.83-6.07A50.08,50.08,0,0,0,991.8,1145.49Z"/>
+                <path d="M1087,1120.7v85.71h46.73V1232H1057V1120.7Z"/>
+                <path d="M1194.36,1119.89q20.55,0,29.35,3.83,15.66,6.85,19.25,24.38,1.47,7.19,1.46,28.87,0,18.18-1.14,24.87-3.26,19.08-18.1,26-10.61,5-34.57,5-23.25,0-33.11-6-12.55-7.74-15.49-23.07-1.23-6.45-1.23-21.45,0-28.05,2.94-38.57,4.08-14.6,21.45-20.71Q1173.81,1119.89,1194.36,1119.89Zm-.9,25.6q-10.35-.08-14.19,1.55-6.29,2.61-7.58,13.86c-.16,1.26-.25,7-.25,17.13q0,17.21,2,22.34,1.88,4.82,8.48,6.2a64.73,64.73,0,0,0,11.25.65q7.83,0,10.93-.9a11.36,11.36,0,0,0,7.63-7.13q2.14-5.51,2.16-24,0-18.18-2-22.87t-7.83-6.07A50.15,50.15,0,0,0,1193.46,1145.49Z"/>
+                <path d="M1306.4,1169.14h50.31q.4,17.44.41,24.54,0,14.52-3.1,21.7-5.71,13.2-21.85,16.06-7.83,1.38-27.4,1.39-18,0-25.36-2.12-17.06-5-22.43-22.67-2.28-7.5-2.28-21.45,0-19.72.73-31.31,1.23-19.48,14.36-28,7.9-5.14,19.4-6.61a183,183,0,0,1,20.8-.81q20.46,0,28.13,2.44,10.92,3.51,15.17,12.73,3,6.68,3.42,20.22h-30.17q-1-7.33-6.12-9.38-3-1.22-12.15-1.22t-14.1,1.63q-8,2.68-8.65,14.68-.24,4.73-.24,14.27,0,20.46,2,25.68,2.76,7.1,18.18,7.1,11.34,0,15.49-2,6.29-3.18,6.28-13c0-.6,0-1.66-.08-3.18H1306.4Z"/>
+                <path d="M1401.15,1120.7V1232h-30V1120.7Z"/>
+                <path d="M1449.1,1145.17v20.06h47.37v20.63H1449.1v21.69h51.61V1232h-81.62V1120.7h80.65v24.47Z"/>
+                <path d="M1604.52,1155.44h-28.38q0-5.39-.81-7.5a7.07,7.07,0,0,0-5.3-4.57,45.81,45.81,0,0,0-9.54-.73q-9.56,0-12.56,1.14-5.62,2.12-5.63,9.79,0,6.27,3.18,8.15,2.37,1.38,11.74,2,8.73.48,17.37,1.06a77.59,77.59,0,0,1,17.13,3q9.85,3.09,13.45,11.09,2.68,5.86,2.69,17.85,0,13.54-2.6,20-4.74,11.67-21.27,14.76-6.93,1.31-21.92,1.31-23,0-32.42-2.86-15-4.56-16.78-22.67c-.28-2.77-.41-6.55-.41-11.33h28.29v2.2q0,7.57,4.24,9.7,3.1,1.56,16.64,1.55c4.62,0,7.25,0,7.91-.08a10.78,10.78,0,0,0,6.85-3.26c1.41-1.58,2.12-4.21,2.12-7.91q0-6.43-4-8.56-2.37-1.23-10.11-1.72-25.61-1.55-33.11-3.34-11.32-2.77-15.57-11.49-3.27-6.69-3.26-20,0-19.74,9.29-26.34,6.62-4.65,18.51-6.12a187.39,187.39,0,0,1,19.74-.73q27,0,35.22,6.2,9.46,7.08,9.46,24.21C1604.68,1151.28,1604.63,1153,1604.52,1155.44Z"/>
+              </svg>
+            </a>
+    
+            <!-- Desktop Navigation Links -->
+            <div class="navbar-desktop-nav">
+              <a href="/index.html" class="navbar-link" data-path="/index.html">
+                <span class="navbar-link-indicator">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C2D41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </span>
+                <span class="navbar-link-text">Home</span>
+              </a>
+              <a href="/services.html" class="navbar-link" data-path="/services.html">
+                <span class="navbar-link-indicator">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C2D41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </span>
+                <span class="navbar-link-text">Services</span>
+              </a>
+              <a href="/projects.html" class="navbar-link" data-path="/projects.html">
+                <span class="navbar-link-indicator">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C2D41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </span>
+                <span class="navbar-link-text">Projects</span>
+              </a>
+              <a href="/about.html" class="navbar-link" data-path="/about.html">
+                <span class="navbar-link-indicator">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C2D41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </span>
+                <span class="navbar-link-text">About Us</span>
+              </a>
+        </div>
+    
+            <!-- Desktop Buttons -->
+            <div class="navbar-desktop-buttons">
+              <a href="/planner.html" class="navbar-btn navbar-btn-primary">
+                <span>Project Planning Tool</span>
+                <svg class="navbar-btn-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+              <a href="/contact.html" class="navbar-btn navbar-btn-secondary">
+                <span>Contact Us</span>
+                <svg class="navbar-btn-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+    
+            <!-- Mobile Menu Button -->
+            <button class="navbar-mobile-toggle" id="navbar-mobile-toggle" aria-label="Toggle menu">
+              <svg class="navbar-menu-icon" id="navbar-menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </svg>
+              <svg class="navbar-close-icon" id="navbar-close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+    
+          <!-- Mobile Menu Overlay -->
+          <div class="navbar-mobile-backdrop" id="navbar-mobile-backdrop"></div>
+    
+          <!-- Mobile Menu -->
+          <div class="navbar-mobile-menu" id="navbar-mobile-menu">
+            <div class="navbar-mobile-menu-header">
+              <button class="navbar-mobile-close" id="navbar-mobile-close" aria-label="Close menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+            </div>
+            <div class="navbar-mobile-menu-content">
+              <a href="/index.html" class="navbar-mobile-link" data-path="/index.html">
+                <span class="navbar-link-indicator">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C2D41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </span>
+                <span>Home</span>
+              </a>
+              <a href="/services.html" class="navbar-mobile-link" data-path="/services.html">
+                <span class="navbar-link-indicator">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C2D41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </span>
+                <span>Services</span>
+              </a>
+              <a href="/projects.html" class="navbar-mobile-link" data-path="/projects.html">
+                <span class="navbar-link-indicator">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C2D41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </span>
+                <span>Projects</span>
+              </a>
+              <a href="/about.html" class="navbar-mobile-link" data-path="/about.html">
+                <span class="navbar-link-indicator">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C2D41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </span>
+                <span>About Us</span>
+              </a>
+              <div class="navbar-mobile-divider"></div>
+              <a href="/planner.html" class="navbar-mobile-btn navbar-mobile-btn-primary">
+                <span>Project Planning Tool</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+              <a href="/contact.html" class="navbar-mobile-btn navbar-mobile-btn-secondary">
+                <span>Contact Us</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- End New Navbar -->
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-text">
+                    <h1>Let's Start The Conversation</h1>
+                </div>
+                <div class="header-description">
+                    <p>
+                        Whether you're planning a new project, need support, or just have a question,
+                        our team is ready to help.
+                    </p>
+                    <button class="btn btn-primary" id="requestQuoteBtn">
+                        Request a Quote
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="main-content">
+        <div class="container">
+            <div class="contact-card">
+                <!-- Left Sidebar - Tabs -->
+                <div class="sidebar">
+                    <!-- Tab 1 - General Contact -->
+                    <div class="tab">
+                        <div class="tab-item active" id="generalTab">
+                            <div class="tab-content">
+                                <span class="tab-number">1.</span>
+                                <h2 class="tab-title">General Contact</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 2 - Book a Call -->
+                    <div class="tab">
+                        <div class="tab-item" id="bookTab">
+                            <div class="tab-content">
+                                <span class="tab-number">2.</span>
+                                <h2 class="tab-title">Book a Call</h2>
+                                <div class="tab-indicator" id="tabIndicator">
+                                    <div class="indicator">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side - Content -->
+                <div class="content">
+                    <!-- General Contact Tab Content -->
+                    <div id="generalContent" class="tab-content-panel active">
+                        <div class="content-header">
+                            <div class="content-badge">
+                                <span class="badge-dot"></span>
+                                <span class="badge-text">General Inquiry</span>
+                            </div>
+                            <h3 class="content-title">Send Us a Message</h3>
+                            <p class="content-description">
+                                Have a question or need more info? We usually reply within one business day.
+                            </p>
+                        </div>
+
+                        <!-- Form -->
+                        <div class="form-container">
+                            <form id="generalForm">
+                                <!-- Name Field -->
+                                <div class="form-group">
+                                    <label class="form-label" for="name">Name</label>
+                                    <input 
+                                        type="text" 
+                                        id="name" 
+                                        name="name" 
+                                        class="form-input" 
+                                        placeholder="Enter your name" 
+                                        required
+                                    >
+                                </div>
+
+                                <!-- Email and Phone Row -->
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label" for="email">Email</label>
+                                        <input 
+                                            type="email" 
+                                            id="email" 
+                                            name="email" 
+                                            class="form-input" 
+                                            placeholder="example@gmail.com" 
+                                            required
+                                        >
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="phone">Phone Number (Optional)</label>
+                                        <input 
+                                            type="tel" 
+                                            id="phone" 
+                                            name="phone" 
+                                            class="form-input" 
+                                            placeholder="404-777-1804"
+                                        >
+                                    </div>
+                                </div>
+
+                                <!-- Message Field -->
+                                <div class="form-group">
+                                    <label class="form-label" for="message">Message</label>
+                                    <textarea 
+                                        id="message" 
+                                        name="message" 
+                                        class="form-input form-textarea" 
+                                        placeholder="Tell us about your project or inquiry..." 
+                                        rows="4" 
+                                        required
+                                    ></textarea>
+                                </div>
+
+                                <!-- Submit Button -->
+                                <button type="submit" class="btn btn-primary">
+                                    Send Message
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Book a Call Tab Content -->
+                    <div id="bookContent" class="tab-content-panel">
+                        <div class="content-header">
+                            <div class="content-badge">
+                                <span class="badge-dot"></span>
+                                <span class="badge-text">Project Consultation</span>
+                            </div>
+                            <h3 class="content-title">Schedule a Call Or Site Assessment</h3>
+                            <p class="content-description">
+                                Ready to discuss your project in detail? Pick a time that suits you.
+                            </p>
+                        </div>
+
+                        <!-- Booking Form -->
+                        <div class="form-container">
+                            <!-- Dropdowns -->
+                            <div class="dropdown-row">
+                                <div>
+                                    <button class="dropdown-btn">
+                                        Type of Service
+                                        <i class="fas fa-chevron-down"></i>
+                                    </button>
+                                </div>
+                                <div>
+                                    <button class="dropdown-btn">
+                                        Project Location
+                                        <i class="fas fa-chevron-down"></i>
+                                    </button>
+                                </div>
+                                <div>
+                                    <button class="dropdown-btn">
+                                        Meeting Duration
+                                        <i class="fas fa-chevron-down"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Calendar Header -->
+                            <div class="calendar-header">
+                                <h4 class="calendar-title">Select a Date & Time</h4>
+                                <div class="calendar-controls">
+                                    <span class="calendar-month">November 2025</span>
+                                    <div class="calendar-nav">
+                                        <button class="nav-btn">
+                                            <i class="fas fa-chevron-left"></i>
+                                        </button>
+                                        <button class="nav-btn">
+                                            <i class="fas fa-chevron-right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Calendar Grid -->
+                            <div class="calendar-grid">
+                                <!-- Day Headers -->
+                                <div class="day-headers">
+                                    <div class="day-header">MON</div>
+                                    <div class="day-header">TUE</div>
+                                    <div class="day-header">WED</div>
+                                    <div class="day-header">THU</div>
+                                    <div class="day-header">FRI</div>
+                                    <div class="day-header">SAT</div>
+                                    <div class="day-header">SUN</div>
+                                </div>
+
+                                <!-- Calendar Days -->
+                                <div class="calendar-days" id="calendarDays">
+                                    <!-- Previous month days -->
+                                    <div class="calendar-day prev-month">26</div>
+                                    <div class="calendar-day prev-month">27</div>
+                                    <div class="calendar-day prev-month">28</div>
+                                    <div class="calendar-day prev-month">29</div>
+                                    <div class="calendar-day prev-month">30</div>
+                                    <div class="calendar-day prev-month">31</div>
+                                    
+                                    <!-- Current month days -->
+                                    <div class="calendar-day available">1</div>
+                                    <div class="calendar-day available">2</div>
+                                    <div class="calendar-day available">3</div>
+                                    <div class="calendar-day available">4</div>
+                                    <div class="calendar-day available">5</div>
+                                    <div class="calendar-day available">6</div>
+                                    <div class="calendar-day available">7</div>
+                                    <div class="calendar-day available">8</div>
+                                    <div class="calendar-day available">9</div>
+                                    <div class="calendar-day available">10</div>
+                                    <div class="calendar-day available">11</div>
+                                    <div class="calendar-day available">12</div>
+                                    <div class="calendar-day available">13</div>
+                                    <div class="calendar-day available">14</div>
+                                    <div class="calendar-day available">15</div>
+                                    <div class="calendar-day available">16</div>
+                                    <div class="calendar-day available">17</div>
+                                    <div class="calendar-day unavailable booked">18</div>
+                                    <div class="calendar-day unavailable booked">19</div>
+                                    <div class="calendar-day unavailable booked">20</div>
+                                    <div class="calendar-day available">21</div>
+                                    <div class="calendar-day available">22</div>
+                                    <div class="calendar-day available">23</div>
+                                    <div class="calendar-day available">24</div>
+                                    <div class="calendar-day available">25</div>
+                                    <div class="calendar-day selected">26</div>
+                                    <div class="calendar-day available">27</div>
+                                    <div class="calendar-day available">28</div>
+                                    <div class="calendar-day available">29</div>
+                                    <div class="calendar-day available">30</div>
+                                    
+                                    <!-- Next month days -->
+                                    <div class="calendar-day next-month">1</div>
+                                    <div class="calendar-day next-month">2</div>
+                                    <div class="calendar-day next-month">3</div>
+                                    <div class="calendar-day next-month">4</div>
+                                    <div class="calendar-day next-month">5</div>
+                                    <div class="calendar-day next-month">6</div>
+                                </div>
+                            </div>
+
+                            <!-- Timezone -->
+                            <div class="timezone">
+                                <i class="fas fa-globe"></i>
+                                <span>(UTC +02:00) Harare, Pretoria (10:09AM)</span>
+                                <div class="timezone-select">
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+
+                            <!-- Info Message -->
+                            <div class="info-message">
+                                <i class="fas fa-info-circle info-icon"></i>
+                                <p class="info-text">
+                                    Dates with grey circle mean our team is unavailable due to company events or maintenance schedules. Blue circles show days already booked by other clients. Select any open date to schedule your call or site visit.
+                                </p>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <button type="button" class="btn btn-primary">
+                                Send Message
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab switching functionality
+            const generalTab = document.getElementById('generalTab');
+            const bookTab = document.getElementById('bookTab');
+            const generalContent = document.getElementById('generalContent');
+            const bookContent = document.getElementById('bookContent');
+            const tabIndicator = document.getElementById('tabIndicator');
+            const requestQuoteBtn = document.getElementById('requestQuoteBtn');
+            
+            // Initially hide the tab indicator
+            tabIndicator.style.display = 'none';
+            
+            // Function to switch tabs
+            function switchToTab(tab) {
+                // Remove active class from all tabs and content
+                generalTab.classList.remove('active');
+                bookTab.classList.remove('active');
+                generalContent.classList.remove('active');
+                bookContent.classList.remove('active');
+                
+                // Add active class to selected tab and content
+                if (tab === 'general') {
+                    generalTab.classList.add('active');
+                    generalContent.classList.add('active');
+                    tabIndicator.style.display = 'none';
+                } else {
+                    bookTab.classList.add('active');
+                    bookContent.classList.add('active');
+                    tabIndicator.style.display = 'block';
+                }
+            }
+            
+            // Event listeners for tabs
+            generalTab.addEventListener('click', function() {
+                switchToTab('general');
+            });
+            
+            bookTab.addEventListener('click', function() {
+                switchToTab('book');
+            });
+            
+            requestQuoteBtn.addEventListener('click', function() {
+                switchToTab('book');
+            });
+            
+            // Form submission
+            const generalForm = document.getElementById('generalForm');
+            generalForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form data
+                const formData = {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    message: document.getElementById('message').value
+                };
+                
+                console.log('Form submitted:', formData);
+                alert('Thank you for your message! We will get back to you soon.');
+                
+                // Reset form
+                generalForm.reset();
+            });
+            
+            // Calendar functionality
+            const calendarDays = document.querySelectorAll('.calendar-day.available');
+            calendarDays.forEach(day => {
+                day.addEventListener('click', function() {
+                    // Remove selected class from all days
+                    calendarDays.forEach(d => d.classList.remove('selected'));
+                    
+                    // Add selected class to clicked day
+                    this.classList.add('selected');
+                });
+            });
+            
+            // Dropdown functionality
+            const dropdownBtns = document.querySelectorAll('.dropdown-btn');
+            dropdownBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // In a real implementation, this would open a dropdown menu
+                    alert('Dropdown menu would open here with options to select.');
+                });
+            });
+            
+            // Calendar navigation
+            const prevBtn = document.querySelector('.nav-btn:first-child');
+            const nextBtn = document.querySelector('.nav-btn:last-child');
+            const calendarMonth = document.querySelector('.calendar-month');
+            
+            prevBtn.addEventListener('click', function() {
+                // In a real implementation, this would go to the previous month
+                alert('Would navigate to previous month');
+            });
+            
+            nextBtn.addEventListener('click', function() {
+                // In a real implementation, this would go to the next month
+                alert('Would navigate to next month');
+            });
+        });
+    </script>
+<!-- Navbar JavaScript -->
+    <script>
+      (function() {
+        function initNavbar() {
+          try {
+            const navbar = {
+              isMenuOpen: false,
+              currentPath: window.location.pathname,
+
+              init: function() {
+                this.setupMobileMenu();
+                this.setupActiveLinks();
+              },
+
+              setupMobileMenu: function() {
+                const toggle = document.getElementById('navbar-mobile-toggle');
+                const close = document.getElementById('navbar-mobile-close');
+                const backdrop = document.getElementById('navbar-mobile-backdrop');
+                const menu = document.getElementById('navbar-mobile-menu');
+                const menuIcon = document.getElementById('navbar-menu-icon');
+                const closeIcon = document.getElementById('navbar-close-icon');
+
+                if (!toggle || !close || !backdrop || !menu) return;
+
+                const openMenu = () => {
+                  this.isMenuOpen = true;
+                  backdrop.classList.add('active');
+                  menu.classList.add('active');
+                  if (menuIcon) menuIcon.style.display = 'none';
+                  if (closeIcon) closeIcon.style.display = 'block';
+                };
+
+                const closeMenu = () => {
+                  this.isMenuOpen = false;
+                  backdrop.classList.remove('active');
+                  menu.classList.remove('active');
+                  if (menuIcon) menuIcon.style.display = 'block';
+                  if (closeIcon) closeIcon.style.display = 'none';
+                };
+
+                toggle.addEventListener('click', openMenu);
+                close.addEventListener('click', closeMenu);
+                backdrop.addEventListener('click', closeMenu);
+
+                const mobileLinks = document.querySelectorAll('.navbar-mobile-link, .navbar-mobile-btn');
+                mobileLinks.forEach(link => {
+                  link.addEventListener('click', closeMenu);
+                });
+              },
+
+              setupActiveLinks: function() {
+                const links = document.querySelectorAll('.navbar-link, .navbar-mobile-link');
+                links.forEach(link => {
+                  const path = link.getAttribute('data-path') || link.getAttribute('href');
+                  if (path && (this.currentPath === path || this.currentPath.endsWith(path))) {
+                    link.classList.add('active');
+                  }
+                });
+              }
+            };
+
+            navbar.init();
+          } catch(e) {
+            console.error('Navbar init error:', e);
+          }
+        }
+
+        if (document.readyState === 'complete') {
+          initNavbar();
+        } else {
+          window.addEventListener('load', function() {
+            initNavbar();
+          });
+        }
+      })();
+    </script>
+</body>
+</html>

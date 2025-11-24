@@ -1,0 +1,2255 @@
+<!DOCTYPE html>
+<html class="no-js desktop">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="description" content="JB Technologies - Comprehensive Telecom Solutions">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+    
+    <title>JB Technologies - Services</title>
+    
+    <script src="js/modernizr-custom.min.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+      /* Navbar - completely non-blocking for scroll system */
+      #new-navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 3;
+        background: transparent;
+        /* Make entire navbar allow scroll through */
+        pointer-events: none;
+        /* Prevent any touch/scroll interference */
+        touch-action: none;
+        /* Ensure it doesn't block layout */
+        will-change: auto;
+      }
+      
+      /* Only interactive elements are clickable */
+      #new-navbar a,
+      #new-navbar button {
+        pointer-events: auto;
+        cursor: pointer;
+      }
+      
+      /* Mobile menu elements - non-blocking when closed */
+      #new-navbar .navbar-mobile-backdrop:not(.active),
+      #new-navbar .navbar-mobile-menu:not(.active) {
+        pointer-events: none;
+      }
+      
+      /* Mobile menu elements - blocking when active */
+      #new-navbar .navbar-mobile-backdrop.active,
+      #new-navbar .navbar-mobile-menu.active {
+        pointer-events: auto;
+      }
+      
+      /* Container doesn't block */
+      #new-navbar .navbar-container {
+        pointer-events: none;
+      }
+
+      .navbar-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1rem;
+      }
+
+      @media (min-width: 640px) {
+        .navbar-container {
+          padding: 1rem 1.5rem;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .navbar-container {
+          padding: 1rem 2rem;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .navbar-container {
+          padding: 1rem 3rem;
+        }
+      }
+
+      @media (min-width: 1280px) {
+        .navbar-container {
+          padding: 1rem 4rem;
+        }
+      }
+
+      .navbar-logo {
+        display: flex;
+        align-items: center;
+        position: relative;
+        z-index: 10;
+        text-decoration: none;
+      }
+
+      .navbar-logo-svg {
+        height: 4rem;
+        width: auto;
+      }
+
+      @media (min-width: 640px) {
+        .navbar-logo-svg {
+          height: 5rem;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .navbar-logo-svg {
+          height: 6rem;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .navbar-logo-svg {
+          height: 7rem;
+        }
+      }
+
+      .navbar-desktop-nav {
+        display: none;
+        gap: 1.5rem;
+        color: white;
+        font-weight: 600;
+        align-items: center;
+      }
+
+      @media (min-width: 1024px) {
+        .navbar-desktop-nav {
+          display: flex;
+        }
+      }
+
+      @media (min-width: 1280px) {
+        .navbar-desktop-nav {
+          gap: 2.5rem;
+        }
+      }
+
+      .navbar-link {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        color: white;
+      }
+
+      .navbar-link-indicator {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background: white;
+        border-radius: 50%;
+        padding: 0.25rem;
+      }
+
+      .navbar-link.active .navbar-link-indicator {
+        display: flex;
+      }
+
+      .navbar-link-indicator svg {
+        width: 14px;
+        height: 14px;
+        color: #1C2D41;
+      }
+
+      .navbar-link-text {
+        color: white;
+      }
+
+      .navbar-desktop-buttons {
+        display: none;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.5rem 0;
+      }
+
+      @media (min-width: 1024px) {
+        .navbar-desktop-buttons {
+          display: flex;
+        }
+      }
+
+      .navbar-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 0.5rem 0.75rem;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background-color 0.3s;
+      }
+
+      .navbar-btn-primary {
+        color: #245B8A;
+        background: white;
+        border: 1px solid #245B8A;
+      }
+
+      .navbar-btn-primary:hover {
+        background: #f3f4f6;
+      }
+
+      .navbar-btn-secondary {
+        color: white;
+        background: #245B8A;
+      }
+
+      .navbar-btn-secondary:hover {
+        background: #1a4666;
+      }
+
+      .navbar-mobile-toggle {
+        display: block;
+        color: white;
+        padding: 0.5rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+
+      @media (min-width: 1024px) {
+        .navbar-mobile-toggle {
+          display: none;
+        }
+      }
+
+      .navbar-mobile-backdrop {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 40;
+      }
+
+      @media (min-width: 1024px) {
+        .navbar-mobile-backdrop {
+          display: none !important;
+        }
+      }
+
+      .navbar-mobile-backdrop.active {
+        display: block;
+        animation: fadeIn 0.3s;
+      }
+
+      .navbar-mobile-menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 280px;
+        background: #1C2D41;
+        z-index: 50;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+      }
+
+      @media (min-width: 1024px) {
+        .navbar-mobile-menu {
+          display: none;
+        }
+      }
+
+      .navbar-mobile-menu.active {
+        transform: translateX(0);
+      }
+
+      .navbar-mobile-menu-header {
+        display: flex;
+        justify-content: flex-end;
+        padding: 1rem;
+      }
+
+      .navbar-mobile-close {
+        color: white;
+        padding: 0.5rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+        border-radius: 0.5rem;
+        transition: background-color 0.3s;
+      }
+
+      .navbar-mobile-close:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .navbar-mobile-menu-content {
+        display: flex;
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 1rem;
+      }
+
+      .navbar-mobile-link {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        color: white;
+        font-weight: 600;
+        padding: 0.75rem 0;
+        transition: color 0.3s;
+      }
+
+      .navbar-mobile-link:hover {
+        color: #245B8A;
+      }
+
+      .navbar-mobile-link.active .navbar-link-indicator {
+        display: flex;
+      }
+
+      .navbar-mobile-divider {
+        border-top: 1px solid #4b5563;
+        margin: 0.5rem 0;
+      }
+
+      .navbar-mobile-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 0.75rem 1rem;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background-color 0.3s;
+      }
+
+      .navbar-mobile-btn-primary {
+        color: #245B8A;
+        background: white;
+        border: 1px solid #245B8A;
+      }
+
+      .navbar-mobile-btn-primary:hover {
+        background: #f3f4f6;
+      }
+
+      .navbar-mobile-btn-secondary {
+        color: white;
+        background: #245B8A;
+      }
+
+      .navbar-mobile-btn-secondary:hover {
+        background: #1a4666;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .navbar-link-indicator svg {
+        width: 14px;
+        height: 14px;
+        display: block;
+      }
+
+        /* Services Page Specific Styles - Override main.css where needed */
+        body.page-services {
+            background-color: #F5F5F5;
+            color: #333;
+        }
+        
+        /* Services page wrapper */
+        .services-page-wrapper {
+            padding-top: 100px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Reset and Base Styles - Services Page Specific */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #245B8A;
+            --primary-dark: #1a4666;
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #F5F5F5;
+            --white: #fff;
+            --gray-100: #f8f9fa;
+            --gray-200: #e9ecef;
+            --gray-300: #dee2e6;
+            --gray-400: #ced4da;
+            --gray-500: #adb5bd;
+        }
+
+        body.page-services {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            box-shadow: 0 4px 12px rgba(36, 91, 138, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .section-tag {
+            display: inline-block;
+            padding: 6px 16px;
+            background-color: rgba(36, 91, 138, 0.1);
+            border: 1px solid rgba(36, 91, 138, 0.3);
+            border-radius: 50px;
+            margin-bottom: 16px;
+        }
+
+        .section-tag span {
+            color: var(--primary-color);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .section-heading {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .section-heading span {
+            color: var(--primary-color);
+        }
+
+        .section-subheading {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            margin-bottom: 32px;
+            max-width: 600px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .animate-fade-in-delay {
+            animation: fadeIn 0.8s ease-out 0.2s backwards;
+        }
+
+        .animate-slide-up {
+            animation: slideUp 1s ease-out 0.3s backwards;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 40px 20px;
+            z-index: 10;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .hero-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 60px;
+            }
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            margin-bottom: 32px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .stat-box {
+            background-color: var(--gray-100);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        /* Image Section */
+        .image-section {
+            position: relative;
+            padding: 0 20px 40px;
+        }
+
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        @media (min-width: 768px) {
+            .image-container img {
+                height: 500px;
+            }
+        }
+
+        .image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+        }
+
+        .image-badge {
+            position: absolute;
+            bottom: 24px;
+            left: 24px;
+            background-color: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            padding: 12px 24px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .badge-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .badge-subtitle {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        /* Services Intro */
+        .services-intro {
+            padding: 60px 20px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 60px;
+        }
+
+        @media (min-width: 1024px) {
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 80px;
+            }
+        }
+
+        .feature-list {
+            margin-top: 32px;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            background-color: rgba(36, 91, 138, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .feature-icon i {
+            color: var(--primary-color);
+            font-size: 20px;
+        }
+
+        .feature-title {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .feature-description {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .services-card {
+            background: linear-gradient(135deg, rgba(36, 91, 138, 0.05), rgba(36, 91, 138, 0.03));
+            border: 1px solid rgba(36, 91, 138, 0.2);
+            border-radius: 16px;
+            padding: 32px;
+        }
+
+        .services-description {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+
+        .services-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        @media (min-width: 640px) {
+            .services-actions {
+                flex-direction: row;
+            }
+            
+            .services-actions .btn {
+                width: auto;
+            }
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 40px 20px;
+            width: 100%;
+        }
+
+        .service-item {
+            border-top: 2px dashed var(--gray-300);
+            padding: 32px 0;
+            transition: border-color 0.3s;
+        }
+
+        .service-item.active {
+            border-color: var(--primary-color);
+        }
+
+        .service-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            cursor: pointer;
+            gap: 40px;
+        }
+
+        .service-number {
+            font-size: 3rem;
+            font-weight: 700;
+            transition: color 0.3s;
+            min-width: 80px;
+        }
+
+        .service-item.active .service-number {
+            color: var(--primary-color);
+        }
+
+        .service-item:not(.active) .service-number {
+            color: var(--gray-300);
+        }
+
+        .service-content {
+            flex: 1;
+        }
+
+        .service-title {
+            font-size: 2rem;
+            font-weight: 700;
+            transition: color 0.3s;
+            margin-bottom: 16px;
+        }
+
+        .service-item.active .service-title {
+            color: var(--primary-color);
+        }
+
+        .service-item:not(.active) .service-title {
+            color: var(--text-dark);
+        }
+
+        .service-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, opacity 0.5s ease;
+            opacity: 0;
+        }
+
+        .service-item.active .service-details {
+            opacity: 1;
+        }
+
+        .service-details-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            margin-top: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .service-details-grid {
+                flex-direction: row;
+            }
+        }
+
+        .service-image {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+
+        @media (min-width: 768px) {
+            .service-image {
+                width: 45%;
+            }
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        @media (min-width: 768px) {
+            .service-image img {
+                height: 260px;
+            }
+        }
+
+        .service-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .service-image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
+        }
+
+        .service-points {
+            flex: 1;
+        }
+
+        .points-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .points-list {
+            list-style: none;
+        }
+
+        .point-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .point-bullet {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            margin-top: 8px;
+            flex-shrink: 0;
+        }
+
+        .service-arrow {
+            transition: all 0.3s;
+            flex-shrink: 0;
+            margin-top: 8px;
+        }
+
+        .service-item.active .service-arrow {
+            transform: rotate(90deg);
+            color: var(--primary-color);
+        }
+
+        .service-item:not(.active) .service-arrow {
+            color: var(--gray-400);
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 60px 20px;
+            background: linear-gradient(to bottom, var(--gray-100), var(--white));
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .process-grid {
+                grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            padding: 0 20px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            align-items: stretch;
+        }
+        }
+
+        .process-card {
+            background-color: var(--white);
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (min-width: 768px) {
+            .process-card {
+                padding: 32px;
+            }
+        }
+
+        .process-card:hover {
+            border-color: rgba(36, 91, 138, 0.2);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+
+        .process-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 128px;
+            height: 128px;
+            background-color: rgba(36, 91, 138, 0.05);
+            border-radius: 50%;
+            transform: translate(50%, -50%);
+            transition: transform 0.5s;
+        }
+
+        .process-card:hover::before {
+            transform: translate(50%, -50%) scale(1.5);
+        }
+
+        .process-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 8px;
+            background-color: rgba(36, 91, 138, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            transition: background-color 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-card:hover .process-icon {
+            background-color: var(--primary-color);
+        }
+
+        .process-icon i {
+            font-size: 24px;
+            color: var(--primary-color);
+            transition: color 0.3s;
+        }
+
+        .process-card:hover .process-icon i {
+            color: var(--white);
+        }
+
+        .process-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: rgba(36, 91, 138, 0.2);
+            margin-bottom: 16px;
+            transition: color 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-card:hover .process-number {
+            color: rgba(36, 91, 138, 0.3);
+        }
+
+        .process-divider {
+            width: 48px;
+            height: 2px;
+            background: linear-gradient(to right, var(--primary-color), transparent);
+            border-radius: 1px;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-subtitle {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-description {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+            flex-grow: 1;
+        }
+
+        .process-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-color);
+            font-size: 14px;
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-card:hover .process-link {
+            opacity: 1;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 60px 20px;
+            background: linear-gradient(135deg, var(--gray-100), var(--gray-200));
+            position: relative;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        @media (min-width: 1024px) {
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 60px;
+            }
+        }
+
+        .contact-form-container {
+            background-color: var(--white);
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+
+        @media (min-width: 768px) {
+            .contact-form-container {
+                padding: 48px;
+            }
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .required {
+            color: #e53e3e;
+        }
+
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            background-color: var(--white);
+            border: 2px solid var(--gray-200);
+            border-radius: 8px;
+            padding: 12px 16px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .form-textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .form-container {
+            border: 2px dashed var(--gray-300);
+            border-radius: 8px;
+            padding: 24px;
+            background-color: rgba(248, 249, 250, 0.5);
+        }
+
+        @media (min-width: 768px) {
+            .form-container {
+                padding: 32px;
+            }
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        @media (min-width: 768px) {
+            .contact-info {
+                padding: 48px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .contact-info {
+                position: sticky;
+                top: 20px;
+            }
+        }
+
+        .contact-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 256px;
+            height: 256px;
+            background-color: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            transform: translate(50%, -50%);
+        }
+
+        .contact-info::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 192px;
+            height: 192px;
+            background-color: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            transform: translate(-50%, 50%);
+        }
+
+        .contact-info-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        .contact-info-description {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 32px;
+            font-size: 14px;
+        }
+
+        .contact-methods {
+            margin-bottom: 40px;
+        }
+
+        .contact-method {
+            background-color: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.2);
+            margin-bottom: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .contact-method:hover {
+            background-color: rgba(255,255,255,0.15);
+        }
+
+        .method-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .method-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            background-color: rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: background-color 0.3s;
+        }
+
+        .contact-method:hover .method-icon {
+            background-color: rgba(255,255,255,0.3);
+        }
+
+        .method-icon i {
+            color: var(--white);
+            font-size: 20px;
+        }
+
+        .method-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 4px;
+        }
+
+        .method-value {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .method-subvalue {
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .social-links {
+            margin-top: 32px;
+        }
+
+        .social-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            background-color: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .social-icon:hover {
+            background-color: rgba(255,255,255,0.3);
+        }
+
+        .social-icon i {
+            color: var(--white);
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body class="page-services">
+
+    </div>
+    <div id="top-bar"></div>
+    <!-- Hidden placeholder for preloader compatibility -->
+    <a id="logo" href="/index.html" style="position: absolute; visibility: hidden; pointer-events: none; z-index: -1;"></a>
+    
+    <!-- New Navbar -->
+    <div id="new-navbar" style="background: transparent;">
+      <div class="navbar-container">
+        <!-- Logo with Animation -->
+        <a href="/index.html" class="navbar-logo">
+          <svg 
+            viewBox="0 0 2000 2000" 
+            class="navbar-logo-svg"
+            style="margin-top: -0.5rem; margin-bottom: -0.5rem;"
+          >
+            <style>
+              .navbar-logo path, .navbar-logo rect {
+                fill: none;
+                stroke: #ffffff;
+                stroke-width: 4;
+                stroke-dasharray: 2000;
+                stroke-dashoffset: 2000;
+                animation: navbar-draw 2.5s ease-out forwards;
+              }
+              
+              @keyframes navbar-draw {
+                0% {
+                  stroke-dashoffset: 2000;
+                  fill: transparent;
+                }
+                70% {
+                  stroke-dashoffset: 0;
+                  fill: transparent;
+                }
+                100% {
+                  stroke-dashoffset: 0;
+                  fill: #ffffff;
+                }
+              }
+              
+              .navbar-logo path:nth-child(1) { animation-delay: 0.1s; }
+              .navbar-logo rect:nth-child(2) { animation-delay: 0.3s; }
+              .navbar-logo rect:nth-child(3) { animation-delay: 0.5s; }
+              .navbar-logo rect:nth-child(4) { animation-delay: 0.7s; }
+              .navbar-logo path:nth-child(n+5) { 
+                animation: navbar-draw 1.5s ease-out forwards;
+                animation-delay: 1s !important;
+              }
+              
+              .navbar-logo path, .navbar-logo rect {
+                transition: fill 0.5s ease-in-out;
+              }
+            </style>
+            <path d="M694.24,902.84h92c0,10.92.12,21.74,0,32.55-.36,28.82,3.78,34.42,32.84,37.44a144.18,144.18,0,0,0,39.06-1.72c20-3.47,24.41-9.3,24.56-29.74.41-55,.36-109.92.45-164.88,0-23.5,0-47,0-71a15,15,0,0,1,14.78-15h1.3q151.57-.06,303.14.12a277.55,277.55,0,0,1,40.7,3.25c35,5.29,56.07,23.94,62,58.82,3.43,20.05,3.47,41.21,1.53,61.53-2.61,27.2-19.23,44.6-45.88,52-2.78.77-5.42,2-11.06,4.13,7.23,1.57,11.35,2.5,15.48,3.35,26.6,5.46,44.45,20.71,46.88,48.2,2.07,23.4,3.25,47.54-.15,70.62-5.3,36-31.3,58.7-72.94,59.88-78.2,2.2-156.5.63-236,.63V850.27a14,14,0,0,1,13.95-14H1019c53-.14,106.09,0,159.13-.53,29.78-.3,45.07-27,30.8-53.68-2.31-4.32-7.7-8.11-12.49-9.74-6-2.06-12.92-2.19-19.45-2.21q-99.27-.21-198.55,0c-3.88,0-7.76.49-17.39,1.16,24.76,13.66,19,33.28,19.13,51.11.23,47.9.36,95.81-.05,143.71-.48,54.4-26.31,85.25-80.29,88.52-44.66,2.71-89.87,1.19-134.53-2.33-38-3-59.28-26.76-65.91-69.65C695.46,957,695.89,930.61,694.24,902.84Zm405.54,70.84c30.84,0,60.89.57,90.91-.28,12.26-.34,23-6.75,25.54-19.75,2.86-14.79,4.23-30.18-7-43-1.9-2.17-4.88-4.81-7.37-4.84-34-.32-67.94-.21-102.11-.21Z"/>
+            <rect x="792.4" y="694.72" width="79.63" height="73.16" rx="14.52"/>
+            <rect x="853.54" y="613.34" width="69.35" height="68.6" rx="14.78"/>
+            <rect x="797.83" y="590.38" width="46.28" height="45.92" rx="9.87"/>
+            <path d="M454.44,1146.31V1232h-30v-85.7H396.3V1120.7h88.14v25.61Z"/>
+            <path d="M524.73,1145.17v20.06H572.1v20.63H524.73v21.69h51.61V1232H494.72V1120.7h80.64v24.47Z"/>
+            <path d="M656.25,1189.93h29.44v3.35q-.08,9.54-.49,13.21-.9,7.83-4,12.39-7.19,10.68-20.8,13-5.13.9-21.93.9-12.65,0-15.82-.25a45.84,45.84,0,0,1-15.25-3.34q-17.53-8-19.08-33.76-.66-11-.65-29,0-12.48,1.47-19.16,2.19-10.36,8.8-16.64,7.9-7.5,20.55-9.62,6.6-1.14,23.16-1.14,18.18,0,25.36,2.36,16.14,5.31,17.77,25.93.26,2.94.41,12.32H655.6c-.05-.87-.08-1.61-.08-2.2q-.16-8.82-5.22-11.26-3.09-1.55-13.45-1.55-14.19,0-16.88,7.75-1.63,4.65-1.63,33.11,0,12.47,3.5,16.47,3.75,4.4,15.9,4.4,9.87,0,13.54-2,5-2.94,5-11.82Z"/>
+            <path d="M796.35,1120.7V1232h-30v-43.79H727.85V1232h-30V1120.7h30v41.92h38.49V1120.7Z"/>
+            <path d="M925.67,1120.7V1232H875.05l-31.39-85.71h-1.32l.49,10.27q.81,17.13.81,30.91V1232H814.45V1120.7h50.23l17.69,46.89q7.83,20.79,13.7,37.76h1.23l-.49-10q-.73-15-.74-30.09V1120.7Z"/>
+            <path d="M992.7,1119.89q20.55,0,29.36,3.83,15.64,6.85,19.24,24.38,1.47,7.19,1.47,28.87,0,18.18-1.14,24.87-3.27,19.08-18.1,26-10.6,5-34.58,5-23.24,0-33.11-6-12.55-7.74-15.49-23.07-1.22-6.45-1.22-21.45,0-28.05,2.93-38.57,4.08-14.6,21.45-20.71Q972.15,1119.89,992.7,1119.89Zm-.9,25.6q-10.35-.08-14.19,1.55-6.27,2.61-7.58,13.86c-.16,1.26-.24,7-.24,17.13q0,17.21,2,22.34,1.88,4.82,8.48,6.2a64.78,64.78,0,0,0,11.26.65q7.83,0,10.92-.9a11.32,11.32,0,0,0,7.63-7.13q2.16-5.51,2.16-24,0-18.18-2-22.87t-7.83-6.07A50.08,50.08,0,0,0,991.8,1145.49Z"/>
+            <path d="M1087,1120.7v85.71h46.73V1232H1057V1120.7Z"/>
+            <path d="M1194.36,1119.89q20.55,0,29.35,3.83,15.66,6.85,19.25,24.38,1.47,7.19,1.46,28.87,0,18.18-1.14,24.87-3.26,19.08-18.1,26-10.61,5-34.57,5-23.25,0-33.11-6-12.55-7.74-15.49-23.07-1.23-6.45-1.23-21.45,0-28.05,2.94-38.57,4.08-14.6,21.45-20.71Q1173.81,1119.89,1194.36,1119.89Zm-.9,25.6q-10.35-.08-14.19,1.55-6.29,2.61-7.58,13.86c-.16,1.26-.25,7-.25,17.13q0,17.21,2,22.34,1.88,4.82,8.48,6.2a64.73,64.73,0,0,0,11.25.65q7.83,0,10.93-.9a11.36,11.36,0,0,0,7.63-7.13q2.14-5.51,2.16-24,0-18.18-2-22.87t-7.83-6.07A50.15,50.15,0,0,0,1193.46,1145.49Z"/>
+            <path d="M1306.4,1169.14h50.31q.4,17.44.41,24.54,0,14.52-3.1,21.7-5.71,13.2-21.85,16.06-7.83,1.38-27.4,1.39-18,0-25.36-2.12-17.06-5-22.43-22.67-2.28-7.5-2.28-21.45,0-19.72.73-31.31,1.23-19.48,14.36-28,7.9-5.14,19.4-6.61a183,183,0,0,1,20.8-.81q20.46,0,28.13,2.44,10.92,3.51,15.17,12.73,3,6.68,3.42,20.22h-30.17q-1-7.33-6.12-9.38-3-1.22-12.15-1.22t-14.1,1.63q-8,2.68-8.65,14.68-.24,4.73-.24,14.27,0,20.46,2,25.68,2.76,7.1,18.18,7.1,11.34,0,15.49-2,6.29-3.18,6.28-13c0-.6,0-1.66-.08-3.18H1306.4Z"/>
+            <path d="M1401.15,1120.7V1232h-30V1120.7Z"/>
+            <path d="M1449.1,1145.17v20.06h47.37v20.63H1449.1v21.69h51.61V1232h-81.62V1120.7h80.65v24.47Z"/>
+            <path d="M1604.52,1155.44h-28.38q0-5.39-.81-7.5a7.07,7.07,0,0,0-5.3-4.57,45.81,45.81,0,0,0-9.54-.73q-9.56,0-12.56,1.14-5.62,2.12-5.63,9.79,0,6.27,3.18,8.15,2.37,1.38,11.74,2,8.73.48,17.37,1.06a77.59,77.59,0,0,1,17.13,3q9.85,3.09,13.45,11.09,2.68,5.86,2.69,17.85,0,13.54-2.6,20-4.74,11.67-21.27,14.76-6.93,1.31-21.92,1.31-23,0-32.42-2.86-15-4.56-16.78-22.67c-.28-2.77-.41-6.55-.41-11.33h28.29v2.2q0,7.57,4.24,9.7,3.1,1.56,16.64,1.55c4.62,0,7.25,0,7.91-.08a10.78,10.78,0,0,0,6.85-3.26c1.41-1.58,2.12-4.21,2.12-7.91q0-6.43-4-8.56-2.37-1.23-10.11-1.72-25.61-1.55-33.11-3.34-11.32-2.77-15.57-11.49-3.27-6.69-3.26-20,0-19.74,9.29-26.34,6.62-4.65,18.51-6.12a187.39,187.39,0,0,1,19.74-.73q27,0,35.22,6.2,9.46,7.08,9.46,24.21C1604.68,1151.28,1604.63,1153,1604.52,1155.44Z"/>
+          </svg>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <div class="navbar-desktop-nav">
+          <a href="/index.html" class="navbar-link" data-path="/index.html">
+            <span class="navbar-link-indicator">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C2D41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </span>
+            <span class="navbar-link-text">Home</span>
+          </a>
+          <a href="/services.html" class="navbar-link" data-path="/services.html">
+            <span class="navbar-link-indicator">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C2D41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </span>
+            <span class="navbar-link-text">Services</span>
+          </a>
+          <a href="/projects.html" class="navbar-link" data-path="/projects.html">
+            <span class="navbar-link-indicator">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C2D41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </span>
+            <span class="navbar-link-text">Projects</span>
+          </a>
+          <a href="/about.html" class="navbar-link" data-path="/about.html">
+            <span class="navbar-link-indicator">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C2D41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </span>
+            <span class="navbar-link-text">About Us</span>
+          </a>
+    </div>
+
+        <!-- Desktop Buttons -->
+        <div class="navbar-desktop-buttons">
+          <a href="/planner.html" class="navbar-btn navbar-btn-primary">
+            <span>Project Planning Tool</span>
+            <svg class="navbar-btn-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <a href="/contact.html" class="navbar-btn navbar-btn-secondary">
+            <span>Contact Us</span>
+            <svg class="navbar-btn-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button class="navbar-mobile-toggle" id="navbar-mobile-toggle" aria-label="Toggle menu">
+          <svg class="navbar-menu-icon" id="navbar-menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+          <svg class="navbar-close-icon" id="navbar-close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu Overlay -->
+      <div class="navbar-mobile-backdrop" id="navbar-mobile-backdrop"></div>
+
+      <!-- Mobile Menu -->
+      <div class="navbar-mobile-menu" id="navbar-mobile-menu">
+        <div class="navbar-mobile-menu-header">
+          <button class="navbar-mobile-close" id="navbar-mobile-close" aria-label="Close menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <div class="navbar-mobile-menu-content">
+          <a href="/index.html" class="navbar-mobile-link" data-path="/index.html">
+            <span class="navbar-link-indicator">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C2D41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </span>
+            <span>Home</span>
+          </a>
+          <a href="/services.html" class="navbar-mobile-link" data-path="/services.html">
+            <span class="navbar-link-indicator">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C2D41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </span>
+            <span>Services</span>
+          </a>
+          <a href="/projects.html" class="navbar-mobile-link" data-path="/projects.html">
+            <span class="navbar-link-indicator">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C2D41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </span>
+            <span>Projects</span>
+          </a>
+          <a href="/about.html" class="navbar-mobile-link" data-path="/about.html">
+            <span class="navbar-link-indicator">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C2D41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </span>
+            <span>About Us</span>
+          </a>
+          <div class="navbar-mobile-divider"></div>
+          <a href="/planner.html" class="navbar-mobile-btn navbar-mobile-btn-primary">
+            <span>Project Planning Tool</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <a href="/contact.html" class="navbar-mobile-btn navbar-mobile-btn-secondary">
+            <span>Contact Us</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- End New Navbar -->
+    
+    <!-- Placeholder nav element for scroll system compatibility -->
+    <nav id="nav" style="display: none; visibility: hidden; position: absolute; pointer-events: none; z-index: -1;"></nav>
+    
+    <!-- Services Page Content Wrapper -->
+    <div class="services-page-wrapper">
+    <!-- Hero Section -->
+    <section class="hero animate-fade-in">
+        <div class="container">
+            <div class="hero-grid">
+                <div>
+                    <div class="section-tag">
+                        <span>TELECOM SOLUTIONS</span>
+                    </div>
+                    <h1 class="hero-title">
+                        Infrastructure,
+                        <span class="text-primary">Done Right</span>
+                    </h1>
+                </div>
+                <div>
+                    <p class="hero-description">
+                        From design to deployment, we provide end-to-end telecom solutions that keep your network connected and compliant.
+                    </p>
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Projects</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">States</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Support</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Section -->
+    <section class="image-section animate-slide-up">
+        <div class="container">
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800" alt="Network infrastructure">
+                <div class="image-overlay"></div>
+                <div class="image-badge">
+                    <p class="badge-title">Certified & Compliant</p>
+                    <p class="badge-subtitle">Industry-leading standards</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Intro Section -->
+    <section class="services-intro animate-fade-in-delay">
+        <div class="container">
+            <div class="services-grid">
+                <div>
+                    <div class="section-tag">
+                        <span>OUR SERVICES</span>
+                    </div>
+                    <h2 class="section-heading">Comprehensive Telecom Solutions</h2>
+                    
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-wrench"></i>
+                            </div>
+                            <div>
+                                <h3 class="feature-title">Expert Installation</h3>
+                                <p class="feature-description">Certified technicians nationwide</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <div>
+                                <h3 class="feature-title">Rapid Deployment</h3>
+                                <p class="feature-description">Fast, efficient project execution</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div>
+                                <h3 class="feature-title">Safety First</h3>
+                                <p class="feature-description">OSHA compliant operations</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="services-card">
+                        <p class="services-description">
+                            We specialize in designing, deploying, and maintaining mission-critical telecom infrastructure. From structured cabling and wireless systems to DAS/ERRCS installations and nationwide rollouts, our team delivers turnkey solutions that meet the highest industry standards.
+                        </p>
+                        <p class="services-description">
+                            Whether you're upgrading existing infrastructure or building from the ground up, we provide the expertise and resources to ensure your network is reliable, scalable, and future-ready.
+                        </p>
+                        
+                        <div class="services-actions">
+                            <a href="#" class="btn btn-primary">
+                                View All Services <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <a href="/Contact.html" class="btn btn-outline">
+                                Get a Quote
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <div class="service-item" id="service-1">
+                <div class="service-header" onclick="toggleService(1)">
+                    <div class="service-number">01</div>
+                    <div class="service-content">
+                        <h3 class="service-title">Network Design & Engineering</h3>
+                        <div class="service-details">
+                            <div class="service-details-grid">
+                                <div class="service-image">
+                                    <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800" alt="Network Design">
+                                    <div class="service-image-overlay"></div>
+                                </div>
+                                <div class="service-points">
+                                    <h4 class="points-title">
+                                        <i class="fas fa-check-circle"></i> Key Capabilities
+                                    </h4>
+                                    <ul class="points-list">
+                                        <li class="point-item">
+                                            <span class="point-bullet"></span>
+                                            <span>Site surveys and network assessments</span>
+                                        </li>
+                                        <li class="point-item">
+                                            <span class="point-bullet"></span>
+                                            <span>Radio network planning and optimization</span>
+                                        </li>
+                                        <li class="point-item">
+                                            <span class="point-bullet"></span>
+                                            <span>Transmission and microwave link planning</span>
+                                        </li>
+                                        <li class="point-item">
+                                            <span class="point-bullet"></span>
+                                            <span>Network design documentation and schematics</span>
+                                        </li>
+                                        <li class="point-item">
+                                            <span class="point-bullet"></span>
+                                            <span>Power system design for telecom sites</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-item" id="service-2">
+                <div class="service-header" onclick="toggleService(2)">
+                    <div class="service-number">02</div>
+                    <div class="service-content">
+                        <h3 class="service-title">Infrastructure Deployment & Installation</h3>
+                        <div class="service-details">
+                            <div class="service-details-grid">
+                                <div class="service-image">
+                                    <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800" alt="Infrastructure Deployment">
+                                    <div class="service-image-overlay"></div>
+                                </div>
+                                <div class="service-points">
+                                    <h4 class="points-title">
+                                        <i class="fas fa-check-circle"></i> Key Capabilities
+                                    </h4>
+                                    <ul class="points-list">
+                                        <li class="point-item">
+                                            <span class="point-bullet"></span>
+                                            <span>Tower erection and installation</span>
+                                        </li>
+                                        <li class="point-item">
+                                            <span class="point-bullet"></span>
+                                            <span>BTS (Base Transceiver Station) installation and commissioning</span>
+                                        </li>
+                                        <li class="point-item">
+                                            <span class="point-bullet"></span>
+                                            <span>Antenna and feeder systems</span>
+                                        </li>
+                                        <li class="point-item">
+                                            <span class="point-bullet"></span>
+                                            <span>Data center setup and configuration</span>
+                                        </li>
+                                        <li class="point-item">
+                                            <span class="point-bullet"></span>
+                                            <span>Indoor/outdoor telecom equipment installation</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-item" id="service-3">
+                <div class="service-header" onclick="toggleService(3)">
+                    <div class="service-number">03</div>
+                    <div class="service-content">
+                        <h3 class="service-title">Structured Cabling & Connectivity Solutions</h3>
+                        <div class="service-details">
+                            <div class="service-details-grid">
+                                <div class="service-image">
+                                    <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800" alt="Structured Cabling">
+                                    <div class="service-image-overlay"></div>
+                                </div>
+                                <div class="service-points">
+                                    <h4 class="points-title">
+                                        <i class="fas fa-check-circle"></i> Key Capabilities
+                                    </h4>
+                                    <ul class="points-list">
+                                        <li class="point-item">
+                                            <span class="point-bullet"></span>
+                                            <span>Cat5e, Cat6, Cat6a, and fiber optic cabling</span>
+                                        </li>
+                                        <li class="point-item">
+                                            <span class="point-bullet"></span>
+                                            <span>Patch panel and rack installation</span>
+                                        </li>
+                                        <li class="point-item">
+                                            <span class="point-bullet"></span>
+                                            <span>Cable management and labeling systems</span>
+                                        </li>
+                                        <li class="point-item">
+                                            <span class="point-bullet"></span>
+                                            <span>Testing and certification of cabling infrastructure</span>
+                                        </li>
+                                        <li class="point-item">
+                                            <span class="point-bullet"></span>
+                                            <span>Wireless access point deployment</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-item" id="service-4">
+                <div class="service-header" onclick="toggleService(4)">
+                    <div class="service-number">04</div>
+                    <div class="service-content">
+                        <h3 class="service-title">Maintenance, Support & Network Optimization</h3>
+                        <div class="service-details">
+                            <div class="service-details-grid">
+                                <div class="service-image">
+                                    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800" alt="Maintenance Support">
+                                    <div class="service-image-overlay"></div>
+                                </div>
+                                <div class="service-points">
+                                    <h4 class="points-title">
+                                        <i class="fas fa-check-circle"></i> Key Capabilities
+                                    </h4>
+                                    <ul class="points-list">
+                                        <li class="point-item">
+                                            <span class="point-bullet"></span>
+                                            <span>Routine preventive maintenance</span>
+                                        </li>
+                                        <li class="point-item">
+                                            <span class="point-bullet"></span>
+                                            <span>Corrective maintenance and fault resolution</span>
+                                        </li>
+                                        <li class="point-item">
+                                            <span class="point-bullet"></span>
+                                            <span>Network monitoring and optimization</span>
+                                        </li>
+                                        <li class="point-item">
+                                            <span class="point-bullet"></span>
+                                            <span>Equipment replacement and upgrades</span>
+                                        </li>
+                                        <li class="point-item">
+                                            <span class="point-bullet"></span>
+                                            <span>24/7 technical support and emergency response</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-item" id="service-5">
+                <div class="service-header" onclick="toggleService(5)">
+                    <div class="service-number">05</div>
+                    <div class="service-content">
+                        <h3 class="service-title">Power & Energy Systems</h3>
+                        <div class="service-details">
+                            <div class="service-details-grid">
+                                <div class="service-image">
+                                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800" alt="Power Energy Systems">
+                                    <div class="service-image-overlay"></div>
+                                </div>
+                                <div class="service-points">
+                                    <h4 class="points-title">
+                                        <i class="fas fa-check-circle"></i> Key Capabilities
+                                    </h4>
+                                    <ul class="points-list">
+                                        <li class="point-item">
+                                            <span class="point-bullet"></span>
+                                            <span>Power system installations (DC/AC)</span>
+                                        </li>
+                                        <li class="point-item">
+                                            <span class="point-bullet"></span>
+                                            <span>Solar and hybrid energy solutions for remote sites</span>
+                                        </li>
+                                        <li class="point-item">
+                                            <span class="point-bullet"></span>
+                                            <span>Battery backup and generator setups</span>
+                                        </li>
+                                        <li class="point-item">
+                                            <span class="point-bullet"></span>
+                                            <span>Energy audits and efficiency upgrades</span>
+                                        </li>
+                                        <li class="point-item">
+                                            <span class="point-bullet"></span>
+                                            <span>Uninterruptible power supply (UPS) systems</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-tag">
+                <span>OUR PROCESS</span>
+            </div>
+            <h2 class="section-heading">Proven processes that shape how we work</h2>
+            <p class="section-subheading">From consultation to handover, we follow a structured approach to ensure project success.</p>
+            
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="process-number">01</div>
+                    <div class="process-divider"></div>
+                    <h3 class="process-title">Consultation &</h3>
+                    <h3 class="process-subtitle">Site Assessment</h3>
+                    <p class="process-description">Understanding your needs and evaluating site requirements</p>
+                    <div class="process-link">
+                        <span>Learn more</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+                
+                <div class="process-card">
+                    <div class="process-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <div class="process-number">02</div>
+                    <div class="process-divider"></div>
+                    <h3 class="process-title">Planning &</h3>
+                    <h3 class="process-subtitle">Design</h3>
+                    <p class="process-description">Creating detailed plans and technical specifications</p>
+                    <div class="process-link">
+                        <span>Learn more</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+                
+                <div class="process-card">
+                    <div class="process-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <div class="process-number">03</div>
+                    <div class="process-divider"></div>
+                    <h3 class="process-title">Implementation &</h3>
+                    <h3 class="process-subtitle">Deployment</h3>
+                    <p class="process-description">Professional installation and system integration</p>
+                    <div class="process-link">
+                        <span>Learn more</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+                
+                <div class="process-card">
+                    <div class="process-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="process-number">04</div>
+                    <div class="process-divider"></div>
+                    <h3 class="process-title">Testing &</h3>
+                    <h3 class="process-subtitle">Handover</h3>
+                    <p class="process-description">Quality assurance and seamless project delivery</p>
+                    <div class="process-link">
+                        <span>Learn more</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Form -->
+                <div class="contact-form-container">
+                    <div class="section-tag">
+                        <span>GET IN TOUCH</span>
+                    </div>
+                    <h2 class="section-heading">Ready to Build Something <span>Reliable</span>?</h2>
+                    <p class="section-subheading">Talk to our team of certified engineers about your next network rollout or infrastructure project. We'll help you design, deploy, and maintain a system built to last.</p>
+                    
+                    <div class="form-container">
+                        <form id="contact-form">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label">Full Name <span class="required">*</span></label>
+                                    <input type="text" class="form-input" placeholder="John Doe" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Company</label>
+                                    <input type="text" class="form-input" placeholder="JB Technologies">
+                                </div>
+                            </div>
+                            
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label">Email <span class="required">*</span></label>
+                                    <input type="email" class="form-input" placeholder="jbtechnologies@gmail.com" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-input" placeholder="404-777-1804">
+                                </div>
+                            </div>
+                            
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label">Project Location</label>
+                                    <input type="text" class="form-input" placeholder="City, State">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Service Type <span class="required">*</span></label>
+                                    <select class="form-select" required>
+                                        <option value="">Select Service Type</option>
+                                        <option value="design">Network Design & Engineering</option>
+                                        <option value="deployment">Infrastructure Deployment</option>
+                                        <option value="cabling">Structured Cabling</option>
+                                        <option value="maintenance">Maintenance & Support</option>
+                                        <option value="power">Power & Energy Systems</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Project Details</label>
+                                <textarea class="form-textarea" placeholder="Tell us about your project requirements..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                Request a Quote <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <div class="contact-info-content">
+                        <h2 class="contact-info-title">We're always here to help you</h2>
+                        <p class="contact-info-description">Get in touch with our team for immediate assistance</p>
+                        
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <div class="method-header">
+                                    <div class="method-icon">
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="method-title">Phone</h3>
+                                        <p class="method-value">404-777-1804</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <div class="method-header">
+                                    <div class="method-icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="method-title">Email</h3>
+                                        <p class="method-value">info@jbtechnologies.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <div class="method-header">
+                                    <div class="method-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="method-title">Business Hours</h3>
+                                        <p class="method-value">Mon - Fri: 8AM - 6PM</p>
+                                        <p class="method-subvalue">24/7 Emergency Support</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="social-links">
+                            <h3 class="social-title">Connect with us</h3>
+                            <div class="social-icons">
+                                <a href="#" class="social-icon">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="social-icon">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="social-icon">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Service Accordion Functionality
+        function toggleService(serviceId) {
+            const serviceItem = document.getElementById(`service-${serviceId}`);
+            const isActive = serviceItem.classList.contains('active');
+            
+            // Close all service items
+            document.querySelectorAll('.service-item').forEach(item => {
+                item.classList.remove('active');
+                const details = item.querySelector('.service-details');
+                details.style.maxHeight = '0';
+            });
+            
+            // If the clicked service wasn't active, open it
+            if (!isActive) {
+                serviceItem.classList.add('active');
+                const details = serviceItem.querySelector('.service-details');
+                details.style.maxHeight = details.scrollHeight + 'px';
+            }
+        }
+        
+        // Initialize first service as open
+        document.addEventListener('DOMContentLoaded', function() {
+            // Open first service by default
+            toggleService(1);
+            
+            // Add form submission handler
+            document.getElementById('contact-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your inquiry! We will get back to you soon.');
+                this.reset();
+            });
+        });
+        
+            </script>
+    
+    </div>
+    <!-- End Services Page Wrapper -->
+    
+    <!-- Footer -->
+    <footer id="footer">
+  <div id="footer__inner">
+    <div id="footer__logo"><svg xmlns="http://www.w3.org/2000/svg" width="156.9" height="49.1" viewbox="0 0 156.9 49.1"><path d="M78 4.6h4.1l3.4 5.5 3.4-5.5H93v14.1h-3.9v-8.1l-3.6 5.5h-.1l-3.6-5.5v8.1H78V4.6z"></path><path d="M100 4.5h3.8l6 14.2h-4.2l-1-2.5h-5.4l-1 2.5H94l6-14.2zm3.5 8.7l-1.6-4-1.6 4h3.2z"></path><path d="M110.8 4.6h4.1l3.4 5.5 3.4-5.5h4.1v14.1h-3.9v-8.1l-3.6 5.5h-.1l-3.6-5.5v8.1h-3.9V4.6z"></path><path d="M132.8 4.5h3.8l6 14.2h-4.2l-1-2.5H132l-1 2.5h-4.1l5.9-14.2zm3.4 8.7l-1.6-4-1.6 4h3.2z"></path><path d="M143.5 4.6h3.7l5.8 7.5V4.6h3.9v14.1h-3.4l-6-7.7v7.7h-3.9V4.6z"></path><path d="M85.3 38.1c-1 0-2-.2-2.8-.5-.9-.4-1.7-.9-2.3-1.5-.7-.7-1.2-1.4-1.6-2.3-.4-.9-.6-1.9-.6-2.9s.2-2 .6-2.9c.4-.9.9-1.7 1.6-2.3.7-.7 1.4-1.2 2.4-1.6.9-.4 1.9-.6 3-.6.7 0 1.4.1 2 .2.6.1 1.1.3 1.6.6s.9.6 1.3.9c.4.4.8.8 1.1 1.2l-2.9 2.3c-.4-.5-.8-.9-1.3-1.2-.5-.3-1.1-.4-1.8-.4-.5 0-1 .1-1.4.3-.4.2-.8.5-1.1.8-.3.3-.5.7-.7 1.2-.2.5-.3.9-.3 1.5 0 .5.1 1 .3 1.5.2.5.4.9.7 1.2.3.3.6.6 1.1.8s.9.3 1.4.3c.4 0 .7 0 1-.1.3-.1.6-.2.8-.4.2-.2.5-.3.7-.5l.7-.7 2.9 2.1c-.3.5-.7.9-1.1 1.3-.4.4-.8.7-1.4 1s-1.1.5-1.7.7c-.7-.1-1.4 0-2.2 0z"></path><path d="M100 38.1c-1.1 0-2.1-.2-3-.6-.9-.4-1.7-.9-2.4-1.6-.7-.7-1.2-1.4-1.6-2.3-.4-.9-.6-1.8-.6-2.8 0-1 .2-2 .6-2.9.4-.9.9-1.7 1.6-2.3.7-.7 1.5-1.2 2.4-1.6.9-.4 1.9-.6 3-.6s2.1.2 3 .6c.9.4 1.7.9 2.4 1.6.7.7 1.2 1.4 1.6 2.3s.6 1.8.6 2.8c0 1-.2 2-.6 2.9-.4.9-.9 1.7-1.6 2.3-.7.7-1.5 1.2-2.4 1.6-.9.4-1.9.6-3 .6zm0-3.5c.5 0 1-.1 1.5-.3.4-.2.8-.5 1.1-.8.3-.3.6-.7.7-1.2.2-.5.3-.9.3-1.5 0-.5-.1-1-.3-1.5-.2-.5-.4-.9-.7-1.2-.3-.4-.7-.6-1.2-.8-.4-.2-.9-.3-1.5-.3-.5 0-1 .1-1.5.3-.4.2-.8.5-1.1.8-.3.3-.6.7-.7 1.2-.2.5-.3.9-.3 1.5 0 .5.1 1 .3 1.5.2.5.4.9.7 1.2s.7.6 1.1.8c.6.1 1.1.3 1.6.3z"></path><path d="M109.2 23.7h6.7c1.1 0 2 .1 2.8.4.8.3 1.4.6 1.8 1.1.8.8 1.3 1.9 1.3 3.3 0 1.1-.3 2-.8 2.7-.5.7-1.2 1.3-2.1 1.6l3.4 4.9h-4.5l-2.8-4.3h-1.7v4.3h-3.9v-14zm6.5 6.8c.7 0 1.2-.2 1.6-.5.4-.3.5-.7.5-1.2 0-.6-.2-1-.6-1.3-.4-.3-.9-.4-1.6-.4H113v3.4h2.7z"></path><path d="M123.4 23.7h6.1c.9 0 1.7.1 2.4.3.7.2 1.3.5 1.9 1 .5.4.9.9 1.2 1.6.3.6.4 1.3.4 2.1s-.1 1.6-.5 2.2c-.3.6-.7 1.2-1.3 1.6-.5.4-1.2.8-1.9 1s-1.6.3-2.4.3h-1.9v4h-3.9V23.7zm5.7 7c.7 0 1.2-.2 1.6-.5.4-.3.6-.8.6-1.3 0-.6-.2-1.1-.6-1.4-.4-.3-1-.5-1.7-.5h-1.8v3.8h1.9z"></path><g fill="#245B8A"><path d="M57.2 0H0v49.1h8.2V8.2h8.2v40.9h8.1V8.2h32.7v24.5h8.2V0z"></path><path d="M40.9 24.5h8.2v-8.1H32.7v32.7h32.7v-8.2H40.9z"></path></g></svg></div>
+
+    <ul id="footer__pages">
+              <li class="footer__page" id="footer__page--home">
+          <a class="footer__page__title" href="/index.html">Home</a>
+
+          <ul class="footer__page__sections">
+                                                        <li class="footer__page__section">
+                <a class="footer__page__section__title" href="/services.html">Services</a>
+              </li>
+                                                        <li class="footer__page__section">
+                <a class="footer__page__section__title" href="/index.html">Project</a>
+              </li>
+                                                        <li class="footer__page__section">
+                <a class="footer__page__section__title" href="/index.html">About Us</a>
+              </li>
+                                                        <li class="footer__page__section">
+                <a class="footer__page__section__title" href="/index.html">Contact Us</a>
+              </li>
+                      </ul>
+
+        </li>
+          </ul>
+
+    <div id="footer__contact"><strong>JB Technologies</strong><br>1055 Arthur ave<br>Elk Grove Village, IL 60007</div>
+
+    <div id="footer__bottom">
+      <div id="footer__copyright">2025 JB Technologies. All Rights Reserved.</div>
+      <a id="footer__terms" href="/terms-and-conditions.html">Terms &amp; conditions</a>
+    </div>
+  </div>
+</footer>
+
+    <!-- Navbar JavaScript -->
+    <script>
+      (function() {
+        function initNavbar() {
+          try {
+            const navbar = {
+              isMenuOpen: false,
+              currentPath: window.location.pathname,
+
+              init: function() {
+                this.setupMobileMenu();
+                this.setupActiveLinks();
+              },
+
+              setupMobileMenu: function() {
+                const toggle = document.getElementById('navbar-mobile-toggle');
+                const close = document.getElementById('navbar-mobile-close');
+                const backdrop = document.getElementById('navbar-mobile-backdrop');
+                const menu = document.getElementById('navbar-mobile-menu');
+                const menuIcon = document.getElementById('navbar-menu-icon');
+                const closeIcon = document.getElementById('navbar-close-icon');
+
+                if (!toggle || !close || !backdrop || !menu) return;
+
+                const openMenu = () => {
+                  this.isMenuOpen = true;
+                  backdrop.classList.add('active');
+                  menu.classList.add('active');
+                  if (menuIcon) menuIcon.style.display = 'none';
+                  if (closeIcon) closeIcon.style.display = 'block';
+                };
+
+                const closeMenu = () => {
+                  this.isMenuOpen = false;
+                  backdrop.classList.remove('active');
+                  menu.classList.remove('active');
+                  if (menuIcon) menuIcon.style.display = 'block';
+                  if (closeIcon) closeIcon.style.display = 'none';
+                };
+
+                toggle.addEventListener('click', openMenu);
+                close.addEventListener('click', closeMenu);
+                backdrop.addEventListener('click', closeMenu);
+
+                const mobileLinks = document.querySelectorAll('.navbar-mobile-link, .navbar-mobile-btn');
+                mobileLinks.forEach(link => {
+                  link.addEventListener('click', closeMenu);
+                });
+              },
+
+              setupActiveLinks: function() {
+                const links = document.querySelectorAll('.navbar-link, .navbar-mobile-link');
+                links.forEach(link => {
+                  const path = link.getAttribute('data-path') || link.getAttribute('href');
+                  if (path && (this.currentPath === path || this.currentPath.endsWith(path))) {
+                    link.classList.add('active');
+                  }
+                });
+              }
+            };
+
+            navbar.init();
+          } catch(e) {
+            console.error('Navbar init error:', e);
+          }
+        }
+
+        if (document.readyState === 'complete') {
+          initNavbar();
+        } else {
+          window.addEventListener('load', function() {
+            initNavbar();
+          });
+        }
+      })();
+    </script>
+
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="https://www.maman-corp.com/assets/js/lib/jquery-3.1.1.min.js"><\/script>')</script>
+    </body>
+</html>

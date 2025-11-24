@@ -41,9 +41,330 @@
 
         /* Utility Classes */
         .container {
-            max-width: 48rem;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1rem;
+            padding: 0 1.5rem 4rem;
+        }
+
+        .planner-hero {
+            max-width: 1200px;
+            margin: 2rem auto 3rem;
+            padding: 2.5rem 3rem;
+            border-radius: 1.75rem;
+            background: radial-gradient(circle at top right, rgba(91, 165, 165, 0.25), rgba(36, 91, 138, 0.25)), #0f172a;
+            color: var(--white);
+            box-shadow: 0 35px 65px -35px rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .planner-hero-content {
+            margin-bottom: 2rem;
+            max-width: 720px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.9);
+            background-color: rgba(255,255,255,0.08);
+            padding: 0.35rem 0.85rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.15);
+            margin-bottom: 1rem;
+        }
+
+        .planner-hero h1 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .planner-hero p {
+            font-size: 1.05rem;
+            color: rgba(229, 231, 235, 0.95);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .hero-card {
+            border-radius: 1.25rem;
+            padding: 1.5rem;
+            background-color: rgba(15, 23, 42, 0.7);
+            border: 1px solid rgba(255,255,255,0.08);
+            backdrop-filter: blur(8px);
+        }
+
+        .hero-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 1rem;
+            background: rgba(91, 165, 165, 0.18);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .hero-icon i {
+            font-size: 1.4rem;
+            color: var(--white);
+        }
+
+        .hero-card h3 {
+            font-size: 1.125rem;
+            margin-bottom: 0.25rem;
+            color: var(--white);
+        }
+
+        .hero-card p {
+            font-size: 0.95rem;
+            color: rgba(229, 231, 235, 0.8);
+            margin-bottom: 0;
+        }
+
+        .planner-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 1024px) {
+            .planner-layout {
+                grid-template-columns: minmax(0, 2.3fr) minmax(320px, 1fr);
+            }
+        }
+
+        .step-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .summary-panel {
+            position: sticky;
+            top: 6.5rem;
+            align-self: flex-start;
+        }
+
+        .summary-card {
+            background-color: var(--white);
+            border-radius: 1.25rem;
+            box-shadow: 0 30px 60px -25px rgba(15, 23, 42, 0.35);
+            padding: 2rem;
+            border: 1px solid var(--gray-100);
+        }
+
+        .summary-eyebrow {
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            color: var(--primary-blue);
+            font-weight: 700;
+        }
+
+        .summary-card h3 {
+            font-size: 1.5rem;
+            margin-top: 0.25rem;
+            margin-bottom: 1rem;
+            color: var(--gray-900);
+        }
+
+        .summary-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(36,91,138,0.2), rgba(36,91,138,0));
+            margin: 1.5rem 0;
+        }
+
+        .summary-section {
+            margin-bottom: 1.25rem;
+        }
+
+        .summary-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--gray-600);
+            margin-bottom: 0.35rem;
+        }
+
+        .summary-value {
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        .summary-subtext {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            margin-top: 0.15rem;
+        }
+
+        .summary-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.85rem;
+            padding: 0.35rem 0.65rem;
+            background-color: rgba(36, 91, 138, 0.08);
+            border-radius: 999px;
+            color: var(--primary-blue);
+            margin-top: 0.5rem;
+        }
+
+        .summary-chip-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .summary-chip {
+            padding: 0.35rem 0.75rem;
+            border-radius: 999px;
+            background-color: rgba(36, 91, 138, 0.12);
+            color: var(--primary-blue);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .summary-chip.muted {
+            background-color: var(--gray-100);
+            color: var(--gray-600);
+        }
+
+        .summary-help {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 0.85rem;
+            background: linear-gradient(135deg, rgba(36,91,138,0.1), rgba(91,165,165,0.15));
+            font-size: 0.95rem;
+            color: var(--gray-800);
+        }
+
+        /* ------------ Responsive Tweaks ------------ */
+        @media (max-width: 1024px) {
+            .planner-hero {
+                padding: 2rem;
+                margin: 1.5rem 1rem 2rem;
+            }
+
+            .planner-layout {
+                gap: 1.5rem;
+            }
+
+            .summary-panel {
+                position: static;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 0 0 2rem;
+                overflow-x: hidden;
+            }
+
+            .container {
+                padding: 0 1rem 3rem;
+                margin-top: 1rem;
+            }
+
+            .planner-hero {
+                padding: 1.5rem 1.25rem;
+                margin: 1rem 0.5rem 1.5rem;
+                border-radius: 1.35rem;
+            }
+
+            .planner-hero h1 {
+                font-size: 1.9rem;
+            }
+
+            .hero-metrics {
+                grid-template-columns: 1fr;
+                gap: 0.9rem;
+            }
+
+            .step-content {
+                padding: 1.5rem;
+                border-radius: 1rem;
+            }
+
+            .step-actions {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .step-actions .btn {
+                width: 100%;
+            }
+
+            .option-card {
+                flex-direction: column;
+                align-items: flex-start;
+                min-height: auto;
+            }
+
+            .option-grid {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+                gap: 0.75rem;
+                width: 100%;
+            }
+
+            .summary-card {
+                padding: 1.35rem;
+                width: 100%;
+                box-sizing: border-box;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .planner-hero {
+                padding: 1.1rem;
+                margin: 0.75rem 0.25rem 1.25rem;
+            }
+
+            .planner-hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .hero-badge {
+                font-size: 0.7rem;
+                padding: 0.3rem 0.7rem;
+            }
+
+            .hero-card {
+                padding: 0.9rem;
+            }
+
+            .option-grid {
+                grid-template-columns: 1fr;
+                width: 100%;
+            }
+
+            .summary-card h3 {
+                font-size: 1.25rem;
+            }
+
+            .service-grid {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 0.5rem;
+            }
+
+            .option-card {
+                padding: 1rem;
+            }
+
+            .step-icon {
+                width: 3.2rem;
+                height: 3.2rem;
+            }
         }
 
         .btn {
@@ -243,6 +564,77 @@
             justify-content: center;
         }
 
+        .option-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+
+        .option-card {
+            border: 1px solid var(--gray-200);
+            border-radius: 1rem;
+            padding: 1.25rem;
+            background-color: var(--white);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            position: relative;
+            min-height: 140px;
+            display: flex;
+            gap: 1rem;
+            text-align: left;
+            align-items: flex-start;
+        }
+
+        .option-card h3,
+        .option-title {
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+            color: var(--gray-900);
+        }
+
+        .option-subtitle {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+            line-height: 1.4;
+        }
+
+        .option-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 1rem;
+            border: 2px solid transparent;
+            transition: border-color 0.25s;
+        }
+
+        .option-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px -18px rgba(15, 23, 42, 0.4);
+        }
+
+        .option-card.active {
+            border-color: transparent;
+            background: linear-gradient(135deg, rgba(36, 91, 138, 0.1), rgba(91, 165, 165, 0.15));
+            box-shadow: 0 20px 35px -22px rgba(15, 23, 42, 0.5);
+        }
+
+        .option-card.active::after {
+            border-color: rgba(36, 91, 138, 0.5);
+        }
+
+        .option-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 1rem;
+            background-color: rgba(36, 91, 138, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
         @media (min-width: 640px) {
             .step-1-actions {
                 flex-direction: row;
@@ -277,6 +669,19 @@
 
         .file-upload-text {
             text-align: center;
+        }
+
+        .step-hint {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+            margin-bottom: 1rem;
+        }
+
+        .input-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .file-upload-text p {
@@ -384,6 +789,24 @@
             height: 8rem;
         }
 
+        .form-input.error,
+        .form-textarea.error {
+            border-color: #dc2626;
+            box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.18);
+        }
+
+        .form-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--gray-700);
+        }
+
+        .form-checkbox input {
+            margin-top: 0.25rem;
+        }
+
         .step-actions {
             display: flex;
             gap: 1rem;
@@ -391,6 +814,34 @@
 
         .step-actions .btn {
             flex: 1;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 0.75rem;
+        }
+
+        .service-chip {
+            border: 1px solid var(--gray-300);
+            border-radius: 999px;
+            padding: 0.5rem 1rem;
+            text-align: center;
+            cursor: pointer;
+            font-weight: 600;
+            background-color: var(--white);
+            transition: all 0.2s;
+        }
+
+        .service-chip:hover {
+            background-color: var(--gray-50);
+        }
+
+        .service-chip.active {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            border-color: transparent;
+            box-shadow: 0 15px 25px -18px rgba(36, 91, 138, 0.8);
         }
 
         /* Animation Classes */
@@ -420,7 +871,6 @@
         .hidden {
             display: none;
         }
-    <style>
       /* Navbar - completely non-blocking for scroll system */
       #new-navbar {
         position: fixed;
@@ -432,7 +882,7 @@
         /* Make entire navbar allow scroll through */
         pointer-events: none;
         /* Prevent any touch/scroll interference */
-        touch-action: none;
+        touch-action: pan-y;
         /* Ensure it doesn't block layout */
         will-change: auto;
       }
@@ -1930,63 +2380,182 @@
           </div>
         </div>
         <!-- End New Navbar -->
+    <section class="planner-hero">
+        <div class="planner-hero-content">
+            <span class="hero-badge">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                JB Planner
+            </span>
+            <h1>Build-ready intelligence for your next rollout.</h1>
+            <p>Upload your RFP, pick the services you need, and our team will return a tailored plan within one business day.</p>
+        </div>
+        <div class="hero-metrics">
+            <div class="hero-card">
+                <div class="hero-icon">
+                    <i class="fa-solid fa-diagram-project"></i>
+                </div>
+                <h3>500+ Programs</h3>
+                <p>From corporate interiors to nationwide rollouts.</p>
+            </div>
+            <div class="hero-card">
+                <div class="hero-icon">
+                    <i class="fa-solid fa-building-shield"></i>
+                </div>
+                <h3>Mission-ready</h3>
+                <p>Secure hangars, data centers, labs, and more.</p>
+            </div>
+            <div class="hero-card">
+                <div class="hero-icon">
+                    <i class="fa-solid fa-bolt-lightning"></i>
+                </div>
+                <h3>Rapid Response</h3>
+                <p>Dedicated teams mobilized within days.</p>
+            </div>
+        </div>
+    </section>
     <div class="container">
-        <!-- Header -->
         <div class="header">
             <h1>Project Planning Tool</h1>
-            <p>Let's get started with your project requirements</p>
+            <p>Step through a quick briefing so our team can respond with the right specialists.</p>
         </div>
 
-        <!-- Progress Indicator -->
+        <div class="planner-layout">
+            <section class="step-panel">
         <div class="progress">
             <div class="progress-steps">
                 <div class="progress-step">
                     <div id="step1-circle" class="step-circle active">1</div>
                 </div>
-                <div class="step-connector" id="step1-connector"></div>
+                        <div class="step-connector" id="connector-1"></div>
                 <div class="progress-step">
                     <div id="step2-circle" class="step-circle inactive">2</div>
                 </div>
-                <div class="step-connector" id="step2-connector"></div>
+                        <div class="step-connector" id="connector-2"></div>
                 <div class="progress-step">
                     <div id="step3-circle" class="step-circle inactive">3</div>
                 </div>
+                        <div class="step-connector" id="connector-3"></div>
+                        <div class="progress-step">
+                            <div id="step4-circle" class="step-circle inactive">4</div>
             </div>
-            <p class="progress-text">Step <span id="current-step">1</span> of <span id="total-steps">3</span></p>
+                    </div>
+                    <p class="progress-text">Step <span id="current-step">1</span> of <span id="total-steps">4</span></p>
         </div>
 
-        <!-- Step Content -->
         <div id="step-container">
-            <!-- Step 1: RFP Question -->
             <div id="step1" class="step-content">
                 <div class="step-header">
                     <div class="step-icon">
-                        <i class="far fa-file-alt"></i>
+                                <i class="fas fa-layer-group"></i>
                     </div>
-                    <h2 class="step-title">Would you like to submit an RFP file?</h2>
-                    <p class="step-description">If you have a Request for Proposal document ready, you can upload it now.</p>
+                            <h2 class="step-title">What type of project are you planning?</h2>
+                            <p class="step-description">Choose the category that best matches your scope.</p>
                 </div>
 
-                <div class="step-1-actions">
-                    <button id="yes-rfp" class="btn btn-primary">
-                        Yes, I have an RFP
+                        <div class="option-grid">
+                            <button type="button" class="option-card" data-value="Corporate interiors">
+                                <div class="option-icon">
+                                    <i class="fa-solid fa-building"></i>
+                                </div>
+                                <div>
+                                    <span class="option-title">Corporate Interiors</span>
+                                    <span class="option-subtitle">Headquarters, operations centers, tenant build-outs.</span>
+                                </div>
                     </button>
-                    <button id="no-rfp" class="btn btn-secondary">
-                        No, skip this step
+                            <button type="button" class="option-card" data-value="Aviation & hangar">
+                                <div class="option-icon">
+                                    <i class="fa-solid fa-plane-up"></i>
+                                </div>
+                                <div>
+                                    <span class="option-title">Aviation & Hangar</span>
+                                    <span class="option-subtitle">Hangars, MRO facilities, secure mission support.</span>
+                                </div>
+                    </button>
+                            <button type="button" class="option-card" data-value="Healthcare & labs">
+                                <div class="option-icon">
+                                    <i class="fa-solid fa-heart-pulse"></i>
+                </div>
+                                <div>
+                                    <span class="option-title">Healthcare & Labs</span>
+                                    <span class="option-subtitle">Clinical suites, clean rooms, life science environments.</span>
+                                </div>
+                            </button>
+                            <button type="button" class="option-card" data-value="Manufacturing & industrial">
+                                <div class="option-icon">
+                                    <i class="fa-solid fa-industry"></i>
+                                </div>
+                                <div>
+                                    <span class="option-title">Manufacturing & Industrial</span>
+                                    <span class="option-subtitle">Process facilities, high-bay, plant modernizations.</span>
+                                </div>
+                            </button>
+                            <button type="button" class="option-card" data-value="Education & institutional">
+                                <div class="option-icon">
+                                    <i class="fa-solid fa-school"></i>
+                                </div>
+                                <div>
+                                    <span class="option-title">Education & Institutional</span>
+                                    <span class="option-subtitle">K-12, higher-ed campuses, civic and cultural spaces.</span>
+                                </div>
+                            </button>
+                            <button type="button" class="option-card" data-value="Technology & data">
+                                <div class="option-icon">
+                                    <i class="fa-solid fa-server"></i>
+                                </div>
+                                <div>
+                                    <span class="option-title">Technology & Data</span>
+                                    <span class="option-subtitle">Data centers, network operations, broadcast, labs.</span>
+                                </div>
+                            </button>
+            </div>
+
+                        <div class="step-actions">
+                            <button id="step1-next" class="btn btn-primary" type="button" disabled>
+                                Continue
+                                <i class="fas fa-arrow-right"></i>
                     </button>
                 </div>
             </div>
 
-            <!-- Step 2: File Upload -->
             <div id="step2" class="step-content hidden">
                 <div class="step-header">
                     <div class="step-icon">
-                        <i class="fas fa-upload"></i>
+                                <i class="fas fa-location-dot"></i>
                     </div>
-                    <h2 class="step-title">Upload your RFP file</h2>
-                    <p class="step-description">Please select your Request for Proposal document</p>
+                            <h2 class="step-title">Timeline & Location</h2>
+                            <p class="step-description">Share where the work will happen and when you need to mobilize.</p>
                 </div>
 
+                        <div class="input-grid">
+                            <div class="form-group">
+                                <label for="project-location" class="form-label">Project location</label>
+                                <input id="project-location" type="text" class="form-input" placeholder="City, state or facility" data-field="location">
+                            </div>
+                            <div class="form-group">
+                                <label for="project-timeline" class="form-label">Desired start</label>
+                                <select id="project-timeline" class="form-input" data-field="timeline">
+                                    <option value="">Select timeline</option>
+                                    <option value="Immediately">Immediately</option>
+                                    <option value="1-3 months">Within 1-3 months</option>
+                                    <option value="3-6 months">3-6 months</option>
+                                    <option value="6+ months">6+ months</option>
+                                    <option value="To be determined">Still defining</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="project-budget" class="form-label">Budget range</label>
+                                <select id="project-budget" class="form-input" data-field="budget">
+                                    <option value="">Select range</option>
+                                    <option value="Under $1M">Under $1M</option>
+                                    <option value="$1M – $5M">$1M – $5M</option>
+                                    <option value="$5M – $15M">$5M – $15M</option>
+                                    <option value="$15M – $50M">$15M – $50M</option>
+                                    <option value="$50M+">$50M+</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <p class="step-hint">Optional: upload an RFP, schematic set, or scope summary.</p>
                 <div class="file-upload-container">
                     <label for="file-upload" class="file-upload-area">
                         <div class="file-upload-icon">
@@ -2014,278 +2583,497 @@
                 </div>
 
                 <div class="step-actions">
-                    <button id="step2-back" class="btn btn-secondary">
+                            <button id="step2-back" type="button" class="btn btn-secondary">
                         <i class="fas fa-arrow-left"></i>
                         Back
                     </button>
-                    <button id="step2-next" class="btn btn-primary" disabled>
-                        Next
+                            <button id="step2-next" type="button" class="btn btn-primary" disabled>
+                                Continue
                         <i class="fas fa-arrow-right"></i>
                     </button>
                 </div>
             </div>
 
-            <!-- Step 3: Contact Form -->
             <div id="step3" class="step-content hidden">
                 <div class="step-header">
-                    <h2 class="step-title">Tell us about your project</h2>
-                    <p class="step-description">Please provide your contact information and project details</p>
+                            <div class="step-icon">
+                                <i class="fas fa-screwdriver-wrench"></i>
+                            </div>
+                            <h2 class="step-title">Which services do you need?</h2>
+                            <p class="step-description">Select all that apply so we can route to the right specialists.</p>
                 </div>
 
-                <form id="contact-form" class="form">
+                        <div class="service-grid">
+                            <button type="button" class="service-chip" data-value="Design assist">Design Assist</button>
+                            <button type="button" class="service-chip" data-value="Preconstruction">Preconstruction</button>
+                            <button type="button" class="service-chip" data-value="General contracting">General Contracting</button>
+                            <button type="button" class="service-chip" data-value="Technology integration">Technology Integration</button>
+                            <button type="button" class="service-chip" data-value="Structured cabling">Structured Cabling</button>
+                            <button type="button" class="service-chip" data-value="Wireless & DAS">Wireless / DAS</button>
+                            <button type="button" class="service-chip" data-value="Security & access">Security & Access Control</button>
+                            <button type="button" class="service-chip" data-value="Nationwide rollouts">Nationwide Rollouts</button>
+                        </div>
+
+                        <div class="step-actions">
+                            <button id="step3-back" type="button" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left"></i>
+                                Back
+                            </button>
+                            <button id="step3-next" type="button" class="btn btn-primary" disabled>
+                                Continue
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="step4" class="step-content hidden">
+                        <div class="step-header">
+                            <div class="step-icon">
+                                <i class="fas fa-user-check"></i>
+                            </div>
+                            <h2 class="step-title">Who should we connect with?</h2>
+                            <p class="step-description">We’ll follow up within one business day with next steps.</p>
+                        </div>
+
+                        <form id="planner-form" class="form" novalidate>
                     <div class="form-grid">
                         <div class="form-group">
-                            <label for="firstName" class="form-label">First Name *</label>
-                            <input type="text" id="firstName" name="firstName" class="form-input" placeholder="John" required>
+                                    <label for="firstName" class="form-label">First name</label>
+                                    <input type="text" id="firstName" name="firstName" class="form-input" placeholder="Jordan" data-contact>
                         </div>
                         <div class="form-group">
-                            <label for="lastName" class="form-label">Last Name *</label>
-                            <input type="text" id="lastName" name="lastName" class="form-input" placeholder="Doe" required>
+                                    <label for="lastName" class="form-label">Last name</label>
+                                    <input type="text" id="lastName" name="lastName" class="form-input" placeholder="Lee" data-contact>
                         </div>
+                                <div class="form-group">
+                                    <label for="company" class="form-label">Organization</label>
+                                    <input type="text" id="company" name="company" class="form-input" placeholder="Company / Department" data-contact>
+                    </div>
+                    <div class="form-group">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" id="email" name="email" class="form-input" placeholder="you@company.com" data-contact>
+                    </div>
+                    <div class="form-group">
+                                    <label for="phone" class="form-label">Phone</label>
+                                    <input type="tel" id="phone" name="phone" class="form-input" placeholder="(555) 123-4567" data-contact>
+                                </div>
+                                <div class="form-group">
+                                    <label for="projectNotes" class="form-label">Working title or facility</label>
+                                    <input type="text" id="projectNotes" name="projectNotes" class="form-input" placeholder="e.g., ATL Innovation Center" data-contact>
+                                </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="email" class="form-label">Email *</label>
-                        <input type="email" id="email" name="email" class="form-input" placeholder="john.doe@example.com" required>
-                    </div>
+                                <label for="projectDetails" class="form-label">Project details</label>
+                                <textarea id="projectDetails" name="projectDetails" class="form-textarea" placeholder="Tell us about goals, constraints, or success metrics." data-contact></textarea>
+                            </div>
 
-                    <div class="form-group">
-                        <label for="phone" class="form-label">Phone Number *</label>
-                        <input type="tel" id="phone" name="phone" class="form-input" placeholder="(555) 123-4567" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="projectDescription" class="form-label">Project Description *</label>
-                        <textarea id="projectDescription" name="projectDescription" class="form-textarea" placeholder="Tell us a little about your project..." required></textarea>
+                            <div class="form-checkbox">
+                                <input type="checkbox" id="newsletter" name="newsletter">
+                                <label for="newsletter">Keep me informed about nationwide deployment tips and technology updates.</label>
                     </div>
 
                     <div class="step-actions">
-                        <button type="button" id="step3-back" class="btn btn-secondary">
+                                <button id="step4-back" type="button" class="btn btn-secondary">
                             <i class="fas fa-arrow-left"></i>
                             Back
                         </button>
                         <button type="submit" class="btn btn-primary">
-                            Submit
-                            <i class="fas fa-check-circle"></i>
+                                    Submit plan
+                                    <i class="fas fa-paper-plane"></i>
                         </button>
                     </div>
                 </form>
             </div>
+                </div>
+            </section>
+
+            <aside class="summary-panel">
+                <div class="summary-card">
+                    <p class="summary-eyebrow">Live Summary</p>
+                    <h3>Project Snapshot</h3>
+                    <div class="summary-divider"></div>
+                    <div class="summary-section">
+                        <p class="summary-label">Project Type</p>
+                        <p class="summary-value" id="summary-projectType">Not selected</p>
+                    </div>
+                    <div class="summary-section">
+                        <p class="summary-label">Location & Schedule</p>
+                        <p class="summary-value" id="summary-location">Not specified</p>
+                        <p class="summary-subtext">Timeline: <span id="summary-timeline">—</span></p>
+                        <p class="summary-subtext">Budget: <span id="summary-budget">—</span></p>
+                    </div>
+                    <div class="summary-section">
+                        <p class="summary-label">RFP Attachment</p>
+                        <span class="summary-badge" id="summary-file">
+                            <i class="fas fa-paperclip"></i>
+                            <span id="summary-file-text">No file attached</span>
+                        </span>
+                    </div>
+                    <div class="summary-section">
+                        <p class="summary-label">Services Needed</p>
+                        <div id="summary-services" class="summary-chip-group">
+                            <span class="summary-chip muted">No services selected</span>
+                        </div>
+                    </div>
+                    <div class="summary-divider"></div>
+                    <div class="summary-section">
+                        <p class="summary-label">Primary Contact</p>
+                        <p class="summary-value" id="summary-contact">—</p>
+                        <p class="summary-subtext" id="summary-company">Organization: —</p>
+                        <p class="summary-subtext">Email: <span id="summary-email">—</span></p>
+                        <p class="summary-subtext">Phone: <span id="summary-phone">—</span></p>
+                    </div>
+                    <div class="summary-section">
+                        <p class="summary-label">Notes</p>
+                        <p class="summary-value" id="summary-notes">No additional details yet.</p>
+                    </div>
+                    <div class="summary-help">
+                        Need help right away? Call <strong>404-777-1804</strong> or <a href="contact.html">contact our team</a>.
+                    </div>
+                </div>
+            </aside>
         </div>
     </div>
 
     <script>
-        // State management
+        (function () {
         const state = {
             currentStep: 1,
-            wantsRFP: null,
-            selectedFile: null,
-            formData: {
+                totalSteps: 4,
+                project: {
+                    projectType: '',
+                    location: '',
+                    timeline: '',
+                    budget: '',
+                    services: [],
+                    rfpFile: null
+                },
+                contact: {
                 firstName: '',
                 lastName: '',
+                    company: '',
                 email: '',
                 phone: '',
-                projectDescription: ''
-            }
-        };
+                    projectNotes: '',
+                    projectDetails: ''
+                }
+            };
 
-        // DOM Elements
-        const step1 = document.getElementById('step1');
-        const step2 = document.getElementById('step2');
-        const step3 = document.getElementById('step3');
-        
-        const step1Circle = document.getElementById('step1-circle');
-        const step2Circle = document.getElementById('step2-circle');
-        const step3Circle = document.getElementById('step3-circle');
-        
-        const step1Connector = document.getElementById('step1-connector');
-        const step2Connector = document.getElementById('step2-connector');
-        
-        const currentStepText = document.getElementById('current-step');
-        const totalStepsText = document.getElementById('total-steps');
-        
-        const yesRfpBtn = document.getElementById('yes-rfp');
-        const noRfpBtn = document.getElementById('no-rfp');
-        
+            const stepElements = [
+                null,
+                document.getElementById('step1'),
+                document.getElementById('step2'),
+                document.getElementById('step3'),
+                document.getElementById('step4')
+            ];
+
+            const stepCircles = [
+                document.getElementById('step1-circle'),
+                document.getElementById('step2-circle'),
+                document.getElementById('step3-circle'),
+                document.getElementById('step4-circle')
+            ];
+
+            const connectors = [
+                document.getElementById('connector-1'),
+                document.getElementById('connector-2'),
+                document.getElementById('connector-3')
+            ];
+
+            const summaryEls = {
+                projectType: document.getElementById('summary-projectType'),
+                location: document.getElementById('summary-location'),
+                timeline: document.getElementById('summary-timeline'),
+                budget: document.getElementById('summary-budget'),
+                fileText: document.getElementById('summary-file-text'),
+                services: document.getElementById('summary-services'),
+                contact: document.getElementById('summary-contact'),
+                company: document.getElementById('summary-company'),
+                email: document.getElementById('summary-email'),
+                phone: document.getElementById('summary-phone'),
+                notes: document.getElementById('summary-notes')
+            };
+
+            const stepButtons = {
+                step1Next: document.getElementById('step1-next'),
+                step2Back: document.getElementById('step2-back'),
+                step2Next: document.getElementById('step2-next'),
+                step3Back: document.getElementById('step3-back'),
+                step3Next: document.getElementById('step3-next'),
+                step4Back: document.getElementById('step4-back')
+            };
+
+            const optionCards = document.querySelectorAll('.option-card');
+            const serviceChips = document.querySelectorAll('.service-chip');
+            const locationInput = document.getElementById('project-location');
+            const timelineSelect = document.getElementById('project-timeline');
+            const budgetSelect = document.getElementById('project-budget');
+            const projectInputs = [locationInput, timelineSelect, budgetSelect];
         const fileUpload = document.getElementById('file-upload');
         const filePreview = document.getElementById('file-preview');
         const fileName = document.getElementById('file-name');
         const fileSize = document.getElementById('file-size');
-        const step2Next = document.getElementById('step2-next');
-        const step2Back = document.getElementById('step2-back');
-        
-        const contactForm = document.getElementById('contact-form');
-        const step3Back = document.getElementById('step3-back');
+            const plannerForm = document.getElementById('planner-form');
+            const contactInputs = document.querySelectorAll('[data-contact]');
+            const currentStepText = document.getElementById('current-step');
+            const totalStepsText = document.getElementById('total-steps');
 
-        // Initialize
         function init() {
+                totalStepsText.textContent = state.totalSteps;
+                attachOptionHandlers();
+                attachProjectInputs();
+                attachServiceHandlers();
+                attachStepNavigation();
+                attachContactInputs();
+                attachFileUploader();
+                attachFormSubmit();
+                updateSummary();
             updateProgressIndicator();
-            setupEventListeners();
-        }
-
-        // Setup event listeners
-        function setupEventListeners() {
-            // Step 1 buttons
-            yesRfpBtn.addEventListener('click', () => handleRFPChoice(true));
-            noRfpBtn.addEventListener('click', () => handleRFPChoice(false));
-            
-            // Step 2 file upload
-            fileUpload.addEventListener('change', handleFileChange);
-            step2Next.addEventListener('click', () => goToStep(3));
-            step2Back.addEventListener('click', handleBack);
-            
-            // Step 3 form
-            step3Back.addEventListener('click', handleBack);
-            contactForm.addEventListener('submit', handleSubmit);
-            
-            // Form inputs for real-time validation
-            document.querySelectorAll('.form-input, .form-textarea').forEach(input => {
-                input.addEventListener('input', handleInputChange);
-            });
-        }
-
-        // Handle RFP choice
-        function handleRFPChoice(choice) {
-            state.wantsRFP = choice;
-            
-            if (choice) {
-                goToStep(2);
-            } else {
-                goToStep(3);
+                validateStep1();
+                validateStep2();
+                validateStep3();
             }
-            
-            updateProgressIndicator();
-        }
 
-        // Handle file change
-        function handleFileChange(e) {
-            if (e.target.files && e.target.files[0]) {
-                const file = e.target.files[0];
-                state.selectedFile = file;
-                
-                // Show file preview
+            function attachOptionHandlers() {
+                optionCards.forEach(card => {
+                    card.addEventListener('click', () => {
+                        optionCards.forEach(c => c.classList.remove('active'));
+                        card.classList.add('active');
+                        state.project.projectType = card.dataset.value || '';
+                        updateSummary();
+                        validateStep1();
+                    });
+                });
+            }
+
+            function attachProjectInputs() {
+                projectInputs.forEach(input => {
+                    if (!input) return;
+                    const handler = () => {
+                        const field = input.dataset.field;
+                        if (!field) return;
+                        state.project[field] = input.value.trim();
+                        updateSummary();
+                        validateStep2();
+                    };
+                    input.addEventListener('input', handler);
+                    input.addEventListener('change', handler);
+                });
+            }
+
+            function attachServiceHandlers() {
+                serviceChips.forEach(chip => {
+                    chip.addEventListener('click', () => {
+                        const value = chip.dataset.value;
+                        chip.classList.toggle('active');
+                        if (chip.classList.contains('active')) {
+                            if (!state.project.services.includes(value)) {
+                                state.project.services.push(value);
+                            }
+            } else {
+                            state.project.services = state.project.services.filter(service => service !== value);
+                        }
+                        updateSummary();
+                        validateStep3();
+                    });
+                });
+            }
+
+            function attachStepNavigation() {
+                stepButtons.step1Next?.addEventListener('click', () => goToStep(2));
+                stepButtons.step2Back?.addEventListener('click', () => goToStep(1));
+                stepButtons.step2Next?.addEventListener('click', () => goToStep(3));
+                stepButtons.step3Back?.addEventListener('click', () => goToStep(2));
+                stepButtons.step3Next?.addEventListener('click', () => goToStep(4));
+                stepButtons.step4Back?.addEventListener('click', () => goToStep(3));
+            }
+
+            function attachContactInputs() {
+                contactInputs.forEach(input => {
+                    input.addEventListener('input', () => {
+                        const name = input.name;
+                        state.contact[name] = input.value.trim();
+                        input.classList.remove('error');
+                        updateSummary();
+                    });
+                });
+            }
+
+            function attachFileUploader() {
+                if (!fileUpload) return;
+                fileUpload.addEventListener('change', event => {
+                    const file = event.target.files && event.target.files[0];
+                    if (!file) {
+                        state.project.rfpFile = null;
+                        filePreview.classList.add('hidden');
+                        updateSummary();
+                        return;
+                    }
+                    state.project.rfpFile = file;
                 fileName.textContent = file.name;
                 fileSize.textContent = `${(file.size / 1024 / 1024).toFixed(2)} MB`;
                 filePreview.classList.remove('hidden');
-                
-                // Enable next button
-                step2Next.disabled = false;
+                    updateSummary();
+                });
             }
-        }
 
-        // Handle input change
-        function handleInputChange(e) {
-            state.formData[e.target.name] = e.target.value;
-        }
+            function attachFormSubmit() {
+                if (!plannerForm) return;
+                plannerForm.addEventListener('submit', handleSubmit);
+            }
 
-        // Handle form submission
-        function handleSubmit(e) {
-            e.preventDefault();
-            
-            // Validate form
-            const requiredFields = ['firstName', 'lastName', 'email', 'phone', 'projectDescription'];
+            function handleSubmit(event) {
+                event.preventDefault();
+                const requiredFields = ['firstName', 'lastName', 'company', 'email', 'phone', 'projectDetails'];
             let isValid = true;
             
-            requiredFields.forEach(field => {
-                if (!state.formData[field]) {
+                requiredFields.forEach(name => {
+                    const field = plannerForm.querySelector(`[name="${name}"]`);
+                    if (!state.contact[name]) {
                     isValid = false;
-                    document.getElementById(field).classList.add('error');
+                        field?.classList.add('error');
                 } else {
-                    document.getElementById(field).classList.remove('error');
+                        field?.classList.remove('error');
                 }
             });
             
             if (!isValid) {
-                alert('Please fill in all required fields.');
+                    alert('Please complete the required fields.');
                 return;
             }
             
-            // Submit data
-            console.log('Submitted Data:', {
-                wantsRFP: state.wantsRFP,
-                file: state.selectedFile,
-                ...state.formData
-            });
-            
-            alert('Form submitted successfully! Check console for data.');
-        }
+                const submission = {
+                    project: { ...state.project },
+                    contact: { ...state.contact },
+                    newsletter: document.getElementById('newsletter')?.checked || false
+                };
 
-        // Handle back navigation
-        function handleBack() {
-            if (state.currentStep === 3 && !state.wantsRFP) {
-                goToStep(1);
-                state.wantsRFP = null;
-            } else if (state.currentStep === 3 && state.wantsRFP) {
-                goToStep(2);
-            } else if (state.currentStep === 2) {
-                goToStep(1);
-                state.wantsRFP = null;
+                console.log('Planner submission', submission);
+                alert('Thanks! Your project brief has been submitted.');
+                resetPlanner();
             }
-            
+
+            function goToStep(step) {
+                if (step < 1 || step > state.totalSteps) return;
+                stepElements.forEach((element, index) => {
+                    if (!element) return;
+                    if (index === step) {
+                        element.classList.remove('hidden');
+                        element.classList.add('step-enter');
+                        requestAnimationFrame(() => {
+                            element.classList.add('step-enter-active');
+                        });
+                    } else {
+                        element.classList.add('hidden');
+                        element.classList.remove('step-enter', 'step-enter-active');
+                    }
+                });
+                state.currentStep = step;
+                currentStepText.textContent = step;
             updateProgressIndicator();
         }
 
-        // Navigate to step
-        function goToStep(step) {
-            // Hide all steps
-            step1.classList.add('hidden');
-            step2.classList.add('hidden');
-            step3.classList.add('hidden');
-            
-            // Show current step with animation
-            const targetStep = document.getElementById(`step${step}`);
-            targetStep.classList.remove('hidden');
-            targetStep.classList.add('step-enter');
-            
-            setTimeout(() => {
-                targetStep.classList.remove('step-enter');
-                targetStep.classList.add('step-enter-active');
-            }, 10);
-            
-            state.currentStep = step;
-            currentStepText.textContent = step;
-            
-            // Update total steps based on RFP choice
-            const totalSteps = state.wantsRFP === false ? 2 : 3;
-            totalStepsText.textContent = totalSteps;
-        }
+            function updateProgressIndicator() {
+                stepCircles.forEach((circle, index) => {
+                    circle.className = 'step-circle';
+                    if (index + 1 < state.currentStep) {
+                        circle.classList.add('completed');
+                    } else if (index + 1 === state.currentStep) {
+                        circle.classList.add('active');
+                    } else {
+                        circle.classList.add('inactive');
+                    }
+                });
 
-        // Update progress indicator
-        function updateProgressIndicator() {
-            // Reset all steps
-            step1Circle.className = 'step-circle';
-            step2Circle.className = 'step-circle';
-            step3Circle.className = 'step-circle';
-            
-            step1Connector.className = 'step-connector';
-            step2Connector.className = 'step-connector';
-            
-            // Update based on current step
-            if (state.currentStep === 1) {
-                step1Circle.classList.add('active');
-                step1Connector.classList.add('inactive');
-                step2Connector.classList.add('inactive');
-            } else if (state.currentStep === 2) {
-                step1Circle.classList.add('completed');
-                step2Circle.classList.add('active');
-                step1Connector.classList.add('active');
-                step2Connector.classList.add('inactive');
-            } else if (state.currentStep === 3) {
-                step1Circle.classList.add('completed');
-                step2Circle.classList.add('completed');
-                step3Circle.classList.add('active');
-                step1Connector.classList.add('active');
-                
-                if (state.wantsRFP) {
-                    step2Connector.classList.add('active');
-                } else {
-                    step2Connector.classList.add('inactive');
-                }
+                connectors.forEach((connector, index) => {
+                    connector.className = 'step-connector';
+                    if (index < state.currentStep - 1) {
+                        connector.classList.add('active');
+                    } else {
+                        connector.classList.add('inactive');
+                    }
+                });
             }
-        }
 
-        // Initialize the application
+            function updateSummary() {
+                summaryEls.projectType.textContent = state.project.projectType || 'Not selected';
+                summaryEls.location.textContent = state.project.location || 'Not specified';
+                summaryEls.timeline.textContent = state.project.timeline || '—';
+                summaryEls.budget.textContent = state.project.budget || '—';
+                summaryEls.fileText.textContent = state.project.rfpFile ? state.project.rfpFile.name : 'No file attached';
+
+                if (state.project.services.length) {
+                    summaryEls.services.innerHTML = state.project.services
+                        .map(service => `<span class="summary-chip">${service}</span>`)
+                        .join('');
+                } else {
+                    summaryEls.services.innerHTML = '<span class="summary-chip muted">No services selected</span>';
+                }
+
+                const contactName = [state.contact.firstName, state.contact.lastName].filter(Boolean).join(' ');
+                summaryEls.contact.textContent = contactName || '—';
+                summaryEls.company.textContent = `Organization: ${state.contact.company || '—'}`;
+                summaryEls.email.textContent = state.contact.email || '—';
+                summaryEls.phone.textContent = state.contact.phone || '—';
+
+                const notes = state.contact.projectDetails || state.contact.projectNotes;
+                summaryEls.notes.textContent = notes || 'No additional details yet.';
+            }
+
+            function validateStep1() {
+                if (!stepButtons.step1Next) return;
+                stepButtons.step1Next.disabled = !state.project.projectType;
+            }
+
+            function validateStep2() {
+                if (!stepButtons.step2Next) return;
+                const ready = Boolean(state.project.location && state.project.timeline && state.project.budget);
+                stepButtons.step2Next.disabled = !ready;
+            }
+
+            function validateStep3() {
+                if (!stepButtons.step3Next) return;
+                stepButtons.step3Next.disabled = state.project.services.length === 0;
+            }
+
+            function resetPlanner() {
+                state.project = {
+                    projectType: '',
+                    location: '',
+                    timeline: '',
+                    budget: '',
+                    services: [],
+                    rfpFile: null
+                };
+
+                state.contact = {
+                    firstName: '',
+                    lastName: '',
+                    company: '',
+                    email: '',
+                    phone: '',
+                    projectNotes: '',
+                    projectDetails: ''
+                };
+
+                optionCards.forEach(card => card.classList.remove('active'));
+                serviceChips.forEach(chip => chip.classList.remove('active'));
+                if (locationInput) locationInput.value = '';
+                if (timelineSelect) timelineSelect.value = '';
+                if (budgetSelect) budgetSelect.value = '';
+                if (fileUpload) fileUpload.value = '';
+                filePreview?.classList.add('hidden');
+                plannerForm?.reset();
+                goToStep(1);
+                validateStep1();
+                validateStep2();
+                validateStep3();
+                updateSummary();
+            }
+
         init();
+        })();
     </script>
 <!-- Navbar JavaScript -->
     <script>

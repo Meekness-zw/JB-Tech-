@@ -16,6 +16,18 @@
     <title>JB Technologies</title>
 
         <script src="../js/modernizr-custom.min.js"></script>
+    <script>
+      window.Modernizr = window.Modernizr || {};
+      (function(doc){
+        if (Modernizr.touchevents) {
+          Modernizr.touchevents = false;
+          if (doc && doc.classList) {
+            doc.classList.remove('touch');
+            doc.classList.add('no-touch');
+          }
+        }
+      })(document.documentElement);
+    </script>
 
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />

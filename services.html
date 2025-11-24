@@ -29,7 +29,6 @@
       })(document.documentElement);
     </script>
     <script>
-      window.app = window.app || {};
       (function() {
         var parts = window.location.pathname.split('/');
         var candidate = parts.length > 1 ? parts[1] : '';
@@ -38,7 +37,9 @@
         if (candidate && candidate.length && candidate.indexOf('.html') === -1) {
           repo = '/' + candidate.replace(/\/+$/, '');
         }
-        window.app.baseUrl = origin + repo;
+        window.__repoBase = origin + repo;
+        window.app = window.app || {};
+        window.app.baseUrl = window.__repoBase;
       })();
     </script>
 

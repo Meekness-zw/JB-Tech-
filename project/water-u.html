@@ -29,7 +29,6 @@
       })(document.documentElement);
     </script>
     <script>
-      window.app = window.app || {};
       (function() {
         var parts = window.location.pathname.split('/');
         var candidate = parts.length > 1 ? parts[1] : '';
@@ -38,7 +37,9 @@
         if (candidate && candidate.length && candidate.indexOf('.html') === -1) {
           repo = '/' + candidate.replace(/\/+$/, '');
         }
-        window.app.baseUrl = origin + repo;
+        window.__repoBase = origin + repo;
+        window.app = window.app || {};
+        window.app.baseUrl = window.__repoBase;
       })();
     </script>
 
@@ -1977,15 +1978,22 @@
   </div>
 </footer>
 
-        <script>
-      var app = {
-        debug: true,
-        mode: "prod",
-        baseUrl: "https://www.maman-corp.com",
-        rootUri: "",
-        isMobile: false,
-        isTablet: false
-      };
+    <script>
+      (function() {
+        var origin = window.location.origin === 'null' ? '' : window.location.origin;
+        var base = window.__repoBase || origin;
+        window.app = window.app || {};
+        window.app.baseUrl = base;
+        var appConfig = {
+          debug: true,
+          mode: "prod",
+          baseUrl: base,
+          rootUri: "",
+          isMobile: false,
+          isTablet: false
+        };
+        window.app = Object.assign(window.app, appConfig);
+      })();
     </script>
 
                 <script src="../js/jquery-3.1.1.min.js"></script>

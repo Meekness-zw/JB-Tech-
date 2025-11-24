@@ -53,7 +53,6 @@
       })(document.documentElement);
     </script>
     <script>
-      window.app = window.app || {};
       (function() {
         var parts = window.location.pathname.split('/');
         var candidate = parts.length > 1 ? parts[1] : '';
@@ -62,7 +61,9 @@
         if (candidate && candidate.length && candidate.indexOf('.html') === -1) {
           repo = '/' + candidate.replace(/\/+$/, '');
         }
-        window.app.baseUrl = origin + repo;
+        window.__repoBase = origin + repo;
+        window.app = window.app || {};
+        window.app.baseUrl = window.__repoBase;
       })();
     </script>
 
@@ -1266,15 +1267,22 @@
   </div>
 </footer>
 
-        <script>
-      var app = {
-      debug: true,
-      mode: "prod",
-      baseUrl: window.location.origin || "",
-      rootUri: "",
-      isMobile: false,
-      isTablet: false
-      };
+    <script>
+      (function() {
+        var origin = window.location.origin === 'null' ? '' : window.location.origin;
+        var base = window.__repoBase || origin;
+        window.app = window.app || {};
+        window.app.baseUrl = base;
+        var app = {
+          debug: true,
+          mode: "prod",
+          baseUrl: base,
+          rootUri: "",
+          isMobile: false,
+          isTablet: false
+        };
+        window.app = Object.assign(window.app, app);
+      })();
     </script>
 
         <script src="js/jquery-3.1.1.min.js"></script>
@@ -1284,46 +1292,6 @@
     <script src="js/scripts.js"></script>
 
         <script src="js/footer-newsletter.js"></script>
-
-    <!-- Force page initialization - scripts.js expects main-loading screen to complete first -->
-    <script>
-      (function() {
-        // Based on scripts.js code analysis:
-        // 1. scripts.js calls h() which shows "main-loading" screen
-        // 2. When main-loading completes (animateInComplete: S), it calls function S()
-        // 3. S() calls c() which initializes the page and loads assets
-        // 4. When assets load, the page screen animates in with populateTimelineIn()
-        // 
-        // Since the preloader was removed, the main-loading screen might be stuck.
-        // We'll wait for scripts.js to initialize, then ensure the page initializes.
-        
-        function forcePageInitialization() {
-          // Remove preloader-active class
-          document.body.classList.remove('preloader-active');
-          
-          // scripts.js uses app.urlQuery.skip to bypass main-loading
-          // We can try to set this or wait for the system to initialize naturally
-          
-          // The page should initialize automatically once scripts.js is ready
-          // The animations will trigger when the home page screen's animateIn() is called
-          console.log('Page initialization helper loaded - waiting for scripts.js to initialize...');
-        }
-        
-        // Run after scripts.js loads
-        if (document.readyState === 'complete') {
-          setTimeout(forcePageInitialization, 100);
-        } else {
-          window.addEventListener('load', function() {
-            setTimeout(forcePageInitialization, 100);
-          });
-        }
-        
-        // Also try on DOMContentLoaded
-        if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', forcePageInitialization);
-        }
-      })();
-    </script>
 
     <!-- Override legacy scroll hijackers after scripts.js bootstraps -->
     <script>

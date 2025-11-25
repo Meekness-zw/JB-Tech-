@@ -1,10 +1,28 @@
 /* JB Footer */
 .jb-footer {
-    background: linear-gradient(135deg, #1c2d41 0%, #1c2d41 50%, #152333 100%);
+    background: linear-gradient(135deg, #245b8a 0%, #1a4666 50%, #245b8a 100%);
     color: #fff;
     position: relative;
     overflow: hidden;
     margin-top: auto;
+    width: 100%;
+    clear: both;
+    /* Hide initially to prevent flash on page load */
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Override main.css rule that hides footer on home page */
+.page-id-home .jb-footer {
+    display: block !important;
+}
+
+/* Show footer after page load */
+body.loaded .jb-footer,
+.jb-footer.visible {
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 .jb-footer__top-border {
@@ -237,12 +255,23 @@
     align-items: center;
     justify-content: center;
     transition: all .3s ease;
+    text-decoration: none;
+}
+
+.jb-footer__social-link i {
+    color: #000000;
+    font-size: 1.125rem;
 }
 
 .jb-footer__social-link:hover {
     background-color: #245b8a;
     transform: scale(1.08);
     box-shadow: 0 8px 25px rgba(6, 17, 31, .45);
+    text-decoration: none;
+}
+
+.jb-footer__social-link:hover i {
+    color: #ffffff;
 }
 
 .jb-footer__section-title {

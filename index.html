@@ -1299,6 +1299,30 @@
 
         <script src="js/footer-newsletter.js"></script>
 
+    <!-- Show footer after page load to prevent flash -->
+    <script>
+      (function() {
+        function showFooter() {
+          var footer = document.querySelector('.jb-footer');
+          if (footer) {
+            footer.classList.add('visible');
+            document.body.classList.add('loaded');
+          }
+        }
+        
+        // Wait for full page load including all resources
+        if (document.readyState === 'complete') {
+          // Page already loaded
+          setTimeout(showFooter, 300);
+        } else {
+          // Wait for window load event (all resources loaded)
+          window.addEventListener('load', function() {
+            setTimeout(showFooter, 300);
+          });
+        }
+      })();
+    </script>
+
     <!-- Override legacy scroll hijackers after scripts.js bootstraps -->
     <script>
       window.addEventListener('load', function () {

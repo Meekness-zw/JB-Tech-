@@ -7,6 +7,7 @@
     <meta name="description" content="">
 
         <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
     <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
     <link rel="manifest" href="manifest.json">
@@ -43,7 +44,12 @@
     <script>
       window.Modernizr = window.Modernizr || {};
       (function(doc){
-        if (Modernizr.touchevents) {
+        var nav = window.navigator || {};
+        var hasTouchPoints = (typeof nav.maxTouchPoints === 'number' && nav.maxTouchPoints > 0) ||
+          (typeof nav.msMaxTouchPoints === 'number' && nav.msMaxTouchPoints > 0) ||
+          (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
+
+        if (!hasTouchPoints && Modernizr.touchevents) {
           Modernizr.touchevents = false;
           if (doc && doc.classList) {
             doc.classList.remove('touch');

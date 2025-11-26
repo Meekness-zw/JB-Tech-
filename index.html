@@ -1374,6 +1374,44 @@
       });
     </script>
 
+    <!-- Mobile: allow simple upward swipe on hero to go to next section -->
+    <script>
+      (function() {
+        function initMobileHeroSwipe() {
+          var homeLanding = document.getElementById('home-landing');
+          var nextSection = document.getElementById('home-screen-1');
+          if (!homeLanding || !nextSection) return;
+
+          var startY = null;
+          var threshold = 40; // pixels finger must move up
+
+          homeLanding.addEventListener('touchstart', function(e) {
+            if (!e.touches || e.touches.length === 0) return;
+            startY = e.touches[0].clientY;
+          }, { passive: true });
+
+          homeLanding.addEventListener('touchmove', function(e) {
+            if (startY === null || !e.touches || e.touches.length === 0) return;
+            var currentY = e.touches[0].clientY;
+            var deltaY = startY - currentY;
+
+            if (deltaY > threshold) {
+              startY = null;
+              e.preventDefault();
+              e.stopPropagation();
+              nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }, { passive: false });
+        }
+
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+          initMobileHeroSwipe();
+        } else {
+          document.addEventListener('DOMContentLoaded', initMobileHeroSwipe);
+        }
+      })();
+    </script>
+
     <!-- Allow footer to be reached once the final home step is active -->
     <script>
       (function() {

@@ -1156,7 +1156,8 @@
 
       </div>
 
-    <footer id="footer" class="jb-footer">
+      <section id="home-footer-section" class="home-footer-section">
+        <footer id="footer" class="jb-footer">
   <div class="jb-footer__top-border"></div>
   <section class="jb-footer__newsletter">
     <div class="jb-footer__newsletter-container">
@@ -1272,6 +1273,7 @@
     </div>
   </div>
 </footer>
+      </section>
 
     <script>
       (function() {
@@ -1288,6 +1290,21 @@
           isTablet: false
         };
         window.app = Object.assign(window.app, app);
+      })();
+    </script>
+
+    <script>
+      (function () {
+        var defaultConfig = { timelineSpeed: 1.35 };
+        if (!window.homeScrollConfig) {
+          window.homeScrollConfig = defaultConfig;
+          return;
+        }
+        Object.keys(defaultConfig).forEach(function (key) {
+          if (typeof window.homeScrollConfig[key] === 'undefined') {
+            window.homeScrollConfig[key] = defaultConfig[key];
+          }
+        });
       })();
     </script>
 
@@ -1335,9 +1352,10 @@
             clone.addEventListener('click', function (event) {
               event.preventDefault();
               event.stopPropagation();
-              var next = document.querySelector('#home-screen-1') || document.querySelector('[name="story"]');
-              if (next) {
-                next.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              // Scroll directly to footer when the hero down-arrow is clicked
+              var footer = document.getElementById('footer');
+              if (footer) {
+                footer.scrollIntoView({ behavior: 'smooth', block: 'start' });
               }
             }, { passive: false });
           }
@@ -1354,6 +1372,79 @@
           }
         }, 1200);
       });
+    </script>
+
+    <!-- Allow footer to be reached once the final home step is active -->
+    <script>
+      (function() {
+        var homePage = document.getElementById('home-page');
+        var footer = document.getElementById('footer');
+        var scrollLabel = document.getElementById('home-scroll-cta__label');
+        if (!homePage || !footer || !scrollLabel) {
+          return;
+        }
+
+        var reversedLabel = (scrollLabel.getAttribute('data-reverse') || '').trim();
+        var unlockListenerActive = false;
+        var wheelEvents = ['wheel', 'mousewheel', 'DOMMouseScroll'];
+
+        function scrollFooterIntoView() {
+          footer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function onUnlockScroll(event) {
+          var delta = typeof event.deltaY === 'number' ? event.deltaY :
+            typeof event.wheelDelta === 'number' ? -event.wheelDelta :
+            typeof event.detail === 'number' ? event.detail : 0;
+
+          if (delta <= 0) {
+            return;
+          }
+
+          event.preventDefault();
+          event.stopImmediatePropagation();
+          disableUnlockListener();
+          scrollFooterIntoView();
+        }
+
+        function enableUnlockListener() {
+          if (unlockListenerActive) {
+            return;
+          }
+          unlockListenerActive = true;
+          wheelEvents.forEach(function(name) {
+            homePage.addEventListener(name, onUnlockScroll, true);
+          });
+        }
+
+        function disableUnlockListener() {
+          if (!unlockListenerActive) {
+            return;
+          }
+          unlockListenerActive = false;
+          wheelEvents.forEach(function(name) {
+            homePage.removeEventListener(name, onUnlockScroll, true);
+          });
+        }
+
+        function handleLabelChange() {
+          var current = scrollLabel.textContent.trim();
+          if (reversedLabel && current === reversedLabel) {
+            enableUnlockListener();
+          } else {
+            disableUnlockListener();
+          }
+        }
+
+        var observer = new MutationObserver(handleLabelChange);
+        observer.observe(scrollLabel, { childList: true, subtree: true, characterData: true });
+        handleLabelChange();
+
+        window.addEventListener('beforeunload', function() {
+          observer.disconnect();
+          disableUnlockListener();
+        });
+      })();
     </script>
 
     <!-- Video playback fix for home landing section - simplified like step-1 -->

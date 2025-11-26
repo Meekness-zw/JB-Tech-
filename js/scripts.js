@@ -3875,15 +3875,21 @@
                 }
             }), e && (Object.setPrototypeOf ? Object.setPrototypeOf(t, e) : t.__proto__ = e)
         }
-        i.__esModule = !0;
         var r = t("screen-navigator"),
             a = t("anim/gsap/clear-timeline"),
             l = function (t) {
                 return t && t.__esModule ? t : {
                     default: t
                 }
-            }(a),
-            h = function (t) {
+            }(a);
+
+        function d() {
+            var t = window.homeScrollConfig || window.app && window.app.homeScrollConfig,
+                e = t && t.timelineSpeed;
+            return "number" == typeof e && e > 0 ? e : 1
+        }
+        i.__esModule = !0;
+        var h = function (t) {
                 function e(i) {
                     n(this, e);
                     var o = s(this, t.call(this, i));
@@ -3924,10 +3930,14 @@
                         }
                     }
                 }, e.prototype.animateIn = function (e) {
-                    t.prototype.animateIn.call(this, e), this.init(), this.timelineIn = new TimelineMax(this.timelineInVars), this.timelineIn.call(this.onAnimateInStart.bind(this)), this.populateTimelineIn()
+                    t.prototype.animateIn.call(this, e), this.init(), this.timelineIn = new TimelineMax(this.timelineInVars), this.timelineIn.call(this.onAnimateInStart.bind(this)), this.populateTimelineIn();
+                    var i = d();
+                    1 !== i && this.timelineIn.timeScale(i)
                 }, e.prototype.populateTimelineIn = function () {}, e.prototype.animateOut = function (e) {
                     if (t.prototype.animateOut.call(this, e), e) return this.disposeTimelineOut(), void this.onAnimateOutComplete();
-                    this.timelineOut = new TimelineMax(this.timelineOutVars), this.timelineOut.call(this.onAnimateOutStart.bind(this)), this.populateTimelineOut()
+                    this.timelineOut = new TimelineMax(this.timelineOutVars), this.timelineOut.call(this.onAnimateOutStart.bind(this)), this.populateTimelineOut();
+                    var i = d();
+                    1 !== i && this.timelineOut.timeScale(i)
                 }, e.prototype.populateTimelineOut = function () {
                     this.initialized
                 }, e.prototype.onAnimateInStart = function () {

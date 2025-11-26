@@ -1619,5 +1619,22 @@
         }
       })();
     </script>
+
+    <!-- Mobile console (Eruda) for debugging on iPhone -->
+    <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+    <script>
+      // Initialize Eruda after it loads
+      (function () {
+        if (typeof eruda !== 'undefined' && eruda && typeof eruda.init === 'function') {
+          eruda.init();
+        } else {
+          document.addEventListener('DOMContentLoaded', function () {
+            if (typeof eruda !== 'undefined' && eruda && typeof eruda.init === 'function') {
+              eruda.init();
+            }
+          });
+        }
+      })();
+    </script>
 </body>
 </html>

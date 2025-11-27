@@ -1391,13 +1391,21 @@
       });
     </script>
 
-    <!-- Mobile: allow simple upward swipe on hero to go to next section -->
+    <!-- Mobile: allow simple upward swipe on hero to go to next section (fallback when native swipe is unavailable) -->
     <script>
       (function() {
         function initMobileHeroSwipe() {
           var homeLanding = document.getElementById('home-landing');
           var nextSection = document.getElementById('home-screen-1');
           if (!homeLanding || !nextSection) return;
+
+          var appState = window.app || {};
+          var hasNativeSwipe = typeof window.Hammer !== 'undefined' && !!appState.hasTouch;
+
+          // If Hammer.js is active we already have swipe navigation, so skip this fallback.
+          if (hasNativeSwipe) {
+            return;
+          }
 
           var startY = null;
           var threshold = 40; // pixels finger must move up

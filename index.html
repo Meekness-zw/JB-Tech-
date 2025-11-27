@@ -703,6 +703,11 @@
         height: 14px;
         display: block;
       }
+
+      #home-landing__lines {
+        display: none !important;
+      }
+
     </style>
 
     <div id="page-container">
@@ -736,11 +741,12 @@
     <div id="home-landing__scroll__icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="34" viewbox="0 0 20 34"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 0v26.2l-8-8.1v5.7L10 34l10-10.2v-5.7l-8 8.1V0H8z"></path></svg></div>
   </button>
 
-  <div id="home-landing__lines">
-    <div class="home-landing__line"></div>
-    <div class="home-landing__line"></div>
-    <div class="home-landing__line"></div>
-  </div>
+<div id="home-landing__lines" aria-hidden="true">
+  <div class="home-landing__line"></div>
+  <div class="home-landing__line"></div>
+  <div class="home-landing__line"></div>
+</div>
+
 </section>
 
       <section class="home-screen" id="home-screen-1" name="story">
@@ -1357,40 +1363,6 @@
       })();
     </script>
 
-    <!-- Override legacy scroll hijackers after scripts.js bootstraps -->
-    <script>
-      window.addEventListener('load', function () {
-        // Give scripts.js time to wire up before we replace handlers.
-        setTimeout(function () {
-          var arrow = document.getElementById('home-landing__scroll');
-          if (arrow && arrow.parentNode) {
-            var clone = arrow.cloneNode(true);
-            arrow.parentNode.replaceChild(clone, arrow);
-            clone.addEventListener('click', function (event) {
-              event.preventDefault();
-              event.stopPropagation();
-              // Scroll directly to footer when the hero down-arrow is clicked
-              var footer = document.getElementById('footer');
-              if (footer) {
-                footer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              }
-            }, { passive: false });
-          }
-
-          var floatingCta = document.getElementById('home-scroll-cta__btn');
-          if (floatingCta) {
-            var floatingClone = floatingCta.cloneNode(true);
-            floatingCta.parentNode.replaceChild(floatingClone, floatingCta);
-            floatingClone.addEventListener('click', function (event) {
-              event.preventDefault();
-              event.stopPropagation();
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }, { passive: false });
-          }
-        }, 1200);
-      });
-    </script>
-
     <!-- Mobile: allow simple upward swipe on hero to go to next section (fallback when native swipe is unavailable) -->
     <script>
       (function() {
@@ -1398,14 +1370,6 @@
           var homeLanding = document.getElementById('home-landing');
           var nextSection = document.getElementById('home-screen-1');
           if (!homeLanding || !nextSection) return;
-
-          var appState = window.app || {};
-          var hasNativeSwipe = typeof window.Hammer !== 'undefined' && !!appState.hasTouch;
-
-          // If Hammer.js is active we already have swipe navigation, so skip this fallback.
-          if (hasNativeSwipe) {
-            return;
-          }
 
           var startY = null;
           var threshold = 40; // pixels finger must move up
@@ -1422,8 +1386,6 @@
 
             if (deltaY > threshold) {
               startY = null;
-              e.preventDefault();
-              e.stopPropagation();
               nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
           }, { passive: false });
@@ -1640,23 +1602,6 @@
         } else {
           window.addEventListener('load', function() {
             setTimeout(initNavbar, 5000);
-          });
-        }
-      })();
-    </script>
-
-    <!-- Mobile console (Eruda) for debugging on iPhone -->
-    <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
-    <script>
-      // Initialize Eruda after it loads
-      (function () {
-        if (typeof eruda !== 'undefined' && eruda && typeof eruda.init === 'function') {
-          eruda.init();
-        } else {
-          document.addEventListener('DOMContentLoaded', function () {
-            if (typeof eruda !== 'undefined' && eruda && typeof eruda.init === 'function') {
-              eruda.init();
-            }
           });
         }
       })();

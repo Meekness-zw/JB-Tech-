@@ -153,64 +153,24 @@
             }
         }
 
-        .spinner-container {
+        .loader-percentage {
             margin-top: 3rem;
-            display: flex;
-            justify-content: center;
+            text-align: center;
+            font-size: clamp(1.5rem, 2vw, 2.25rem);
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            color: #dbeafe;
+            text-shadow: 0 0 15px rgba(96, 165, 250, 0.6);
             opacity: 0;
-            transform: scale(0.8);
-            animation: fadeInScale 0.8s ease 2.5s forwards;
+            transform: translateY(20px);
+            animation: percentageFade 0.8s ease 2.8s forwards;
         }
 
-        @keyframes fadeInScale {
+        @keyframes percentageFade {
             to {
                 opacity: 1;
-                transform: scale(1);
+                transform: translateY(0);
             }
-        }
-
-        .spinner {
-            width: 80px;
-            height: 80px;
-            animation: spin 1.5s linear infinite;
-        }
-
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .spinner circle:nth-child(1) {
-            fill: none;
-            stroke: url(#spiralGradient);
-            stroke-width: 6;
-            stroke-linecap: round;
-            stroke-dasharray: 160 50;
-        }
-
-        .spinner circle:nth-child(2) {
-            fill: none;
-            stroke: #60a5fa;
-            stroke-width: 4;
-            stroke-linecap: round;
-            stroke-dasharray: 100 50;
-            opacity: 0.6;
-            animation: reverseSpin 2s linear infinite;
-        }
-
-        .spinner circle:nth-child(3) {
-            fill: none;
-            stroke: #3b82f6;
-            stroke-width: 3;
-            stroke-linecap: round;
-            stroke-dasharray: 60 30;
-            opacity: 0.4;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes reverseSpin {
-            from { transform: rotate(360deg); }
-            to { transform: rotate(0deg); }
         }
     </style>
 </head>
@@ -246,7 +206,7 @@
                     <path d="M1604.52,1155.44h-28.38q0-5.39-.81-7.5a7.07,7.07,0,0,0-5.3-4.57a45.81,45.81,0,0,0-9.54-.73q-9.56,0-12.56,1.14-5.62,2.12-5.63,9.79,0,6.27,3.18,8.15,2.37,1.38,11.74,2,8.73.48,17.37,1.06a77.59,77.59,0,0,1,17.13,3q9.85,3.09,13.45,11.09,2.68,5.86,2.69,17.85,0,13.54-2.6,20-4.74,11.67-21.27,14.76-6.93,1.31-21.92,1.31-23,0-32.42-2.86-15-4.56-16.78-22.67c-.28-2.77-.41-6.55-.41-11.33h28.29v2.2q0,7.57,4.24,9.7,3.1,1.56,16.64,1.55c4.62,0,7.25,0,7.91-.08a10.78,10.78,0,0,0,6.85-3.26c1.41-1.58,2.12-4.21,2.12-7.91q0-6.43-4-8.56-2.37-1.23-10.11-1.72-25.61-1.55-33.11-3.34-11.32-2.77-15.57-11.49-3.27-6.69-3.26-20,0-19.74,9.29-26.34,6.62-4.65,18.51-6.12a187.39,187.39,0,0,1,19.74-.73q27,0,35.22,6.2,9.46,7.08,9.46,24.21C1604.68,1151.28,1604.63,1153,1604.52,1155.44Z"/>
                 </g>
             </svg>
-
+            <div id="loader-percentage" class="loader-percentage">0%</div>
         </div>
     </div>
 
@@ -328,7 +288,34 @@
                     cubesContainer.appendChild(cube);
                 }
                 
-                setTimeout(() => finishLoader(loader), 6000);
+                const totalDuration = 6000;
+                const percentageEl = document.getElementById('loader-percentage');
+                let rafId = null;
+                let startTime = null;
+
+                function updatePercentage(timestamp) {
+                    if (!startTime) startTime = timestamp;
+                    const elapsed = Math.min(timestamp - startTime, totalDuration);
+                    const progress = Math.round((elapsed / totalDuration) * 100);
+                    if (percentageEl) {
+                        percentageEl.textContent = `${progress}%`;
+                    }
+                    if (elapsed < totalDuration) {
+                        rafId = requestAnimationFrame(updatePercentage);
+                    }
+                }
+
+                rafId = requestAnimationFrame(updatePercentage);
+
+                setTimeout(() => {
+                    if (percentageEl) {
+                        percentageEl.textContent = '100%';
+                    }
+                    if (rafId) {
+                        cancelAnimationFrame(rafId);
+                    }
+                    finishLoader(loader);
+                }, totalDuration);
             });
 
             function finishLoader(loader) {

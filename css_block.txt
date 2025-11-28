@@ -1,0 +1,16 @@
+
+        .form-status {
+            margin-top: 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .form-status.success {
+            color: var(--success-color);
+        }
+
+        .form-status.error {
+            color: #B91C1C;
+        }
+
+        .form-textarea {

@@ -23,9 +23,9 @@
     <meta property="twitter:image" content="https://jbtechnologies.com/favicon.svg">
     
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
-    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="asessts/favicon.png">
+    <link rel="icon" type="image/png" href="asessts/favicon.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="asessts/favicon.png" sizes="32x32">
     <link rel="manifest" href="manifest.json">
     <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
     <meta name="theme-color" content="#ffffff">
@@ -762,6 +762,113 @@
             }
         }
 
+        /* Intent Map Section */
+        .intent-map-section {
+            padding: 40px 20px;
+            background-color: var(--white);
+        }
+
+        .intent-intro {
+            max-width: 760px;
+            margin-bottom: 32px;
+        }
+
+        .intent-intro p {
+            color: var(--text-light);
+            margin-top: 12px;
+        }
+
+        .intent-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .intent-card {
+            background: linear-gradient(135deg, rgba(36, 91, 138, 0.04), rgba(36, 91, 138, 0.08));
+            border: 1px solid rgba(36, 91, 138, 0.15);
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            height: 100%;
+        }
+
+        .intent-card-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .intent-card h3 {
+            font-size: 1.1rem;
+            margin: 0;
+            color: var(--text-dark);
+        }
+
+        .intent-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin: 0 0 8px 0;
+        }
+
+        .intent-keywords {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .intent-keywords li {
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            background-color: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(36, 91, 138, 0.15);
+            border-radius: 999px;
+            padding: 6px 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .intent-keywords li::before {
+            content: "#";
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .location-cta {
+            margin-top: 32px;
+            padding: 20px 24px;
+            border-radius: 16px;
+            border: 1px solid rgba(36, 91, 138, 0.2);
+            background-color: rgba(36, 91, 138, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .location-cta p {
+            margin: 0;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .location-cta a {
+            color: var(--primary-color);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .location-cta a:hover {
+            text-decoration: underline;
+        }
+
         /* Services Section */
         .services-section {
             padding: 40px 20px;
@@ -1363,6 +1470,8 @@
             font-size: 20px;
         }
     </style>
+
+<script type="text/javascript">(function(w,s){var e=document.createElement("script");e.type="text/javascript";e.async=true;e.src="https://cdn.pagesense.io/js/jbtechnologies/813661aa4ff34deeae6cd751ae0b6944.js";var x=document.getElementsByTagName("script")[0];x.parentNode.insertBefore(e,x);})(window,"script");</script>
 </head>
 <body class="page-services">
 
@@ -1695,6 +1804,95 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Intent Map Section -->
+    <section class="intent-map-section animate-fade-in">
+        <div class="container">
+            <div class="section-tag">
+                <span>SEARCH INTENT</span>
+            </div>
+            <div class="intent-intro">
+                <h2 class="section-heading">Built to capture national & local demand</h2>
+                <p>Facility teams, GCs, and AHJs search for very specific terms when projects hinge on compliance, coverage, or connectivity. We structure our delivery around those high-intent requests so Google understands JB Technologies as the partner for ERRCS, DAS, low voltage, AV, security, and IT rollouts nationwide.</p>
+            </div>
+            <div class="intent-grid">
+                <article class="intent-card">
+                    <p class="intent-card-label">Emergency Communications</p>
+                    <h3>ERRCS & Public Safety Radio</h3>
+                    <p>Turnkey IFC 510 / NFPA 1221 compliant solutions with RF surveys, radio signal testing, and P25 BDA deployments that keep first responders online in every jurisdiction.</p>
+                    <ul class="intent-keywords">
+                        <li>ERRCS installers</li>
+                        <li>public safety DAS</li>
+                        <li>RF surveys & radio coverage</li>
+                    </ul>
+                </article>
+                <article class="intent-card">
+                    <p class="intent-card-label">In-Building Wireless</p>
+                    <h3>Cellular DAS & Signal Boosting</h3>
+                    <p>Design-build for passive and active DAS, cellular signal booster installation, and in-building wireless systems that keep tenants connected across high-density facilities.</p>
+                    <ul class="intent-keywords">
+                        <li>DAS installation company</li>
+                        <li>active & passive DAS installers</li>
+                        <li>in-building wireless systems</li>
+                    </ul>
+                </article>
+                <article class="intent-card">
+                    <p class="intent-card-label">Low Voltage</p>
+                    <h3>Structured Cabling & Fiber</h3>
+                    <p>Nationwide crews execute Cat6/Cat6A, fiber backbones, MDF/IDF buildouts, and design-build low voltage scopes for campuses, warehouses, aviation, and enterprise space.</p>
+                    <ul class="intent-keywords">
+                        <li>structured cabling company</li>
+                        <li>fiber optic installers</li>
+                        <li>MDF / IDF buildouts</li>
+                    </ul>
+                </article>
+                <article class="intent-card">
+                    <p class="intent-card-label">Security</p>
+                    <h3>Access Control & CCTV</h3>
+                    <p>From badge systems and cloud access to multi-site CCTV, we integrate commercial security platforms that meet the demands of Class A offices, industrial, and aviation.</p>
+                    <ul class="intent-keywords">
+                        <li>access control installation</li>
+                        <li>commercial security systems</li>
+                        <li>cloud & multi-site access</li>
+                    </ul>
+                </article>
+                <article class="intent-card">
+                    <p class="intent-card-label">Audiovisual</p>
+                    <h3>AV & Collaboration Spaces</h3>
+                    <p>Conference room AV, video walls, hybrid meeting suites, Zoom/Teams rooms, and experiential environments engineered for modern workforces.</p>
+                    <ul class="intent-keywords">
+                        <li>conference room AV installer</li>
+                        <li>video wall installation</li>
+                        <li>Zoom & Teams room deployment</li>
+                    </ul>
+                </article>
+                <article class="intent-card">
+                    <p class="intent-card-label">Life Safety</p>
+                    <h3>Fire & Critical Infrastructure</h3>
+                    <p>Low voltage life safety cabling, fire alarm pathways, and code-driven integrations that keep projects inspection-ready and resilient.</p>
+                    <ul class="intent-keywords">
+                        <li>fire alarm cabling company</li>
+                        <li>life safety low voltage installers</li>
+                        <li>code-compliant pathways</li>
+                    </ul>
+                </article>
+                <article class="intent-card">
+                    <p class="intent-card-label">IT & Networking</p>
+                    <h3>Managed WiFi & Switching</h3>
+                    <p>Commercial WiFi design, network switch installation, and managed WiFi for business campuses with 24/7 monitoring and lifecycle support.</p>
+                    <ul class="intent-keywords">
+                        <li>commercial WiFi installers</li>
+                        <li>managed WiFi for business</li>
+                        <li>network switch deployment</li>
+                    </ul>
+                </article>
+            </div>
+            <div class="location-cta">
+                <p>Need DAS, ERRCS, or low voltage support in Metro Atlanta right now?</p>
+                <p><a href="locations/atlanta.html">Visit our Atlanta deployment hub</a> for AHJ requirements, metros covered, and recent project wins.</p>
             </div>
         </div>
     </section>
@@ -2040,11 +2238,11 @@
                             <div class="form-grid">
                                 <div class="form-group">
                                     <label class="form-label">Email <span class="required">*</span></label>
-                                    <input type="email" class="form-input" placeholder="jbtechnologies@gmail.com" required>
+                                    <input type="email" class="form-input" placeholder="Sales@jbtechnologies.com" required>
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Phone Number</label>
-                                    <input type="tel" class="form-input" placeholder="404-777-1804">
+                                    <input type="tel" class="form-input" placeholder="770-637-2094">
                                 </div>
                             </div>
                             
@@ -2092,7 +2290,7 @@
                                     </div>
                                     <div>
                                         <h3 class="method-title">Phone</h3>
-                                        <p class="method-value">404-777-1804</p>
+                                        <p class="method-value">770-637-2094</p>
                                     </div>
                                 </div>
                             </div>
@@ -2104,7 +2302,7 @@
                                     </div>
                                     <div>
                                         <h3 class="method-title">Email</h3>
-                                        <p class="method-value">info@jbtechnologies.com</p>
+                                        <p class="method-value">Sales@jbtechnologies.com</p>
                                     </div>
                                 </div>
                             </div>
@@ -2274,14 +2472,14 @@
             <div class="jb-footer__contact-icon"><i class="fa-solid fa-phone"></i></div>
             <div class="jb-footer__contact-details">
               <p>Call / WhatsApp</p>
-              <a href="tel:4047771804">404-777-1804</a>
+              <a href="tel:7706372094">770-637-2094</a>
             </div>
           </li>
           <li class="jb-footer__contact-item">
             <div class="jb-footer__contact-icon"><i class="fa-regular fa-envelope"></i></div>
             <div class="jb-footer__contact-details">
               <p>Email Us</p>
-              <a href="mailto:jbtechnologies@co.org">jbtechnologies@co.org</a>
+              <a href="mailto:Sales@jbtechnologies.com">Sales@jbtechnologies.com</a>
             </div>
           </li>
         </ul>
@@ -2396,7 +2594,7 @@
         "@type": "LocalBusiness",
         "name": "JB Technologies",
         "url": "https://jbtechnologies.com",
-        "telephone": "404-777-1804",
+        "telephone": "770-637-2094",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Atlanta",

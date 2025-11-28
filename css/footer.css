@@ -7,22 +7,11 @@
     margin-top: auto;
     width: 100%;
     clear: both;
-    /* Hide initially to prevent flash on page load */
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
-/* Override main.css rule that hides footer on home page */
+/* Hide the footer only on the homepage */
 .page-id-home .jb-footer {
-    display: block !important;
-}
-
-/* Show footer after page load */
-body.loaded .jb-footer,
-.jb-footer.visible {
-    visibility: visible !important;
-    opacity: 1 !important;
+    display: none !important;
 }
 
 .jb-footer__top-border {

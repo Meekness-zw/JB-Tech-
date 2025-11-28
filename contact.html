@@ -22,7 +22,7 @@
     <meta property="twitter:image" content="https://jbtechnologies.com/favicon.svg">
     
     <title>Contact JB Technologies - Request a Quote for Low-Voltage Services</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" href="asessts/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/footer.css">
     <style>
@@ -306,6 +306,14 @@
             line-height: 1.5;
         }
 
+        .tab-content-panel {
+            display: none;
+        }
+
+        .tab-content-panel.active {
+            display: block;
+        }
+
         /* Form Styles */
         .form-container {
             background-color: var(--white);
@@ -344,7 +352,7 @@
             box-shadow: 0 0 0 2px rgba(36, 91, 138, 0.2);
         }
 
-        .form-textarea {
+\n        .form-status {\n            margin-top: 0.75rem;\n            font-size: 0.875rem;\n            font-weight: 500;\n        }\n\n        .form-status.success {\n            color: var(--success-color);\n        }\n\n        .form-status.error {\n            color: #B91C1C;\n        }\n\n        .form-textarea {
             resize: none;
             min-height: 6rem;
         }
@@ -1880,7 +1888,9 @@
             font-size: 20px;
         }
     </style>
-    </head>
+    
+<script type="text/javascript">(function(w,s){var e=document.createElement("script");e.type="text/javascript";e.async=true;e.src="https://cdn.pagesense.io/js/jbtechnologies/813661aa4ff34deeae6cd751ae0b6944.js";var x=document.getElementsByTagName("script")[0];x.parentNode.insertBefore(e,x);})(window,"script");</script>
+</head>
 <body>
 
     </div>
@@ -2196,7 +2206,7 @@
                                             id="phone" 
                                             name="phone" 
                                             class="form-input" 
-                                            placeholder="404-777-1804"
+                                            placeholder="770-637-2094"
                                         >
                                     </div>
                                 </div>
@@ -2219,6 +2229,7 @@
                                     Send Message
                                     <i class="fas fa-arrow-right"></i>
                                 </button>
+                                <p id="generalFormStatus" class="form-status" role="status" aria-live="polite"></p>
                             </form>
                         </div>
                     </div>
@@ -2418,23 +2429,70 @@
             
             // Form submission
             const generalForm = document.getElementById('generalForm');
-            generalForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Get form data
-                const formData = {
-                    name: document.getElementById('name').value,
-                    email: document.getElementById('email').value,
-                    phone: document.getElementById('phone').value,
-                    message: document.getElementById('message').value
+            if (generalForm) {
+                const salesEmail = 'Sales@jbtechnologies.com';
+                const formEndpoint = `https://formsubmit.co/ajax/${encodeURIComponent(salesEmail)}`;
+                const statusMessage = document.getElementById('generalFormStatus');
+                const submitButton = generalForm.querySelector('button[type="submit"]');
+                const originalButtonHTML = submitButton ? submitButton.innerHTML : '';
+
+                const updateStatus = (type, message) => {
+                    if (!statusMessage) return;
+                    statusMessage.textContent = message;
+                    statusMessage.classList.remove('success', 'error');
+                    if (type) {
+                        statusMessage.classList.add(type);
+                    }
                 };
-                
-                console.log('Form submitted:', formData);
-                alert('Thank you for your message! We will get back to you soon.');
-                
-                // Reset form
-                generalForm.reset();
-            });
+
+                generalForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+
+                    const formData = {
+                        name: document.getElementById('name').value,
+                        email: document.getElementById('email').value,
+                        phone: document.getElementById('phone').value || 'Not provided',
+                        message: document.getElementById('message').value,
+                        _subject: 'New website inquiry',
+                        _template: 'table',
+                        _captcha: 'false'
+                    };
+
+                    updateStatus(null, 'Sending your message...');
+                    if (submitButton) {
+                        submitButton.disabled = true;
+                        submitButton.innerHTML = 'Sending...';
+                    }
+
+                    try {
+                        const response = await fetch(formEndpoint, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json'
+                            },
+                            body: JSON.stringify(formData)
+                        });
+
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+
+                        await response.json();
+                        updateStatus('success', 'Thanks! Our sales team has received your message.');
+                        generalForm.reset();
+                    } catch (error) {
+                        console.error('Form submission error:', error);
+                        updateStatus('error', 'We could not send your message. Please try again or email Sales@jbtechnologies.com directly.');
+                    } finally {
+                        if (submitButton) {
+                            submitButton.disabled = false;
+                            submitButton.innerHTML = originalButtonHTML;
+                        }
+                    }
+                });
+            }
+
             
             // Calendar functionality
             const calendarDays = document.querySelectorAll('.calendar-day.available');
@@ -2640,14 +2698,14 @@
             <div class="jb-footer__contact-icon"><i class="fa-solid fa-phone"></i></div>
             <div class="jb-footer__contact-details">
               <p>Call / WhatsApp</p>
-              <a href="tel:4047771804">404-777-1804</a>
+              <a href="tel:7706372094">770-637-2094</a>
             </div>
           </li>
           <li class="jb-footer__contact-item">
             <div class="jb-footer__contact-icon"><i class="fa-regular fa-envelope"></i></div>
             <div class="jb-footer__contact-details">
               <p>Email Us</p>
-              <a href="mailto:jbtechnologies@co.org">jbtechnologies@co.org</a>
+              <a href="mailto:Sales@jbtechnologies.com">Sales@jbtechnologies.com</a>
             </div>
           </li>
         </ul>
@@ -2681,8 +2739,8 @@
         "@type": "LocalBusiness",
         "name": "JB Technologies",
         "url": "https://jbtechnologies.com",
-        "telephone": "404-777-1804",
-        "email": "jbtechnologies@co.org",
+        "telephone": "770-637-2094",
+        "email": "Sales@jbtechnologies.com",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Atlanta",

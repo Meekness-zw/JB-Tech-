@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js desktop">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title><!-- Replace with "City + Service" e.g. "Atlanta Low Voltage & DAS Integrator" --></title>
+    <meta name="description" content="<!-- Replace with short summary: 'Low voltage, DAS, ERRCS, AV, and security integration in City, State.' -->">
+    <link rel="canonical" href="https://jbtechnologies.com/locations/city-name.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="<!-- Replace with same as title -->">
+    <meta property="og:description" content="<!-- Replace description -->">
+    <meta property="og:url" content="https://jbtechnologies.com/locations/city-name.html">
+    <meta property="og:image" content="https://jbtechnologies.com/favicon.svg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="<!-- Replace with same as title -->">
+    <meta property="twitter:description" content="<!-- Replace description -->">
+    <meta property="twitter:image" content="https://jbtechnologies.com/favicon.svg">
+
+    <link rel="icon" type="image/png" href="../asessts/favicon.png">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/footer.css">
+
+    <style>
+        :root {
+            --primary-color: #245B8A;
+            --primary-dark: #1a4666;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-500: #6b7280;
+            --gray-900: #111827;
+        }
+
+        body.page-location {
+            background-color: var(--gray-50);
+            color: var(--gray-900);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .location-wrapper {
+            padding-top: 100px;
+        }
+
+        .location-hero {
+            padding: 3rem 1.5rem 4rem;
+        }
+
+        .location-hero .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            gap: 2rem;
+        }
+
+        @media (min-width: 992px) {
+            .location-hero .container {
+                grid-template-columns: 3fr 2fr;
+            }
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.35rem 0.85rem;
+            border-radius: 999px;
+            background-color: rgba(36, 91, 138, 0.08);
+            color: var(--primary-color);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 3.25rem);
+            margin: 1rem 0;
+        }
+
+        .hero-body {
+            font-size: 1.05rem;
+            color: var(--gray-500);
+            line-height: 1.7;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.75rem;
+        }
+
+        .hero-actions a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.85rem 1.5rem;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        .btn-secondary {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .hero-card {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 25px 65px -35px rgba(15, 23, 42, 0.25);
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-card::after {
+            content: "";
+            position: absolute;
+            top: -20%;
+            right: -20%;
+            width: 220px;
+            height: 220px;
+            background: radial-gradient(circle, rgba(36, 91, 138, 0.15), transparent 60%);
+            filter: blur(1px);
+        }
+
+        .hero-card h3 {
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-cities {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-cities span {
+            font-size: 0.95rem;
+            color: var(--gray-500);
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .stat {
+            padding: 1rem;
+            border-radius: 12px;
+            background-color: var(--gray-100);
+            text-align: center;
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 1.75rem;
+        }
+
+        .location-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+            display: grid;
+            gap: 2rem;
+        }
+
+        @media (min-width: 1200px) {
+            .location-grid {
+                grid-template-columns: 3fr 2fr;
+            }
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 45px -25px rgba(15, 23, 42, 0.25);
+        }
+
+        .card h4 {
+            margin-bottom: 1rem;
+        }
+
+        .compliance-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .compliance-badge {
+            padding: 0.5rem 0.85rem;
+            border-radius: 8px;
+            background-color: rgba(36, 91, 138, 0.08);
+            color: var(--primary-color);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .service-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            gap: 0.85rem;
+        }
+
+        .service-list li {
+            display: flex;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+            color: var(--gray-500);
+        }
+
+        .service-list i {
+            color: var(--primary-color);
+            margin-top: 0.2rem;
+        }
+
+        .verticals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+        }
+
+        .vertical-pill {
+            padding: 0.75rem 1rem;
+            border-radius: 12px;
+            background-color: var(--gray-100);
+            font-weight: 600;
+        }
+
+        .cta-section {
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+            padding: 3rem 1.5rem;
+        }
+
+        .cta-card {
+            background: linear-gradient(135deg, #245B8A, #1a4666);
+            border-radius: 24px;
+            padding: 3rem;
+            color: #fff;
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .cta-card {
+                grid-template-columns: 3fr 2fr;
+                align-items: center;
+            }
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .cta-buttons a {
+            border-radius: 999px;
+            font-weight: 600;
+            display: inline-flex;
+            gap: 0.5rem;
+            align-items: center;
+            justify-content: center;
+            padding: 0.85rem 1.4rem;
+        }
+
+        .cta-buttons .btn-light {
+            background-color: #fff;
+            color: var(--primary-dark);
+        }
+
+        .cta-buttons .btn-outline-light {
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            color: #fff;
+        }
+    </style>
+
+<script type="text/javascript">(function(w,s){var e=document.createElement("script");e.type="text/javascript";e.async=true;e.src="https://cdn.pagesense.io/js/jbtechnologies/813661aa4ff34deeae6cd751ae0b6944.js";var x=document.getElementsByTagName("script")[0];x.parentNode.insertBefore(e,x);})(window,"script");</script>
+</head>
+<body class="page-location">
+    <div id="top-bar"></div>
+
+    <!-- Include the modern navbar from services.html as needed -->
+    <div id="new-navbar" style="background: transparent;">
+        <!-- ... replicate navbar markup from services.html or include via component ... -->
+    </div>
+
+    <nav id="nav" style="display: none; visibility: hidden; position: absolute; pointer-events: none; z-index: -1;"></nav>
+
+    <div class="location-wrapper">
+        <section class="location-hero">
+            <div class="container">
+                <div>
+                    <div class="hero-tag">
+                        <i class="fa-solid fa-signal"></i> LOW VOLTAGE + DAS
+                    </div>
+                    <h1 class="hero-title"><!-- Replace with "City Low-Voltage & DAS Integrator" --></h1>
+                    <p class="hero-body">
+                        <!-- Replace with 2-3 sentence overview describing national reach + local office presence, enforcement focus, core services -->
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../contact.html" class="btn-primary">Book a Site Walk <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="../planner.html" class="btn-secondary">Upload Plans</a>
+                    </div>
+                    <div class="stats-row">
+                        <div class="stat">
+                            <strong>200+</strong>
+                            AHJ approvals
+                        </div>
+                        <div class="stat">
+                            <strong>48</strong>
+                            states served
+                        </div>
+                        <div class="stat">
+                            <strong>24/7</strong>
+                            rapid response
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-card">
+                    <h3>Metro Areas We Cover</h3>
+                    <div class="hero-cities">
+                        <!-- Replace with nearby metros -->
+                        <span>City Core (Downtown & Midtown)</span>
+                        <span>Submarket 1</span>
+                        <span>Submarket 2</span>
+                        <span>Regional airports, logistics hubs, industrial parks</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="location-grid">
+            <article class="card">
+                <h4>Code-Driven ERRCS & DAS Delivery</h4>
+                <div class="compliance-badges">
+                    <span class="compliance-badge">IFC 510</span>
+                    <span class="compliance-badge">NFPA 1221</span>
+                    <span class="compliance-badge">AHJ Coordination</span>
+                </div>
+                <p>Describe how this market enforces ERRCS/public safety radio coverage (mention fire marshal, specific deadlines, plan reviewers, etc.).</p>
+                <ul class="service-list">
+                    <li><i class="fa-solid fa-check"></i><span>RF surveys, signal testing, grid reports</span></li>
+                    <li><i class="fa-solid fa-check"></i><span>Passive / active DAS design-build</span></li>
+                    <li><i class="fa-solid fa-check"></i><span>P25 BDA, Class A/B bi-directional amplifiers</span></li>
+                    <li><i class="fa-solid fa-check"></i><span>Annual maintenance & monitoring</span></li>
+                </ul>
+            </article>
+
+            <article class="card">
+                <h4>Integrated Low Voltage & Security</h4>
+                <p>Summarize structured cabling, access control, CCTV, AV, and managed IT services relevant to the city’s commercial mix.</p>
+                <ul class="service-list">
+                    <li><i class="fa-solid fa-network-wired"></i><span>Cat6/Cat6A & fiber backbones, MDF/IDF buildouts</span></li>
+                    <li><i class="fa-solid fa-id-card"></i><span>Badge + cloud access for multi-site portfolios</span></li>
+                    <li><i class="fa-solid fa-camera"></i><span>CCTV & remote monitoring suites</span></li>
+                    <li><i class="fa-solid fa-tv"></i><span>Conference room AV, video walls, Zoom/Teams rooms</span></li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="location-grid">
+            <article class="card">
+                <h4>Industries We Support</h4>
+                <p>Mention sectors with high enforcement or investment (e.g., aviation, healthcare, manufacturing, higher education, hospitality, logistics).</p>
+                <div class="verticals-grid">
+                    <div class="vertical-pill">Aviation & Hangars</div>
+                    <div class="vertical-pill">Healthcare & Life Sciences</div>
+                    <div class="vertical-pill">Class A Office</div>
+                    <div class="vertical-pill">Industrial & Manufacturing</div>
+                    <div class="vertical-pill">Higher Education</div>
+                    <div class="vertical-pill">Hospitality & Entertainment</div>
+                </div>
+            </article>
+            <article class="card">
+                <h4>Featured Local Work</h4>
+                <p>Swap in a brief case study or testimonial tied to the metro.</p>
+                <blockquote style="margin: 1.5rem 0; font-style: italic; color: var(--gray-500);">
+                    “Quote from client or project highlight that proves expertise in the city or a comparable metro.”
+                </blockquote>
+                <p><strong>Result:</strong> add measurable outcome (code approval, coverage level, deployment timeline).</p>
+            </article>
+        </section>
+
+        <section class="cta-section">
+            <div class="cta-card">
+                <div>
+                    <p style="letter-spacing:0.2em; font-size:0.85rem; opacity:0.8;">NEXT STEP</p>
+                    <h2 style="margin:0.5rem 0 1rem;">Schedule an on-site walk or upload plans</h2>
+                    <p>Call <a href="tel:7706372094" style="color:#fff; font-weight:700;">770-637-2094</a> or email <a href="mailto:Sales@jbtechnologies.com" style="color:#fff; font-weight:700;">Sales@jbtechnologies.com</a>. We turn quotes in 24 hours for occupied remodels, TI, and ground-up projects.</p>
+                </div>
+                <div class="cta-buttons">
+                    <a href="../contact.html" class="btn-light">Talk to Sales <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="../planner.html" class="btn-outline-light">Upload Drawings</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer id="footer" class="jb-footer">
+        <!-- Reuse existing footer markup -->
+        <div class="jb-footer__top-border"></div>
+        <section class="jb-footer__newsletter">
+            <div class="jb-footer__newsletter-container">
+                <div class="jb-footer__newsletter-box">
+                    <div class="jb-footer__newsletter-grid">
+                        <div class="jb-footer__newsletter-text">
+                            <h3>Stay Connected</h3>
+                            <p>Get DAS, ERRCS, and low-voltage insights for <!-- city --> and beyond.</p>
+                        </div>
+                        <form class="jb-footer__newsletter-form">
+                            <div class="jb-footer__input-container">
+                                <i class="fa-solid fa-envelope jb-footer__input-icon" aria-hidden="true"></i>
+                                <input type="email" class="jb-footer__input" placeholder="Enter your email" required>
+                            </div>
+                            <button type="submit" class="jb-footer__button">
+                                <span>Subscribe</span>
+                                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="jb-footer__content">
+            <!-- Omitted for brevity; copy existing footer blocks -->
+        </div>
+        <div class="jb-footer__bottom">
+            <div class="jb-footer__bottom-content">
+                <p>© 2025 JB Technologies. All rights reserved.</p>
+                <div class="jb-footer__bottom-links">
+                    <a href="../about.html">Privacy Policy</a>
+                    <a href="../about.html">Terms of Service</a>
+                    <a href="../index.html">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/footer-newsletter.js"></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "JB Technologies - <!-- City -->",
+      "image": "https://jbtechnologies.com/favicon.svg",
+      "@id": "https://jbtechnologies.com/locations/city-name.html",
+      "url": "https://jbtechnologies.com/locations/city-name.html",
+      "telephone": "770-637-2094",
+      "email": "Sales@jbtechnologies.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "<!-- Optional local office -->",
+        "addressLocality": "<!-- City -->",
+        "addressRegion": "<!-- State -->",
+        "postalCode": "<!-- ZIP -->",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "<!-- City, State -->"
+      },
+      "servesCuisine": null,
+      "priceRange": "$$$",
+      "sameAs": [
+        "https://www.linkedin.com/company/jbtechnologies",
+        "https://www.instagram.com/jbtechnologies"
+      ],
+      "description": "Low voltage, DAS, ERRCS, access control, AV, and IT integration for commercial facilities in <!-- City -->."
+    }
+    </script>
+</body>
+</html>
+

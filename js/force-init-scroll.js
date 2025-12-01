@@ -2,29 +2,23 @@
   // Lightweight touch detection
   var isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0);
 
-  // Show logs on screen for mobile debugging (easier than remote debugging)
-  var showOnScreen = true; // Set to false to disable on-screen logs
+  // Show logs on screen for mobile debugging (disabled)
+  var showOnScreen = false; // Set to true to enable on-screen logs
+  
+  // Remove any existing on-screen log viewer
+  (function() {
+    try {
+      var existingLog = document.getElementById('mobile-debug-logs');
+      if (existingLog) {
+        existingLog.remove();
+      }
+    } catch (e) {}
+  })();
   
   function log() {
     try { 
       console.log.apply(console, arguments);
-      
-      // Also show on screen if enabled
-      if (showOnScreen) {
-        var logDiv = document.getElementById('mobile-debug-logs');
-        if (!logDiv) {
-          logDiv = document.createElement('div');
-          logDiv.id = 'mobile-debug-logs';
-          logDiv.style.cssText = 'position:fixed;bottom:0;left:0;right:0;background:rgba(0,0,0,0.9);color:#0f0;font-family:monospace;font-size:10px;padding:10px;max-height:200px;overflow-y:auto;z-index:99999;word-wrap:break-word;';
-          document.body.appendChild(logDiv);
-        }
-        var args = Array.prototype.slice.call(arguments);
-        var message = args.map(function(arg) {
-          return typeof arg === 'object' ? JSON.stringify(arg) : String(arg);
-        }).join(' ');
-        logDiv.innerHTML += '<div>' + message + '</div>';
-        logDiv.scrollTop = logDiv.scrollHeight;
-      }
+      // On-screen logging disabled - logs only go to console
     } catch (e) {}
   }
 

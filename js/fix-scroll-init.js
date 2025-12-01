@@ -27,6 +27,7 @@
   
   function tryInitHomeScreenNavigator() {
     if (typeof window.jQuery === 'undefined' && typeof window.$ === 'undefined') {
+      log('[FIX] jQuery not available');
       return;
     }
     
@@ -38,14 +39,87 @@
       return;
     }
     
-    // The home page screen navigator is created in initScreenNavigator()
-    // which is called from initPage(). We need to ensure it's initialized.
-    // Since we can't directly access the page instance, we'll trigger
-    // events that should cause initialization
+    log('[FIX] Attempting to access and initialize home screen navigator...');
     
-    log('[FIX] Attempting to initialize home screen navigator...');
+    // Try to find the page instance through jQuery data
+    // The page instance might be stored on the element
+    var pageInstance = null;
+    var pageData = homePage.data();
+    
+    // Try common data keys where the instance might be stored
+    for (var key in pageData) {
+      var value = pageData[key];
+      if (value && typeof value === 'object') {
+        // Check if it has screenNavigator property
+        if (value.screenNavigator) {
+          log('[FIX] Found screenNavigator via jQuery data key:', key);
+          pageInstance = value;
+          break;
+        }
+        // Check if it's the page instance itself
+        if (typeof value.initScreenNavigator === 'function' || 
+            typeof value.initPage === 'function') {
+          log('[FIX] Found page instance via jQuery data key:', key);
+          pageInstance = value;
+          break;
+        }
+      }
+    }
+    
+    // If we found the page instance, try to initialize screen navigator
+    if (pageInstance) {
+      if (typeof pageInstance.initScreenNavigator === 'function') {
+        log('[FIX] Calling initScreenNavigator on page instance...');
+        try {
+          pageInstance.initScreenNavigator();
+          log('[FIX] Successfully called initScreenNavigator');
+        } catch (e) {
+          log('[FIX] ERROR calling initScreenNavigator:', e.message);
+        }
+      }
+      
+      if (pageInstance.screenNavigator) {
+        log('[FIX] Found screenNavigator on page instance');
+        var sn = pageInstance.screenNavigator;
+        
+        // Try to show the landing screen to activate it
+        if (typeof sn.showScreen === 'function') {
+          log('[FIX] Attempting to show landing screen...');
+          try {
+            sn.showScreen('landing');
+            log('[FIX] Successfully called showScreen("landing")');
+          } catch (e) {
+            log('[FIX] ERROR calling showScreen:', e.message);
+          }
+        }
+      }
+    } else {
+      log('[FIX] Could not find page instance. Trying alternative methods...');
+      
+      // Try to access through the page element's properties
+      var pageElement = homePage[0];
+      if (pageElement) {
+        // Check if screenNavigator is directly on the element
+        for (var prop in pageElement) {
+          if (prop === 'screenNavigator' || prop === 'page' || prop === 'screen') {
+            log('[FIX] Found property on element:', prop);
+            var val = pageElement[prop];
+            if (val && typeof val.showScreen === 'function') {
+              log('[FIX] Found screenNavigator on element property');
+              try {
+                val.showScreen('landing');
+                log('[FIX] Successfully called showScreen via element property');
+              } catch (e) {
+                log('[FIX] ERROR:', e.message);
+              }
+            }
+          }
+        }
+      }
+    }
     
     // Trigger resize which might cause initialization
+    log('[FIX] Triggering resize event...');
     $(window).trigger('resize');
     
     // Check if screen navigator exists by looking for home-screen elements
@@ -53,40 +127,18 @@
     if (homeScreens.length > 0) {
       log('[FIX] Found', homeScreens.length, 'home-screen elements');
       
-      // Try to trigger touch/swipe events that might initialize the navigator
-      if (isTouch) {
-        // Simulate a small touch event to wake up touch handlers
-        var firstScreen = homeScreens.first()[0];
-        if (firstScreen) {
+      // Try clicking on scroll buttons which might initialize the navigator
+      var scrollBtn = $('#home-landing__scroll, #home-scroll-cta__btn');
+      if (scrollBtn.length > 0) {
+        log('[FIX] Found scroll button, will try clicking after delay...');
+        setTimeout(function() {
           try {
-            var touchEvent = new TouchEvent('touchstart', {
-              bubbles: true,
-              cancelable: true,
-              touches: [{
-                clientX: 0,
-                clientY: 0,
-                identifier: 0,
-                target: firstScreen
-              }]
-            });
-            firstScreen.dispatchEvent(touchEvent);
-            log('[FIX] Dispatched touchstart event');
+            scrollBtn.first().trigger('click');
+            log('[FIX] Triggered click on scroll button');
           } catch (e) {
-            // TouchEvent might not be available, use Touch instead
-            try {
-              var touch = document.createTouch ? document.createTouch(
-                window, firstScreen, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-              ) : { clientX: 0, clientY: 0, target: firstScreen };
-              var touchList = document.createTouchList ? document.createTouchList(touch) : [touch];
-              var touchStartEvent = document.createEvent('TouchEvent');
-              touchStartEvent.initTouchEvent('touchstart', true, true, window, 0, 0, 0, 0, false, false, false, false, touchList, touchList, touchList, 0);
-              firstScreen.dispatchEvent(touchStartEvent);
-              log('[FIX] Dispatched touchstart event (fallback)');
-            } catch (e2) {
-              log('[FIX] Could not dispatch touch event:', e2.message);
-            }
+            log('[FIX] ERROR clicking scroll button:', e.message);
           }
-        }
+        }, 1000);
       }
     }
   }

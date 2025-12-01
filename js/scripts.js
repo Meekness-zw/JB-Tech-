@@ -2248,7 +2248,7 @@
                     return s(this, e), o(this, t.call(this, i))
                 }
                 return r(e, t), e.prototype.initPage = function () {
-                    t.prototype.initPage.call(this), this.window = $(window), this.videoLanding = $("#home-landing__bg__video"), this.hasVideo = this.videoLanding.length > 0, this.videoLandingIsHd = !1, this.initScreenNavigator(), this.initPagination(), this.initScrollCTA(), this.logo = $("#logo").on("click." + this.uid, this.onLogoClick.bind(this)), app.hasTouch && (this.touchStartY = null, this.element.on("touchstart." + this.uid, this.onTouchStart.bind(this)), this.element.on("touchend." + this.uid, this.onTouchEnd.bind(this)))
+                    t.prototype.initPage.call(this), this.window = $(window), this.videoLanding = $("#home-landing__bg__video"), this.hasVideo = this.videoLanding.length > 0, this.videoLandingIsHd = !1, this.initScreenNavigator(), this.initPagination(), this.initScrollCTA(), this.logo = $("#logo").on("click." + this.uid, this.onLogoClick.bind(this)), app.hasTouch && (this.touchStartY = null, this.touchTarget = $(document), this.element.on("touchstart." + this.uid, this.onTouchStart.bind(this)), this.element.on("touchend." + this.uid, this.onTouchEnd.bind(this)), this.touchTarget.on("touchstart." + this.uid, this.onTouchStart.bind(this)), this.touchTarget.on("touchend." + this.uid, this.onTouchEnd.bind(this)))
                 }, e.prototype.initScreenNavigator = function () {
                     var t = this,
                         e = this.element.find(".home-screen");
@@ -2280,7 +2280,7 @@
                 }, e.prototype.initNav = function () {
                     this.window.on("keyup." + this.uid, this.onKeyUp.bind(this)), this.element.on("DOMMouseScroll mousewheel", this.onScroll.bind(this))
                 }, e.prototype.dispose = function () {
-                    t.prototype.dispose.call(this), this.initialized && (this.screenNavigator.dispose(), this.pagination.off("click"), this.pagination.dispose(), this.scrollCTA.off("click"), this.scrollCTA.dispose(), this.window.off("keyup." + this.uid), this.window = null, this.element.off("DOMMouseScroll mousewheel"), app.hasTouch && this.element.off("touchstart." + this.uid).off("touchend." + this.uid), this.logo.off("click." + this.uid))
+                    t.prototype.dispose.call(this), this.initialized && (this.screenNavigator.dispose(), this.pagination.off("click"), this.pagination.dispose(), this.scrollCTA.off("click"), this.scrollCTA.dispose(), this.window.off("keyup." + this.uid), this.window = null, this.element.off("DOMMouseScroll mousewheel"), app.hasTouch && (this.element.off("touchstart." + this.uid).off("touchend." + this.uid), this.touchTarget && this.touchTarget.off("touchstart." + this.uid).off("touchend." + this.uid)), this.logo.off("click." + this.uid))
                 }, e.prototype.populateLoader = function () {
                     var e = this;
                     if (t.prototype.populateLoader.call(this), this.hasVideo) {
@@ -2405,7 +2405,7 @@
                         if (null === e) return void(this.touchStartY = null);
                         var i = this.touchStartY - e;
                         this.touchStartY = null;
-                        var n = 40;
+                        var n = 15;
                         Math.abs(i) >= n && (i > 0 ? this.gotoNextStep() : this.gotoPrevStep())
                     }
                 }, e.prototype.onScroll = function (t) {

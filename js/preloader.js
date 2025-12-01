@@ -1,6 +1,8 @@
 (function () {
-  const STAR_COUNT = 150;
-  const COMPLETE_FRAME = 180;
+  // Detect touch devices to reduce work on mobile
+  const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0);
+  const STAR_COUNT = isTouch ? 40 : 150;
+  const COMPLETE_FRAME = isTouch ? 90 : 180;
   const colors = ['#00E5FF', '#00AEB2', '#72DBE0', '#ffffff', '#ffffff', '#ffffff'];
 
   document.addEventListener('DOMContentLoaded', function () {
@@ -148,14 +150,24 @@
       draw() {
         ctx.save();
         ctx.globalAlpha = this.opacity;
-        ctx.shadowBlur = 25;
-        ctx.shadowColor = this.color;
+        // Reduce shadow blur on touch devices for better performance
+        if (!isTouch) {
+          ctx.shadowBlur = 25;
+          ctx.shadowColor = this.color;
+        } else {
+          ctx.shadowBlur = 6;
+          ctx.shadowColor = this.color;
+        }
         ctx.fillStyle = this.color;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
 
-        ctx.shadowBlur = 15;
+        if (!isTouch) {
+          ctx.shadowBlur = 15;
+        } else {
+          ctx.shadowBlur = 4;
+        }
         ctx.fillStyle = '#ffffff';
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size * 0.6, 0, Math.PI * 2);
@@ -188,6 +200,15 @@
       cancelAnimationFrame(animationId);
       preloader.classList.add('hidden');
       document.body.classList.remove('preloader-active');
+      
+      // Clear any inline overflow locks so native scrolling is available
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+      
+      // Dispatch a custom event that other code can safely listen to
+      var preloaderCompleteEvent = new Event('preloaderComplete', { bubbles: true, cancelable: true });
+      document.dispatchEvent(preloaderCompleteEvent);
+      
       setTimeout(() => {
         if (typeof window.onPreloaderComplete === 'function') {
           window.onPreloaderComplete();

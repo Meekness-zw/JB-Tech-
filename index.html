@@ -1357,6 +1357,68 @@
         <script src="js/main-loading-fallback.js"></script>
     <script src="js/scripts.js"></script>
 
+    <!-- Initialize scroll system after preloader completes -->
+    <script>
+      (function() {
+        // Detect touch devices
+        const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0);
+        
+        // Set video preload to none on touch devices to reduce initial load
+        if (isTouch) {
+          document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('video[preload="auto"]').forEach(function(v) {
+              v.preload = 'none';
+            });
+          });
+        }
+        
+        // Listen for preloader completion and try to initialize scroll system
+        function tryInitScroll() {
+          try {
+            // Try multiple possible global object names
+            var root = window.App || window.app || window.site || window.Site || window;
+            
+            // Check if initScroll method exists and call it
+            if (typeof root.initScroll === 'function') {
+              root.initScroll();
+            }
+            
+            // Also check for screenNavigator initialization on home page
+            // The home page uses screenNavigator, not initScroll
+            if (document.getElementById('home-page')) {
+              // The screenNavigator should already be initialized by scripts.js,
+              // but we can ensure it's ready by checking if the page is initialized
+              if (root.app && root.app.currentPage && typeof root.app.currentPage.initScreenNavigator === 'function') {
+                // Screen navigator should already be initialized, but we can trigger a resize
+                // to ensure everything is properly set up
+                if (window.jQuery && typeof window.jQuery === 'function') {
+                  window.jQuery(window).trigger('resize');
+                }
+              }
+            }
+          } catch(e) {
+            console.warn('Scroll initialization attempt failed:', e);
+          }
+        }
+        
+        // Listen for the preloaderComplete event
+        document.addEventListener('preloaderComplete', function() {
+          // Small delay to ensure DOM is fully ready
+          setTimeout(tryInitScroll, 100);
+        });
+        
+        // Also try on window load as a fallback
+        if (document.readyState === 'complete') {
+          // If page is already loaded, check if preloader already completed
+          setTimeout(tryInitScroll, 500);
+        } else {
+          window.addEventListener('load', function() {
+            setTimeout(tryInitScroll, 500);
+          });
+        }
+      })();
+    </script>
+
         <script src="js/footer-newsletter.js"></script>
 
     <!-- Show footer after page load to prevent flash -->

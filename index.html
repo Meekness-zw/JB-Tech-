@@ -58,20 +58,17 @@
     </script>
 
         <script src="js/modernizr-custom.min.js"></script>
+    <!-- Custom Modernizr touch override (disabled to match original site behavior)
     <script>
       window.Modernizr = window.Modernizr || {};
       (function(doc){
         var nav = window.navigator || {};
-        // Treat clear evidence of touch as authoritative so we don't
-        // accidentally disable touch on real mobile devices.
         var hasRealTouch = (
           'ontouchstart' in window ||
           (typeof nav.maxTouchPoints === 'number' && nav.maxTouchPoints > 0) ||
           (typeof nav.msMaxTouchPoints === 'number' && nav.msMaxTouchPoints > 0) ||
           (window.matchMedia && window.matchMedia('(pointer: coarse)').matches)
         );
-
-        // Only downgrade to "no-touch" on obvious non-touch environments.
         if (!hasRealTouch && Modernizr.touchevents) {
           Modernizr.touchevents = false;
           if (doc && doc.classList) {
@@ -81,6 +78,7 @@
         }
       })(document.documentElement);
     </script>
+    -->
     <script>
       (function() {
         var parts = window.location.pathname.split('/');
@@ -719,12 +717,14 @@
       }
 
       /* Disable normal page scrolling on home page – transitions control movement */
+      /*
       html,
       body.page-id-home {
         height: 100%;
         overflow: hidden;
         -webkit-overflow-scrolling: auto;
       }
+      */
 
     </style>
 
@@ -1383,34 +1383,29 @@
       })();
     </script>
 
-    <!-- Mobile: allow simple upward swipe on hero to go to next section (fallback when native swipe is unavailable) -->
+    <!-- Mobile: allow simple upward swipe on hero to go to next section (fallback when native swipe is unavailable)
     <script>
       (function() {
         function initMobileHeroSwipe() {
           var homeLanding = document.getElementById('home-landing');
           var nextSection = document.getElementById('home-screen-1');
           if (!homeLanding || !nextSection) return;
-
           var startY = null;
-          var threshold = 40; // pixels finger must move up
-
+          var threshold = 40;
           homeLanding.addEventListener('touchstart', function(e) {
             if (!e.touches || e.touches.length === 0) return;
             startY = e.touches[0].clientY;
           }, { passive: true });
-
           homeLanding.addEventListener('touchmove', function(e) {
             if (startY === null || !e.touches || e.touches.length === 0) return;
             var currentY = e.touches[0].clientY;
             var deltaY = startY - currentY;
-
             if (deltaY > threshold) {
               startY = null;
               nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
           }, { passive: false });
         }
-
         if (document.readyState === 'complete' || document.readyState === 'interactive') {
           initMobileHeroSwipe();
         } else {
@@ -1418,8 +1413,9 @@
         }
       })();
     </script>
+    -->
 
-    <!-- Allow footer to be reached once the final home step is active -->
+    <!-- Allow footer to be reached once the final home step is active
     <script>
       (function() {
         var homePage = document.getElementById('home-page');
@@ -1428,30 +1424,24 @@
         if (!homePage || !footer || !scrollLabel) {
           return;
         }
-
         var reversedLabel = (scrollLabel.getAttribute('data-reverse') || '').trim();
         var unlockListenerActive = false;
         var wheelEvents = ['wheel', 'mousewheel', 'DOMMouseScroll'];
-
         function scrollFooterIntoView() {
           footer.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-
         function onUnlockScroll(event) {
           var delta = typeof event.deltaY === 'number' ? event.deltaY :
             typeof event.wheelDelta === 'number' ? -event.wheelDelta :
             typeof event.detail === 'number' ? event.detail : 0;
-
           if (delta <= 0) {
             return;
           }
-
           event.preventDefault();
           event.stopImmediatePropagation();
           disableUnlockListener();
           scrollFooterIntoView();
         }
-
         function enableUnlockListener() {
           if (unlockListenerActive) {
             return;
@@ -1461,7 +1451,6 @@
             homePage.addEventListener(name, onUnlockScroll, true);
           });
         }
-
         function disableUnlockListener() {
           if (!unlockListenerActive) {
             return;
@@ -1471,7 +1460,6 @@
             homePage.removeEventListener(name, onUnlockScroll, true);
           });
         }
-
         function handleLabelChange() {
           var current = scrollLabel.textContent.trim();
           if (reversedLabel && current === reversedLabel) {
@@ -1480,17 +1468,16 @@
             disableUnlockListener();
           }
         }
-
         var observer = new MutationObserver(handleLabelChange);
         observer.observe(scrollLabel, { childList: true, subtree: true, characterData: true });
         handleLabelChange();
-
         window.addEventListener('beforeunload', function() {
           observer.disconnect();
           disableUnlockListener();
         });
       })();
     </script>
+    -->
 
     <!-- Video playback fix for home landing section - simplified like step-1 -->
     <script>

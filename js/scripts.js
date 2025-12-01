@@ -261,7 +261,7 @@
             K = null,
             tt = null;
         ! function () {
-            window.app = window.app || {}, app.screenXS = 480, app.screenS = 768, app.screenM = 1024, app.screenL = 1280, app.screenXL = 1400, app.screenXXL = 1600, app.windowWidth = app.windowHeight = 0, app.clientWidth = 0, app.prevWindowWidth = 0, app.hasHistory = Modernizr.history, app.isHdpi = (0, V.default)(), app.hasTouch = Modernizr.touchevents, app.ajaxEnabled = !0, app.hasHistory || (app.ajaxEnabled = !1), app.urlQuery = window.location.search ? (0, X.default)() : {}, app.IEVersion = (0, G.default)(), app.isIE = "-1" !== app.IEVersion.major, app.isIE && $("html").addClass("is-ie is-ie" + app.IEVersion.major), o(), s(), a(), r(), l(), $(window).on("resize", (0, D.debounce)(50, w)), w(), app.debug && app.urlQuery.skip ? c() : h()
+            window.app = window.app || {}, app.screenXS = 480, app.screenS = 768, app.screenM = 1024, app.screenL = 1280, app.screenXL = 1400, app.screenXXL = 1600, app.windowWidth = app.windowHeight = 0, app.clientWidth = 0, app.prevWindowWidth = 0, app.hasHistory = Modernizr.history, app.isHdpi = (0, V.default)(), app.hasTouch = !1, app.ajaxEnabled = !0, app.hasHistory || (app.ajaxEnabled = !1), app.urlQuery = window.location.search ? (0, X.default)() : {}, app.IEVersion = (0, G.default)(), app.isIE = "-1" !== app.IEVersion.major, app.isIE && $("html").addClass("is-ie is-ie" + app.IEVersion.major), o(), s(), a(), r(), l(), $(window).on("resize", (0, D.debounce)(50, w)), w(), app.debug && app.urlQuery.skip ? c() : h()
         }()
     }, {
         "components/footer": 5,
@@ -2248,7 +2248,7 @@
                     return s(this, e), o(this, t.call(this, i))
                 }
                 return r(e, t), e.prototype.initPage = function () {
-                    t.prototype.initPage.call(this), this.window = $(window), this.videoLanding = $("#home-landing__bg__video"), this.hasVideo = this.videoLanding.length > 0, this.videoLandingIsHd = !1, this.initScreenNavigator(), this.initPagination(), this.initScrollCTA(), this.logo = $("#logo").on("click." + this.uid, this.onLogoClick.bind(this))
+                    t.prototype.initPage.call(this), this.window = $(window), this.videoLanding = $("#home-landing__bg__video"), this.hasVideo = this.videoLanding.length > 0, this.videoLandingIsHd = !1, this.initScreenNavigator(), this.initPagination(), this.initScrollCTA(), this.logo = $("#logo").on("click." + this.uid, this.onLogoClick.bind(this)), this.initTouchNav()
                 }, e.prototype.initScreenNavigator = function () {
                     var t = this,
                         e = this.element.find(".home-screen");
@@ -2397,6 +2397,31 @@
                     this.updateRequest(e), t.prototype.onAnimateOutComplete.call(this)
                 }, e.prototype.onStepUpdateRequest = function (t) {
                     this.updateRequest(t.elementsToUpdate), t.elementsToUpdate.pagination && this.pagination.update(t.elementsToUpdate.pagination)
+                }, e.prototype.initTouchNav = function () {
+                    // Simple, unified touch swipe handling for home page (independent of Hammer)
+                    var t = "ontouchstart" in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+                    if (!t) return;
+                    var e = this;
+                    this.touchStartY = null, this.touchDeltaY = 0, this.touchActive = !1, this.touchThreshold = 40;
+                    this.element.on("touchstart." + this.uid, function (t) {
+                        if (!t.touches || !t.touches.length) return;
+                        e.touchActive = !0, e.touchStartY = t.touches[0].clientY, e.touchDeltaY = 0
+                    }), this.element.on("touchmove." + this.uid, function (t) {
+                        if (!e.touchActive || !t.touches || !t.touches.length) return;
+                        var i = t.touches[0].clientY;
+                        e.touchDeltaY = e.touchStartY - i
+                    }), this.element.on("touchend." + this.uid, function (t) {
+                        if (!e.touchActive) return;
+                        e.touchActive = !1;
+                        var i = e.touchDeltaY;
+                        e.touchStartY = null, e.touchDeltaY = 0;
+                        if (Math.abs(i) < e.touchThreshold) return;
+                        // If gesture started/ended inside a scrollable step-2 content, let native scroll handle it
+                        var n = t.target,
+                            s = $(n).closest(".home-screen__step-2__content")[0];
+                        if (s && s.clientHeight < s.scrollHeight) return;
+                        i > 0 ? e.gotoNextStep() : e.gotoPrevStep()
+                    })
                 }, e.prototype.onScroll = function (t) {
                     var e = t.target;
                     if (-1 !== e.parentNode.className.indexOf("home-screen__step-2__content__inner")) {

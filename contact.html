@@ -2431,7 +2431,7 @@
             // Form submission
             const generalForm = document.getElementById('generalForm');
             if (generalForm) {
-                const salesEmail = 'Sales@jbtechnologies.com';
+                const salesEmail = 'sales@jbtecknologies.com';
                 const formEndpoint = `https://formsubmit.co/ajax/${encodeURIComponent(salesEmail)}`;
                 const statusMessage = document.getElementById('generalFormStatus');
                 const submitButton = generalForm.querySelector('button[type="submit"]');
@@ -2484,7 +2484,7 @@
                         generalForm.reset();
                     } catch (error) {
                         console.error('Form submission error:', error);
-                        updateStatus('error', 'We could not send your message. Please try again or email Sales@jbtechnologies.com directly.');
+                        updateStatus('error', 'We could not send your message. Please try again or email sales@jbtecknologies.com directly.');
                     } finally {
                         if (submitButton) {
                             submitButton.disabled = false;
@@ -2706,7 +2706,7 @@
             <div class="jb-footer__contact-icon"><i class="fa-regular fa-envelope"></i></div>
             <div class="jb-footer__contact-details">
               <p>Email Us</p>
-              <a href="mailto:Sales@jbtechnologies.com">Sales@jbtechnologies.com</a>
+              <a href="mailto:sales@jbtecknologies.com">sales@jbtechnologies.com</a>
             </div>
           </li>
         </ul>
@@ -2741,7 +2741,7 @@
         "name": "JB Technologies",
         "url": "https://jbtechnologies.com",
         "telephone": "770-637-2094",
-        "email": "Sales@jbtechnologies.com",
+        "email": "sales@jbtecknologies.com",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Atlanta",

@@ -261,7 +261,7 @@
             K = null,
             tt = null;
         ! function () {
-            window.app = window.app || {}, app.screenXS = 480, app.screenS = 768, app.screenM = 1024, app.screenL = 1280, app.screenXL = 1400, app.screenXXL = 1600, app.windowWidth = app.windowHeight = 0, app.clientWidth = 0, app.prevWindowWidth = 0, app.hasHistory = Modernizr.history, app.isHdpi = (0, V.default)(), app.hasTouch = Modernizr.touchevents, app.ajaxEnabled = !0, app.hasHistory || (app.ajaxEnabled = !1), app.urlQuery = window.location.search ? (0, X.default)() : {}, app.IEVersion = (0, G.default)(), app.isIE = "-1" !== app.IEVersion.major, app.isIE && $("html").addClass("is-ie is-ie" + app.IEVersion.major), o(), s(), a(), r(), l(), $(window).on("resize", (0, D.debounce)(50, w)), w(), app.debug && app.urlQuery.skip ? c() : h()
+            window.app = window.app || {}, app.screenXS = 480, app.screenS = 768, app.screenM = 1024, app.screenL = 1280, app.screenXL = 1400, app.screenXXL = 1600, app.windowWidth = app.windowHeight = 0, app.clientWidth = 0, app.prevWindowWidth = 0, app.hasHistory = Modernizr.history, app.isHdpi = (0, V.default)(), app.hasTouch = !1, app.ajaxEnabled = !0, app.hasHistory || (app.ajaxEnabled = !1), app.urlQuery = window.location.search ? (0, X.default)() : {}, app.IEVersion = (0, G.default)(), app.isIE = "-1" !== app.IEVersion.major, app.isIE && $("html").addClass("is-ie is-ie" + app.IEVersion.major), o(), s(), a(), r(), l(), $(window).on("resize", (0, D.debounce)(50, w)), w(), app.debug && app.urlQuery.skip ? c() : h()
         }()
     }, {
         "components/footer": 5,

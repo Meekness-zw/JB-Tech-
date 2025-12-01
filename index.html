@@ -718,6 +718,14 @@
         pointer-events: none;
       }
 
+      /* Disable normal page scrolling on home page – transitions control movement */
+      html,
+      body.page-id-home {
+        height: 100%;
+        overflow: hidden;
+        -webkit-overflow-scrolling: auto;
+      }
+
     </style>
 
     <div id="page-container">
@@ -1636,22 +1644,6 @@
             </div>
             <span class="market-link">Visit location <i class="fa-solid fa-arrow-right"></i></span>
           </a>
-          <div class="market-card market-card--placeholder">
-            <div>
-              <p class="market-label">Dallas–Fort Worth</p>
-              <h3>Coming Soon</h3>
-              <p class="market-body">Launching dedicated DAS, ERRCS, and low voltage crews across North Texas.</p>
-            </div>
-            <span class="market-link">In development</span>
-          </div>
-          <div class="market-card market-card--placeholder">
-            <div>
-              <p class="market-label">Houston</p>
-              <h3>Coming Soon</h3>
-              <p class="market-body">Expanding fire code radio coverage, access control, and AV delivery for Gulf Coast builds.</p>
-            </div>
-            <span class="market-link">In development</span>
-          </div>
         </div>
       </div>
     </section>

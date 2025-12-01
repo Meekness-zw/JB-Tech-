@@ -260,6 +260,12 @@ body.preloader-active {
     animation-delay: .7s
 }
 
+/* Allow natural vertical scrolling / panning on home screens, especially on touch devices */
+.page-id-home .home-screen,
+.page-id-home .home-screen * {
+    touch-action: pan-y !important;
+}
+
 .initial-loader__logo-svg path:nth-child(9) {
     animation-delay: .8s
 }

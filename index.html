@@ -62,11 +62,17 @@
       window.Modernizr = window.Modernizr || {};
       (function(doc){
         var nav = window.navigator || {};
-        var hasTouchPoints = (typeof nav.maxTouchPoints === 'number' && nav.maxTouchPoints > 0) ||
+        // Treat clear evidence of touch as authoritative so we don't
+        // accidentally disable touch on real mobile devices.
+        var hasRealTouch = (
+          'ontouchstart' in window ||
+          (typeof nav.maxTouchPoints === 'number' && nav.maxTouchPoints > 0) ||
           (typeof nav.msMaxTouchPoints === 'number' && nav.msMaxTouchPoints > 0) ||
-          (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
+          (window.matchMedia && window.matchMedia('(pointer: coarse)').matches)
+        );
 
-        if (!hasTouchPoints && Modernizr.touchevents) {
+        // Only downgrade to "no-touch" on obvious non-touch environments.
+        if (!hasRealTouch && Modernizr.touchevents) {
           Modernizr.touchevents = false;
           if (doc && doc.classList) {
             doc.classList.remove('touch');

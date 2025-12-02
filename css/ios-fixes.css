@@ -1,0 +1,26 @@
+/* iOS / touch-device scroll fixes for the home page
+ *
+ * Goal:
+ * - Override aggressive overflow: hidden on home screens that can freeze
+ *   scrolling on iOS when the custom scroll engine fails to initialize.
+ * - Limit changes to touch-like devices (pointer: coarse / no hover) and
+ *   to the home page only (body.page-id-home).
+ */
+
+@media (pointer: coarse), (hover: none), (max-width: 1024px) {
+  /* Allow native vertical scrolling on the home container and screens */
+  .page-id-home #home-page,
+  .page-id-home .home-screen {
+    overflow-y: auto !important;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Make sure inner content doesn’t re-lock scrolling */
+  .page-id-home .home-screen * {
+    /* Only override if something explicitly forced hidden */
+    overflow-y: visible !important;
+  }
+}
+
+

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JB Technologies offers state-of-the-art fiber optic installation and testing, delivering high-speed, high-capacity connectivity for businesses and institutions.">
+    <meta name="keywords" content="fiber optic installation, fiber optics, fiber optic testing, high-speed connectivity, fiber cabling, optical fiber network">
+    <link rel="canonical" href="https://jbtechnologies.com/services/fiber-optics.html">
+    
+    <title>Fiber Optics Services | JB Technologies</title>
+    <link rel="icon" type="image/png" href="/asessts/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="/asessts/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    
+    <style>
+        :root {
+            --primary-blue: #245B8A;
+            --dark-blue: #1C2D41;
+            --light-blue: #5BA5A5;
+            --light-gray: #F5F5F5;
+            --white: #FFFFFF;
+            --black: #000000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 60vh;
+            min-height: 500px;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: var(--white);
+            padding: 2rem;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Service Content Section */
+        .service-content {
+            padding: 5rem 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .service-content {
+                padding: 6rem 2rem;
+            }
+        }
+
+        .service-intro {
+            max-width: 900px;
+            margin: 0 auto 4rem;
+            text-align: center;
+        }
+
+        .service-intro h2 {
+            font-size: 2.5rem;
+            color: var(--dark-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-intro p {
+            font-size: 1.125rem;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .service-details {
+            display: grid;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        @media (min-width: 768px) {
+            .service-details {
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+            }
+        }
+
+        .detail-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .detail-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .detail-card h3 i {
+            font-size: 1.75rem;
+        }
+
+        .detail-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .capabilities-section {
+            background: var(--light-gray);
+            padding: 5rem 1rem;
+            margin: 4rem 0;
+        }
+
+        @media (min-width: 768px) {
+            .capabilities-section {
+                padding: 6rem 2rem;
+            }
+        }
+
+        .capabilities-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .capabilities-content h2 {
+            font-size: 2.5rem;
+            color: var(--dark-blue);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .capabilities-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .capabilities-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+        }
+
+        .capability-item {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 0.75rem;
+            border-left: 4px solid var(--primary-blue);
+            transition: transform 0.3s;
+        }
+
+        .capability-item:hover {
+            transform: translateX(10px);
+        }
+
+        .capability-item h4 {
+            font-size: 1.25rem;
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .capability-item p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            padding: 5rem 1rem;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: var(--white);
+            color: var(--primary-blue);
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 1rem;
+            background: var(--light-gray);
+        }
+
+        .breadcrumb nav {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <nav>
+            <a href="../index.html">Home</a> / 
+            <a href="../services.html">Services</a> / 
+            <span>Fiber Optics</span>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Fiber Optics Services</h1>
+            <p class="hero-subtitle">
+                JB Technologies offers state-of-the-art fiber optic installation and testing, delivering high-speed, 
+                high-capacity connectivity for businesses and institutions. Our solutions are tailored for both short 
+                and long-distance needs, ensuring fast, reliable data transfer with minimal downtime.
+            </p>
+        </div>
+    </section>
+
+    <!-- Service Content -->
+    <section class="service-content">
+        <div class="container">
+            <div class="service-intro">
+                <h2>High-Speed Fiber Optic Connectivity Solutions</h2>
+                <p>
+                    In today's data-driven world, reliable high-speed connectivity is essential. JB Technologies provides 
+                    comprehensive fiber optic installation, testing, and maintenance services that deliver the bandwidth 
+                    and reliability your organization needs. From single-mode to multi-mode fiber, underground to aerial 
+                    installations, we have the expertise and experience to handle projects of any scale.
+                </p>
+            </div>
+
+            <div class="service-details">
+                <div class="detail-card">
+                    <h3><i class="fas fa-network-wired"></i> Installation Services</h3>
+                    <p>
+                        Professional fiber optic cable installation for both indoor and outdoor applications. We handle 
+                        everything from design and planning to trenching, conduit installation, and cable pulling, ensuring 
+                        proper cable management and protection throughout your network infrastructure.
+                    </p>
+                </div>
+
+                <div class="detail-card">
+                    <h3><i class="fas fa-vial"></i> Testing & Certification</h3>
+                    <p>
+                        Comprehensive testing services using industry-standard OTDR, power meter, and light source equipment. 
+                        We provide detailed test reports and certification documentation to verify that your fiber optic 
+                        network meets all performance specifications and industry standards.
+                    </p>
+                </div>
+
+                <div class="detail-card">
+                    <h3><i class="fas fa-plug"></i> Splicing & Termination</h3>
+                    <p>
+                        Expert fusion splicing and connector termination services for single-mode and multi-mode fiber. 
+                        Our certified technicians ensure low-loss connections that maintain optimal signal integrity and 
+                        network performance.
+                    </p>
+                </div>
+
+                <div class="detail-card">
+                    <h3><i class="fas fa-wrench"></i> Maintenance & Repair</h3>
+                    <p>
+                        Proactive maintenance and rapid repair services to keep your fiber optic network operating at peak 
+                        performance. We offer 24/7 emergency response and scheduled maintenance programs to minimize downtime 
+                        and ensure maximum network reliability.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capabilities Section -->
+    <section class="capabilities-section">
+        <div class="container">
+            <div class="capabilities-content">
+                <h2>Key Capabilities</h2>
+                <div class="capabilities-grid">
+                    <div class="capability-item">
+                        <h4>Single-Mode Fiber</h4>
+                        <p>Long-distance, high-bandwidth single-mode fiber installations for campus and metropolitan networks</p>
+                    </div>
+                    <div class="capability-item">
+                        <h4>Multi-Mode Fiber</h4>
+                        <p>Cost-effective multi-mode fiber solutions for short-distance, high-speed data center and LAN applications</p>
+                    </div>
+                    <div class="capability-item">
+                        <h4>Fusion Splicing</h4>
+                        <p>Low-loss fusion splicing services with comprehensive testing and documentation</p>
+                    </div>
+                    <div class="capability-item">
+                        <h4>OTDR Testing</h4>
+                        <p>Optical Time Domain Reflectometer testing for comprehensive fiber optic network analysis</p>
+                    </div>
+                    <div class="capability-item">
+                        <h4>Underground Installation</h4>
+                        <p>Professional underground fiber optic cable installation including trenching and conduit systems</p>
+                    </div>
+                    <div class="capability-item">
+                        <h4>Aerial Installation</h4>
+                        <p>Safe and reliable aerial fiber optic installations for utility poles and overhead applications</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Upgrade to Fiber?</h2>
+            <p>Experience the speed and reliability of fiber optic connectivity with our professional installation services</p>
+            <a href="../contact.html" class="btn">
+                Get Started <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="jb-footer">
+        <!-- Footer content will be loaded here if you have a footer component -->
+    </footer>
+
+    <script src="../js/footer-newsletter.js"></script>
+</body>
+</html>
+

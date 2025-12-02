@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JB Technologies provides reliable, code-compliant Emergency Responder Radio Communications Systems (EERCS) solutions that ensure first responders can communicate effectively during emergencies.">
+    <meta name="keywords" content="EERCS, emergency responder radio, public safety DAS, ERRCS installation, emergency communications, first responder radio systems">
+    <link rel="canonical" href="https://jbtechnologies.com/services/eercs.html">
+    
+    <title>Emergency Responder Radio Communications Systems (EERCS) | JB Technologies</title>
+    <link rel="icon" type="image/png" href="/asessts/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="/asessts/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    
+    <style>
+        :root {
+            --primary-blue: #245B8A;
+            --dark-blue: #1C2D41;
+            --light-blue: #5BA5A5;
+            --light-gray: #F5F5F5;
+            --white: #FFFFFF;
+            --black: #000000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 60vh;
+            min-height: 500px;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: var(--white);
+            padding: 2rem;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Service Content Section */
+        .service-content {
+            padding: 5rem 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .service-content {
+                padding: 6rem 2rem;
+            }
+        }
+
+        .service-intro {
+            max-width: 900px;
+            margin: 0 auto 4rem;
+            text-align: center;
+        }
+
+        .service-intro h2 {
+            font-size: 2.5rem;
+            color: var(--dark-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-intro p {
+            font-size: 1.125rem;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .service-details {
+            display: grid;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        @media (min-width: 768px) {
+            .service-details {
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+            }
+        }
+
+        .detail-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .detail-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .detail-card h3 i {
+            font-size: 1.75rem;
+        }
+
+        .detail-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .capabilities-section {
+            background: var(--light-gray);
+            padding: 5rem 1rem;
+            margin: 4rem 0;
+        }
+
+        @media (min-width: 768px) {
+            .capabilities-section {
+                padding: 6rem 2rem;
+            }
+        }
+
+        .capabilities-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .capabilities-content h2 {
+            font-size: 2.5rem;
+            color: var(--dark-blue);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .capabilities-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .capabilities-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+        }
+
+        .capability-item {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 0.75rem;
+            border-left: 4px solid var(--primary-blue);
+            transition: transform 0.3s;
+        }
+
+        .capability-item:hover {
+            transform: translateX(10px);
+        }
+
+        .capability-item h4 {
+            font-size: 1.25rem;
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .capability-item p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            padding: 5rem 1rem;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: var(--white);
+            color: var(--primary-blue);
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 1rem;
+            background: var(--light-gray);
+        }
+
+        .breadcrumb nav {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <nav>
+            <a href="../index.html">Home</a> / 
+            <a href="../services.html">Services</a> / 
+            <span>Emergency Responder Radio Communications Systems (EERCS)</span>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Emergency Responder Radio Communications Systems (EERCS)</h1>
+            <p class="hero-subtitle">
+                Ensure first responders can communicate effectively during emergencies with JB Technologies' ERRCS solutions. 
+                We provide reliable, code-compliant systems that guarantee clear communication even in the most challenging 
+                environments, enhancing safety and operational efficiency.
+            </p>
+        </div>
+    </section>
+
+    <!-- Service Content -->
+    <section class="service-content">
+        <div class="container">
+            <div class="service-intro">
+                <h2>Code-Compliant Emergency Communication Solutions</h2>
+                <p>
+                    When seconds count, reliable communication can mean the difference between life and death. JB Technologies 
+                    specializes in designing, installing, and maintaining Emergency Responder Radio Communications Systems (EERCS) 
+                    that ensure first responders maintain clear, uninterrupted communication within buildings, even in areas with 
+                    traditionally poor signal coverage. Our systems meet all local, state, and federal code requirements, 
+                    providing peace of mind and enhanced safety for your facility.
+                </p>
+            </div>
+
+            <div class="service-details">
+                <div class="detail-card">
+                    <h3><i class="fas fa-shield-alt"></i> Code Compliance</h3>
+                    <p>
+                        All our EERCS installations are designed to meet NFPA, IFC, and local AHJ requirements. We ensure 
+                        complete compliance with building codes and fire safety regulations, providing documentation and 
+                        testing to verify system performance.
+                    </p>
+                </div>
+
+                <div class="detail-card">
+                    <h3><i class="fas fa-broadcast-tower"></i> Signal Enhancement</h3>
+                    <p>
+                        Our bidirectional amplifier (BDA) systems extend public safety radio signals throughout your building, 
+                        ensuring first responders can communicate reliably from every location, including basements, parking 
+                        garages, and interior spaces.
+                    </p>
+                </div>
+
+                <div class="detail-card">
+                    <h3><i class="fas fa-clipboard-check"></i> System Testing</h3>
+                    <p>
+                        Comprehensive testing and commissioning services ensure your EERCS system operates at peak performance. 
+                        We conduct signal strength measurements, coverage mapping, and annual compliance testing to maintain 
+                        system reliability.
+                    </p>
+                </div>
+
+                <div class="detail-card">
+                    <h3><i class="fas fa-tools"></i> Maintenance & Support</h3>
+                    <p>
+                        Ongoing maintenance and monitoring services keep your emergency communication system operational 24/7. 
+                        We provide regular inspections, preventive maintenance, and rapid response service to address any issues 
+                        immediately.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capabilities Section -->
+    <section class="capabilities-section">
+        <div class="container">
+            <div class="capabilities-content">
+                <h2>Key Capabilities</h2>
+                <div class="capabilities-grid">
+                    <div class="capability-item">
+                        <h4>Bidirectional Amplifier Systems</h4>
+                        <p>High-performance BDA systems that amplify public safety radio signals for reliable coverage throughout your facility</p>
+                    </div>
+                    <div class="capability-item">
+                        <h4>Coverage Analysis</h4>
+                        <p>RF signal strength testing and coverage mapping to identify weak areas and optimize system design</p>
+                    </div>
+                    <div class="capability-item">
+                        <h4>Code Compliance</h4>
+                        <p>Systems designed to meet NFPA 72, IFC, and local authority having jurisdiction (AHJ) requirements</p>
+                    </div>
+                    <div class="capability-item">
+                        <h4>Installation & Commissioning</h4>
+                        <p>Professional installation and comprehensive testing to ensure system reliability and code compliance</p>
+                    </div>
+                    <div class="capability-item">
+                        <h4>Annual Inspections</h4>
+                        <p>Regular compliance testing and system inspections to maintain operational readiness</p>
+                    </div>
+                    <div class="capability-item">
+                        <h4>Multi-Band Support</h4>
+                        <p>Support for VHF, UHF, 700 MHz, and 800 MHz public safety radio frequencies</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ensure First Responder Communication Reliability</h2>
+            <p>Protect lives and maintain code compliance with our professional EERCS solutions</p>
+            <a href="../contact.html" class="btn">
+                Get Started <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="jb-footer">
+        <!-- Footer content will be loaded here if you have a footer component -->
+    </footer>
+
+    <script src="../js/footer-newsletter.js"></script>
+</body>
+</html>
+

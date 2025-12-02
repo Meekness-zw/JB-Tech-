@@ -763,6 +763,103 @@
             }
         }
 
+        /* Service Cards Grid Section */
+        .service-cards-section {
+            padding: 60px 20px;
+            background-color: var(--gray-50);
+        }
+
+        .service-cards-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        @media (min-width: 640px) {
+            .service-cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .service-cards-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .service-card-link {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .service-card {
+            background: var(--white);
+            border: 2px solid rgba(36, 91, 138, 0.1);
+            border-radius: 16px;
+            padding: 32px;
+            height: 100%;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .service-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(36, 91, 138, 0.15);
+        }
+
+        .service-card-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(36, 91, 138, 0.1), rgba(36, 91, 138, 0.05));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .service-card-icon i {
+            font-size: 28px;
+            color: var(--primary-color);
+        }
+
+        .service-card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 0;
+        }
+
+        .service-card-description {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .service-card-arrow {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: auto;
+        }
+
+        .service-card-arrow i {
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-card-arrow i {
+            transform: translateX(4px);
+        }
+
         /* Intent Map Section */
         .intent-map-section {
             padding: 40px 20px;
@@ -1809,6 +1906,109 @@
         </div>
     </section>
 
+    <!-- Service Cards Grid Section -->
+    <section class="service-cards-section animate-fade-in-delay">
+        <div class="container">
+            <div class="section-tag">
+                <span>OUR SERVICES</span>
+            </div>
+            <h2 class="section-heading">Explore Our Professional Services</h2>
+            <p style="max-width: 700px; margin-top: 12px; color: var(--text-light);">Discover our comprehensive range of low-voltage and building technology services. Click on any service to learn more about our solutions and capabilities.</p>
+            
+            <div class="service-cards-grid">
+                <a href="services/audio-visual.html" class="service-card-link">
+                    <div class="service-card">
+                        <div class="service-card-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h3 class="service-card-title">Audio / Visual</h3>
+                        <p class="service-card-description">
+                            Enhance communication and collaboration with advanced Audio/Visual systems including video conferencing, digital signage, and custom A/V integration.
+                        </p>
+                        <div class="service-card-arrow">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="services/eercs.html" class="service-card-link">
+                    <div class="service-card">
+                        <div class="service-card-icon">
+                            <i class="fas fa-broadcast-tower"></i>
+                        </div>
+                        <h3 class="service-card-title">Emergency Responder Radio Communications Systems (EERCS)</h3>
+                        <p class="service-card-description">
+                            Ensure first responders can communicate effectively during emergencies with reliable, code-compliant ERRCS solutions.
+                        </p>
+                        <div class="service-card-arrow">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="services/fiber-optics.html" class="service-card-link">
+                    <div class="service-card">
+                        <div class="service-card-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h3 class="service-card-title">Fiber Optics</h3>
+                        <p class="service-card-description">
+                            State-of-the-art fiber optic installation and testing, delivering high-speed, high-capacity connectivity for businesses and institutions.
+                        </p>
+                        <div class="service-card-arrow">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="services/access-control.html" class="service-card-link">
+                    <div class="service-card">
+                        <div class="service-card-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h3 class="service-card-title">Access Control</h3>
+                        <p class="service-card-description">
+                            Advanced access control systems to enhance security and streamline building management with customizable solutions for secure, monitored facility access.
+                        </p>
+                        <div class="service-card-arrow">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="services/cctv.html" class="service-card-link">
+                    <div class="service-card">
+                        <div class="service-card-icon">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <h3 class="service-card-title">CCTV</h3>
+                        <p class="service-card-description">
+                            Protect your assets and ensure safety with cutting-edge CCTV solutions. Reliable, high-definition surveillance systems for real-time monitoring.
+                        </p>
+                        <div class="service-card-arrow">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="services/structured-cabling.html" class="service-card-link">
+                    <div class="service-card">
+                        <div class="service-card-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h3 class="service-card-title">Structured Cabling</h3>
+                        <p class="service-card-description">
+                            Optimize your network infrastructure with professional structured cabling solutions. High-performance, organized, and scalable cabling systems.
+                        </p>
+                        <div class="service-card-arrow">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Intent Map Section -->
     <section class="intent-map-section animate-fade-in">
         <div class="container">
@@ -1820,7 +2020,7 @@
                 <p>Facility teams, GCs, and AHJs search for very specific terms when projects hinge on compliance, coverage, or connectivity. We structure our delivery around those high-intent requests so Google understands JB Technologies as the partner for ERRCS, DAS, low voltage, AV, security, and IT rollouts nationwide.</p>
             </div>
             <div class="intent-grid">
-                <article class="intent-card">
+                <article class="intent-card" style="cursor: pointer;" onclick="window.location.href='services/eercs.html'">
                     <p class="intent-card-label">Emergency Communications</p>
                     <h3>ERRCS & Public Safety Radio</h3>
                     <p>Turnkey IFC 510 / NFPA 1221 compliant solutions with RF surveys, radio signal testing, and P25 BDA deployments that keep first responders online in every jurisdiction.</p>
@@ -1840,7 +2040,7 @@
                         <li>in-building wireless systems</li>
                     </ul>
                 </article>
-                <article class="intent-card">
+                <article class="intent-card" style="cursor: pointer;" onclick="window.location.href='services/structured-cabling.html'">
                     <p class="intent-card-label">Low Voltage</p>
                     <h3>Structured Cabling & Fiber</h3>
                     <p>Nationwide crews execute Cat6/Cat6A, fiber backbones, MDF/IDF buildouts, and design-build low voltage scopes for campuses, warehouses, aviation, and enterprise space.</p>
@@ -1850,7 +2050,7 @@
                         <li>MDF / IDF buildouts</li>
                     </ul>
                 </article>
-                <article class="intent-card">
+                <article class="intent-card" style="cursor: pointer;" onclick="window.location.href='services/access-control.html'">
                     <p class="intent-card-label">Security</p>
                     <h3>Access Control & CCTV</h3>
                     <p>From badge systems and cloud access to multi-site CCTV, we integrate commercial security platforms that meet the demands of Class A offices, industrial, and aviation.</p>
@@ -1860,7 +2060,7 @@
                         <li>cloud & multi-site access</li>
                     </ul>
                 </article>
-                <article class="intent-card">
+                <article class="intent-card" style="cursor: pointer;" onclick="window.location.href='services/audio-visual.html'">
                     <p class="intent-card-label">Audiovisual</p>
                     <h3>AV & Collaboration Spaces</h3>
                     <p>Conference room AV, video walls, hybrid meeting suites, Zoom/Teams rooms, and experiential environments engineered for modern workforces.</p>
@@ -2239,7 +2439,7 @@
                             <div class="form-grid">
                                 <div class="form-group">
                                     <label class="form-label">Email <span class="required">*</span></label>
-                                    <input type="email" class="form-input" placeholder="sales@jbtechnologies.com" required>
+                                    <input type="email" class="form-input" placeholder="sales@jbtecknologies.com" required>
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Phone Number</label>
@@ -2303,7 +2503,7 @@
                                     </div>
                                     <div>
                                         <h3 class="method-title">Email</h3>
-                                        <p class="method-value">sales@jbtechnologies.com</p>
+                                        <p class="method-value">sales@jbtecknologies.com</p>
                                     </div>
                                 </div>
                             </div>
@@ -2480,7 +2680,7 @@
             <div class="jb-footer__contact-icon"><i class="fa-regular fa-envelope"></i></div>
             <div class="jb-footer__contact-details">
               <p>Email Us</p>
-              <a href="mailto:sales@jbtechnologies.com">sales@jbtechnologies.com</a>
+              <a href="mailto:sales@jbtecknologies.com">sales@jbtecknologies.com</a>
             </div>
           </li>
         </ul>

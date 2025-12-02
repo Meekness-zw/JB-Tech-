@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Optimize your network infrastructure with JB Technologies structured cabling solutions. Professional installation services delivering high-performance, organized, and scalable cabling systems.">
+    <meta name="keywords" content="structured cabling, network cabling, data cabling, ethernet cabling, commercial cabling, low voltage cabling">
+    <link rel="canonical" href="https://jbtechnologies.com/services/structured-cabling.html">
+    
+    <title>Structured Cabling Services | JB Technologies</title>
+    <link rel="icon" type="image/png" href="/asessts/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="/asessts/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    
+    <style>
+        :root {
+            --primary-blue: #245B8A;
+            --dark-blue: #1C2D41;
+            --light-blue: #5BA5A5;
+            --light-gray: #F5F5F5;
+            --white: #FFFFFF;
+            --black: #000000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 60vh;
+            min-height: 500px;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: var(--white);
+            padding: 2rem;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Service Content Section */
+        .service-content {
+            padding: 5rem 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .service-content {
+                padding: 6rem 2rem;
+            }
+        }
+
+        .service-intro {
+            max-width: 900px;
+            margin: 0 auto 4rem;
+            text-align: center;
+        }
+
+        .service-intro h2 {
+            font-size: 2.5rem;
+            color: var(--dark-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-intro p {
+            font-size: 1.125rem;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .service-details {
+            display: grid;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        @media (min-width: 768px) {
+            .service-details {
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+            }
+        }
+
+        .detail-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .detail-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .detail-card h3 i {
+            font-size: 1.75rem;
+        }
+
+        .detail-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .capabilities-section {
+            background: var(--light-gray);
+            padding: 5rem 1rem;
+            margin: 4rem 0;
+        }
+
+        @media (min-width: 768px) {
+            .capabilities-section {
+                padding: 6rem 2rem;
+            }
+        }
+
+        .capabilities-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .capabilities-content h2 {
+            font-size: 2.5rem;
+            color: var(--dark-blue);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .capabilities-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .capabilities-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+        }
+
+        .capability-item {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 0.75rem;
+            border-left: 4px solid var(--primary-blue);
+            transition: transform 0.3s;
+        }
+
+        .capability-item:hover {
+            transform: translateX(10px);
+        }
+
+        .capability-item h4 {
+            font-size: 1.25rem;
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .capability-item p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            padding: 5rem 1rem;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: var(--white);
+            color: var(--primary-blue);
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 1rem;
+            background: var(--light-gray);
+        }
+
+        .breadcrumb nav {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <nav>
+            <a href="../index.html">Home</a> / 
+            <a href="../services.html">Services</a> / 
+            <span>Structured Cabling</span>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Structured Cabling Services</h1>
+            <p class="hero-subtitle">
+                Optimize your network infrastructure with JB Technologies structured cabling solutions. Our professional 
+                installation services deliver high-performance, organized, and scalable cabling that supports your business 
+                growth and keeps your data flowing smoothly.
+            </p>
+        </div>
+    </section>
+
+    <!-- Service Content -->
+    <section class="service-content">
+        <div class="container">
+            <div class="service-intro">
+                <h2>Enterprise-Grade Cabling Infrastructure</h2>
+                <p>
+                    A well-designed structured cabling system is the foundation of any reliable network. JB Technologies 
+                    provides comprehensive structured cabling solutions that ensure optimal performance, easy maintenance, 
+                    and future scalability. We design and install cable systems that support data, voice, video, and other 
+                    low-voltage services, creating a unified infrastructure that adapts to your evolving technology needs.
+                </p>
+            </div>
+
+            <div class="service-details">
+                <div class="detail-card">
+                    <h3><i class="fas fa-network-wired"></i> Design & Planning</h3>
+                    <p>
+                        Comprehensive site surveys and custom cabling designs that meet your current needs while allowing 
+                        for future expansion. We follow TIA/EIA standards and best practices to ensure optimal cable routing, 
+                        proper cable management, and maximum performance throughout your facility.
+                    </p>
+                </div>
+
+                <div class="detail-card">
+                    <h3><i class="fas fa-plug"></i> Cable Installation</h3>
+                    <p>
+                        Professional installation of Category 5e, 6, 6A, and fiber optic cables with proper termination, 
+                        labeling, and cable management. Our certified technicians ensure clean, organized installations that 
+                        meet all industry standards and building codes.
+                    </p>
+                </div>
+
+                <div class="detail-card">
+                    <h3><i class="fas fa-server"></i> Data Center Solutions</h3>
+                    <p>
+                        Specialized cabling solutions for data centers and server rooms, including high-density patching, 
+                        overhead and underfloor cable management, and fiber optic backbones. We design systems that support 
+                        high-speed data transfer and efficient cooling.
+                    </p>
+                </div>
+
+                <div class="detail-card">
+                    <h3><i class="fas fa-clipboard-check"></i> Testing & Certification</h3>
+                    <p>
+                        Comprehensive cable testing and certification using industry-standard equipment. We provide detailed 
+                        test reports documenting cable performance, ensuring all connections meet or exceed specified standards 
+                        for optimal network reliability.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capabilities Section -->
+    <section class="capabilities-section">
+        <div class="container">
+            <div class="capabilities-content">
+                <h2>Key Capabilities</h2>
+                <div class="capabilities-grid">
+                    <div class="capability-item">
+                        <h4>Category 5e, 6 & 6A Cabling</h4>
+                        <p>High-performance copper cabling solutions supporting Gigabit and 10 Gigabit Ethernet networks</p>
+                    </div>
+                    <div class="capability-item">
+                        <h4>Fiber Optic Backbone</h4>
+                        <p>Single-mode and multi-mode fiber optic installations for high-speed backbone connections</p>
+                    </div>
+                    <div class="capability-item">
+                        <h4>Patch Panel Installation</h4>
+                        <p>Professional patch panel installations with proper labeling and cable management</p>
+                    </div>
+                    <div class="capability-item">
+                        <h4>Cable Management</h4>
+                        <p>Organized cable routing using cable trays, raceways, and management systems for clean installations</p>
+                    </div>
+                    <div class="capability-item">
+                        <h4>Voice & Data Integration</h4>
+                        <p>Unified cabling systems supporting both voice and data services on a single infrastructure</p>
+                    </div>
+                    <div class="capability-item">
+                        <h4>Future-Proof Design</h4>
+                        <p>Cabling systems designed to support emerging technologies and increased bandwidth requirements</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Build Your Network Foundation</h2>
+            <p>Ensure reliable connectivity with our professional structured cabling solutions</p>
+            <a href="../contact.html" class="btn">
+                Get Started <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="jb-footer">
+        <!-- Footer content will be loaded here if you have a footer component -->
+    </footer>
+
+    <script src="../js/footer-newsletter.js"></script>
+</body>
+</html>
+

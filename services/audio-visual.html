@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JB Technologies provides advanced Audio/Visual systems including video conferencing, digital signage, and custom A/V integration for seamless communication and collaboration.">
+    <meta name="keywords" content="audio visual systems, video conferencing, digital signage, AV integration, A/V installation, commercial AV solutions">
+    <link rel="canonical" href="https://jbtechnologies.com/services/audio-visual.html">
+    
+    <title>Audio/Visual Services | JB Technologies</title>
+    <link rel="icon" type="image/png" href="/asessts/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="/asessts/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    
+    <style>
+        :root {
+            --primary-blue: #245B8A;
+            --dark-blue: #1C2D41;
+            --light-blue: #5BA5A5;
+            --light-gray: #F5F5F5;
+            --white: #FFFFFF;
+            --black: #000000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 60vh;
+            min-height: 500px;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: var(--white);
+            padding: 2rem;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Service Content Section */
+        .service-content {
+            padding: 5rem 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .service-content {
+                padding: 6rem 2rem;
+            }
+        }
+
+        .service-intro {
+            max-width: 900px;
+            margin: 0 auto 4rem;
+            text-align: center;
+        }
+
+        .service-intro h2 {
+            font-size: 2.5rem;
+            color: var(--dark-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-intro p {
+            font-size: 1.125rem;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .service-details {
+            display: grid;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        @media (min-width: 768px) {
+            .service-details {
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+            }
+        }
+
+        .detail-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .detail-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .detail-card h3 i {
+            font-size: 1.75rem;
+        }
+
+        .detail-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .capabilities-section {
+            background: var(--light-gray);
+            padding: 5rem 1rem;
+            margin: 4rem 0;
+        }
+
+        @media (min-width: 768px) {
+            .capabilities-section {
+                padding: 6rem 2rem;
+            }
+        }
+
+        .capabilities-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .capabilities-content h2 {
+            font-size: 2.5rem;
+            color: var(--dark-blue);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .capabilities-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .capabilities-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+        }
+
+        .capability-item {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 0.75rem;
+            border-left: 4px solid var(--primary-blue);
+            transition: transform 0.3s;
+        }
+
+        .capability-item:hover {
+            transform: translateX(10px);
+        }
+
+        .capability-item h4 {
+            font-size: 1.25rem;
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .capability-item p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            padding: 5rem 1rem;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: var(--white);
+            color: var(--primary-blue);
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 1.5rem 1rem;
+            background: var(--light-gray);
+            margin-top: 80px;
+        }
+
+        .breadcrumb nav {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+            color: var(--dark-blue);
+        }
+
+        .breadcrumb span {
+            color: #666;
+        }
+
+        /* Back to Services Button */
+        .back-to-services {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-left: auto;
+        }
+
+        .back-to-services:hover {
+            background: var(--dark-blue);
+            transform: translateX(-5px);
+        }
+
+        /* Related Services Section */
+        .related-services {
+            background: var(--white);
+            padding: 4rem 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .related-services {
+                padding: 5rem 2rem;
+            }
+        }
+
+        .related-services h2 {
+            font-size: 2.5rem;
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .related-services p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .related-services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 640px) {
+            .related-services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .related-services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .related-service-card {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 1rem;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .related-service-card:hover {
+            border-color: var(--primary-blue);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .related-service-card h3 {
+            font-size: 1.25rem;
+            color: var(--primary-blue);
+            margin-bottom: 0.75rem;
+        }
+
+        .related-service-card p {
+            color: #666;
+            font-size: 0.95rem;
+            text-align: left;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <nav>
+            <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+            <span>/</span>
+            <a href="../services.html">Services</a>
+            <span>/</span>
+            <span>Audio/Visual</span>
+            <a href="../services.html" class="back-to-services">
+                <i class="fas fa-arrow-left"></i> Back to Services
+            </a>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Audio / Visual Services</h1>
+            <p class="hero-subtitle">
+                Enhance communication and collaboration with JB Technologies' advanced Audio/Visual systems. 
+                We provide high-quality video conferencing, digital signage, and custom A/V integration for a seamless 
+                experience across any environment, ensuring clear, professional presentations every time.
+            </p>
+        </div>
+    </section>
+
+    <!-- Service Content -->
+    <section class="service-content">
+        <div class="container">
+            <div class="service-intro">
+                <h2>Professional Audio/Visual Solutions</h2>
+                <p>
+                    At JB Technologies, we understand that effective communication is the backbone of modern business. 
+                    Our comprehensive Audio/Visual services transform your spaces into dynamic environments that foster 
+                    collaboration, engagement, and productivity. From boardrooms to auditoriums, we deliver cutting-edge 
+                    A/V solutions tailored to your specific needs.
+                </p>
+            </div>
+
+            <div class="service-details">
+                <div class="detail-card">
+                    <h3><i class="fas fa-video"></i> Video Conferencing</h3>
+                    <p>
+                        State-of-the-art video conferencing systems that connect your team with clients and colleagues 
+                        worldwide. Our solutions support high-definition video, crystal-clear audio, and seamless screen 
+                        sharing capabilities for professional meetings that feel face-to-face.
+                    </p>
+                </div>
+
+                <div class="detail-card">
+                    <h3><i class="fas fa-desktop"></i> Digital Signage</h3>
+                    <p>
+                        Dynamic digital signage solutions that engage your audience and deliver important information 
+                        effectively. Whether for wayfinding, announcements, or marketing, our systems create impactful 
+                        visual experiences throughout your facility.
+                    </p>
+                </div>
+
+                <div class="detail-card">
+                    <h3><i class="fas fa-sliders-h"></i> Custom Integration</h3>
+                    <p>
+                        Seamless integration of all your A/V components into a unified, easy-to-use system. Our custom 
+                        solutions ensure that audio, video, lighting, and control systems work together harmoniously 
+                        for a smooth, intuitive user experience.
+                    </p>
+                </div>
+
+                <div class="detail-card">
+                    <h3><i class="fas fa-headphones"></i> Professional Audio</h3>
+                    <p>
+                        High-quality audio systems designed for clarity and coverage. From conference rooms to large 
+                        venues, we design and install audio solutions that deliver exceptional sound quality for 
+                        presentations, meetings, and events.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capabilities Section -->
+    <section class="capabilities-section">
+        <div class="container">
+            <div class="capabilities-content">
+                <h2>Key Capabilities</h2>
+                <div class="capabilities-grid">
+                    <div class="capability-item">
+                        <h4>Video Conferencing Systems</h4>
+                        <p>Professional-grade video conferencing solutions with HD/4K cameras, microphones, and displays</p>
+                    </div>
+                    <div class="capability-item">
+                        <h4>Digital Signage Networks</h4>
+                        <p>Content management systems for multi-screen displays across your facility</p>
+                    </div>
+                    <div class="capability-item">
+                        <h4>Control Systems</h4>
+                        <p>Intuitive touch panels and automation for managing all A/V equipment</p>
+                    </div>
+                    <div class="capability-item">
+                        <h4>Audio Distribution</h4>
+                        <p>Professional audio systems with zone control and background music capabilities</p>
+                    </div>
+                    <div class="capability-item">
+                        <h4>Presentation Systems</h4>
+                        <p>Projectors, displays, and interactive whiteboards for engaging presentations</p>
+                    </div>
+                    <div class="capability-item">
+                        <h4>Streaming & Recording</h4>
+                        <p>Live streaming and recording solutions for events and meetings</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Services Section -->
+    <section class="related-services">
+        <div class="container">
+            <h2>Explore Our Other Services</h2>
+            <p>Discover more comprehensive solutions to meet all your technology infrastructure needs</p>
+            <div class="related-services-grid">
+                <a href="eercs.html" class="related-service-card">
+                    <h3><i class="fas fa-broadcast-tower"></i> Emergency Responder Radio (EERCS)</h3>
+                    <p>Code-compliant systems ensuring first responders maintain clear communication during emergencies.</p>
+                </a>
+                <a href="fiber-optics.html" class="related-service-card">
+                    <h3><i class="fas fa-network-wired"></i> Fiber Optics</h3>
+                    <p>High-speed, high-capacity connectivity solutions for businesses and institutions.</p>
+                </a>
+                <a href="access-control.html" class="related-service-card">
+                    <h3><i class="fas fa-lock"></i> Access Control</h3>
+                    <p>Advanced access control systems to enhance security and streamline building management.</p>
+                </a>
+                <a href="cctv.html" class="related-service-card">
+                    <h3><i class="fas fa-camera"></i> CCTV</h3>
+                    <p>High-definition surveillance systems for real-time monitoring and peace of mind.</p>
+                </a>
+                <a href="structured-cabling.html" class="related-service-card">
+                    <h3><i class="fas fa-server"></i> Structured Cabling</h3>
+                    <p>Professional cabling solutions that support your business growth and keep data flowing smoothly.</p>
+                </a>
+                <a href="../services.html" class="related-service-card">
+                    <h3><i class="fas fa-list"></i> View All Services</h3>
+                    <p>See our complete range of low-voltage and building technology services.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Transform Your Space?</h2>
+            <p>Let us design and implement an Audio/Visual solution that elevates your communication and collaboration</p>
+            <a href="../contact.html" class="btn">
+                Get Started <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="jb-footer">
+        <!-- Footer content will be loaded here if you have a footer component -->
+    </footer>
+
+    <script src="../js/footer-newsletter.js"></script>
+</body>
+</html>
+

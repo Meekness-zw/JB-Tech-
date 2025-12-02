@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Protect your assets and ensure safety with JB Technologies' cutting-edge CCTV solutions. High-definition surveillance systems designed for real-time monitoring and peace of mind.">
+    <meta name="keywords" content="CCTV installation, security cameras, video surveillance, IP cameras, security camera systems, commercial CCTV">
+    <link rel="canonical" href="https://jbtechnologies.com/services/cctv.html">
+    
+    <title>CCTV Services | JB Technologies</title>
+    <link rel="icon" type="image/png" href="/asessts/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="/asessts/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    
+    <style>
+        :root {
+            --primary-blue: #245B8A;
+            --dark-blue: #1C2D41;
+            --light-blue: #5BA5A5;
+            --light-gray: #F5F5F5;
+            --white: #FFFFFF;
+            --black: #000000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 60vh;
+            min-height: 500px;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: var(--white);
+            padding: 2rem;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Service Content Section */
+        .service-content {
+            padding: 5rem 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .service-content {
+                padding: 6rem 2rem;
+            }
+        }
+
+        .service-intro {
+            max-width: 900px;
+            margin: 0 auto 4rem;
+            text-align: center;
+        }
+
+        .service-intro h2 {
+            font-size: 2.5rem;
+            color: var(--dark-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-intro p {
+            font-size: 1.125rem;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .service-details {
+            display: grid;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        @media (min-width: 768px) {
+            .service-details {
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+            }
+        }
+
+        .detail-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .detail-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .detail-card h3 i {
+            font-size: 1.75rem;
+        }
+
+        .detail-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .capabilities-section {
+            background: var(--light-gray);
+            padding: 5rem 1rem;
+            margin: 4rem 0;
+        }
+
+        @media (min-width: 768px) {
+            .capabilities-section {
+                padding: 6rem 2rem;
+            }
+        }
+
+        .capabilities-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .capabilities-content h2 {
+            font-size: 2.5rem;
+            color: var(--dark-blue);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .capabilities-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .capabilities-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+        }
+
+        .capability-item {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 0.75rem;
+            border-left: 4px solid var(--primary-blue);
+            transition: transform 0.3s;
+        }
+
+        .capability-item:hover {
+            transform: translateX(10px);
+        }
+
+        .capability-item h4 {
+            font-size: 1.25rem;
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .capability-item p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            padding: 5rem 1rem;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: var(--white);
+            color: var(--primary-blue);
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 1rem;
+            background: var(--light-gray);
+        }
+
+        .breadcrumb nav {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <nav>
+            <a href="../index.html">Home</a> / 
+            <a href="../services.html">Services</a> / 
+            <span>CCTV</span>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">CCTV Services</h1>
+            <p class="hero-subtitle">
+                Protect your assets and ensure safety with JB Technologies' cutting-edge CCTV solutions. Our reliable, 
+                high-definition surveillance systems are designed to give you real-time monitoring and peace of mind, 
+                wherever you need it.
+            </p>
+        </div>
+    </section>
+
+    <!-- Service Content -->
+    <section class="service-content">
+        <div class="container">
+            <div class="service-intro">
+                <h2>Advanced Video Surveillance Solutions</h2>
+                <p>
+                    Comprehensive CCTV systems that provide 24/7 monitoring and protection for your facility. JB Technologies 
+                    designs and installs state-of-the-art video surveillance systems using the latest IP camera technology, 
+                    delivering crystal-clear video quality and intelligent features. From single-camera installations to 
+                    enterprise-wide deployments, we provide solutions that scale with your security needs.
+                </p>
+            </div>
+
+            <div class="service-details">
+                <div class="detail-card">
+                    <h3><i class="fas fa-video"></i> IP Camera Systems</h3>
+                    <p>
+                        High-definition IP camera systems with 4K resolution, night vision, and advanced analytics. Our 
+                        IP-based solutions offer superior image quality, remote access capabilities, and intelligent features 
+                        like motion detection, facial recognition, and license plate recognition.
+                    </p>
+                </div>
+
+                <div class="detail-card">
+                    <h3><i class="fas fa-cloud"></i> Cloud & NVR Solutions</h3>
+                    <p>
+                        Flexible recording solutions including Network Video Recorders (NVR) and cloud-based storage options. 
+                        Our systems provide reliable video storage with remote access, mobile viewing, and advanced search 
+                        capabilities for efficient incident review and evidence management.
+                    </p>
+                </div>
+
+                <div class="detail-card">
+                    <h3><i class="fas fa-eye"></i> Video Analytics</h3>
+                    <p>
+                        Intelligent video analytics software that goes beyond simple recording. Features include people counting, 
+                        loitering detection, perimeter intrusion alerts, and automated event notifications that help security 
+                        teams respond quickly to potential threats.
+                    </p>
+                </div>
+
+                <div class="detail-card">
+                    <h3><i class="fas fa-mobile-alt"></i> Remote Monitoring</h3>
+                    <p>
+                        Access your CCTV system from anywhere with mobile apps and web-based interfaces. Monitor your facility 
+                        in real-time, receive instant alerts, and review recorded footage from your smartphone, tablet, or 
+                        computer for complete peace of mind.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capabilities Section -->
+    <section class="capabilities-section">
+        <div class="container">
+            <div class="capabilities-content">
+                <h2>Key Capabilities</h2>
+                <div class="capabilities-grid">
+                    <div class="capability-item">
+                        <h4>4K & HD Cameras</h4>
+                        <p>Ultra-high-definition cameras with superior image quality for detailed monitoring and identification</p>
+                    </div>
+                    <div class="capability-item">
+                        <h4>Night Vision Technology</h4>
+                        <p>Advanced low-light and thermal imaging cameras for 24/7 surveillance in any lighting condition</p>
+                    </div>
+                    <div class="capability-item">
+                        <h4>Pan-Tilt-Zoom (PTZ)</h4>
+                        <p>Motorized PTZ cameras with remote control for comprehensive area coverage and detailed inspection</p>
+                    </div>
+                    <div class="capability-item">
+                        <h4>Integration Options</h4>
+                        <p>Seamless integration with access control, alarm systems, and building automation for unified security</p>
+                    </div>
+                    <div class="capability-item">
+                        <h4>Indoor & Outdoor Solutions</h4>
+                        <p>Weatherproof outdoor cameras and discreet indoor options for comprehensive facility coverage</p>
+                    </div>
+                    <div class="capability-item">
+                        <h4>Scalable Systems</h4>
+                        <p>Modular systems that can grow from a few cameras to hundreds, accommodating your evolving security needs</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Secure Your Facility with CCTV</h2>
+            <p>Get real-time monitoring and peace of mind with our professional surveillance solutions</p>
+            <a href="../contact.html" class="btn">
+                Get Started <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="jb-footer">
+        <!-- Footer content will be loaded here if you have a footer component -->
+    </footer>
+
+    <script src="../js/footer-newsletter.js"></script>
+</body>
+</html>
+

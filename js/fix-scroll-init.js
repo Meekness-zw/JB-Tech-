@@ -127,38 +127,27 @@
     if (homeScreens.length > 0) {
       log('[FIX] Found', homeScreens.length, 'home-screen elements');
       
-      // Try clicking on scroll buttons which might initialize the navigator
-      var scrollBtn = $('#home-landing__scroll, #home-scroll-cta__btn');
-      if (scrollBtn.length > 0) {
-        log('[FIX] Found scroll button, will try clicking after delay...');
-        setTimeout(function() {
-          try {
-            scrollBtn.first().trigger('click');
-            log('[FIX] Triggered click on scroll button');
-          } catch (e) {
-            log('[FIX] ERROR clicking scroll button:', e.message);
-          }
-        }, 1000);
-      }
+      // NOTE:
+      // Previously this block tried to auto-click the hero scroll button
+      // (`#home-landing__scroll` / `#home-scroll-cta__btn`) after a delay.
+      // That caused the page to auto-scroll from the hero to the next step
+      // as soon as the site loaded.
+      //
+      // To allow users to scroll manually from the hero, the auto-click
+      // behaviour has been removed intentionally.
     }
   }
   
-  // Fix touch detection immediately
-  if (document.readyState === 'complete' || document.readyState === 'interactive') {
-    fixTouchDetection();
-    setTimeout(tryInitHomeScreenNavigator, 500);
-  } else {
+  // Fix touch detection as soon as DOM is ready (no need to wait for full load)
+  if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function() {
       fixTouchDetection();
       setTimeout(tryInitHomeScreenNavigator, 500);
     });
-  }
-  
-  // Also fix on window load
-  window.addEventListener('load', function() {
+  } else {
     fixTouchDetection();
-    setTimeout(tryInitHomeScreenNavigator, 1000);
-  });
+    setTimeout(tryInitHomeScreenNavigator, 500);
+  }
   
   // Listen for preloader completion
   document.addEventListener('preloaderComplete', function() {

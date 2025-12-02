@@ -1357,7 +1357,7 @@
         <script src="js/main-loading-fallback.js"></script>
     <script src="js/scripts.js"></script>
 
-    <!-- Initialize scroll system after preloader completes -->
+    <!-- Initialize scroll system without waiting for full page load -->
     <script>
       (function() {
         // Detect touch devices
@@ -1372,7 +1372,7 @@
           });
         }
         
-        // Listen for preloader completion and try to initialize scroll system
+        // Try to initialize scroll system
         function tryInitScroll() {
           try {
             // Try multiple possible global object names
@@ -1396,25 +1396,19 @@
                 }
               }
             }
-          } catch(e) {
+          } catch (e) {
             console.warn('Scroll initialization attempt failed:', e);
           }
         }
         
-        // Listen for the preloaderComplete event
-        document.addEventListener('preloaderComplete', function() {
-          // Small delay to ensure DOM is fully ready
-          setTimeout(tryInitScroll, 100);
-        });
-        
-        // Also try on window load as a fallback
-        if (document.readyState === 'complete') {
-          // If page is already loaded, check if preloader already completed
-          setTimeout(tryInitScroll, 500);
-        } else {
-          window.addEventListener('load', function() {
-            setTimeout(tryInitScroll, 500);
+        // Run as soon as the DOM is ready (no need to wait for all assets)
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', function () {
+            setTimeout(tryInitScroll, 50);
           });
+        } else {
+          // DOM is already ready
+          setTimeout(tryInitScroll, 50);
         }
       })();
     </script>
@@ -1985,13 +1979,10 @@
     }
     </script>
 
-    <!-- Diagnostic script to debug scroll initialization on mobile -->
-    <script src="js/force-init-scroll.js"></script>
-    
-    <!-- Fix script to patch touch detection and initialize scroll -->
-    <script src="js/fix-scroll-init.js"></script>
-    
-    <!-- Expose screen navigator for access -->
-    <script src="js/expose-screen-navigator.js"></script>
+    <!-- The following helper scripts were used for debugging scroll issues.
+         They are now disabled to avoid performance problems on mobile Safari. -->
+    <!-- <script src="js/force-init-scroll.js"></script> -->
+    <!-- <script src="js/fix-scroll-init.js"></script> -->
+    <!-- <script src="js/expose-screen-navigator.js"></script> -->
 </body>
 </html>

@@ -230,21 +230,15 @@
     debugLog('=== End scroll initialization attempt ===');
   }
 
-  // Listen for preloader completion
-  document.addEventListener('preloaderComplete', function() {
-    debugLog('preloaderComplete event received');
-    setTimeout(tryInitScroll, 100);
-  });
-
-  // Also try on window load as fallback
-  if (document.readyState === 'complete') {
-    debugLog('Document already complete, attempting init after delay');
-    setTimeout(tryInitScroll, 500);
-  } else {
-    window.addEventListener('load', function() {
-      debugLog('Window load event fired');
-      setTimeout(tryInitScroll, 500);
+  // Initialize as soon as DOM is ready (do not wait for full page load)
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      debugLog('DOMContentLoaded event received');
+      setTimeout(tryInitScroll, 100);
     });
+  } else {
+    debugLog('DOM already ready, attempting init after short delay');
+    setTimeout(tryInitScroll, 100);
   }
 
   // Fix touch detection if it's wrong

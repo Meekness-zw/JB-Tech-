@@ -290,7 +290,8 @@
                     cubesContainer.appendChild(cube);
                 }
                 
-                const totalDuration = 6000;
+                // Optimized preloader - faster and smoother (MAM Insight style)
+                const totalDuration = 4000; // Reduced from 6000ms for faster load
                 const percentageEl = document.getElementById('loader-percentage');
                 let rafId = null;
                 let startTime = null;
@@ -298,7 +299,11 @@
                 function updatePercentage(timestamp) {
                     if (!startTime) startTime = timestamp;
                     const elapsed = Math.min(timestamp - startTime, totalDuration);
-                    const progress = Math.round((elapsed / totalDuration) * 100);
+                    // Use easing function for smoother progress
+                    const easeOutCubic = function(t) {
+                        return 1 - Math.pow(1 - t, 3);
+                    };
+                    const progress = Math.round(easeOutCubic(elapsed / totalDuration) * 100);
                     if (percentageEl) {
                         percentageEl.textContent = `${progress}%`;
                     }
@@ -325,11 +330,21 @@
                     redirectToNext();
                     return;
                 }
+                // Smooth fade out transition
+                loader.style.transition = 'opacity 0.4s ease-out, visibility 0.4s ease-out';
                 loader.classList.add('hidden');
-                setTimeout(redirectToNext, 800);
+                setTimeout(redirectToNext, 400); // Reduced delay for faster transition
             }
 
             function redirectToNext() {
+                try {
+                    // Mark preloader as completed before redirecting
+                    if (window.sessionStorage) {
+                        sessionStorage.setItem(storageKey, 'true');
+                    }
+                } catch (err) {
+                    console.warn('Failed to set preloader completion flag:', err);
+                }
                 window.location.replace(nextUrl);
             }
         })();

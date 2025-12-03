@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contact JB Technologies for low-voltage and building technology services. Request a quote for structured cabling, DAS, ERRCS, security, AV, or IT network installation. Serving commercial facilities nationwide.">
-    <meta name="keywords" content="low voltage contractor quote, structured cabling estimate, DAS installation quote, ERRCS installation contact, commercial technology integrator contact, request quote low voltage">
+    <meta name="description" content="Contact JB Technologies for low-voltage and building technology services. Request a quote for structured cabling, DAS, ERCES, security, AV, or IT network installation. Serving commercial facilities nationwide.">
+    <meta name="keywords" content="low voltage contractor quote, structured cabling estimate, DAS installation quote, ERCES installation contact, commercial technology integrator contact, request quote low voltage">
     <link rel="canonical" href="https://jbtechnologies.com/contact.html">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://jbtechnologies.com/contact.html">
     <meta property="og:title" content="Contact JB Technologies - Request a Quote for Low-Voltage Services">
-    <meta property="og:description" content="Contact JB Technologies for low-voltage and building technology services. Request a quote for structured cabling, DAS, ERRCS, security, AV, or IT network installation.">
+    <meta property="og:description" content="Contact JB Technologies for low-voltage and building technology services. Request a quote for structured cabling, DAS, ERCES, security, AV, or IT network installation.">
     <meta property="og:image" content="https://jbtechnologies.com/favicon.svg">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://jbtechnologies.com/contact.html">
     <meta property="twitter:title" content="Contact JB Technologies - Request a Quote for Low-Voltage Services">
-    <meta property="twitter:description" content="Contact JB Technologies for low-voltage and building technology services. Request a quote for structured cabling, DAS, ERRCS, security, AV, or IT network installation.">
+    <meta property="twitter:description" content="Contact JB Technologies for low-voltage and building technology services. Request a quote for structured cabling, DAS, ERCES, security, AV, or IT network installation.">
     <meta property="twitter:image" content="https://jbtechnologies.com/favicon.svg">
     
     <title>Contact JB Technologies - Request a Quote for Low-Voltage Services</title>
@@ -51,6 +51,8 @@
             line-height: 1.6;
             color: #333;
             background-color: var(--light-gray);
+            overflow-x: hidden;
+            width: 100%;
         }
 
         .container {
@@ -59,15 +61,50 @@
             padding: 0 1rem;
         }
 
+        @media (max-width: 1400px) {
+            .container {
+                max-width: 1200px;
+                padding: 0 1.5rem;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .container {
+                max-width: 100%;
+                padding: 0 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+        }
+
         /* Header Section */
         .header {
             background-color: var(--white);
             padding: 2rem 1rem;
+            padding-top: 120px; /* Space for fixed navbar */
         }
 
         @media (min-width: 768px) {
             .header {
                 padding: 3rem 2rem;
+                padding-top: 120px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .header {
+                padding-top: 100px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 2rem 1rem;
+                padding-top: 90px;
             }
         }
 
@@ -82,6 +119,19 @@
                 flex-direction: row;
                 align-items: center;
                 justify-content: space-between;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+            
+            .header-description {
+                max-width: 100%;
+                margin: 0 auto;
             }
         }
 
@@ -104,6 +154,25 @@
             }
         }
 
+        @media (max-width: 768px) {
+            .header-text h1 {
+                font-size: 2rem;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-text h1 {
+                font-size: 1.75rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .header-text h1 {
+                font-size: 1.5rem;
+            }
+        }
+
         .header-description {
             max-width: 28rem;
             margin-top: 0.5rem;
@@ -122,6 +191,12 @@
             }
         }
 
+        @media (max-width: 768px) {
+            .header-description p {
+                text-align: center;
+            }
+        }
+
         .btn {
             display: inline-flex;
             align-items: center;
@@ -134,6 +209,16 @@
             font-size: 0.875rem;
             border: none;
             cursor: pointer;
+            min-height: 44px; /* Minimum touch target size */
+        }
+
+        @media (max-width: 768px) {
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+                display: block;
+            }
         }
 
         .btn-primary {
@@ -156,6 +241,12 @@
             }
         }
 
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 1.5rem 1rem;
+            }
+        }
+
         .contact-card {
             background-color: var(--white);
             border-radius: 0.5rem;
@@ -168,6 +259,12 @@
             .contact-card {
                 display: grid;
                 grid-template-columns: 320px 1fr;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .contact-card {
+                display: block;
             }
         }
 
@@ -184,8 +281,27 @@
             }
         }
 
+        @media (max-width: 1024px) {
+            .sidebar {
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                padding: 1.25rem;
+            }
+        }
+
         .tab {
             margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .tab {
+                margin-bottom: 0.75rem;
+            }
         }
 
         .tab-item {
@@ -193,6 +309,13 @@
             transition: all 0.3s ease;
             padding: 0.75rem;
             border-radius: 0.5rem;
+            min-height: 44px; /* Minimum touch target size */
+        }
+
+        @media (max-width: 768px) {
+            .tab-item {
+                padding: 0.625rem;
+            }
         }
 
         .tab-item.active {
@@ -210,9 +333,21 @@
             gap: 0.625rem;
         }
 
+        @media (max-width: 480px) {
+            .tab-content {
+                gap: 0.5rem;
+            }
+        }
+
         .tab-number {
             font-size: 1.125rem;
             font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .tab-number {
+                font-size: 1rem;
+            }
         }
 
         .tab-item.active .tab-number {
@@ -226,6 +361,18 @@
         .tab-title {
             font-size: 1rem;
             font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .tab-title {
+                font-size: 0.875rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tab-title {
+                font-size: 0.8125rem;
+            }
         }
 
         .tab-item.active .tab-title {
@@ -250,10 +397,23 @@
             justify-content: center;
         }
 
+        @media (max-width: 768px) {
+            .indicator {
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+        }
+
         .indicator i {
             color: var(--white);
             font-size: 0.875rem;
             transform: rotate(-45deg);
+        }
+
+        @media (max-width: 768px) {
+            .indicator i {
+                font-size: 0.75rem;
+            }
         }
 
         /* Right Side - Content */
@@ -268,8 +428,20 @@
             }
         }
 
+        @media (max-width: 768px) {
+            .content {
+                padding: 1.25rem;
+            }
+        }
+
         .content-header {
             margin-bottom: 1.25rem;
+        }
+
+        @media (max-width: 768px) {
+            .content-header {
+                margin-bottom: 1rem;
+            }
         }
 
         .content-badge {
@@ -277,6 +449,13 @@
             align-items: center;
             gap: 0.5rem;
             margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .content-badge {
+                gap: 0.375rem;
+                margin-bottom: 0.375rem;
+            }
         }
 
         .badge-dot {
@@ -294,6 +473,12 @@
             letter-spacing: 0.05em;
         }
 
+        @media (max-width: 768px) {
+            .badge-text {
+                font-size: 0.6875rem;
+            }
+        }
+
         .content-title {
             font-size: 1.5rem;
             font-weight: 700;
@@ -301,10 +486,28 @@
             margin-bottom: 0.5rem;
         }
 
+        @media (max-width: 768px) {
+            .content-title {
+                font-size: 1.25rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .content-title {
+                font-size: 1.125rem;
+            }
+        }
+
         .content-description {
             color: var(--gray-text);
             font-size: 0.875rem;
             line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .content-description {
+                font-size: 0.8125rem;
+            }
         }
 
         .tab-content-panel {
@@ -324,8 +527,26 @@
             box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
         }
 
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .form-container {
+                padding: 0.875rem;
+            }
+        }
+
         .form-group {
             margin-bottom: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .form-group {
+                margin-bottom: 0.75rem;
+            }
         }
 
         .form-label {
@@ -334,6 +555,12 @@
             font-weight: 500;
             color: var(--gray-text);
             margin-bottom: 0.375rem;
+        }
+
+        @media (max-width: 768px) {
+            .form-label {
+                font-size: 0.6875rem;
+            }
         }
 
         .form-input {
@@ -345,6 +572,14 @@
             font-size: 0.875rem;
             color: #111827;
             transition: all 0.2s ease;
+            min-height: 44px; /* Minimum touch target size */
+        }
+
+        @media (max-width: 768px) {
+            .form-input {
+                padding: 0.5rem 0.625rem;
+                font-size: 0.8125rem;
+            }
         }
 
         .form-input:focus {
@@ -353,9 +588,39 @@
             box-shadow: 0 0 0 2px rgba(36, 91, 138, 0.2);
         }
 
-\n        .form-status {\n            margin-top: 0.75rem;\n            font-size: 0.875rem;\n            font-weight: 500;\n        }\n\n        .form-status.success {\n            color: var(--success-color);\n        }\n\n        .form-status.error {\n            color: #B91C1C;\n        }\n\n        .form-textarea {
+        .form-status {
+            margin-top: 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .form-status {
+                font-size: 0.8125rem;
+                margin-top: 0.5rem;
+            }
+        }
+
+        .form-status.success {
+            color: var(--success-color);
+        }
+
+        .form-status.error {
+            color: #B91C1C;
+        }
+
+        .form-textarea {
             resize: none;
             min-height: 6rem;
+            padding: 0.75rem;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .form-textarea {
+                min-height: 5rem;
+                padding: 0.5rem 0.625rem;
+            }
         }
 
         .form-row {
@@ -367,6 +632,12 @@
         @media (min-width: 768px) {
             .form-row {
                 grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                gap: 0.75rem;
             }
         }
 
@@ -384,6 +655,19 @@
             }
         }
 
+        @media (max-width: 768px) {
+            .dropdown-row {
+                gap: 0.625rem;
+                margin-bottom: 1rem;
+            }
+        }
+
+        @media (max-width: 639px) {
+            .dropdown-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .dropdown-btn {
             width: 100%;
             padding: 0.625rem 0.75rem;
@@ -398,6 +682,14 @@
             justify-content: space-between;
             cursor: pointer;
             transition: background-color 0.2s ease;
+            min-height: 44px; /* Minimum touch target size */
+        }
+
+        @media (max-width: 768px) {
+            .dropdown-btn {
+                padding: 0.5rem 0.625rem;
+                font-size: 0.8125rem;
+            }
         }
 
         .dropdown-btn:hover {
@@ -408,6 +700,12 @@
             color: #9CA3AF;
             font-size: 0.875rem;
             transition: transform 0.2s ease;
+        }
+
+        @media (max-width: 768px) {
+            .dropdown-btn i {
+                font-size: 0.75rem;
+            }
         }
 
         .dropdown-btn.active i {
@@ -440,6 +738,14 @@
             color: var(--gray-text);
             cursor: pointer;
             transition: background-color 0.2s ease;
+            min-height: 44px; /* Minimum touch target size */
+        }
+
+        @media (max-width: 768px) {
+            .dropdown-item {
+                padding: 0.5rem 0.625rem;
+                font-size: 0.8125rem;
+            }
         }
 
         .dropdown-item:hover {
@@ -467,6 +773,13 @@
             margin-bottom: 1.25rem;
         }
 
+        @media (max-width: 768px) {
+            .time-selection {
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+            }
+        }
+
         .time-selection-title {
             font-size: 0.875rem;
             font-weight: 600;
@@ -474,10 +787,31 @@
             margin-bottom: 0.75rem;
         }
 
+        @media (max-width: 768px) {
+            .time-selection-title {
+                font-size: 0.8125rem;
+                margin-bottom: 0.5rem;
+            }
+        }
+
         .time-slots {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
             gap: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .time-slots {
+                grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
+                gap: 0.375rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .time-slots {
+                grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+                gap: 0.25rem;
+            }
         }
 
         .time-slot {
@@ -490,6 +824,18 @@
             color: var(--gray-text);
             cursor: pointer;
             transition: all 0.2s ease;
+            min-height: 44px; /* Minimum touch target size */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            .time-slot {
+                padding: 0.375rem 0.5rem;
+                font-size: 0.8125rem;
+                min-height: 40px;
+            }
         }
 
         .time-slot:hover {
@@ -513,9 +859,21 @@
             margin-bottom: 1.25rem;
         }
 
+        @media (max-width: 768px) {
+            .booking-form-fields {
+                margin-bottom: 1rem;
+            }
+        }
+
         /* Calendar Styles */
         .calendar-header {
             margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .calendar-header {
+                margin-bottom: 0.75rem;
+            }
         }
 
         .calendar-title {
@@ -525,11 +883,24 @@
             margin-bottom: 0.75rem;
         }
 
+        @media (max-width: 768px) {
+            .calendar-title {
+                font-size: 0.875rem;
+                margin-bottom: 0.5rem;
+            }
+        }
+
         .calendar-controls {
             display: flex;
             align-items: center;
             justify-content: space-between;
             margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .calendar-controls {
+                margin-bottom: 0.75rem;
+            }
         }
 
         .calendar-month {
@@ -538,10 +909,22 @@
             color: var(--gray-text);
         }
 
+        @media (max-width: 768px) {
+            .calendar-month {
+                font-size: 0.8125rem;
+            }
+        }
+
         .calendar-nav {
             display: flex;
             align-items: center;
             gap: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .calendar-nav {
+                gap: 0.375rem;
+            }
         }
 
         .nav-btn {
@@ -551,6 +934,11 @@
             background: transparent;
             cursor: pointer;
             transition: background-color 0.2s ease;
+            min-height: 44px;
+            min-width: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .nav-btn:hover {
@@ -562,9 +950,21 @@
             font-size: 0.875rem;
         }
 
+        @media (max-width: 768px) {
+            .nav-btn i {
+                font-size: 0.75rem;
+            }
+        }
+
         /* Calendar Grid */
         .calendar-grid {
             margin-bottom: 1.25rem;
+        }
+
+        @media (max-width: 768px) {
+            .calendar-grid {
+                margin-bottom: 1rem;
+            }
         }
 
         .day-headers {
@@ -572,6 +972,19 @@
             grid-template-columns: repeat(7, 1fr);
             gap: 0.5rem;
             margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .day-headers {
+                gap: 0.25rem;
+                margin-bottom: 0.375rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .day-headers {
+                gap: 0.125rem;
+            }
         }
 
         .day-header {
@@ -582,10 +995,36 @@
             padding: 0.5rem 0;
         }
 
+        @media (max-width: 768px) {
+            .day-header {
+                font-size: 0.6875rem;
+                padding: 0.375rem 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .day-header {
+                font-size: 0.625rem;
+                padding: 0.25rem 0;
+            }
+        }
+
         .calendar-days {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
             gap: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .calendar-days {
+                gap: 0.25rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .calendar-days {
+                gap: 0.125rem;
+            }
         }
 
         .calendar-day {
@@ -599,6 +1038,21 @@
             border: none;
             cursor: pointer;
             transition: all 0.2s ease;
+            min-height: 44px; /* Minimum touch target size */
+        }
+
+        @media (max-width: 768px) {
+            .calendar-day {
+                font-size: 0.8125rem;
+                min-height: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .calendar-day {
+                font-size: 0.75rem;
+                min-height: 35px;
+            }
         }
 
         .calendar-day.prev-month,
@@ -627,6 +1081,14 @@
             font-size: 0.625rem;
         }
 
+        @media (max-width: 768px) {
+            .calendar-day.holiday::after {
+                font-size: 0.5rem;
+                top: 1px;
+                right: 1px;
+            }
+        }
+
         .calendar-day.selected {
             background-color: #6B9BD1;
             color: var(--white);
@@ -637,7 +1099,6 @@
             background-color: #F3F4F6;
             color: #111827;
         }
-
 
         /* Timezone Section */
         .timezone {
@@ -651,8 +1112,23 @@
             border-bottom: 1px solid var(--border-color);
         }
 
+        @media (max-width: 768px) {
+            .timezone {
+                font-size: 0.6875rem;
+                margin-bottom: 0.75rem;
+                padding-bottom: 0.75rem;
+                gap: 0.375rem;
+            }
+        }
+
         .timezone i {
             font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .timezone i {
+                font-size: 0.75rem;
+            }
         }
 
         .timezone-select {
@@ -662,6 +1138,12 @@
 
         .timezone-select i {
             font-size: 0.75rem;
+        }
+
+        @media (max-width: 768px) {
+            .timezone-select i {
+                font-size: 0.625rem;
+            }
         }
 
         /* Info Message */
@@ -675,11 +1157,25 @@
             gap: 0.5rem;
         }
 
+        @media (max-width: 768px) {
+            .info-message {
+                padding: 0.625rem;
+                margin-bottom: 1rem;
+                gap: 0.375rem;
+            }
+        }
+
         .info-icon {
             color: #EF4444;
             font-size: 0.875rem;
             flex-shrink: 0;
             margin-top: 0.125rem;
+        }
+
+        @media (max-width: 768px) {
+            .info-icon {
+                font-size: 0.75rem;
+            }
         }
 
         .info-text {
@@ -688,19 +1184,91 @@
             line-height: 1.5;
         }
 
-        /* Responsive Adjustments */
-        @media (max-width: 1023px) {
-            .sidebar {
-                border-right: none;
-                border-bottom: 1px solid var(--border-color);
+        @media (max-width: 768px) {
+            .info-text {
+                font-size: 0.6875rem;
             }
         }
 
-        @media (max-width: 639px) {
-            .dropdown-row {
-                grid-template-columns: 1fr;
+        /* Submit button responsive */
+        @media (max-width: 768px) {
+            #bookingSubmitBtn {
+                width: 100%;
             }
         }
+
+        /* Fix for touch devices hover effects */
+        @media (hover: none) and (pointer: coarse) {
+            .dropdown-btn:hover,
+            .time-slot:hover,
+            .calendar-day.available:hover {
+                background-color: initial;
+            }
+            
+            .tab-item:not(.active):hover {
+                background-color: initial;
+            }
+        }
+
+        /* Landscape orientation fixes */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .contact-card {
+                max-height: 80vh;
+                overflow-y: auto;
+            }
+            
+            .calendar-days {
+                gap: 0.125rem;
+            }
+            
+            .calendar-day {
+                min-height: 30px;
+                font-size: 0.75rem;
+            }
+            
+            .time-slots {
+                grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+            }
+        }
+
+        /* Fix for very small screens */
+        @media (max-width: 360px) {
+            .container {
+                padding: 0 0.75rem;
+            }
+            
+            .header-text h1 {
+                font-size: 1.5rem;
+            }
+            
+            .header-description p {
+                font-size: 0.8125rem;
+            }
+            
+            .content-title {
+                font-size: 1rem;
+            }
+            
+            .content-description {
+                font-size: 0.75rem;
+            }
+            
+            .calendar-day {
+                min-height: 30px;
+                font-size: 0.6875rem;
+            }
+            
+            .day-header {
+                font-size: 0.5625rem;
+            }
+            
+            .time-slot {
+                min-height: 35px;
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+    
     <style>
       /* Navbar - completely non-blocking for scroll system */
       #new-navbar {
@@ -709,35 +1277,28 @@
         left: 0;
         right: 0;
         z-index: 3;
-        background: transparent;
-        /* Make entire navbar allow scroll through */
+        background: #245B8A;
         pointer-events: none;
-        /* Prevent any touch/scroll interference */
         touch-action: pan-y;
-        /* Ensure it doesn't block layout */
         will-change: auto;
       }
       
-      /* Only interactive elements are clickable */
       #new-navbar a,
       #new-navbar button {
         pointer-events: auto;
         cursor: pointer;
       }
       
-      /* Mobile menu elements - non-blocking when closed */
       #new-navbar .navbar-mobile-backdrop:not(.active),
       #new-navbar .navbar-mobile-menu:not(.active) {
         pointer-events: none;
       }
       
-      /* Mobile menu elements - blocking when active */
       #new-navbar .navbar-mobile-backdrop.active,
       #new-navbar .navbar-mobile-menu.active {
         pointer-events: auto;
       }
       
-      /* Container doesn't block */
       #new-navbar .navbar-container {
         pointer-events: none;
       }
@@ -830,6 +1391,7 @@
         gap: 0.5rem;
         text-decoration: none;
         color: white;
+        min-height: 44px;
       }
 
       .navbar-link-indicator {
@@ -878,6 +1440,7 @@
         font-weight: 600;
         text-decoration: none;
         transition: background-color 0.3s;
+        min-height: 44px;
       }
 
       .navbar-btn-primary {
@@ -990,8 +1553,15 @@
         text-decoration: none;
         color: white;
         font-weight: 600;
-        padding: 0.75rem 0;
+        padding: 1rem 0;
         transition: color 0.3s;
+        min-height: 44px;
+      }
+
+      @media (max-width: 768px) {
+        .navbar-mobile-link {
+            padding: 1rem 0;
+        }
       }
 
       .navbar-mobile-link:hover {
@@ -1017,6 +1587,7 @@
         font-weight: 600;
         text-decoration: none;
         transition: background-color 0.3s;
+        min-height: 44px;
       }
 
       .navbar-mobile-btn-primary {
@@ -1052,1006 +1623,59 @@
         height: 14px;
         display: block;
       }
-
-        /* Services Page Specific Styles - Override main.css where needed */
-        body.page-services {
-            background-color: #F5F5F5;
-            color: #333;
-        }
-        
-        /* Services page wrapper */
-        .services-page-wrapper {
-            padding-top: 100px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        /* Reset and Base Styles - Services Page Specific */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-color: #245B8A;
-            --primary-dark: #1a4666;
-            --text-dark: #333;
-            --text-light: #666;
-            --bg-light: #F5F5F5;
-            --white: #fff;
-            --gray-100: #f8f9fa;
-            --gray-200: #e9ecef;
-            --gray-300: #dee2e6;
-            --gray-400: #ced4da;
-            --gray-500: #adb5bd;
-        }
-
-        body.page-services {
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        /* Utility Classes */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-            font-size: 14px;
-        }
-
-        .btn-primary {
-            background-color: var(--primary-color);
-            color: var(--white);
-        }
-
-        .btn-primary:hover {
-            background-color: var(--primary-dark);
-            box-shadow: 0 4px 12px rgba(36, 91, 138, 0.3);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
-        }
-
-        .btn-outline:hover {
-            background-color: var(--primary-color);
-            color: var(--white);
-        }
-
-        .section-tag {
-            display: inline-block;
-            padding: 6px 16px;
-            background-color: rgba(36, 91, 138, 0.1);
-            border: 1px solid rgba(36, 91, 138, 0.3);
-            border-radius: 50px;
-            margin-bottom: 16px;
-        }
-
-        .section-tag span {
-            color: var(--primary-color);
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-
-        .section-heading {
-            font-size: 3rem;
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 24px;
-        }
-
-        .section-heading span {
-            color: var(--primary-color);
-        }
-
-        .section-subheading {
-            font-size: 1.125rem;
-            color: var(--text-light);
-            margin-bottom: 32px;
-            max-width: 600px;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .animate-fade-in {
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        .animate-fade-in-delay {
-            animation: fadeIn 0.8s ease-out 0.2s backwards;
-        }
-
-        .animate-slide-up {
-            animation: slideUp 1s ease-out 0.3s backwards;
-        }
-
-        /* Hero Section */
-        .hero {
-            position: relative;
-            padding: 40px 20px;
-            z-index: 10;
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
-        }
-
-        @media (min-width: 768px) {
-            .hero-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 60px;
-            }
-        }
-
-        .hero-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 24px;
-        }
-
-        @media (min-width: 768px) {
-            .hero-title {
-                font-size: 3.5rem;
-            }
-        }
-
-        .hero-description {
-            font-size: 1.125rem;
-            color: var(--text-light);
-            margin-bottom: 32px;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            margin-top: 24px;
-        }
-
-        .stat-box {
-            background-color: var(--gray-100);
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-
-        .stat-label {
-            font-size: 12px;
-            color: var(--text-light);
-            margin-top: 4px;
-        }
-
-        /* Image Section */
-        .image-section {
-            position: relative;
-            padding: 0 20px 40px;
-        }
-
-        .image-container {
-            position: relative;
-            overflow: hidden;
-            border-radius: 16px;
-        }
-
-        .image-container img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-        }
-
-        @media (min-width: 768px) {
-            .image-container img {
-                height: 500px;
-            }
-        }
-
-        .image-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
-        }
-
-        .image-badge {
-            position: absolute;
-            bottom: 24px;
-            left: 24px;
-            background-color: rgba(255,255,255,0.95);
-            backdrop-filter: blur(10px);
-            padding: 12px 24px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .badge-title {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--text-dark);
-        }
-
-        .badge-subtitle {
-            font-size: 12px;
-            color: var(--text-light);
-        }
-
-        /* Services Intro */
-        .services-intro {
-            padding: 60px 20px;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 60px;
-        }
-
-        @media (min-width: 1024px) {
-            .services-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 80px;
-            }
-        }
-
-        .feature-list {
-            margin-top: 32px;
-        }
-
-        .feature-item {
-            display: flex;
-            gap: 16px;
-            margin-bottom: 24px;
-        }
-
-        .feature-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 8px;
-            background-color: rgba(36, 91, 138, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .feature-icon i {
-            color: var(--primary-color);
-            font-size: 20px;
-        }
-
-        .feature-title {
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: 4px;
-        }
-
-        .feature-description {
-            font-size: 14px;
-            color: var(--text-light);
-        }
-
-        .services-card {
-            background: linear-gradient(135deg, rgba(36, 91, 138, 0.05), rgba(36, 91, 138, 0.03));
-            border: 1px solid rgba(36, 91, 138, 0.2);
-            border-radius: 16px;
-            padding: 32px;
-        }
-
-        .services-description {
-            font-size: 1rem;
-            color: var(--text-light);
-            margin-bottom: 24px;
-            line-height: 1.7;
-        }
-
-        .services-actions {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-top: 24px;
-        }
-
-        @media (min-width: 640px) {
-            .services-actions {
-                flex-direction: row;
-            }
-            
-            .services-actions .btn {
-                width: auto;
-            }
-        }
-
-        /* Services Section */
-        .services-section {
-            padding: 40px 20px;
-            width: 100%;
-        }
-
-        .service-item {
-            border-top: 2px dashed var(--gray-300);
-            padding: 32px 0;
-            transition: border-color 0.3s;
-        }
-
-        .service-item.active {
-            border-color: var(--primary-color);
-        }
-
-        .service-header {
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            cursor: pointer;
-            gap: 40px;
-        }
-
-        .service-number {
-            font-size: 3rem;
-            font-weight: 700;
-            transition: color 0.3s;
-            min-width: 80px;
-        }
-
-        .service-item.active .service-number {
-            color: var(--primary-color);
-        }
-
-        .service-item:not(.active) .service-number {
-            color: var(--gray-300);
-        }
-
-        .service-content {
-            flex: 1;
-        }
-
-        .service-title {
-            font-size: 2rem;
-            font-weight: 700;
-            transition: color 0.3s;
-            margin-bottom: 16px;
-        }
-
-        .service-item.active .service-title {
-            color: var(--primary-color);
-        }
-
-        .service-item:not(.active) .service-title {
-            color: var(--text-dark);
-        }
-
-        .service-details {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease, opacity 0.5s ease;
-            opacity: 0;
-        }
-
-        .service-item.active .service-details {
-            opacity: 1;
-        }
-
-        .service-details-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 32px;
-            margin-top: 24px;
-        }
-
-        @media (min-width: 768px) {
-            .service-details-grid {
-                flex-direction: row;
-            }
-        }
-
-        .service-image {
-            width: 100%;
-            position: relative;
-            overflow: hidden;
-            border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-        }
-
-        @media (min-width: 768px) {
-            .service-image {
-                width: 45%;
-            }
-        }
-
-        .service-image img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        @media (min-width: 768px) {
-            .service-image img {
-                height: 260px;
-            }
-        }
-
-        .service-image:hover img {
-            transform: scale(1.05);
-        }
-
-        .service-image-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
-        }
-
-        .service-points {
-            flex: 1;
-        }
-
-        .points-title {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--primary-color);
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .points-list {
-            list-style: none;
-        }
-
-        .point-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 12px;
-            font-size: 14px;
-            color: var(--text-light);
-        }
-
-        .point-bullet {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background-color: var(--primary-color);
-            margin-top: 8px;
-            flex-shrink: 0;
-        }
-
-        .service-arrow {
-            transition: all 0.3s;
-            flex-shrink: 0;
-            margin-top: 8px;
-        }
-
-        .service-item.active .service-arrow {
-            transform: rotate(90deg);
-            color: var(--primary-color);
-        }
-
-        .service-item:not(.active) .service-arrow {
-            color: var(--gray-400);
-        }
-
-        /* Process Section */
-        .process-section {
-            padding: 60px 20px;
-            background: linear-gradient(to bottom, var(--gray-100), var(--white));
-        }
-
-        .process-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 24px;
-        }
-
-        @media (min-width: 768px) {
-            .process-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .process-grid {
-                grid-template-columns: repeat(4, 1fr);
-            gap: 32px;
-            margin-top: 40px;
-            margin-bottom: 40px;
-            padding: 0 20px;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-            align-items: stretch;
-        }
-        }
-
-        .process-card {
-            background-color: var(--white);
-            padding: 24px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            transition: all 0.3s;
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        @media (min-width: 768px) {
-            .process-card {
-                padding: 32px;
-            }
-        }
-
-        .process-card:hover {
-            border-color: rgba(36, 91, 138, 0.2);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-        }
-
-        .process-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 128px;
-            height: 128px;
-            background-color: rgba(36, 91, 138, 0.05);
-            border-radius: 50%;
-            transform: translate(50%, -50%);
-            transition: transform 0.5s;
-        }
-
-        .process-card:hover::before {
-            transform: translate(50%, -50%) scale(1.5);
-        }
-
-        .process-icon {
-            width: 56px;
-            height: 56px;
-            border-radius: 8px;
-            background-color: rgba(36, 91, 138, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 24px;
-            transition: background-color 0.3s;
-            position: relative;
-            z-index: 1;
-        }
-
-        .process-card:hover .process-icon {
-            background-color: var(--primary-color);
-        }
-
-        .process-icon i {
-            font-size: 24px;
-            color: var(--primary-color);
-            transition: color 0.3s;
-        }
-
-        .process-card:hover .process-icon i {
-            color: var(--white);
-        }
-
-        .process-number {
-            font-size: 3rem;
-            font-weight: 700;
-            color: rgba(36, 91, 138, 0.2);
-            margin-bottom: 16px;
-            transition: color 0.3s;
-            position: relative;
-            z-index: 1;
-        }
-
-        .process-card:hover .process-number {
-            color: rgba(36, 91, 138, 0.3);
-        }
-
-        .process-divider {
-            width: 48px;
-            height: 2px;
-            background: linear-gradient(to right, var(--primary-color), transparent);
-            border-radius: 1px;
-            margin-bottom: 16px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .process-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 4px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .process-subtitle {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 12px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .process-description {
-            font-size: 14px;
-            color: var(--text-light);
-            line-height: 1.6;
-            margin-bottom: 16px;
-            position: relative;
-            z-index: 1;
-            flex-grow: 1;
-        }
-
-        .process-link {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--primary-color);
-            font-size: 14px;
-            font-weight: 600;
-            opacity: 0;
-            transition: opacity 0.3s;
-            position: relative;
-            z-index: 1;
-        }
-
-        .process-card:hover .process-link {
-            opacity: 1;
-        }
-
-        /* Contact Section */
-        .contact-section {
-            padding: 60px 20px;
-            background: linear-gradient(135deg, var(--gray-100), var(--gray-200));
-            position: relative;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
-        }
-
-        @media (min-width: 1024px) {
-            .contact-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 60px;
-            }
-        }
-
-        .contact-form-container {
-            background-color: var(--white);
-            padding: 32px;
-            border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-        }
-
-        @media (min-width: 768px) {
-            .contact-form-container {
-                padding: 48px;
-            }
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 24px;
-            margin-bottom: 24px;
-        }
-
-        @media (min-width: 768px) {
-            .form-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        .form-group {
-            margin-bottom: 16px;
-        }
-
-        .form-label {
-            display: block;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: 8px;
-        }
-
-        .required {
-            color: #e53e3e;
-        }
-
-        .form-input, .form-select, .form-textarea {
-            width: 100%;
-            background-color: var(--white);
-            border: 2px solid var(--gray-200);
-            border-radius: 8px;
-            padding: 12px 16px;
-            font-size: 14px;
-            transition: border-color 0.3s;
-        }
-
-        .form-input:focus, .form-select:focus, .form-textarea:focus {
-            outline: none;
-            border-color: var(--primary-color);
-        }
-
-        .form-textarea {
-            height: 120px;
-            resize: vertical;
-        }
-
-        .form-container {
-            border: 2px dashed var(--gray-300);
-            border-radius: 8px;
-            padding: 24px;
-            background-color: rgba(248, 249, 250, 0.5);
-        }
-
-        @media (min-width: 768px) {
-            .form-container {
-                padding: 32px;
-            }
-        }
-
-        .contact-info {
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-            padding: 32px;
-            border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        @media (min-width: 768px) {
-            .contact-info {
-                padding: 48px;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .contact-info {
-                position: sticky;
-                top: 20px;
-            }
-        }
-
-        .contact-info::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 256px;
-            height: 256px;
-            background-color: rgba(255,255,255,0.05);
-            border-radius: 50%;
-            transform: translate(50%, -50%);
-        }
-
-        .contact-info::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 192px;
-            height: 192px;
-            background-color: rgba(255,255,255,0.05);
-            border-radius: 50%;
-            transform: translate(-50%, 50%);
-        }
-
-        .contact-info-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .contact-info-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--white);
-            margin-bottom: 12px;
-        }
-
-        .contact-info-description {
-            color: rgba(255,255,255,0.8);
-            margin-bottom: 32px;
-            font-size: 14px;
-        }
-
-        .contact-methods {
-            margin-bottom: 40px;
-        }
-
-        .contact-method {
-            background-color: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.2);
-            margin-bottom: 16px;
-            transition: background-color 0.3s;
-        }
-
-        .contact-method:hover {
-            background-color: rgba(255,255,255,0.15);
-        }
-
-        .method-header {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-        }
-
-        .method-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 8px;
-            background-color: rgba(255,255,255,0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            transition: background-color 0.3s;
-        }
-
-        .contact-method:hover .method-icon {
-            background-color: rgba(255,255,255,0.3);
-        }
-
-        .method-icon i {
-            color: var(--white);
-            font-size: 20px;
-        }
-
-        .method-title {
-            font-size: 14px;
-            font-weight: 600;
-            color: rgba(255,255,255,0.7);
-            margin-bottom: 4px;
-        }
-
-        .method-value {
-            font-size: 1.125rem;
-            font-weight: 700;
-            color: var(--white);
-        }
-
-        .method-subvalue {
-            font-size: 14px;
-            color: rgba(255,255,255,0.8);
-        }
-
-        .social-links {
-            margin-top: 32px;
-        }
-
-        .social-title {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: var(--white);
-            margin-bottom: 16px;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 12px;
-        }
-
-        .social-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 8px;
-            background-color: rgba(255,255,255,0.2);
-            backdrop-filter: blur(10px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-            border: 1px solid rgba(255,255,255,0.3);
-        }
-
-        .social-icon:hover {
-            background-color: rgba(255,255,255,0.3);
-        }
-
-        .social-icon i {
-            color: var(--white);
-            font-size: 20px;
-        }
     </style>
     
 <script type="text/javascript">(function(w,s){var e=document.createElement("script");e.type="text/javascript";e.async=true;e.src="https://cdn.pagesense.io/js/jbtechnologies/813661aa4ff34deeae6cd751ae0b6944.js";var x=document.getElementsByTagName("script")[0];x.parentNode.insertBefore(e,x);})(window,"script");</script>
 </head>
 <body>
 
-    </div>
     <!-- New Navbar -->
-        <div id="new-navbar" style="background: transparent;">
-          <div class="navbar-container">
+    <div id="new-navbar" style="background: #245B8A;">
+        <div class="navbar-container">
             <!-- Logo with Animation -->
             <a href="index.html" class="navbar-logo">
-              <svg 
+            <svg 
                 viewBox="0 0 2000 2000" 
                 class="navbar-logo-svg"
                 style="margin-top: -0.5rem; margin-bottom: -0.5rem;"
-              >
+            >
                 <style>
-                  .navbar-logo path, .navbar-logo rect {
+                .navbar-logo path, .navbar-logo rect {
                     fill: none;
                     stroke: #ffffff;
                     stroke-width: 4;
                     stroke-dasharray: 2000;
                     stroke-dashoffset: 2000;
                     animation: navbar-draw 2.5s ease-out forwards;
-                  }
-                  
-                  @keyframes navbar-draw {
+                }
+                
+                @keyframes navbar-draw {
                     0% {
-                      stroke-dashoffset: 2000;
-                      fill: transparent;
+                    stroke-dashoffset: 2000;
+                    fill: transparent;
                     }
                     70% {
-                      stroke-dashoffset: 0;
-                      fill: transparent;
+                    stroke-dashoffset: 0;
+                    fill: transparent;
                     }
                     100% {
-                      stroke-dashoffset: 0;
-                      fill: #ffffff;
+                    stroke-dashoffset: 0;
+                    fill: #ffffff;
                     }
-                  }
-                  
-                  .navbar-logo path:nth-child(1) { animation-delay: 0.1s; }
-                  .navbar-logo rect:nth-child(2) { animation-delay: 0.3s; }
-                  .navbar-logo rect:nth-child(3) { animation-delay: 0.5s; }
-                  .navbar-logo rect:nth-child(4) { animation-delay: 0.7s; }
-                  .navbar-logo path:nth-child(n+5) { 
+                }
+                
+                .navbar-logo path:nth-child(1) { animation-delay: 0.1s; }
+                .navbar-logo rect:nth-child(2) { animation-delay: 0.3s; }
+                .navbar-logo rect:nth-child(3) { animation-delay: 0.5s; }
+                .navbar-logo rect:nth-child(4) { animation-delay: 0.7s; }
+                .navbar-logo path:nth-child(n+5) { 
                     animation: navbar-draw 1.5s ease-out forwards;
                     animation-delay: 1s !important;
-                  }
-                  
-                  .navbar-logo path, .navbar-logo rect {
+                }
+                
+                .navbar-logo path, .navbar-logo rect {
                     transition: fill 0.5s ease-in-out;
-                  }
+                }
                 </style>
                 <path d="M694.24,902.84h92c0,10.92.12,21.74,0,32.55-.36,28.82,3.78,34.42,32.84,37.44a144.18,144.18,0,0,0,39.06-1.72c20-3.47,24.41-9.3,24.56-29.74.41-55,.36-109.92.45-164.88,0-23.5,0-47,0-71a15,15,0,0,1,14.78-15h1.3q151.57-.06,303.14.12a277.55,277.55,0,0,1,40.7,3.25c35,5.29,56.07,23.94,62,58.82,3.43,20.05,3.47,41.21,1.53,61.53-2.61,27.2-19.23,44.6-45.88,52-2.78.77-5.42,2-11.06,4.13,7.23,1.57,11.35,2.5,15.48,3.35,26.6,5.46,44.45,20.71,46.88,48.2,2.07,23.4,3.25,47.54-.15,70.62-5.3,36-31.3,58.7-72.94,59.88-78.2,2.2-156.5.63-236,.63V850.27a14,14,0,0,1,13.95-14H1019c53-.14,106.09,0,159.13-.53,29.78-.3,45.07-27,30.8-53.68-2.31-4.32-7.7-8.11-12.49-9.74-6-2.06-12.92-2.19-19.45-2.21q-99.27-.21-198.55,0c-3.88,0-7.76.49-17.39,1.16,24.76,13.66,19,33.28,19.13,51.11.23,47.9.36,95.81-.05,143.71-.48,54.4-26.31,85.25-80.29,88.52-44.66,2.71-89.87,1.19-134.53-2.33-38-3-59.28-26.76-65.91-69.65C695.46,957,695.89,930.61,694.24,902.84Zm405.54,70.84c30.84,0,60.89.57,90.91-.28,12.26-.34,23-6.75,25.54-19.75,2.86-14.79,4.23-30.18-7-43-1.9-2.17-4.88-4.81-7.37-4.84-34-.32-67.94-.21-102.11-.21Z"/>
                 <rect x="792.4" y="694.72" width="79.63" height="73.16" rx="14.52"/>
@@ -2069,150 +1693,151 @@
                 <path d="M1401.15,1120.7V1232h-30V1120.7Z"/>
                 <path d="M1449.1,1145.17v20.06h47.37v20.63H1449.1v21.69h51.61V1232h-81.62V1120.7h80.65v24.47Z"/>
                 <path d="M1604.52,1155.44h-28.38q0-5.39-.81-7.5a7.07,7.07,0,0,0-5.3-4.57,45.81,45.81,0,0,0-9.54-.73q-9.56,0-12.56,1.14-5.62,2.12-5.63,9.79,0,6.27,3.18,8.15,2.37,1.38,11.74,2,8.73.48,17.37,1.06a77.59,77.59,0,0,1,17.13,3q9.85,3.09,13.45,11.09,2.68,5.86,2.69,17.85,0,13.54-2.6,20-4.74,11.67-21.27,14.76-6.93,1.31-21.92,1.31-23,0-32.42-2.86-15-4.56-16.78-22.67c-.28-2.77-.41-6.55-.41-11.33h28.29v2.2q0,7.57,4.24,9.7,3.1,1.56,16.64,1.55c4.62,0,7.25,0,7.91-.08a10.78,10.78,0,0,0,6.85-3.26c1.41-1.58,2.12-4.21,2.12-7.91q0-6.43-4-8.56-2.37-1.23-10.11-1.72-25.61-1.55-33.11-3.34-11.32-2.77-15.57-11.49-3.27-6.69-3.26-20,0-19.74,9.29-26.34,6.62-4.65,18.51-6.12a187.39,187.39,0,0,1,19.74-.73q27,0,35.22,6.2,9.46,7.08,9.46,24.21C1604.68,1151.28,1604.63,1153,1604.52,1155.44Z"/>
-              </svg>
+            </svg>
             </a>
-    
+
             <!-- Desktop Navigation Links -->
             <div class="navbar-desktop-nav">
-              <a href="index.html" class="navbar-link" data-path="index.html">
+            <a href="index.html" class="navbar-link" data-path="index.html">
                 <span class="navbar-link-indicator">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C2D41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C2D41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="7" y1="17" x2="17" y2="7"></line>
                     <polyline points="7 7 17 7 17 17"></polyline>
-                  </svg>
+                </svg>
                 </span>
                 <span class="navbar-link-text">Home</span>
-              </a>
-              <a href="services.html" class="navbar-link" data-path="services.html">
+            </a>
+            <a href="services.html" class="navbar-link" data-path="services.html">
                 <span class="navbar-link-indicator">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C2D41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C2D41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="7" y1="17" x2="17" y2="7"></line>
                     <polyline points="7 7 17 7 17 17"></polyline>
-                  </svg>
+                </svg>
                 </span>
                 <span class="navbar-link-text">Services</span>
-              </a>
-              <a href="projects.html" class="navbar-link" data-path="projects.html">
+            </a>
+            <a href="projects.html" class="navbar-link" data-path="projects.html">
                 <span class="navbar-link-indicator">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C2D41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C2D41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="7" y1="17" x2="17" y2="7"></line>
                     <polyline points="7 7 17 7 17 17"></polyline>
-                  </svg>
+                </svg>
                 </span>
                 <span class="navbar-link-text">Projects</span>
-              </a>
-              <a href="about.html" class="navbar-link" data-path="about.html">
+            </a>
+            <a href="about.html" class="navbar-link" data-path="about.html">
                 <span class="navbar-link-indicator">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C2D41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C2D41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="7" y1="17" x2="17" y2="7"></line>
                     <polyline points="7 7 17 7 17 17"></polyline>
-                  </svg>
+                </svg>
                 </span>
                 <span class="navbar-link-text">About Us</span>
-              </a>
-        </div>
-    
+            </a>
+            </div>
+
             <!-- Desktop Buttons -->
             <div class="navbar-desktop-buttons">
-              <a href="planner.html" class="navbar-btn navbar-btn-primary">
+            <a href="planner.html" class="navbar-btn navbar-btn-primary">
                 <span>Project Planning Tool</span>
                 <svg class="navbar-btn-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
                 </svg>
-              </a>
-              <a href="contact.html" class="navbar-btn navbar-btn-secondary">
+            </a>
+            <a href="contact.html" class="navbar-btn navbar-btn-secondary">
                 <span>Contact Us</span>
                 <svg class="navbar-btn-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
                 </svg>
-              </a>
+            </a>
             </div>
-    
+
             <!-- Mobile Menu Button -->
             <button class="navbar-mobile-toggle" id="navbar-mobile-toggle" aria-label="Toggle menu">
-              <svg class="navbar-menu-icon" id="navbar-menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="navbar-menu-icon" id="navbar-menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="3" y1="12" x2="21" y2="12"></line>
                 <line x1="3" y1="6" x2="21" y2="6"></line>
                 <line x1="3" y1="18" x2="21" y2="18"></line>
-              </svg>
-              <svg class="navbar-close-icon" id="navbar-close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+            </svg>
+            <svg class="navbar-close-icon" id="navbar-close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
                 <line x1="18" y1="6" x2="6" y2="18"></line>
                 <line x1="6" y1="6" x2="18" y2="18"></line>
-              </svg>
+            </svg>
             </button>
-          </div>
-    
-          <!-- Mobile Menu Overlay -->
-          <div class="navbar-mobile-backdrop" id="navbar-mobile-backdrop"></div>
-    
-          <!-- Mobile Menu -->
-          <div class="navbar-mobile-menu" id="navbar-mobile-menu">
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div class="navbar-mobile-backdrop" id="navbar-mobile-backdrop"></div>
+
+        <!-- Mobile Menu -->
+        <div class="navbar-mobile-menu" id="navbar-mobile-menu">
             <div class="navbar-mobile-menu-header">
-              <button class="navbar-mobile-close" id="navbar-mobile-close" aria-label="Close menu">
+            <button class="navbar-mobile-close" id="navbar-mobile-close" aria-label="Close menu">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="18" y1="6" x2="6" y2="18"></line>
-                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
                 </svg>
-              </button>
+            </button>
             </div>
             <div class="navbar-mobile-menu-content">
-              <a href="index.html" class="navbar-mobile-link" data-path="index.html">
+            <a href="index.html" class="navbar-mobile-link" data-path="index.html">
                 <span class="navbar-link-indicator">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C2D41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C2D41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="7" y1="17" x2="17" y2="7"></line>
                     <polyline points="7 7 17 7 17 17"></polyline>
-                  </svg>
+                </svg>
                 </span>
                 <span>Home</span>
-              </a>
-              <a href="services.html" class="navbar-mobile-link" data-path="services.html">
+            </a>
+            <a href="services.html" class="navbar-mobile-link" data-path="services.html">
                 <span class="navbar-link-indicator">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C2D41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C2D41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="7" y1="17" x2="17" y2="7"></line>
                     <polyline points="7 7 17 7 17 17"></polyline>
-                  </svg>
+                </svg>
                 </span>
                 <span>Services</span>
-              </a>
-              <a href="projects.html" class="navbar-mobile-link" data-path="projects.html">
+            </a>
+            <a href="projects.html" class="navbar-mobile-link" data-path="projects.html">
                 <span class="navbar-link-indicator">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C2D41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C2D41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="7" y1="17" x2="17" y2="7"></line>
                     <polyline points="7 7 17 7 17 17"></polyline>
-                  </svg>
+                </svg>
                 </span>
                 <span>Projects</span>
-              </a>
-              <a href="about.html" class="navbar-mobile-link" data-path="about.html">
+            </a>
+            <a href="about.html" class="navbar-mobile-link" data-path="about.html">
                 <span class="navbar-link-indicator">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C2D41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C2D41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="7" y1="17" x2="17" y2="7"></line>
                     <polyline points="7 7 17 7 17 17"></polyline>
-                  </svg>
+                </svg>
                 </span>
                 <span>About Us</span>
-              </a>
-              <div class="navbar-mobile-divider"></div>
-              <a href="planner.html" class="navbar-mobile-btn navbar-mobile-btn-primary">
+            </a>
+            <div class="navbar-mobile-divider"></div>
+            <a href="planner.html" class="navbar-mobile-btn navbar-mobile-btn-primary">
                 <span>Project Planning Tool</span>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
                 </svg>
-              </a>
-              <a href="contact.html" class="navbar-mobile-btn navbar-mobile-btn-secondary">
+            </a>
+            <a href="contact.html" class="navbar-mobile-btn navbar-mobile-btn-secondary">
                 <span>Contact Us</span>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
                 </svg>
-              </a>
+            </a>
             </div>
-          </div>
         </div>
-        <!-- End New Navbar -->
+    </div>
+    <!-- End New Navbar -->
+    
     <!-- Header Section -->
     <header class="header">
         <div class="container">
@@ -2408,7 +2033,7 @@
                                     <div class="dropdown-menu" id="serviceMenu" data-field="service">
                                         <div class="dropdown-item" data-value="Structured Cabling">Structured Cabling</div>
                                         <div class="dropdown-item" data-value="DAS Installation">DAS Installation</div>
-                                        <div class="dropdown-item" data-value="ERRCS">ERRCS</div>
+                                        <div class="dropdown-item" data-value="ERCES">ERCES</div>
                                         <div class="dropdown-item" data-value="Security Systems">Security Systems</div>
                                         <div class="dropdown-item" data-value="AV Systems">AV Systems</div>
                                         <div class="dropdown-item" data-value="IT Networking">IT Networking</div>
@@ -2432,6 +2057,17 @@
                                         <div class="dropdown-item" data-value="Other">Other</div>
                                 </div>
                                 </div>
+                                <!-- Other Location Input (shown when Other is selected) -->
+                                <div class="form-group" id="otherLocationGroup" style="display: none;">
+                                    <label class="form-label" for="otherLocation">Please specify location <span style="color: #e53e3e;">*</span></label>
+                                    <input 
+                                        type="text" 
+                                        id="otherLocation" 
+                                        name="otherLocation" 
+                                        class="form-input" 
+                                        placeholder="Enter your location"
+                                    >
+                                </div>
                                 <div class="dropdown-wrapper">
                                     <button type="button" class="dropdown-btn" id="durationDropdown" data-field="duration">
                                         <span class="dropdown-text">Meeting Duration</span>
@@ -2452,10 +2088,10 @@
                                 <div class="calendar-controls">
                                     <span class="calendar-month">November 2025</span>
                                     <div class="calendar-nav">
-                                        <button class="nav-btn">
+                                        <button class="nav-btn" id="prevMonthBtn">
                                             <i class="fas fa-chevron-left"></i>
                                         </button>
-                                        <button class="nav-btn">
+                                        <button class="nav-btn" id="nextMonthBtn">
                                             <i class="fas fa-chevron-right"></i>
                                         </button>
                                     </div>
@@ -2560,12 +2196,14 @@
             
             requestQuoteBtn.addEventListener('click', function() {
                 switchToTab('book');
+                // Scroll to booking section
+                bookContent.scrollIntoView({ behavior: 'smooth' });
             });
             
             // Form submission
             const generalForm = document.getElementById('generalForm');
             if (generalForm) {
-                const salesEmail = 'sales@jbtecknologies.com';
+                const salesEmail = 'sales@jbtechnologies.com';
                 const formEndpoint = `https://formsubmit.co/ajax/${encodeURIComponent(salesEmail)}`;
                 const statusMessage = document.getElementById('generalFormStatus');
                 const submitButton = generalForm.querySelector('button[type="submit"]');
@@ -2618,7 +2256,7 @@
                         generalForm.reset();
                     } catch (error) {
                         console.error('Form submission error:', error);
-                        updateStatus('error', 'We could not send your message. Please try again or email sales@jbtecknologies.com directly.');
+                        updateStatus('error', 'We could not send your message. Please try again or email sales@jbtechnologies.com directly.');
                     } finally {
                         if (submitButton) {
                             submitButton.disabled = false;
@@ -2850,6 +2488,20 @@
                     }
                     bookingData[field] = value;
                     
+                    // Show/hide "Other" location input field
+                    const otherLocationGroup = document.getElementById('otherLocationGroup');
+                    const otherLocationInput = document.getElementById('otherLocation');
+                    if (field === 'location' && value === 'Other') {
+                        if (otherLocationGroup) otherLocationGroup.style.display = 'block';
+                        if (otherLocationInput) otherLocationInput.required = true;
+                    } else {
+                        if (otherLocationGroup) otherLocationGroup.style.display = 'none';
+                        if (otherLocationInput) {
+                            otherLocationInput.required = false;
+                            otherLocationInput.value = '';
+                        }
+                    }
+                    
                     // Close dropdown
                     menu.classList.remove('active');
                     if (btn) btn.classList.remove('active');
@@ -2860,7 +2512,8 @@
             document.addEventListener('click', function() {
                 dropdownMenus.forEach(menu => {
                     menu.classList.remove('active');
-                    menu.previousElementSibling.classList.remove('active');
+                    const btn = menu.previousElementSibling;
+                    if (btn) btn.classList.remove('active');
                 });
             });
 
@@ -2947,8 +2600,8 @@
             }
             
             // Calendar navigation
-            const prevBtn = document.querySelector('.nav-btn:first-child');
-            const nextBtn = document.querySelector('.nav-btn:last-child');
+            const prevBtn = document.getElementById('prevMonthBtn');
+            const nextBtn = document.getElementById('nextMonthBtn');
             
             prevBtn.addEventListener('click', function() {
                 currentDate.setMonth(currentDate.getMonth() - 1);
@@ -3043,7 +2696,7 @@
             // Booking form submission
             const bookingForm = document.getElementById('bookingForm');
             if (bookingForm) {
-                const salesEmail = 'sales@jbtecknologies.com';
+                const salesEmail = 'sales@jbtechnologies.com';
                 const formEndpoint = `https://formsubmit.co/ajax/${encodeURIComponent(salesEmail)}`;
                 const statusMessage = document.getElementById('bookingFormStatus');
                 const submitButton = document.getElementById('bookingSubmitBtn');
@@ -3077,12 +2730,24 @@
                         return;
                     }
 
+                    // Get location value - use "Other" input if "Other" was selected
+                    let locationValue = bookingData.location;
+                    if (locationValue === 'Other') {
+                        const otherLocationInput = document.getElementById('otherLocation');
+                        if (otherLocationInput && otherLocationInput.value.trim()) {
+                            locationValue = otherLocationInput.value.trim();
+                        } else {
+                            updateStatus('error', 'Please specify your location.');
+                            return;
+                        }
+                    }
+
                     const formData = {
                         name: document.getElementById('bookingName').value,
                         email: document.getElementById('bookingEmail').value,
                         phone: document.getElementById('bookingPhone').value || 'Not provided',
                         service: bookingData.service,
-                        location: bookingData.location,
+                        location: locationValue,
                         duration: bookingData.duration,
                         date: selectedDate,
                         time: formatTime(selectedTime),
@@ -3112,7 +2777,7 @@
                         }
 
                         await response.json();
-                        updateStatus('success', 'Thank you! Your appointment request has been submitted to sales@jbtecknologies.com. We will confirm your appointment via email shortly.');
+                        updateStatus('success', 'Thank you! Your appointment request has been submitted to sales@jbtechnologies.com. We will confirm your appointment via email shortly.');
                         bookingForm.reset();
                         
                         // Reset selections
@@ -3131,7 +2796,7 @@
                         document.getElementById('timeSelection').style.display = 'none';
                     } catch (error) {
                         console.error('Booking submission error:', error);
-                        updateStatus('error', 'We could not schedule your appointment. Please try again or email sales@jbtecknologies.com directly.');
+                        updateStatus('error', 'We could not schedule your appointment. Please try again or email sales@jbtechnologies.com directly.');
                     } finally {
                         if (submitButton) {
                             submitButton.disabled = false;
@@ -3316,7 +2981,7 @@
             <div class="jb-footer__contact-icon"><i class="fa-regular fa-envelope"></i></div>
             <div class="jb-footer__contact-details">
               <p>Email Us</p>
-              <a href="mailto:sales@jbtecknologies.com">sales@jbtecknologies.com</a>
+              <a href="mailto:sales@jbtechnologies.com">sales@jbtechnologies.com</a>
             </div>
           </li>
         </ul>
@@ -3351,7 +3016,7 @@
         "name": "JB Technologies",
         "url": "https://jbtechnologies.com",
         "telephone": "770-637-2094",
-        "email": "sales@jbtecknologies.com",
+        "email": "sales@jbtechnologies.com",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Atlanta",

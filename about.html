@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="JB Technologies: Certified low-voltage contractor and technology integrator serving commercial, healthcare, education, and enterprise facilities nationwide. Learn about our mission, values, certifications, and proven processes.">
-    <meta name="keywords" content="low voltage contractor Atlanta, certified technology integrator, BICSI certified, QSC certified, Nextivity CEL-FI certified, Shield ERRCS certified, commercial technology integrator, nationwide low voltage company">
+    <meta name="keywords" content="low voltage contractor Atlanta, certified technology integrator, BICSI certified, QSC certified, Nextivity CEL-FI certified, Shield ERCES certified, commercial technology integrator, nationwide low voltage company">
     <link rel="canonical" href="https://jbtechnologies.com/about.html">
     
     <!-- Open Graph / Facebook -->
@@ -49,6 +49,7 @@
             line-height: 1.6;
             color: #333;
             overflow-x: hidden;
+            width: 100%;
         }
 
         /* Utility Classes */
@@ -56,6 +57,26 @@
             max-width: 1280px;
             margin: 0 auto;
             padding: 0 1rem;
+        }
+
+        @media (max-width: 1400px) {
+            .container {
+                max-width: 1200px;
+                padding: 0 1.5rem;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .container {
+                max-width: 100%;
+                padding: 0 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
         }
 
         .btn {
@@ -70,6 +91,16 @@
             transition: all 0.3s ease;
             cursor: pointer;
             border: none;
+            min-height: 44px; /* Minimum touch target size */
+        }
+
+        @media (max-width: 768px) {
+            .btn {
+                padding: 0.75rem 1.25rem;
+                font-size: 0.875rem;
+                width: 100%;
+                max-width: 300px;
+            }
         }
 
         .btn-primary {
@@ -101,6 +132,14 @@
             margin-bottom: 1rem;
         }
 
+        @media (max-width: 768px) {
+            .section-tag {
+                display: block;
+                text-align: center;
+                margin-bottom: 0.5rem;
+            }
+        }
+
         .section-tag span {
             font-size: 0.75rem;
             font-weight: 600;
@@ -121,12 +160,40 @@
             }
         }
 
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 1.75rem;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+
         /* Hero Section */
         .hero {
             position: relative;
             height: 100vh;
             width: 100%;
             overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 100vh;
+                height: auto;
+                padding-top: 80px;
+            }
+        }
+
+        @media (max-height: 600px) and (orientation: landscape) {
+            .hero {
+                height: auto;
+                min-height: 100vh;
+            }
         }
 
         .hero-video {
@@ -136,6 +203,14 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero-video {
+                position: fixed;
+                height: 100%;
+            }
         }
 
         .hero-overlay {
@@ -180,6 +255,22 @@
             }
         }
 
+        @media (max-width: 768px) {
+            .hero-content {
+                position: relative;
+                padding: 2rem 1rem;
+                min-height: 100vh;
+                display: flex;
+                justify-content: center;
+            }
+        }
+
+        @media (max-height: 600px) and (orientation: landscape) {
+            .hero-content {
+                padding: 4rem 1rem;
+            }
+        }
+
         .hero-title {
             font-size: 2rem;
             font-weight: 700;
@@ -208,6 +299,42 @@
             }
         }
 
+        @media (max-width: 1024px) {
+            .hero-title {
+                font-size: 2.5rem;
+                line-height: 1.3;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 1.75rem;
+                text-align: center;
+                margin-bottom: 1.5rem;
+                animation-duration: 0.5s;
+                animation-delay: 0.2s !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .hero-title {
+                font-size: 1.25rem;
+            }
+        }
+
+        @media (max-height: 600px) and (orientation: landscape) {
+            .hero-title {
+                font-size: 1.5rem;
+                margin-bottom: 0.5rem;
+            }
+        }
+
         .hero-subtitle {
             font-size: 1.25rem;
             font-weight: 700;
@@ -226,12 +353,41 @@
         @media (min-width: 768px) {
             .hero-subtitle {
                 font-size: 1.875rem;
-            margin-bottom: 2rem;
-            width: 80%;
-            max-width: 600px;
-            margin-bottom: 2.5rem;
-            width: 70%;
+                margin-bottom: 2rem;
+                width: 80%;
+                max-width: 600px;
+            }
         }
+
+        @media (max-width: 1024px) {
+            .hero-subtitle {
+                font-size: 1.5rem;
+                width: 90% !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-subtitle {
+                font-size: 1.25rem;
+                text-align: center;
+                width: 100% !important;
+                margin: 0 auto 2rem;
+                animation-duration: 0.5s;
+                animation-delay: 0.2s !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-height: 600px) and (orientation: landscape) {
+            .hero-subtitle {
+                font-size: 1rem;
+                margin-bottom: 1rem;
+            }
         }
 
         .services-list {
@@ -254,6 +410,30 @@
             }
         }
 
+        @media (max-width: 1024px) {
+            .services-list {
+                max-width: 90%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .services-list {
+                width: 100%;
+                max-width: 100%;
+                margin: 0 auto;
+                animation-duration: 0.5s;
+                animation-delay: 0.2s !important;
+            }
+        }
+
+        @media (max-height: 600px) and (orientation: landscape) {
+            .services-list {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+        }
+
         .service-item {
             display: flex;
             align-items: center;
@@ -264,6 +444,7 @@
             opacity: 0;
             transform: translateY(-20px);
             animation: fadeInUp 0.8s ease-out forwards;
+            min-height: 44px;
         }
 
         @media (min-width: 640px) {
@@ -280,6 +461,41 @@
             }
         }
 
+        @media (max-width: 768px) {
+            .service-item {
+                flex-direction: column;
+                text-align: center;
+                padding: 0.75rem;
+                background: rgba(255, 255, 255, 0.1);
+                backdrop-filter: blur(10px);
+                border-radius: 8px;
+                margin-bottom: 0.5rem;
+                animation-duration: 0.5s;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .service-item {
+                font-size: 0.9rem;
+                padding: 0.5rem;
+            }
+        }
+
+        @media (max-height: 600px) and (orientation: landscape) {
+            .service-item {
+                width: calc(50% - 0.5rem);
+                padding: 0.5rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .service-item {
+                font-size: 0.8rem;
+                padding: 0.5rem;
+            }
+        }
+
         .service-item::after {
             content: '';
             position: absolute;
@@ -291,6 +507,13 @@
         @media (min-width: 640px) {
             .service-item::after {
                 bottom: -0.75rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .service-item::after {
+                width: 50%;
+                bottom: 0;
             }
         }
 
@@ -310,6 +533,13 @@
             animation-delay: 5.1s;
         }
 
+        @media (max-width: 768px) {
+            .service-item:nth-child(1) { animation-delay: 0.3s !important; }
+            .service-item:nth-child(2) { animation-delay: 0.4s !important; }
+            .service-item:nth-child(3) { animation-delay: 0.5s !important; }
+            .service-item:nth-child(4) { animation-delay: 0.6s !important; }
+        }
+
         /* Introduction Section */
         .intro {
             padding: 3rem 1rem;
@@ -327,6 +557,12 @@
         @media (min-width: 1024px) {
             .intro {
                 padding: 5rem 4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .intro {
+                padding: 2rem 1rem;
             }
         }
 
@@ -350,6 +586,14 @@
             width: 24rem;
             height: 24rem;
             background-color: rgba(91, 165, 165, 0.05);
+        }
+
+        @media (max-width: 768px) {
+            .intro-bg-1,
+            .intro-bg-2 {
+                width: 15rem;
+                height: 15rem;
+            }
         }
 
         .intro-content {
@@ -377,6 +621,26 @@
             }
         }
 
+        @media (max-width: 768px) {
+            .intro-title {
+                font-size: 2rem;
+                line-height: 1.3;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .intro-title {
+                font-size: 1.75rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .intro-title {
+                font-size: 1.5rem;
+            }
+        }
+
         .intro-text {
             font-size: 1rem;
             color: #666;
@@ -387,6 +651,20 @@
         @media (min-width: 768px) {
             .intro-text {
                 font-size: 1.125rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .intro-text {
+                text-align: center;
+                font-size: 1rem;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .intro-text {
+                font-size: 0.9rem;
             }
         }
 
@@ -410,10 +688,22 @@
             }
         }
 
+        @media (max-width: 768px) {
+            .overview {
+                padding: 2rem 1rem;
+            }
+        }
+
         .overview-bg-lines {
             position: absolute;
             inset: 0;
             pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+            .overview-bg-lines {
+                display: none; /* Remove animation lines on mobile for performance */
+            }
         }
 
         .overview-line {
@@ -497,6 +787,13 @@
             }
         }
 
+        @media (max-width: 1024px) {
+            .overview-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
         .overview-images {
             position: relative;
             margin-bottom: 1.5rem;
@@ -505,6 +802,12 @@
         @media (min-width: 768px) {
             .overview-images {
                 margin-bottom: 0;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .overview-images {
+                margin-bottom: 2rem;
             }
         }
 
@@ -527,6 +830,24 @@
         @media (min-width: 768px) {
             .overview-main-image {
                 height: 500px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .overview-main-image {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .overview-main-image {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .overview-main-image {
+                height: 250px;
             }
         }
 
@@ -572,6 +893,33 @@
             }
         }
 
+        @media (max-width: 1024px) {
+            .overview-small-image {
+                width: 10rem;
+                height: 10rem;
+                bottom: -1.5rem;
+                right: -1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .overview-small-image {
+                width: 8rem;
+                height: 8rem;
+                bottom: -1rem;
+                right: -1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .overview-small-image {
+                width: 6rem;
+                height: 6rem;
+                bottom: -0.75rem;
+                right: -0.75rem;
+            }
+        }
+
         .overview-small-image img {
             width: 100%;
             height: 100%;
@@ -600,6 +948,18 @@
             }
         }
 
+        @media (max-width: 768px) {
+            .accordion-item {
+                padding: 1.25rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .accordion-item {
+                padding: 1rem;
+            }
+        }
+
         .accordion-item:hover {
             transform: scale(1.02);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
@@ -622,6 +982,7 @@
             background: none;
             border: none;
             cursor: pointer;
+            min-height: 44px;
         }
 
         .accordion-title {
@@ -640,6 +1001,18 @@
         @media (min-width: 768px) {
             .accordion-title {
                 font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .accordion-title {
+                font-size: 1.125rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .accordion-title {
+                font-size: 1rem;
             }
         }
 
@@ -676,6 +1049,12 @@
             transition: max-height 0.3s ease, opacity 0.3s ease, padding-top 0.3s ease;
         }
 
+        @media (max-width: 768px) {
+            .accordion-item.active .accordion-content {
+                max-height: 1000px; /* Allow more height for mobile content */
+            }
+        }
+
         .accordion-item.active .accordion-content {
             max-height: 500px;
             opacity: 1;
@@ -700,6 +1079,18 @@
             }
         }
 
+        @media (max-width: 768px) {
+            .accordion-text {
+                font-size: 0.875rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .accordion-text {
+                font-size: 0.8rem;
+            }
+        }
+
         /* Values Section */
         .values {
             padding: 3rem 1rem;
@@ -718,6 +1109,12 @@
             }
         }
 
+        @media (max-width: 768px) {
+            .values {
+                padding: 2rem 1rem;
+            }
+        }
+
         .values-header {
             margin-bottom: 3rem;
         }
@@ -725,6 +1122,12 @@
         @media (min-width: 768px) {
             .values-header {
                 margin-bottom: 4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .values-header {
+                margin-bottom: 2rem;
             }
         }
 
@@ -737,6 +1140,20 @@
             .values-grid {
                 grid-template-columns: 1fr 1fr;
                 gap: 2rem;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .values-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .values-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
         }
 
@@ -762,9 +1179,27 @@
             }
         }
 
+        @media (max-width: 768px) {
+            .value-card {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .value-card {
+                padding: 1.25rem;
+            }
+        }
+
         .value-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        @media (hover: none) and (pointer: coarse) {
+            .value-card:hover {
+                transform: none;
+            }
         }
 
         .value-card:nth-child(1),
@@ -817,6 +1252,14 @@
             transition: all 0.3s;
         }
 
+        @media (max-width: 768px) {
+            .value-icon {
+                width: 3rem;
+                height: 3rem;
+                margin-bottom: 1rem;
+            }
+        }
+
         .value-card:nth-child(1) .value-icon,
         .value-card:nth-child(4) .value-icon {
             background-color: var(--primary-blue);
@@ -836,6 +1279,13 @@
         .value-icon svg {
             width: 2rem;
             height: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .value-icon svg {
+                width: 1.5rem;
+                height: 1.5rem;
+            }
         }
 
         .value-card:nth-child(1) .value-icon svg,
@@ -875,6 +1325,18 @@
             }
         }
 
+        @media (max-width: 768px) {
+            .value-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .value-title {
+                font-size: 1.25rem;
+            }
+        }
+
         .value-text {
             color: #666;
             font-size: 0.875rem;
@@ -884,6 +1346,18 @@
         @media (min-width: 768px) {
             .value-text {
                 font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .value-text {
+                font-size: 0.875rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .value-text {
+                font-size: 0.8rem;
             }
         }
 
@@ -905,6 +1379,12 @@
             }
         }
 
+        @media (max-width: 768px) {
+            .process {
+                padding: 2rem 1rem;
+            }
+        }
+
         .process-header {
             margin-bottom: 3rem;
         }
@@ -912,6 +1392,12 @@
         @media (min-width: 768px) {
             .process-header {
                 margin-bottom: 4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .process-header {
+                margin-bottom: 2rem;
             }
         }
 
@@ -933,6 +1419,20 @@
             }
         }
 
+        @media (max-width: 1024px) {
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .process-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
         .process-card {
             background-color: var(--white);
             padding: 1.5rem;
@@ -950,10 +1450,28 @@
             }
         }
 
+        @media (max-width: 768px) {
+            .process-card {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .process-card {
+                padding: 1.25rem;
+            }
+        }
+
         .process-card:hover {
             transform: translateY(-8px) scale(1.02);
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
             border-color: rgba(36, 91, 138, 0.2);
+        }
+
+        @media (hover: none) and (pointer: coarse) {
+            .process-card:hover {
+                transform: none;
+            }
         }
 
         .process-card-bg {
@@ -985,6 +1503,14 @@
             transition: background-color 0.3s;
         }
 
+        @media (max-width: 768px) {
+            .process-icon {
+                width: 3rem;
+                height: 3rem;
+                margin-bottom: 1.5rem;
+            }
+        }
+
         .process-card:hover .process-icon {
             background-color: var(--primary-blue);
         }
@@ -994,6 +1520,13 @@
             height: 1.75rem;
             color: var(--primary-blue);
             transition: color 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            .process-icon svg {
+                width: 1.5rem;
+                height: 1.5rem;
+            }
         }
 
         .process-card:hover .process-icon svg {
@@ -1006,6 +1539,12 @@
             color: rgba(36, 91, 138, 0.2);
             margin-bottom: 1rem;
             transition: color 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            .process-number {
+                font-size: 2.5rem;
+            }
         }
 
         .process-card:hover .process-number {
@@ -1028,11 +1567,35 @@
             line-height: 1.3;
         }
 
+        @media (max-width: 768px) {
+            .process-title {
+                font-size: 1.25rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .process-title {
+                font-size: 1.125rem;
+            }
+        }
+
         .process-text {
             color: #666;
             font-size: 0.875rem;
             line-height: 1.6;
             margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .process-text {
+                font-size: 0.875rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .process-text {
+                font-size: 0.8rem;
+            }
         }
 
         .process-link {
@@ -1042,6 +1605,12 @@
             color: var(--primary-blue);
             opacity: 0;
             transition: opacity 0.3s;
+        }
+
+        @media (hover: none) and (pointer: coarse) {
+            .process-link {
+                opacity: 1;
+            }
         }
 
         .process-card:hover .process-link {
@@ -1083,6 +1652,12 @@
             }
         }
 
+        @media (max-width: 768px) {
+            .cta {
+                padding: 2rem 1rem;
+            }
+        }
+
         .cta-container {
             background: linear-gradient(to bottom right, var(--primary-blue), #1a4666);
             padding: 1.5rem;
@@ -1114,6 +1689,12 @@
         @media (min-width: 1280px) {
             .cta-container {
                 padding: 4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .cta-container {
+                padding: 1.5rem;
             }
         }
 
@@ -1180,6 +1761,13 @@
             }
         }
 
+        @media (max-width: 1024px) {
+            .cta-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
         .cta-title {
             font-size: 1.5rem;
             font-weight: 700;
@@ -1204,7 +1792,20 @@
         @media (min-width: 1024px) {
             .cta-title {
                 font-size: 3rem;
-            margin-bottom: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .cta-title {
+                font-size: 1.75rem;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cta-title {
+                font-size: 1.5rem;
             }
         }
 
@@ -1228,6 +1829,19 @@
             }
         }
 
+        @media (max-width: 768px) {
+            .cta-text {
+                text-align: center;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cta-text {
+                font-size: 0.9rem;
+            }
+        }
+
         .cta-buttons {
             display: flex;
             flex-direction: column;
@@ -1237,6 +1851,13 @@
         @media (min-width: 640px) {
             .cta-buttons {
                 flex-direction: row;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
             }
         }
 
@@ -1255,6 +1876,26 @@
         @media (min-width: 768px) {
             .cta-stats {
                 gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .cta-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .cta-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cta-stats {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -1280,6 +1921,19 @@
             }
         }
 
+        @media (max-width: 768px) {
+            .stat-card {
+                padding: 1rem;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stat-card {
+                padding: 0.75rem;
+            }
+        }
+
         .stat-card:hover {
             transform: scale(1.05);
             background-color: rgba(255, 255, 255, 0.2);
@@ -1295,7 +1949,7 @@
         @media (min-width: 640px) {
             .stat-number {
                 font-size: 2.25rem;
-            margin-bottom: 0.5rem;
+                margin-bottom: 0.5rem;
             }
         }
 
@@ -1305,9 +1959,33 @@
             }
         }
 
+        @media (max-width: 768px) {
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stat-number {
+                font-size: 1.75rem;
+            }
+        }
+
         .stat-text {
             font-size: 0.875rem;
             color: rgba(255, 255, 255, 0.8);
+        }
+
+        @media (max-width: 768px) {
+            .stat-text {
+                font-size: 0.875rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stat-text {
+                font-size: 0.75rem;
+            }
         }
 
         /* Animations */
@@ -1369,7 +2047,7 @@
         left: 0;
         right: 0;
         z-index: 50;
-        background: transparent;
+        background: #245B8A;
         pointer-events: auto;
         touch-action: pan-y;
         will-change: auto;
@@ -1483,6 +2161,7 @@
         gap: 0.5rem;
         text-decoration: none;
         color: white;
+        min-height: 44px;
       }
 
       .navbar-link-indicator {
@@ -1531,6 +2210,7 @@
         font-weight: 600;
         text-decoration: none;
         transition: background-color 0.3s;
+        min-height: 44px;
       }
 
       .navbar-btn-primary {
@@ -1643,8 +2323,15 @@
         text-decoration: none;
         color: white;
         font-weight: 600;
-        padding: 0.75rem 0;
+        padding: 1rem 0;
         transition: color 0.3s;
+        min-height: 44px;
+      }
+
+      @media (max-width: 768px) {
+        .navbar-mobile-link {
+            padding: 1rem 0;
+        }
       }
 
       .navbar-mobile-link:hover {
@@ -1670,6 +2357,7 @@
         font-weight: 600;
         text-decoration: none;
         transition: background-color 0.3s;
+        min-height: 44px;
       }
 
       .navbar-mobile-btn-primary {
@@ -1711,7 +2399,7 @@
 </head>
 <body>
     <!-- New Navbar -->
-    <div id="new-navbar" style="background: transparent;">
+    <div id="new-navbar" style="background: #245B8A;">
       <div class="navbar-container">
         <!-- Logo with Animation -->
         <a href="index.html" class="navbar-logo">
@@ -1987,7 +2675,7 @@
                         <div class="accordion-content">
                             <div class="accordion-content-inner">
                                 <p class="accordion-text">
-                                    JB Technologies provides turnkey telecom infrastructure solutions nationwide — from structured cabling and wireless systems to DAS/ERRCS deployments and multi-site rollouts. Our expert field engineers and project teams deliver safe, compliant, and high-performance technology installations that help organizations stay connected and prepared for tomorrow.
+                                    JB Technologies provides turnkey telecom infrastructure solutions nationwide — from structured cabling and wireless systems to DAS/ERCES deployments and multi-site rollouts. Our expert field engineers and project teams deliver safe, compliant, and high-performance technology installations that help organizations stay connected and prepared for tomorrow.
                                 </p>
                             </div>
                         </div>
@@ -2083,7 +2771,7 @@
                 </div>
                 
                 <!-- Technical Excellence -->
-                <div class="value-card">
+                <div class="value-card" id="certifications">
                     <div class="value-card-bg"></div>
                     <div class="value-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
@@ -2097,7 +2785,7 @@
                     <p class="value-text">
                         Our engineers and field teams are trained, certified, and constantly learning. We apply 
                         industry best practices, proven methodologies, and cutting-edge tools to every system we 
-                        deploy. Whether it's structured cabling or advanced ERRCS integration, our goal is always 
+                        deploy. Whether it's structured cabling or advanced ERCES integration, our goal is always 
                         the same—flawless performance and long-term reliability.
                     </p>
                 </div>
@@ -2273,7 +2961,7 @@
                             <div class="stat-text">Projects Completed</div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-number">50+</div>
+                            <div class="stat-number">48</div>
                             <div class="stat-text">States Covered</div>
                         </div>
                         <div class="stat-card">
@@ -2492,7 +3180,7 @@
             <div class="jb-footer__contact-icon"><i class="fa-regular fa-envelope"></i></div>
             <div class="jb-footer__contact-details">
               <p>Email Us</p>
-              <a href="mailto:sales@jbtecknologies.com">sales@jbtecknologies.com</a>
+              <a href="mailto:sales@jbtechnologies.com">sales@jbtechnologies.com</a>
             </div>
           </li>
         </ul>
@@ -2529,7 +3217,7 @@
         "url": "https://jbtechnologies.com",
         "logo": "https://jbtechnologies.com/favicon.svg",
         "foundingDate": "2010",
-        "description": "Certified low-voltage contractor and technology integrator providing structured cabling, access control, DAS, ERRCS, AV integration, IT networks, and life-safety systems for commercial and enterprise buildings nationwide.",
+        "description": "Certified low-voltage contractor and technology integrator providing structured cabling, access control, DAS, ERCES, AV integration, IT networks, and life-safety systems for commercial and enterprise buildings nationwide.",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Atlanta",
@@ -2540,7 +3228,7 @@
           "@type": "ContactPoint",
           "telephone": "+1-770-637-2094",
           "contactType": "Customer Service",
-          "email": "sales@jbtecknologies.com",
+          "email": "sales@jbtechnologies.com",
           "areaServed": "US",
           "availableLanguage": "English"
         },
@@ -2574,7 +3262,7 @@
             "credentialCategory": "Professional Certification",
             "recognizedBy": {
               "@type": "Organization",
-              "name": "Shield ERRCS"
+              "name": "Shield ERCES"
             }
           }
         ],
@@ -2582,7 +3270,7 @@
           "Low Voltage Installation",
           "Structured Cabling",
           "DAS Installation",
-          "ERRCS",
+          "ERCES",
           "Access Control",
           "Security Systems",
           "AV Integration",

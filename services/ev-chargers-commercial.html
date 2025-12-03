@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Commercial EV charging solutions for retail, workplace, and fleet operations. JB Technologies provides scalable EV charging networks with network management and payment processing.">
+    <meta name="keywords" content="commercial EV charging, workplace EV charging, retail EV charging, fleet EV charging, EV charging network, commercial charging stations">
+    <link rel="canonical" href="https://jbtechnologies.com/services/ev-chargers-commercial.html">
+    
+    <title>Commercial EV Charging Solutions | JB Technologies</title>
+    <link rel="icon" type="image/png" href="/asessts/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="/asessts/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    
+    <style>
+        :root {
+            --primary-blue: #245B8A;
+            --dark-blue: #1C2D41;
+            --light-blue: #5BA5A5;
+            --light-gray: #F5F5F5;
+            --white: #FFFFFF;
+            --black: #000000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .hero {
+            position: relative;
+            height: 50vh;
+            min-height: 400px;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: var(--white);
+            padding: 2rem;
+        }
+
+        .hero-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.125rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .service-content {
+            padding: 4rem 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .service-content {
+                padding: 5rem 2rem;
+            }
+        }
+
+        .service-intro {
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            text-align: center;
+        }
+
+        .service-intro h2 {
+            font-size: 2.25rem;
+            color: var(--dark-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-intro p {
+            font-size: 1.125rem;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .use-cases {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .use-cases {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .use-case-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .use-case-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+        }
+
+        .use-case-card .icon {
+            font-size: 3rem;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .use-case-card h3 {
+            font-size: 1.75rem;
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+        }
+
+        .use-case-card p {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .use-case-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .use-case-card ul li {
+            color: #666;
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .use-case-card ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary-blue);
+            font-weight: 700;
+        }
+
+        .benefits-section {
+            background: var(--light-gray);
+            padding: 5rem 1rem;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .benefits-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .benefit-item {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-blue);
+        }
+
+        .benefit-item h4 {
+            font-size: 1.25rem;
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .benefit-item p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            padding: 4rem 1rem;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .cta-section h2 {
+            font-size: 2.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: var(--white);
+            color: var(--primary-blue);
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .breadcrumb {
+            padding: 1rem;
+            background: var(--light-gray);
+        }
+
+        .breadcrumb nav {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <nav>
+            <a href="../index.html">Home</a> / 
+            <a href="../services.html">Services</a> / 
+            <a href="ev-chargers.html">EV Chargers</a> / 
+            <span>Commercial Solutions</span>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Commercial EV Charging Solutions</h1>
+            <p class="hero-subtitle">
+                Scalable EV charging networks for retail, workplace, and fleet operations. Deploy charging infrastructure 
+                that attracts customers, supports employees, and powers your fleet.
+            </p>
+        </div>
+    </section>
+
+    <!-- Service Content -->
+    <section class="service-content">
+        <div class="container">
+            <div class="service-intro">
+                <h2>Enterprise EV Charging Infrastructure</h2>
+                <p>
+                    Commercial properties are increasingly installing EV charging stations to attract customers, support 
+                    employees, and meet sustainability goals. JB Technologies provides comprehensive commercial EV charging 
+                    solutions, from single-station installations to large-scale network deployments with integrated management 
+                    and payment systems.
+                </p>
+            </div>
+
+            <div class="use-cases">
+                <div class="use-case-card">
+                    <div class="icon"><i class="fas fa-store"></i></div>
+                    <h3>Retail & Hospitality</h3>
+                    <p>
+                        Attract EV-driving customers by offering convenient charging while they shop or dine. Our retail 
+                        charging solutions include:
+                    </p>
+                    <ul>
+                        <li>Level 2 chargers for customer parking</li>
+                        <li>DC fast charging for quick top-ups</li>
+                        <li>Payment processing integration</li>
+                        <li>Usage analytics and reporting</li>
+                    </ul>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="icon"><i class="fas fa-building"></i></div>
+                    <h3>Workplace Charging</h3>
+                    <p>
+                        Support employee EV adoption with workplace charging stations. Our workplace solutions include:
+                    </p>
+                    <ul>
+                        <li>Employee charging programs</li>
+                        <li>Access control and management</li>
+                        <li>Load balancing for multiple stations</li>
+                        <li>Usage tracking and billing</li>
+                    </ul>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="icon"><i class="fas fa-truck"></i></div>
+                    <h3>Fleet Operations</h3>
+                    <p>
+                        Power your electric fleet with dedicated charging infrastructure. Our fleet solutions include:
+                    </p>
+                    <ul>
+                        <li>High-power DC fast charging</li>
+                        <li>Fleet management integration</li>
+                        <li>Depot charging installations</li>
+                        <li>24/7 support and maintenance</li>
+                    </ul>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="icon"><i class="fas fa-home"></i></div>
+                    <h3>Multi-Family Properties</h3>
+                    <p>
+                        Provide EV charging for residents in apartments and condominiums. Our multi-family solutions include:
+                    </p>
+                    <ul>
+                        <li>Shared charging stations</li>
+                        <li>Resident access management</li>
+                        <li>Billing and payment systems</li>
+                        <li>Scalable network expansion</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.25rem; color: var(--dark-blue); margin-bottom: 3rem;">Commercial Charging Benefits</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <h4>Attract Customers</h4>
+                    <p>EV drivers actively seek locations with charging stations, increasing foot traffic and customer visits</p>
+                </div>
+                <div class="benefit-item">
+                    <h4>Revenue Opportunity</h4>
+                    <p>Generate revenue through charging fees while customers shop or dine at your location</p>
+                </div>
+                <div class="benefit-item">
+                    <h4>Sustainability Leadership</h4>
+                    <p>Demonstrate your commitment to sustainability and environmental responsibility</p>
+                </div>
+                <div class="benefit-item">
+                    <h4>Employee Benefits</h4>
+                    <p>Support employee EV adoption with convenient workplace charging</p>
+                </div>
+                <div class="benefit-item">
+                    <h4>Future-Proof Investment</h4>
+                    <p>Prepare for the growing EV market and increasing charging demand</p>
+                </div>
+                <div class="benefit-item">
+                    <h4>Network Management</h4>
+                    <p>Monitor usage, manage access, and optimize charging operations with integrated software</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Deploy Commercial EV Charging</h2>
+            <p>Get a custom solution designed for your commercial property or fleet operation</p>
+            <a href="../contact.html" class="btn">
+                Request a Quote <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="jb-footer">
+    </footer>
+
+    <script src="../js/footer-newsletter.js"></script>
+</body>
+</html>
+

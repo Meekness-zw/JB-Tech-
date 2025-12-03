@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="description" content="JB Technologies delivers structured cabling, access control, DAS, AV, IT, and life-safety integration for commercial and enterprise buildings nationwide.">
-    <meta name="keywords" content="low voltage contractor, structured cabling, DAS installation, ERRCS, AV integrator, commercial access control, network infrastructure, Atlanta low voltage company, commercial low voltage installation, technology integration company, structured cabling company, AV integration company, commercial security and access control, network infrastructure services, life safety fire systems integration, DAS installation company, public safety radio ERRCS company">
+    <meta name="keywords" content="low voltage contractor, structured cabling, DAS installation, ERCES, AV integrator, commercial access control, network infrastructure, Atlanta low voltage company, commercial low voltage installation, technology integration company, structured cabling company, AV integration company, commercial security and access control, network infrastructure services, life safety fire systems integration, DAS installation company, public safety radio ERCES company">
     <link rel="canonical" href="https://jbtechnologies.com/">
     
     <!-- Open Graph / Facebook -->
@@ -32,8 +32,18 @@
     <meta name="theme-color" content="#ffffff">
 
     <title>Low-Voltage, DAS, AV & Security Integration | JB Technologies</title>
+    <style>
+      /* Prevent any mid-page flash after preloader; reveal once page is ready */
+      body.page-id-home {
+        opacity: 0;
+        transition: opacity 0.35s ease;
+      }
+      body.page-id-home.page-ready {
+        opacity: 1;
+      }
+    </style>
     <script>
-      var INITIAL_LOADER_STORAGE_KEY = 'initialLoaderCycle';
+      var INITIAL_LOADER_STORAGE_KEY = 'initialLoaderShown_v2';
       (function() {
         try {
           var storageKey = INITIAL_LOADER_STORAGE_KEY;
@@ -42,13 +52,21 @@
             return;
           }
           var storageAvailable = typeof window.sessionStorage !== 'undefined';
-          var loaderState = storageAvailable ? sessionStorage.getItem(storageKey) : null;
-          if (loaderState === 'running') {
+          // Check if preloader has already been shown in this session
+          var loaderShown = storageAvailable ? sessionStorage.getItem(storageKey) : null;
+          if (loaderShown === 'true') {
+            // Preloader already shown, don't redirect again
+            return;
+          }
+          // Check if we're in the middle of a redirect (prevent loops)
+          if (loaderShown === 'running') {
+            // Clear the running flag and proceed (preloader should have completed)
             storageAvailable && sessionStorage.removeItem(storageKey);
             return;
           }
           var nextPath = window.location.pathname + window.location.search + window.location.hash;
           var nextParam = nextPath || '/';
+          // Mark as running to prevent double redirects
           storageAvailable && sessionStorage.setItem(storageKey, 'running');
           window.location.replace('preloader.html?next=' + encodeURIComponent(nextParam));
         } catch (err) {
@@ -138,7 +156,8 @@
                 stroke-width: 4;
                 stroke-dasharray: 2000;
                 stroke-dashoffset: 2000;
-                animation: navbar-draw 2.5s ease-out forwards;
+                /* Faster, smoother logo draw on page load */
+                animation: navbar-draw 1.4s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
               }
               
               @keyframes navbar-draw {
@@ -146,7 +165,7 @@
                   stroke-dashoffset: 2000;
                   fill: transparent;
                 }
-                70% {
+                60% {
                   stroke-dashoffset: 0;
                   fill: transparent;
                 }
@@ -156,17 +175,17 @@
                 }
               }
               
-              .navbar-logo path:nth-child(1) { animation-delay: 0.1s; }
-              .navbar-logo rect:nth-child(2) { animation-delay: 0.3s; }
-              .navbar-logo rect:nth-child(3) { animation-delay: 0.5s; }
-              .navbar-logo rect:nth-child(4) { animation-delay: 0.7s; }
+              .navbar-logo path:nth-child(1) { animation-delay: 0.05s; }
+              .navbar-logo rect:nth-child(2) { animation-delay: 0.15s; }
+              .navbar-logo rect:nth-child(3) { animation-delay: 0.25s; }
+              .navbar-logo rect:nth-child(4) { animation-delay: 0.35s; }
               .navbar-logo path:nth-child(n+5) { 
-                animation: navbar-draw 1.5s ease-out forwards;
-                animation-delay: 1s !important;
+                animation: navbar-draw 1s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+                animation-delay: 0.55s !important;
               }
               
               .navbar-logo path, .navbar-logo rect {
-                transition: fill 0.5s ease-in-out;
+                transition: fill 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
               }
             </style>
             <path d="M694.24,902.84h92c0,10.92.12,21.74,0,32.55-.36,28.82,3.78,34.42,32.84,37.44a144.18,144.18,0,0,0,39.06-1.72c20-3.47,24.41-9.3,24.56-29.74.41-55,.36-109.92.45-164.88,0-23.5,0-47,0-71a15,15,0,0,1,14.78-15h1.3q151.57-.06,303.14.12a277.55,277.55,0,0,1,40.7,3.25c35,5.29,56.07,23.94,62,58.82,3.43,20.05,3.47,41.21,1.53,61.53-2.61,27.2-19.23,44.6-45.88,52-2.78.77-5.42,2-11.06,4.13,7.23,1.57,11.35,2.5,15.48,3.35,26.6,5.46,44.45,20.71,46.88,48.2,2.07,23.4,3.25,47.54-.15,70.62-5.3,36-31.3,58.7-72.94,59.88-78.2,2.2-156.5.63-236,.63V850.27a14,14,0,0,1,13.95-14H1019c53-.14,106.09,0,159.13-.53,29.78-.3,45.07-27,30.8-53.68-2.31-4.32-7.7-8.11-12.49-9.74-6-2.06-12.92-2.19-19.45-2.21q-99.27-.21-198.55,0c-3.88,0-7.76.49-17.39,1.16,24.76,13.66,19,33.28,19.13,51.11.23,47.9.36,95.81-.05,143.71-.48,54.4-26.31,85.25-80.29,88.52-44.66,2.71-89.87,1.19-134.53-2.33-38-3-59.28-26.76-65.91-69.65C695.46,957,695.89,930.61,694.24,902.84Zm405.54,70.84c30.84,0,60.89.57,90.91-.28,12.26-.34,23-6.75,25.54-19.75,2.86-14.79,4.23-30.18-7-43-1.9-2.17-4.88-4.81-7.37-4.84-34-.32-67.94-.21-102.11-.21Z"/>
@@ -369,12 +388,26 @@
         right: 0;
         z-index: 3;
         background: transparent;
+        transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
         /* Make entire navbar allow scroll through */
         pointer-events: none;
         /* Prevent any touch/scroll interference */
         touch-action: pan-y;
         /* Ensure it doesn't block layout */
         will-change: auto;
+      }
+      
+      /* Navbar with background for visibility on light sections */
+      #new-navbar.has-background {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      
+      /* Dark navbar variant for dark sections */
+      #new-navbar.has-dark-background {
+        background: rgba(28, 45, 65, 0.95);
+        backdrop-filter: blur(10px);
       }
       
       /* Only interactive elements are clickable */
@@ -512,6 +545,19 @@
 
       .navbar-link-text {
         color: white;
+        transition: color 0.3s ease;
+      }
+      
+      /* Adjust text colors when navbar has background */
+      #new-navbar.has-background .navbar-link-text,
+      #new-navbar.has-background .navbar-btn-primary {
+        color: #1C2D41;
+      }
+      
+      #new-navbar.has-background .navbar-logo path,
+      #new-navbar.has-background .navbar-logo rect {
+        stroke: #1C2D41;
+        fill: #1C2D41;
       }
 
       .navbar-desktop-buttons {
@@ -735,7 +781,7 @@
 
   <section class="home-screen" id="home-landing">
       <div id="home-landing__bg">
-          <video id="home-landing__bg__video" preload="auto" loop muted playsinline src="./asessts/Servers.mp4">
+          <video id="home-landing__bg__video" preload="metadata" loop muted playsinline src="./asessts/Servers.mp4" loading="lazy">
         <source src="./asessts/Servers.mp4" type="video/mp4">
       </video>
       </div>
@@ -773,7 +819,7 @@
   <section class="home-screen__step home-screen__step-1">
 
   <div class="home-screen__step-1__bg">
-          <video class="home-screen__step-1__bg__video" preload="auto" loop muted>
+          <video class="home-screen__step-1__bg__video" preload="none" loop muted loading="lazy">
         <source src="./asessts/Servers.mp4">
       </source></video>
         <canvas class="home-screen__step-1__bg__canvas"></canvas>
@@ -825,7 +871,7 @@
   <section class="home-screen__step home-screen__step-1">
 
   <div class="home-screen__step-1__bg">
-          <video class="home-screen__step-1__bg__video" preload="auto" loop muted>
+          <video class="home-screen__step-1__bg__video" preload="none" loop muted loading="lazy">
         <source src="./asessts/video1.mp4">
       </source></video>
         <canvas class="home-screen__step-1__bg__canvas"></canvas>
@@ -863,9 +909,9 @@
   <div class="home-screen__step__content home-screen__step-2__content">
     <div class="home-screen__step-2__content__inner">
       <h2 class="home-screen__step__content__title home-screen__step-2__content__inner__title">Certified Technology Experts</h2>
-      <h3 class="home-screen__step__content__subtitle home-screen__step-2__content__inner__subtitle">Certified in QSC, Nextivity CEL-FI, Shield ERRCS, BICSI, and industry-leading technologies</h3>
-      <div class="home-screen__step-2__content__inner__body">We combine certified technical expertise, nationwide reach, and uncompromising safety standards to deliver reliable low-voltage and building technology systems on every project. Our team maintains certifications in structured cabling, DAS, ERRCS, AV integration, and life-safety systems.</div>
-      <a class="home-screen__step-2__content__inner__link" href="about.html">
+      <h3 class="home-screen__step__content__subtitle home-screen__step-2__content__inner__subtitle">Certified in QSC, Nextivity CEL-FI, Shield ERCES, BICSI, and industry-leading technologies</h3>
+      <div class="home-screen__step-2__content__inner__body">We combine certified technical expertise, nationwide reach, and uncompromising safety standards to deliver reliable low-voltage and building technology systems on every project. Our team maintains certifications in structured cabling, DAS, ERCES, AV integration, and life-safety systems.</div>
+      <a class="home-screen__step-2__content__inner__link" href="about.html#certifications">
         <span class="home-screen__step-2__content__inner__link__label">Learn About Our Certifications</span>
       </a>
     </div>
@@ -877,7 +923,7 @@
   <section class="home-screen__step home-screen__step-1">
 
   <div class="home-screen__step-1__bg">
-          <video class="home-screen__step-1__bg__video" preload="auto" loop muted>
+          <video class="home-screen__step-1__bg__video" preload="none" loop muted loading="lazy">
         <source src="./asessts/video3.mp4">
       </source></video>
         <canvas class="home-screen__step-1__bg__canvas"></canvas>
@@ -929,7 +975,7 @@
   <section class="home-screen__step home-screen__step-1">
 
   <div class="home-screen__step-1__bg">
-          <video class="home-screen__step-1__bg__video" preload="auto" loop muted>
+          <video class="home-screen__step-1__bg__video" preload="none" loop muted loading="lazy">
         <source src="https://www.maman-corp.com/assets/video/home-4.mp4">
       </source></video>
         <canvas class="home-screen__step-1__bg__canvas"></canvas>
@@ -981,7 +1027,7 @@
   <section class="home-screen__step home-screen__step-1">
 
   <div class="home-screen__step-1__bg">
-          <video class="home-screen__step-1__bg__video" preload="auto" loop muted>
+          <video class="home-screen__step-1__bg__video" preload="none" loop muted loading="lazy">
         <source src="./asessts/video2.mp4">
       </source></video>
         <canvas class="home-screen__step-1__bg__canvas"></canvas>
@@ -1033,8 +1079,8 @@
   <section class="home-screen__step home-screen__step-1">
 
   <div class="home-screen__step-1__bg">
-          <video class="home-screen__step-1__bg__video" preload="auto" loop muted>
-        <source src="./asessts/video4.mp4">
+          <video class="home-screen__step-1__bg__video" preload="none" loop muted loading="lazy">
+        <source src="./asessts/Servers.mp4">
       </source></video>
         <canvas class="home-screen__step-1__bg__canvas"></canvas>
   </div>
@@ -1072,7 +1118,7 @@
     <div class="home-screen__step-2__content__inner">
       <h2 class="home-screen__step__content__title home-screen__step-2__content__inner__title">Comprehensive Technology Integration Services</h2>
       <h3 class="home-screen__step__content__subtitle home-screen__step-2__content__inner__subtitle">Yes. We handle retrofits, upgrades, and repairs while keeping your network or building systems online with minimal disruption.</h3>
-      <div class="home-screen__step-2__content__inner__body">We offer comprehensive low-voltage and building technology services, including site surveys, design, installation, and maintenance for both new construction and retrofits. Our capabilities span structured cabling, fiber optics, wireless infrastructure, DAS, ERRCS, access control, security systems, AV integration, and IT networks.</div>
+      <div class="home-screen__step-2__content__inner__body">We offer comprehensive low-voltage and building technology services, including site surveys, design, installation, and maintenance for both new construction and retrofits. Our capabilities span structured cabling, fiber optics, wireless infrastructure, DAS, ERCES, access control, security systems, AV integration, and IT networks.</div>
       <a class="home-screen__step-2__content__inner__link" href="services.html">
         <span class="home-screen__step-2__content__inner__link__label">Explore Our Services</span>
       </a>
@@ -1085,7 +1131,7 @@
   <section class="home-screen__step home-screen__step-1">
 
   <div class="home-screen__step-1__bg">
-          <video class="home-screen__step-1__bg__video" preload="auto" loop muted>
+          <video class="home-screen__step-1__bg__video" preload="none" loop muted loading="lazy">
         <source src="./asessts/video5.mp4">
       </source></video>
         <canvas class="home-screen__step-1__bg__canvas"></canvas>
@@ -1198,9 +1244,9 @@
 
       </div>
 
-      <!--
-      <section id="home-footer-section" class="home-footer-section" aria-hidden="true">
-        <footer id="footer" class="jb-footer" style="display:none;">
+      <!-- Footer Section -->
+      <section id="home-footer-section" class="home-footer-section">
+        <footer id="footer" class="jb-footer">
   <div class="jb-footer__top-border"></div>
   <section class="jb-footer__newsletter">
     <div class="jb-footer__newsletter-container">
@@ -1298,7 +1344,7 @@
             <div class="jb-footer__contact-icon"><i class="fa-regular fa-envelope"></i></div>
             <div class="jb-footer__contact-details">
               <p>Email Us</p>
-              <a href="mailto:sales@jbtecknologies.com">sales@jbtecknologies.com</a>
+              <a href="mailto:sales@jbtechnologies.com">sales@jbtechnologies.com</a>
             </div>
           </li>
         </ul>
@@ -1317,7 +1363,6 @@
   </div>
 </footer>
       </section>
-      -->
 
     <script>
       (function() {
@@ -1362,16 +1407,45 @@
     <!-- Initialize scroll system without waiting for full page load -->
     <script>
       (function() {
-        // Detect touch devices
-        const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0);
-        
-        // Set video preload to none on touch devices to reduce initial load
-        if (isTouch) {
-          document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('video[preload="auto"]').forEach(function(v) {
-              v.preload = 'none';
+        // Lazy load videos when they come into viewport
+        function setupLazyVideoLoading() {
+          const videos = document.querySelectorAll('video[loading="lazy"], video[preload="none"]');
+          
+          if ('IntersectionObserver' in window) {
+            const videoObserver = new IntersectionObserver(function(entries) {
+              entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                  const video = entry.target;
+                  if (video.paused && video.readyState === 0) {
+                    video.load();
+                    video.play().catch(function(err) {
+                      // Autoplay blocked, will play on user interaction
+                      console.log('Video autoplay prevented:', err);
+                    });
+                  }
+                  videoObserver.unobserve(video);
+                }
+              });
+            }, {
+              rootMargin: '50px'
             });
-          });
+            
+            videos.forEach(function(video) {
+              videoObserver.observe(video);
+            });
+          } else {
+            // Fallback for browsers without IntersectionObserver
+            videos.forEach(function(video) {
+              video.load();
+            });
+          }
+        }
+        
+        // Initialize lazy loading after DOM is ready
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', setupLazyVideoLoading);
+        } else {
+          setupLazyVideoLoading();
         }
         
         // Try to initialize scroll system
@@ -1545,9 +1619,6 @@
         
         if (!video || !homeLanding) return;
         
-        // Ensure home-landing is visible immediately
-        homeLanding.style.visibility = 'visible';
-        
         // Simple function to play video - similar to how step-1 works
         function playVideo() {
           if (video && video.paused) {
@@ -1605,6 +1676,93 @@
               init: function() {
                 this.setupMobileMenu();
                 this.setupActiveLinks();
+                this.setupDynamicBackground();
+              },
+              
+              setupDynamicBackground: function() {
+                const navbar = document.getElementById('new-navbar');
+                if (!navbar) return;
+                
+                // Function to check if we're over a light/white section
+                function updateNavbarBackground() {
+                  const scrollY = window.scrollY || window.pageYOffset;
+                  const viewportHeight = window.innerHeight;
+                  
+                  // Get element at center of viewport
+                  const centerY = scrollY + viewportHeight / 2;
+                  const element = document.elementFromPoint(window.innerWidth / 2, viewportHeight / 2);
+                  
+                  if (!element) return;
+                  
+                  // Walk up the DOM tree to find section with background
+                  let current = element;
+                  let hasLightBackground = false;
+                  let hasDarkBackground = false;
+                  
+                  while (current && current !== document.body) {
+                    const styles = window.getComputedStyle(current);
+                    const bgColor = styles.backgroundColor;
+                    const bgImage = styles.backgroundImage;
+                    
+                    // Check if background is light/white
+                    if (bgColor && bgColor !== 'rgba(0, 0, 0, 0)' && bgColor !== 'transparent') {
+                      const rgb = bgColor.match(/\d+/g);
+                      if (rgb && rgb.length >= 3) {
+                        const r = parseInt(rgb[0]);
+                        const g = parseInt(rgb[1]);
+                        const b = parseInt(rgb[2]);
+                        const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+                        
+                        if (brightness > 200) {
+                          hasLightBackground = true;
+                          break;
+                        } else if (brightness < 100) {
+                          hasDarkBackground = true;
+                        }
+                      }
+                    }
+                    
+                    // Check for white/light background classes
+                    if (current.classList) {
+                      const classList = Array.from(current.classList);
+                      if (classList.some(c => c.includes('white') || c.includes('light') || c.includes('gray'))) {
+                        hasLightBackground = true;
+                        break;
+                      }
+                      if (classList.some(c => c.includes('dark') || c.includes('black'))) {
+                        hasDarkBackground = true;
+                      }
+                    }
+                    
+                    current = current.parentElement;
+                  }
+                  
+                  // Update navbar classes
+                  navbar.classList.remove('has-background', 'has-dark-background');
+                  if (hasLightBackground) {
+                    navbar.classList.add('has-background');
+                  } else if (hasDarkBackground && scrollY > 100) {
+                    navbar.classList.add('has-dark-background');
+                  }
+                }
+                
+                // Update on scroll
+                let ticking = false;
+                function onScroll() {
+                  if (!ticking) {
+                    window.requestAnimationFrame(function() {
+                      updateNavbarBackground();
+                      ticking = false;
+                    });
+                    ticking = true;
+                  }
+                }
+                
+                window.addEventListener('scroll', onScroll, { passive: true });
+                updateNavbarBackground(); // Initial check
+                
+                // Also check on resize
+                window.addEventListener('resize', updateNavbarBackground, { passive: true });
               },
 
               setupMobileMenu: function() {
@@ -1678,7 +1836,7 @@
         <div class="markets-header">
           <p class="markets-tag">LOCATIONS</p>
           <h2>National brand, local deployment</h2>
-          <p>We stage DAS, ERRCS, low voltage, security, AV, and IT crews across the country. Explore our Atlanta hub (with more metros coming online) to see how we handle AHJ requirements at the local level.</p>
+          <p>We stage DAS, ERCES, low voltage, security, AV, and IT crews across the country. Explore our Atlanta hub (with more metros coming online) to see how we handle AHJ requirements at the local level.</p>
         </div>
         <div class="markets-grid">
           <a class="market-card" href="locations/atlanta.html">
@@ -1697,6 +1855,14 @@
       .markets-section {
         padding: 80px 20px;
         background: linear-gradient(135deg, rgba(36,91,138,0.05), rgba(36,91,138,0.12));
+        /* Prevent flash of this section while the page is positioning at the top */
+        opacity: 0;
+        transform: translateY(12px);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+      }
+      .markets-section.markets-section--visible {
+        opacity: 1;
+        transform: translateY(0);
       }
       .markets-container {
         max-width: 1200px;
@@ -1767,10 +1933,102 @@
       }
     </style>
 
+    <!-- Reveal markets section only after we are safely at the top of the page -->
+    <script>
+      (function() {
+        var markets = document.getElementById('markets');
+        if (!markets) return;
+
+        function showMarkets() {
+          markets.classList.add('markets-section--visible');
+        }
+
+        // Slight delay to make sure any scroll-reset logic has already run
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+          setTimeout(showMarkets, 400);
+        } else {
+          document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(showMarkets, 400);
+          });
+        }
+
+        // Also ensure it becomes visible after our custom preloader event, if used
+        document.addEventListener('preloaderComplete', function() {
+          setTimeout(showMarkets, 200);
+        });
+      })();
+    </script>
+
     <!-- Zoho SalesIQ Live Chat Widget -->
     <script>window.$zoho=window.$zoho || {};$zoho.salesiq=$zoho.salesiq||{ready:function(){}}</script>
     <script id="zsiqscript" src="https://salesiq.zohopublic.com/widget?wc=siqa1ebf5fc6b16a5e46c77ea2edc2300e733aedbaa9f6f4c2b7ec48d13c394e5ef" defer></script>
 
+
+    <!-- Ensure we always land at the top of the home page after preloader -->
+    <script>
+      (function() {
+        function scrollToTop() {
+          try {
+            // Force scroll to very top of the document
+            window.scrollTo(0, 0);
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+          } catch (e) {
+            // ignore
+          }
+        }
+
+        // Disable browser's automatic scroll restoration so we don't jump
+        // back to the last scroll position after coming from preloader.html
+        try {
+          if ('scrollRestoration' in window.history) {
+            window.history.scrollRestoration = 'manual';
+          }
+        } catch (e) {
+          // ignore
+        }
+
+        // At this point in the document the DOM is already parsed, so we can
+        // immediately reset the scroll position without waiting for images/videos.
+        scrollToTop();
+
+        // Mark the page as ready (will fade in the body)
+        function markPageReady() {
+          try {
+            document.body.classList.add('page-ready');
+          } catch (e) {
+            // ignore
+          }
+        }
+
+        // Also guard against late events that might change scroll position.
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', function() {
+            scrollToTop();
+            markPageReady();
+          }, { once: true });
+        }
+
+        window.addEventListener('load', function() {
+          scrollToTop();
+          markPageReady();
+        });
+
+        // After custom preloader finishes (event dispatched from preloader.html)
+        document.addEventListener('preloaderComplete', function() {
+          scrollToTop();
+          markPageReady();
+        });
+
+        // Handle bfcache / back-forward navigation cases
+        window.addEventListener('pageshow', function(event) {
+          if (event.persisted) {
+            scrollToTop();
+            markPageReady();
+          }
+        });
+      })();
+    </script>
 
     <!-- Schema.org Structured Data for SEO -->
     <script type="application/ld+json">
@@ -1785,7 +2043,7 @@
       "logo": "https://jbtechnologies.com/favicon.svg",
       "image": "https://jbtechnologies.com/favicon.svg",
       "telephone": "770-637-2094",
-      "email": "sales@jbtecknologies.com",
+      "email": "sales@jbtechnologies.com",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Atlanta",
@@ -1865,8 +2123,8 @@
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Public Safety Radio / ERRCS",
-              "description": "ERRCS company, public safety DAS, ERCES installation"
+              "name": "Public Safety Radio / ERCES",
+              "description": "ERCES company, public safety DAS, ERCES installation"
             }
           },
           {
@@ -1932,7 +2190,7 @@
         "Low Voltage Installation",
         "Structured Cabling",
         "DAS Installation",
-        "ERRCS",
+        "ERCES",
         "Access Control",
         "Security Systems",
         "AV Integration",
@@ -1969,7 +2227,7 @@
           "credentialCategory": "Professional Certification",
           "recognizedBy": {
             "@type": "Organization",
-            "name": "Shield ERRCS"
+            "name": "Shield ERCES"
           }
         }
       ],

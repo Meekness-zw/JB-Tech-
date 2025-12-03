@@ -7,7 +7,8 @@
     background-color: #000;
     z-index: 2000;
     opacity: 1;
-    transition: opacity .8s ease, visibility .8s ease;
+    /* Faster fade to avoid sluggish feel on page load */
+    transition: opacity .4s ease-out, visibility .4s ease-out;
     overflow: hidden
 }
 
@@ -225,7 +226,8 @@ body.preloader-active {
 
 .initial-loader--ready .initial-loader__logo-svg path,
 .initial-loader--ready .initial-loader__logo-svg rect {
-    animation: initialLogoDraw 3.5s ease-out forwards
+    /* Shorter, smoother initial logo animation for better perceived speed */
+    animation: initialLogoDraw 2.2s cubic-bezier(0.25, 0.8, 0.25, 1) forwards
 }
 
 .initial-loader__logo-svg path:nth-child(1) {
@@ -1731,7 +1733,8 @@ button:disabled {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #245B8A;
+    background-color: rgba(36, 91, 138, 0.85);
+    backdrop-filter: blur(8px);
     z-index: 2;
     transform-origin: right top
 }
@@ -1994,12 +1997,7 @@ button:disabled {
 .home-screen__step {
     width: 100%;
     height: 100%;
-    visibility: hidden
-}
-
-/* Ensure home-landing is visible on initial load */
-#home-landing {
-    visibility: visible !important
+    visibility: hidden;
 }
 
 .home-landing__line:nth-child(1) {
@@ -2235,31 +2233,51 @@ button:disabled {
 
 .home-screen__step-1__content {
     position: absolute;
-    bottom: 18.12%;
-    left: 21.74%;
-    width: 72.46%;
-    z-index: 2
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+    max-width: 800px;
+    z-index: 2;
+    padding: 1.5rem;
+    background: transparent;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .home-screen__step-1__content {
+        width: 90%;
+        padding: 1.25rem;
+        top: 48%;
+        background: transparent
+    }
 }
 
 @media screen and (min-width:1024px) {
     .home-screen__step-1__content {
-        top: 36.46%;
+        top: 45%;
         bottom: auto;
-        left: 28.91%;
-        width: auto
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: auto;
+        max-width: 900px;
+        padding: 3rem 4rem
     }
 }
 
 @media screen and (min-width:1280px) {
     .home-screen__step-1__content {
-        top: 37.22%;
-        left: 29.17%
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 3.5rem 5rem
     }
 }
 
 .home-screen__step-1__content__title {
     padding-bottom: 20px;
-    color: #245B8A
+    color: #fff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3)
 }
 
 @media screen and (min-width:1024px) {
@@ -2270,7 +2288,8 @@ button:disabled {
 
 .home-screen__step-1__content__subtitle {
     padding-bottom: 25px;
-    color: #fff
+    color: #fff;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4)
 }
 
 @media screen and (min-width:1024px) {

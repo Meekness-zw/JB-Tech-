@@ -5,21 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JB Technologies</title>
     <script>
-        var INITIAL_LOADER_STORAGE_KEY = 'initialLoaderShown_v2';
         (function() {
             try {
                 var params = new URLSearchParams(window.location.search);
                 window.__initialLoaderNext = params.get('next') || 'index.html';
             } catch (err) {
                 window.__initialLoaderNext = 'index.html';
-            }
-            window.__initialLoaderStorageKey = INITIAL_LOADER_STORAGE_KEY;
-            try {
-                if (window.sessionStorage && sessionStorage.getItem(window.__initialLoaderStorageKey) === 'true') {
-                    window.location.replace(window.__initialLoaderNext);
-                }
-            } catch (err) {
-                console.warn('Preloader skip check failed:', err);
             }
         })();
     </script>
@@ -214,7 +205,6 @@
 
     <script>
         (function() {
-            const storageKey = window.__initialLoaderStorageKey || 'initialLoaderShown';
             const nextUrl = window.__initialLoaderNext || 'index.html';
 
             document.addEventListener('DOMContentLoaded', function() {
@@ -338,14 +328,19 @@
 
             function redirectToNext() {
                 try {
-                    // Mark preloader as completed before redirecting
-                    if (window.sessionStorage) {
-                        sessionStorage.setItem(storageKey, 'true');
+                    // Mark that the next load of index.html should *not* redirect again.
+                    try {
+                        if (window.sessionStorage) {
+                            window.sessionStorage.setItem('skipPreloaderThisLoad', 'true');
+                        }
+                    } catch (e) {
+                        // ignore storage issues
                     }
+                    window.location.replace(nextUrl);
                 } catch (err) {
-                    console.warn('Failed to set preloader completion flag:', err);
+                    console.warn('Failed to build redirect URL from preloader:', err);
+                    window.location.replace(nextUrl);
                 }
-                window.location.replace(nextUrl);
             }
         })();
     </script>

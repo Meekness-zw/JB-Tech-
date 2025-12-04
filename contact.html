@@ -2203,7 +2203,7 @@
             // Form submission
             const generalForm = document.getElementById('generalForm');
             if (generalForm) {
-                const salesEmail = 'sales@jbtechnologies.com';
+                const salesEmail = 'sales@jbtecknologies.com';
                 const formEndpoint = `https://formsubmit.co/ajax/${encodeURIComponent(salesEmail)}`;
                 const statusMessage = document.getElementById('generalFormStatus');
                 const submitButton = generalForm.querySelector('button[type="submit"]');
@@ -2256,7 +2256,7 @@
                         generalForm.reset();
                     } catch (error) {
                         console.error('Form submission error:', error);
-                        updateStatus('error', 'We could not send your message. Please try again or email sales@jbtechnologies.com directly.');
+                        updateStatus('error', 'We could not send your message. Please try again or email sales@jbtecknologies.com directly.');
                     } finally {
                         if (submitButton) {
                             submitButton.disabled = false;
@@ -2696,7 +2696,7 @@
             // Booking form submission
             const bookingForm = document.getElementById('bookingForm');
             if (bookingForm) {
-                const salesEmail = 'sales@jbtechnologies.com';
+                const salesEmail = 'sales@jbtecknologies.com';
                 const formEndpoint = `https://formsubmit.co/ajax/${encodeURIComponent(salesEmail)}`;
                 const statusMessage = document.getElementById('bookingFormStatus');
                 const submitButton = document.getElementById('bookingSubmitBtn');
@@ -2777,7 +2777,7 @@
                         }
 
                         await response.json();
-                        updateStatus('success', 'Thank you! Your appointment request has been submitted to sales@jbtechnologies.com. We will confirm your appointment via email shortly.');
+                        updateStatus('success', 'Thank you! Your appointment request has been submitted to sales@jbtecknologies.com. We will confirm your appointment via email shortly.');
                         bookingForm.reset();
                         
                         // Reset selections
@@ -2796,7 +2796,7 @@
                         document.getElementById('timeSelection').style.display = 'none';
                     } catch (error) {
                         console.error('Booking submission error:', error);
-                        updateStatus('error', 'We could not schedule your appointment. Please try again or email sales@jbtechnologies.com directly.');
+                        updateStatus('error', 'We could not schedule your appointment. Please try again or email sales@jbtecknologies.com directly.');
                     } finally {
                         if (submitButton) {
                             submitButton.disabled = false;
@@ -2981,7 +2981,7 @@
             <div class="jb-footer__contact-icon"><i class="fa-regular fa-envelope"></i></div>
             <div class="jb-footer__contact-details">
               <p>Email Us</p>
-              <a href="mailto:sales@jbtechnologies.com">sales@jbtechnologies.com</a>
+              <a href="mailto:sales@jbtecknologies.com">sales@jbtecknologies.com</a>
             </div>
           </li>
         </ul>
@@ -3016,7 +3016,7 @@
         "name": "JB Technologies",
         "url": "https://jbtechnologies.com",
         "telephone": "770-637-2094",
-        "email": "sales@jbtechnologies.com",
+        "email": "sales@jbtecknologies.com",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Atlanta",

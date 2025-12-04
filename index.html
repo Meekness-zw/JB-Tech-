@@ -43,31 +43,31 @@
       }
     </style>
     <script>
-      var INITIAL_LOADER_STORAGE_KEY = 'initialLoaderShown_v2';
+      // Always show the preloader before the home page on each refresh.
+      // Use sessionStorage to avoid an infinite loop when returning from preloader.html.
       (function() {
         try {
-          var storageKey = INITIAL_LOADER_STORAGE_KEY;
           var isPreloaderPage = window.location.pathname.indexOf('preloader.html') !== -1;
           if (isPreloaderPage) {
             return;
           }
-          var storageAvailable = typeof window.sessionStorage !== 'undefined';
-          // Check if preloader has already been shown in this session
-          var loaderShown = storageAvailable ? sessionStorage.getItem(storageKey) : null;
-          if (loaderShown === 'true') {
-            // Preloader already shown, don't redirect again
+
+          var SKIP_KEY = 'skipPreloaderThisLoad';
+          var storage = window.sessionStorage;
+
+          // If this load was already marked to skip the preloader, clear the flag and stay on the page.
+          if (storage && storage.getItem(SKIP_KEY) === 'true') {
+            storage.removeItem(SKIP_KEY);
             return;
           }
-          // Check if we're in the middle of a redirect (prevent loops)
-          if (loaderShown === 'running') {
-            // Clear the running flag and proceed (preloader should have completed)
-            storageAvailable && sessionStorage.removeItem(storageKey);
-            return;
+
+          // Mark that the *next* arrival to index.html after preloader should skip redirect.
+          if (storage) {
+            storage.setItem(SKIP_KEY, 'true');
           }
+
           var nextPath = window.location.pathname + window.location.search + window.location.hash;
           var nextParam = nextPath || '/';
-          // Mark as running to prevent double redirects
-          storageAvailable && sessionStorage.setItem(storageKey, 'running');
           window.location.replace('preloader.html?next=' + encodeURIComponent(nextParam));
         } catch (err) {
           console.warn('Preloader redirect skipped:', err);
@@ -1344,7 +1344,7 @@
             <div class="jb-footer__contact-icon"><i class="fa-regular fa-envelope"></i></div>
             <div class="jb-footer__contact-details">
               <p>Email Us</p>
-              <a href="mailto:sales@jbtechnologies.com">sales@jbtechnologies.com</a>
+              <a href="mailto:sales@jbtecknologies.com">sales@jbtecknologies.com</a>
             </div>
           </li>
         </ul>
@@ -1830,134 +1830,9 @@
       })();
     </script>
 
-    <!-- Markets Section -->
-    <section id="markets" class="markets-section">
-      <div class="markets-container">
-        <div class="markets-header">
-          <p class="markets-tag">LOCATIONS</p>
-          <h2>National brand, local deployment</h2>
-          <p>We stage DAS, ERCES, low voltage, security, AV, and IT crews across the country. Explore our Atlanta hub (with more metros coming online) to see how we handle AHJ requirements at the local level.</p>
-        </div>
-        <div class="markets-grid">
-          <a class="market-card" href="locations/atlanta.html">
-            <div>
-              <p class="market-label">Metro Atlanta</p>
-              <h3>Low Voltage &amp; DAS Integrator</h3>
-              <p class="market-body">Headquartered in Atlanta with coverage across Downtown, Perimeter, Truist Park, airport logistics, and North/South Metro industrial corridors.</p>
-            </div>
-            <span class="market-link">Visit location <i class="fa-solid fa-arrow-right"></i></span>
-          </a>
-        </div>
-      </div>
-    </section>
+    <!-- Markets Section removed per request -->
 
-    <style>
-      .markets-section {
-        padding: 80px 20px;
-        background: linear-gradient(135deg, rgba(36,91,138,0.05), rgba(36,91,138,0.12));
-        /* Prevent flash of this section while the page is positioning at the top */
-        opacity: 0;
-        transform: translateY(12px);
-        transition: opacity 0.4s ease, transform 0.4s ease;
-      }
-      .markets-section.markets-section--visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      .markets-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        gap: 32px;
-      }
-      .markets-header h2 {
-        font-size: clamp(2rem, 3vw, 2.75rem);
-        margin-bottom: 12px;
-      }
-      .markets-tag {
-        letter-spacing: 0.3em;
-        font-size: 0.8rem;
-        color: #245B8A;
-        font-weight: 700;
-        margin-bottom: 12px;
-      }
-      .markets-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 24px;
-      }
-      .market-card {
-        background: #fff;
-        border-radius: 18px;
-        padding: 24px;
-        min-height: 260px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        box-shadow: 0 25px 60px -30px rgba(15, 23, 42, 0.25);
-        text-decoration: none;
-        color: inherit;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-      }
-      .market-card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 30px 70px -35px rgba(18, 42, 66, 0.35);
-      }
-      .market-card--placeholder {
-        opacity: 0.6;
-        cursor: default;
-        box-shadow: 0 10px 30px -20px rgba(15, 23, 42, 0.15);
-      }
-      .market-card--placeholder:hover {
-        transform: none;
-        box-shadow: 0 10px 30px -20px rgba(15, 23, 42, 0.15);
-      }
-      .market-label {
-        text-transform: uppercase;
-        font-size: 0.85rem;
-        letter-spacing: 0.2em;
-        color: #245B8A;
-        margin-bottom: 8px;
-      }
-      .market-body {
-        color: #4b5563;
-        line-height: 1.6;
-      }
-      .market-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        font-weight: 600;
-        color: #245B8A;
-      }
-    </style>
-
-    <!-- Reveal markets section only after we are safely at the top of the page -->
-    <script>
-      (function() {
-        var markets = document.getElementById('markets');
-        if (!markets) return;
-
-        function showMarkets() {
-          markets.classList.add('markets-section--visible');
-        }
-
-        // Slight delay to make sure any scroll-reset logic has already run
-        if (document.readyState === 'complete' || document.readyState === 'interactive') {
-          setTimeout(showMarkets, 400);
-        } else {
-          document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(showMarkets, 400);
-          });
-        }
-
-        // Also ensure it becomes visible after our custom preloader event, if used
-        document.addEventListener('preloaderComplete', function() {
-          setTimeout(showMarkets, 200);
-        });
-      })();
-    </script>
+    <!-- Markets reveal script removed because the section was removed -->
 
     <!-- Zoho SalesIQ Live Chat Widget -->
     <script>window.$zoho=window.$zoho || {};$zoho.salesiq=$zoho.salesiq||{ready:function(){}}</script>
@@ -2043,7 +1918,7 @@
       "logo": "https://jbtechnologies.com/favicon.svg",
       "image": "https://jbtechnologies.com/favicon.svg",
       "telephone": "770-637-2094",
-      "email": "sales@jbtechnologies.com",
+      "email": "sales@jbtecknologies.com",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Atlanta",

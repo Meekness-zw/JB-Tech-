@@ -46,7 +46,7 @@ I can address **ALL** items listed below. Here's my approach for each:
 
 ### 3. **Configure Quote/Contact Form Submissions** ✅
 **Status:** Can fix  
-**Current State:** Forms use FormSubmit.co API to `sales@jbtechnologies.com`  
+**Current State:** Forms use FormSubmit.co API to `sales@jbtecknologies.com`  
 **Approach:**
 - Verify FormSubmit.co endpoint is correct
 - Add email receipt confirmation

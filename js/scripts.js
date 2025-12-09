@@ -10701,7 +10701,7 @@
                             var t = u.slice(0);
                             u.length = 0;
                             for (var e = 0; e < t.length; e++)
-                                if (!t[e].cancelled) try {
+                                if (!t[e].canceled) try {
                                     t[e].callback(p)
                                 } catch (t) {
                                     setTimeout(function () {
@@ -10713,10 +10713,10 @@
                     return u.push({
                         handle: ++c,
                         callback: t,
-                        cancelled: !1
+                        canceled: !1
                     }), c
                 }, l = function (t) {
-                    for (var e = 0; e < u.length; e++) u[e].handle === t && (u[e].cancelled = !0)
+                    for (var e = 0; e < u.length; e++) u[e].handle === t && (u[e].canceled = !0)
                 }
             }
             e.exports = function (t) {

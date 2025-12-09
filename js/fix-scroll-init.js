@@ -134,7 +134,7 @@
       // as soon as the site loaded.
       //
       // To allow users to scroll manually from the hero, the auto-click
-      // behaviour has been removed intentionally.
+      // behavior has been removed intentionally.
     }
   }
   

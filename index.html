@@ -22,16 +22,17 @@
     <meta property="twitter:description" content="JB Technologies delivers structured cabling, access control, DAS, AV, IT, and life-safety integration for commercial and enterprise buildings nationwide.">
     <meta property="twitter:image" content="https://jbtechnologies.com/favicon.svg">
 
-        <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" href="/asessts/favicon.png">
-    <link rel="icon" type="image/png" href="/asessts/favicon.png" sizes="16x16">
-    <link rel="icon" type="image/png" href="/asessts/favicon.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="asessts/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/asessts/favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/asessts/favicon.png">
     <link rel="shortcut icon" type="image/png" href="/asessts/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/asessts/favicon.png">
     <link rel="manifest" href="manifest.json">
     <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
     <meta name="theme-color" content="#ffffff">
 
-    <title>Low-Voltage, DAS, AV & Security Integration | JB Technologies</title>
+    <title>JB Technologies</title>
     <style>
       /* Prevent any mid-page flash after preloader; reveal once page is ready */
       body.page-id-home {
@@ -777,7 +778,7 @@
 
     <div id="page-container">
       
-<section class="page" id="home-page" data-title="Maman Corp">
+<section class="page" id="home-page" data-title="JB Technologies">
 
   <section class="home-screen" id="home-landing">
       <div id="home-landing__bg">
@@ -1901,6 +1902,66 @@
             scrollToTop();
             markPageReady();
           }
+        });
+      })();
+    </script>
+
+    <!-- Ensure title always stays as "JB Technologies" -->
+    <script>
+      (function() {
+        const TITLE = 'JB Technologies';
+        
+        // Set initial title
+        document.title = TITLE;
+        
+        // Override any attempts to change the title
+        const originalTitleDescriptor = Object.getOwnPropertyDescriptor(Document.prototype, 'title') || 
+                                         Object.getOwnPropertyDescriptor(HTMLDocument.prototype, 'title');
+        
+        if (originalTitleDescriptor) {
+          Object.defineProperty(document, 'title', {
+            get: function() {
+              return TITLE;
+            },
+            set: function(value) {
+              // Ignore any attempts to change the title
+              return TITLE;
+            },
+            configurable: true
+          });
+        }
+        
+        // Also monitor for title changes via MutationObserver as a fallback
+        const titleElement = document.querySelector('title');
+        if (titleElement) {
+          const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+              if (titleElement.textContent !== TITLE) {
+                titleElement.textContent = TITLE;
+              }
+            });
+          });
+          
+          observer.observe(titleElement, {
+            childList: true,
+            characterData: true,
+            subtree: true
+          });
+        }
+        
+        // Ensure title is correct on page load and after any delays
+        function ensureTitle() {
+          if (document.title !== TITLE) {
+            document.title = TITLE;
+          }
+        }
+        
+        // Check title periodically to ensure it stays correct
+        setInterval(ensureTitle, 1000);
+        
+        // Ensure title on various events
+        ['DOMContentLoaded', 'load', 'pageshow'].forEach(function(event) {
+          window.addEventListener(event, ensureTitle);
         });
       })();
     </script>

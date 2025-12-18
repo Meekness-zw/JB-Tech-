@@ -2203,11 +2203,14 @@
             // Form submission
             const generalForm = document.getElementById('generalForm');
             if (generalForm) {
-                const salesEmail = 'sales@jbtecknologies.com';
+                const salesEmail = 'sales@tbtecknologies.com';
                 const formEndpoint = `https://formsubmit.co/ajax/${encodeURIComponent(salesEmail)}`;
                 const statusMessage = document.getElementById('generalFormStatus');
                 const submitButton = generalForm.querySelector('button[type="submit"]');
                 const originalButtonHTML = submitButton ? submitButton.innerHTML : '';
+
+                console.log('General form initialized. Email:', salesEmail);
+                console.log('Form endpoint:', formEndpoint);
 
                 const updateStatus = (type, message) => {
                     if (!statusMessage) return;
@@ -2221,6 +2224,9 @@
                 generalForm.addEventListener('submit', async function(e) {
                     e.preventDefault();
 
+                    console.log('=== General Form Submission Started ===');
+                    console.log('Timestamp:', new Date().toISOString());
+
                     const formData = {
                         name: document.getElementById('name').value,
                         email: document.getElementById('email').value,
@@ -2231,6 +2237,10 @@
                         _captcha: 'false'
                     };
 
+                    console.log('Form data being sent:', formData);
+                    console.log('Sending to email:', salesEmail);
+                    console.log('Endpoint URL:', formEndpoint);
+
                     updateStatus(null, 'Sending your message...');
                     if (submitButton) {
                         submitButton.disabled = true;
@@ -2238,6 +2248,7 @@
                     }
 
                     try {
+                        console.log('Making fetch request...');
                         const response = await fetch(formEndpoint, {
                             method: 'POST',
                             headers: {
@@ -2247,16 +2258,31 @@
                             body: JSON.stringify(formData)
                         });
 
+                        console.log('Response received. Status:', response.status, response.statusText);
+                        console.log('Response OK:', response.ok);
+
                         if (!response.ok) {
+                            console.error('Response not OK. Status:', response.status);
                             throw new Error('Network response was not ok');
                         }
 
-                        await response.json();
+                        const responseData = await response.json();
+                        console.log('Response data:', responseData);
+                        console.log('✅ Form submitted successfully to', salesEmail);
+                        console.log('=== General Form Submission Success ===');
+                        
                         updateStatus('success', 'Thanks! Our sales team has received your message.');
                         generalForm.reset();
                     } catch (error) {
-                        console.error('Form submission error:', error);
-                        updateStatus('error', 'We could not send your message. Please try again or email sales@jbtecknologies.com directly.');
+                        console.error('❌ Form submission error:', error);
+                        console.error('Error details:', {
+                            message: error.message,
+                            stack: error.stack,
+                            email: salesEmail,
+                            endpoint: formEndpoint
+                        });
+                        console.log('=== General Form Submission Failed ===');
+                        updateStatus('error', 'We could not send your message. Please try again or email sales@tbtecknologies.com directly.');
                     } finally {
                         if (submitButton) {
                             submitButton.disabled = false;
@@ -2696,11 +2722,14 @@
             // Booking form submission
             const bookingForm = document.getElementById('bookingForm');
             if (bookingForm) {
-                const salesEmail = 'sales@jbtecknologies.com';
+                const salesEmail = 'sales@tbtecknologies.com';
                 const formEndpoint = `https://formsubmit.co/ajax/${encodeURIComponent(salesEmail)}`;
                 const statusMessage = document.getElementById('bookingFormStatus');
                 const submitButton = document.getElementById('bookingSubmitBtn');
                 const originalButtonHTML = submitButton ? submitButton.innerHTML : '';
+
+                console.log('Booking form initialized. Email:', salesEmail);
+                console.log('Form endpoint:', formEndpoint);
 
                 const updateStatus = (type, message) => {
                     if (!statusMessage) return;
@@ -2714,18 +2743,24 @@
                 bookingForm.addEventListener('submit', async function(e) {
                     e.preventDefault();
 
+                    console.log('=== Booking Form Submission Started ===');
+                    console.log('Timestamp:', new Date().toISOString());
+
                     // Validation
                     if (!bookingData.service || !bookingData.location || !bookingData.duration) {
+                        console.warn('Validation failed: Missing service, location, or duration');
                         updateStatus('error', 'Please select Type of Service, Project Location, and Meeting Duration.');
                         return;
                     }
 
                     if (!selectedDate) {
+                        console.warn('Validation failed: No date selected');
                         updateStatus('error', 'Please select a date.');
                         return;
                     }
 
                     if (!selectedTime) {
+                        console.warn('Validation failed: No time selected');
                         updateStatus('error', 'Please select a time.');
                         return;
                     }
@@ -2737,6 +2772,7 @@
                         if (otherLocationInput && otherLocationInput.value.trim()) {
                             locationValue = otherLocationInput.value.trim();
                         } else {
+                            console.warn('Validation failed: Other location not specified');
                             updateStatus('error', 'Please specify your location.');
                             return;
                         }
@@ -2756,6 +2792,10 @@
                         _captcha: 'false'
                     };
 
+                    console.log('Form data being sent:', formData);
+                    console.log('Sending to email:', salesEmail);
+                    console.log('Endpoint URL:', formEndpoint);
+
                     updateStatus(null, 'Scheduling your appointment...');
                     if (submitButton) {
                         submitButton.disabled = true;
@@ -2763,6 +2803,7 @@
                     }
 
                     try {
+                        console.log('Making fetch request...');
                         const response = await fetch(formEndpoint, {
                             method: 'POST',
                             headers: {
@@ -2772,12 +2813,20 @@
                             body: JSON.stringify(formData)
                         });
 
+                        console.log('Response received. Status:', response.status, response.statusText);
+                        console.log('Response OK:', response.ok);
+
                         if (!response.ok) {
+                            console.error('Response not OK. Status:', response.status);
                             throw new Error('Network response was not ok');
                         }
 
-                        await response.json();
-                        updateStatus('success', 'Thank you! Your appointment request has been submitted to sales@jbtecknologies.com. We will confirm your appointment via email shortly.');
+                        const responseData = await response.json();
+                        console.log('Response data:', responseData);
+                        console.log('✅ Booking form submitted successfully to', salesEmail);
+                        console.log('=== Booking Form Submission Success ===');
+                        
+                        updateStatus('success', 'Thank you! Your appointment request has been submitted to sales@tbtecknologies.com. We will confirm your appointment via email shortly.');
                         bookingForm.reset();
                         
                         // Reset selections
@@ -2795,8 +2844,15 @@
                         document.querySelectorAll('.calendar-day').forEach(day => day.classList.remove('selected'));
                         document.getElementById('timeSelection').style.display = 'none';
                     } catch (error) {
-                        console.error('Booking submission error:', error);
-                        updateStatus('error', 'We could not schedule your appointment. Please try again or email sales@jbtecknologies.com directly.');
+                        console.error('❌ Booking submission error:', error);
+                        console.error('Error details:', {
+                            message: error.message,
+                            stack: error.stack,
+                            email: salesEmail,
+                            endpoint: formEndpoint
+                        });
+                        console.log('=== Booking Form Submission Failed ===');
+                        updateStatus('error', 'We could not schedule your appointment. Please try again or email sales@tbtecknologies.com directly.');
                     } finally {
                         if (submitButton) {
                             submitButton.disabled = false;

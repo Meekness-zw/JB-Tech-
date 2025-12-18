@@ -175,6 +175,7 @@
             display: grid;
             grid-template-columns: 1fr;
             gap: 2rem;
+            margin-bottom: 3rem;
         }
 
         @media (min-width: 1024px) {
@@ -354,6 +355,7 @@
                 grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
                 gap: 0.75rem;
                 width: 100%;
+                margin-bottom: 2rem;
             }
 
             .summary-card {
@@ -567,6 +569,7 @@
             .option-grid {
                 grid-template-columns: 1fr;
                 gap: 0.75rem;
+                margin-bottom: 2rem;
             }
             
             .service-grid {
@@ -652,14 +655,24 @@
         }
 
         .btn-primary {
-            background-color: var(--primary-blue);
+            background-color: #1676B7 !important;
+            background: #1676B7 !important;
             color: var(--white);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            opacity: 1 !important;
         }
 
         .btn-primary:hover {
-            background-color: var(--dark-blue);
+            background-color: #145a8f !important;
+            background: #145a8f !important;
+            opacity: 1 !important;
             transform: scale(1.05);
+        }
+
+        .btn-primary:not(:disabled) {
+            background-color: #1676B7 !important;
+            background: #1676B7 !important;
+            opacity: 1 !important;
         }
 
         .btn-secondary {
@@ -837,6 +850,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 1rem;
+            margin-bottom: 2.5rem;
         }
 
         .option-card {
@@ -2736,21 +2750,21 @@
                                     <span class="option-subtitle">Headquarters, operations centers, tenant build-outs.</span>
                                 </div>
                             </button>
-                            <button type="button" class="option-card" data-value="Aviation & hangar">
+                            <button type="button" class="option-card" data-value="Fire alarm systems">
                                 <div class="option-icon">
-                                    <i class="fa-solid fa-plane-up"></i>
+                                    <i class="fa-solid fa-fire-extinguisher"></i>
                                 </div>
                                 <div>
-                                    <span class="option-title">Aviation & Hangar</span>
-                                    <span class="option-subtitle">Hangars, MRO facilities, secure mission support.</span>
+                                    <span class="option-title">Fire Alarm Systems</span>
+                                    <span class="option-subtitle">Fire detection, notification, and emergency response systems.</span>
                                 </div>
                             </button>
-                            <button type="button" class="option-card" data-value="Healthcare & labs">
+                            <button type="button" class="option-card" data-value="Healthcare">
                                 <div class="option-icon">
                                     <i class="fa-solid fa-heart-pulse"></i>
                                 </div>
                                 <div>
-                                    <span class="option-title">Healthcare & Labs</span>
+                                    <span class="option-title">Healthcare</span>
                                     <span class="option-subtitle">Clinical suites, clean rooms, life science environments.</span>
                                 </div>
                             </button>
@@ -2763,12 +2777,12 @@
                                     <span class="option-subtitle">Process facilities, high-bay, plant modernizations.</span>
                                 </div>
                             </button>
-                            <button type="button" class="option-card" data-value="Education & institutional">
+                            <button type="button" class="option-card" data-value="Education">
                                 <div class="option-icon">
                                     <i class="fa-solid fa-school"></i>
                                 </div>
                                 <div>
-                                    <span class="option-title">Education & Institutional</span>
+                                    <span class="option-title">Education</span>
                                     <span class="option-subtitle">K-12, higher-ed campuses, civic and cultural spaces.</span>
                                 </div>
                             </button>
@@ -3197,12 +3211,19 @@
                 plannerForm.addEventListener('submit', handleSubmit);
             }
 
-            const SALES_EMAIL = 'sales@jbtecknologies.com';
+            const SALES_EMAIL = 'sales@tbtecknologies.com';
             const CRM_PARSER_EMAIL = 'mxh4xqc@parser.zohocrm.com';
             const FORM_ENDPOINT_BASE = 'https://formsubmit.co/ajax/';
 
+            console.log('Project Planning Tool initialized.');
+            console.log('Sales email:', SALES_EMAIL);
+            console.log('CRM parser email:', CRM_PARSER_EMAIL);
+
             function handleSubmit(event) {
                 event.preventDefault();
+                console.log('=== Project Planning Tool Submission Started ===');
+                console.log('Timestamp:', new Date().toISOString());
+                
                 const requiredFields = ['firstName', 'lastName', 'company', 'email', 'phone', 'projectDetails'];
                 let isValid = true;
                 
@@ -3217,6 +3238,7 @@
                 });
                 
                 if (!isValid) {
+                    console.warn('Validation failed: Missing required fields');
                     alert('Please complete the required fields.');
                     return;
                 }
@@ -3226,6 +3248,9 @@
                     newsletter: document.getElementById('newsletter')?.checked || false
                 };
 
+                console.log('Submission data:', submission);
+                console.log('Sending to recipients:', [SALES_EMAIL, CRM_PARSER_EMAIL]);
+
                 const submitButton = plannerForm.querySelector('button[type="submit"]');
                 const originalButtonHTML = submitButton?.innerHTML;
 
@@ -3234,12 +3259,21 @@
 
                 sendPlannerSubmission(submission)
                     .then(() => {
+                        console.log('✅ Project planning submission successful!');
+                        console.log('Sent to:', SALES_EMAIL, 'and', CRM_PARSER_EMAIL);
+                        console.log('=== Project Planning Tool Submission Success ===');
                         alert('Thanks! Your project brief has been submitted.');
                         resetPlanner();
                     })
                     .catch(error => {
-                        console.error('Planner submission error:', error);
-                        alert('We could not send your project brief. Please email sales@jbtecknologies.com so we can assist.');
+                        console.error('❌ Planner submission error:', error);
+                        console.error('Error details:', {
+                            message: error.message,
+                            stack: error.stack,
+                            recipients: [SALES_EMAIL, CRM_PARSER_EMAIL]
+                        });
+                        console.log('=== Project Planning Tool Submission Failed ===');
+                        alert('We could not send your project brief. Please email sales@tbtecknologies.com so we can assist.');
                     })
                     .finally(() => {
                         if (submitButton) {
@@ -3252,6 +3286,9 @@
             function sendPlannerSubmission(submission) {
                 const recipients = [SALES_EMAIL, CRM_PARSER_EMAIL];
                 const payload = buildPlannerPayload(submission);
+                
+                console.log('Payload being sent:', payload);
+                
                 const requestOptions = {
                     method: 'POST',
                     headers: {
@@ -3262,13 +3299,30 @@
                 };
 
                 return Promise.all(
-                    recipients.map(email =>
-                        fetch(`${FORM_ENDPOINT_BASE}${encodeURIComponent(email)}`, requestOptions)
+                    recipients.map(email => {
+                        const endpoint = `${FORM_ENDPOINT_BASE}${encodeURIComponent(email)}`;
+                        console.log(`Sending to ${email}...`);
+                        console.log(`Endpoint: ${endpoint}`);
+                        
+                        return fetch(endpoint, requestOptions)
                             .then(response => {
-                                if (!response.ok) throw new Error(`Submission failed for ${email}`);
-                                return response.json();
+                                console.log(`Response from ${email}:`, response.status, response.statusText);
+                                console.log(`Response OK for ${email}:`, response.ok);
+                                
+                                if (!response.ok) {
+                                    throw new Error(`Submission failed for ${email}`);
+                                }
+                                
+                                return response.json().then(data => {
+                                    console.log(`Response data from ${email}:`, data);
+                                    return data;
+                                });
                             })
-                    )
+                            .catch(error => {
+                                console.error(`Error sending to ${email}:`, error);
+                                throw error;
+                            });
+                    })
                 );
             }
 
@@ -3594,7 +3648,7 @@
                             <div class="jb-footer__contact-icon"><i class="fa-regular fa-envelope"></i></div>
                             <div class="jb-footer__contact-details">
                                 <p>Email Us</p>
-                                <a href="mailto:sales@jbtecknologies.com">sales@jbtecknologies.com</a>
+                                <a href="mailto:sales@tbtecknologies.com">sales@tbtecknologies.com</a>
                             </div>
                         </li>
                     </ul>

@@ -515,24 +515,33 @@
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
-            align-items: center;
+            align-items: stretch;
+            width: 100%;
+            max-width: 100%;
         }
 
         @media (min-width: 768px) {
             .stats-container {
                 flex-direction: row;
                 gap: 2rem;
+                align-items: flex-start;
+                justify-content: space-between;
+                width: 100%;
+                max-width: 100%;
             }
         }
 
         .stats-graph {
             width: 100%;
             padding: 2rem;
+            flex: 1 1 50%;
         }
 
         @media (min-width: 768px) {
             .stats-graph {
-                width: 55%;
+                width: 50%;
+                flex: 1 1 50%;
+                max-width: 50%;
             }
         }
 
@@ -587,11 +596,14 @@
         .stats-content {
             width: 100%;
             padding: 1rem;
+            flex: 1 1 50%;
         }
 
         @media (min-width: 768px) {
             .stats-content {
                 width: 50%;
+                flex: 1 1 50%;
+                max-width: 50%;
                 padding: 2rem;
             }
         }
@@ -625,7 +637,7 @@
         .stat-number-large {
             font-size: 3rem;
             font-weight: 700;
-            color: var(--secondary-color);
+            color: #1676B7;
             margin-bottom: 0.75rem;
         }
 
@@ -734,7 +746,7 @@
 
         .featured-testimonial {
             grid-row: span 2;
-            background: linear-gradient(to bottom right, var(--primary-color), var(--secondary-color));
+            background: linear-gradient(to bottom right, #1676B7, #5CC3EE);
             border-radius: 1.5rem;
             padding: 2rem;
             position: relative;
@@ -2745,7 +2757,6 @@
                                 </div>
                             </div>
                             <div class="project-content">
-                                <h3 class="project-title">Phoenix Senior Living – Conyers, GA</h3>
                                 <div class="project-date">
                                     <i class="far fa-calendar"></i>
                                     <span>11 Jan - 20 Feb 2025 (5 wks)</span>
@@ -2756,7 +2767,7 @@
                                     <span class="project-tag">Multi-Site Deployment</span>
                                 </div>
                                 <div class="project-description">
-                                    This large-scale rollout covered multiple Phoenix Senior Living sites across 12 states. Our team managed complete AV and IT infrastructure deployment, standardizing network performance and technology systems across all locations.
+                                    This large-scale rollout covered multiple sites across 12 states. Our team managed complete AV and IT infrastructure deployment, standardizing network performance and technology systems.
                                 </div>
                             </div>
                         </div>
@@ -2770,7 +2781,6 @@
                                 </div>
                             </div>
                             <div class="project-content">
-                                <h3 class="project-title">Medical Center – Savannah, GA</h3>
                                 <div class="project-date">
                                     <i class="far fa-calendar"></i>
                                     <span>15 Mar - 10 Apr 2025 (4 wks)</span>
@@ -2795,7 +2805,6 @@
                                 </div>
                             </div>
                             <div class="project-content">
-                                <h3 class="project-title">Phoenix Senior Living – Dallas, GA</h3>
                                 <div class="project-date">
                                     <i class="far fa-calendar"></i>
                                     <span>01 Feb - 28 Feb 2025 (4 wks)</span>
@@ -2827,10 +2836,10 @@
                                 <div class="progress-item">
                                     <div class="progress-header">
                                         <span class="progress-label">Project Completion Rate</span>
-                                        <span class="progress-value" style="color: var(--primary-color);">100%</span>
+                                        <span class="progress-value" style="color: #1676B7;">100%</span>
                                     </div>
                                     <div class="progress-bar">
-                                        <div class="progress-fill progress-animate" style="background-color: var(--primary-color);" data-width="100%"></div>
+                                        <div class="progress-fill progress-animate" style="background-color: #1676B7;" data-width="100%"></div>
                                     </div>
                                 </div>
 
@@ -2838,10 +2847,10 @@
                                 <div class="progress-item">
                                     <div class="progress-header">
                                         <span class="progress-label">Client Satisfaction</span>
-                                        <span class="progress-value" style="color: var(--secondary-color);">100%</span>
+                                        <span class="progress-value" style="color: #1676B7;">100%</span>
                                     </div>
                                     <div class="progress-bar">
-                                        <div class="progress-fill progress-animate" style="background-color: var(--secondary-color);" data-width="100%"></div>
+                                        <div class="progress-fill progress-animate" style="background-color: #1676B7;" data-width="100%"></div>
                                     </div>
                                 </div>
 
@@ -2849,10 +2858,10 @@
                                 <div class="progress-item">
                                     <div class="progress-header">
                                         <span class="progress-label">On-Time Delivery</span>
-                                        <span class="progress-value" style="color: var(--primary-color);">100%</span>
+                                        <span class="progress-value" style="color: #1676B7;">100%</span>
                                     </div>
                                     <div class="progress-bar">
-                                        <div class="progress-fill progress-animate" style="background-color: var(--primary-color);" data-width="100%"></div>
+                                        <div class="progress-fill progress-animate" style="background-color: #1676B7;" data-width="100%"></div>
                                     </div>
                                 </div>
 
@@ -2860,10 +2869,10 @@
                                 <div class="progress-item">
                                     <div class="progress-header">
                                         <span class="progress-label">Safety Compliance</span>
-                                        <span class="progress-value" style="color: var(--secondary-color);">100%</span>
+                                        <span class="progress-value" style="color: #1676B7;">100%</span>
                                     </div>
                                     <div class="progress-bar">
-                                        <div class="progress-fill progress-animate" style="background-color: var(--secondary-color);" data-width="100%"></div>
+                                        <div class="progress-fill progress-animate" style="background-color: #1676B7;" data-width="100%"></div>
                                     </div>
                                 </div>
 
@@ -2871,10 +2880,10 @@
                                 <div class="progress-item">
                                     <div class="progress-header">
                                         <span class="progress-label">Repeat Client Rate</span>
-                                        <span class="progress-value" style="color: var(--primary-color);">87%</span>
+                                        <span class="progress-value" style="color: #1676B7;">87%</span>
                                     </div>
                                     <div class="progress-bar">
-                                        <div class="progress-fill progress-animate" style="background-color: var(--primary-color);" data-width="87%"></div>
+                                        <div class="progress-fill progress-animate" style="background-color: #1676B7;" data-width="87%"></div>
                                     </div>
                                 </div>
                             </div>
@@ -2949,8 +2958,7 @@
                                 <div class="testimonial-author">
                                     <div class="author-avatar">PS</div>
                                     <div class="author-info">
-                                        <h4>Phoenix Senior Living</h4>
-                                        <p>Milton, GA • Facilities Director</p>
+                                        <p>Facilities Director</p>
                                         <div class="stars">
                                             <span class="star">★</span>
                                             <span class="star">★</span>
@@ -2970,8 +2978,7 @@
                                 <div class="testimonial-small-header">
                                     <div class="small-avatar">SM</div>
                                     <div class="small-author-info">
-                                        <h4>Savannah Medical Center</h4>
-                                        <p>Savannah, GA • IT Manager</p>
+                                        <p>IT Manager</p>
                                         <div class="small-stars">
                                             <span class="small-star">★</span>
                                             <span class="small-star">★</span>
@@ -2991,8 +2998,7 @@
                                 <div class="testimonial-small-header">
                                     <div class="small-avatar">NA</div>
                                     <div class="small-author-info">
-                                        <h4>Northview Academy</h4>
-                                        <p>Alpharetta, GA • Operations Admin</p>
+                                        <p>Operations Admin</p>
                                         <div class="small-stars">
                                             <span class="small-star">★</span>
                                             <span class="small-star">★</span>
@@ -3012,8 +3018,7 @@
                                 <div class="testimonial-small-header">
                                     <div class="small-avatar">PS</div>
                                     <div class="small-author-info">
-                                        <h4>Phoenix Senior Living</h4>
-                                        <p>Conyers, GA • Project Manager</p>
+                                        <p>Project Manager</p>
                                         <div class="small-stars">
                                             <span class="small-star">★</span>
                                             <span class="small-star">★</span>
@@ -3042,7 +3047,7 @@
                             <div class="tag">
                                 <span class="tag-text">GET STARTED</span>
                             </div>
-                            <h2 class="section-header">Ready to <span style="color: var(--secondary-color);">Power</span> Your Next Project?</h2>
+                            <h2 class="section-header">Ready to <span style="color: #1676B7;">Power</span> Your Next Project?</h2>
                             <p class="section-description">
                                 Let's build the network, systems, and safety infrastructure your space deserves.
                             </p>
@@ -3063,11 +3068,11 @@
                         <div class="cta-image-container">
                             <!-- Color Bars Background -->
                             <div class="color-bars">
-                                <div class="color-bar" style="background-color: #E1F7F8;"></div>
-                                <div class="color-bar" style="background-color: #C5F0F2;"></div>
-                                <div class="color-bar" style="background-color: #A9E9EC;"></div>
-                                <div class="color-bar" style="background-color: #8EE2E6;"></div>
-                                <div class="color-bar" style="background-color: #72DBE0;"></div>
+                                <div class="color-bar" style="background-color: #1676B7;"></div>
+                                <div class="color-bar" style="background-color: #2889C5;"></div>
+                                <div class="color-bar" style="background-color: #399DD3;"></div>
+                                <div class="color-bar" style="background-color: #4BB0E0;"></div>
+                                <div class="color-bar" style="background-color: #5CC3EE;"></div>
                             </div>
 
                             <!-- Phone Image -->

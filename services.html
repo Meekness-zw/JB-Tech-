@@ -679,6 +679,33 @@
             color: var(--text-light);
         }
 
+        /* Combined Section - Image and Services Intro Side by Side */
+        .combined-section {
+            padding: 60px 20px;
+        }
+
+        .combined-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .combined-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 60px;
+            }
+        }
+
+        .combined-image {
+            width: 100%;
+        }
+
+        .combined-services {
+            width: 100%;
+        }
+
         /* Services Intro */
         .services-intro {
             padding: 60px 20px;
@@ -1830,24 +1857,25 @@
         </div>
     </section>
 
-    <!-- Image Section -->
-    <section class="image-section animate-slide-up">
+    <!-- Combined Image and Services Intro Section -->
+    <section class="combined-section animate-fade-in-delay">
         <div class="container">
-            <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800" alt="Network infrastructure">
-                <div class="image-overlay"></div>
-                <div class="image-badge">
-                    <p class="badge-title">Certified & Compliant</p>
-                    <p class="badge-subtitle">Industry-leading standards</p>
+            <div class="combined-grid">
+                <!-- Image Section -->
+                <div class="combined-image">
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800" alt="Network infrastructure">
+                        <div class="image-overlay"></div>
+                        <div class="image-badge">
+                            <p class="badge-title">Certified & Compliant</p>
+                            <p class="badge-subtitle">Industry-leading standards</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Intro Section -->
-    <section class="services-intro animate-fade-in-delay">
-        <div class="container">
-            <div class="services-grid">
+                
+                <!-- Services Intro Section -->
+                <div class="combined-services">
+                    <div class="services-grid">
                 <div>
                     <div class="section-tag">
                         <span>OUR SERVICES</span>
@@ -1902,6 +1930,8 @@
                                 Get a Quote
                             </a>
                         </div>
+                    </div>
+                </div>
                     </div>
                 </div>
             </div>
@@ -2034,7 +2064,7 @@
             </div>
             <div class="intent-intro">
                 <h2 class="section-heading">Built to capture national & local demand</h2>
-                <p>Facility teams, GCs, and AHJs search for very specific terms when projects hinge on compliance, coverage, or connectivity. We structure our delivery around those high-intent requests so Google understands JB Technologies as the partner for ERCES, DAS, low voltage, AV, security, and IT rollouts nationwide.</p>
+                <p>Facility teams and AHJs search for very specific terms when projects hinge on compliance, coverage, or connectivity. We structure our delivery around those high-intent requests so Google understands JB Technologies as the partner for ERCES, DAS, low voltage, AV, security, and IT rollouts nationwide.</p>
             </div>
             <div class="intent-grid">
                 <article class="intent-card" style="cursor: pointer;" onclick="window.location.href='services/eercs.html'">
@@ -2173,7 +2203,7 @@
                         <div class="service-details">
                             <div class="service-details-grid">
                                 <div class="service-image">
-                                    <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800" alt="Infrastructure Deployment">
+                                    <img src="./asessts/access control.webp" alt="Access Control">
                                     <div class="service-image-overlay"></div>
                                 </div>
                                 <div class="service-points">

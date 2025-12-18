@@ -1,6 +1,6 @@
 /* JB Footer */
 .jb-footer {
-    background: linear-gradient(135deg, #245b8a 0%, #1a4666 50%, #245b8a 100%);
+    background: linear-gradient(135deg, #1676B7 0%, #5CC3EE 100%);
     color: #fff;
     position: relative;
     overflow: hidden;
@@ -20,7 +20,7 @@
     left: 0;
     width: 100%;
     height: 4px;
-    background: linear-gradient(90deg, #245b8a, #5a8bc4, #245b8a);
+    background: linear-gradient(90deg, #1676B7, #1676B7, #1676B7);
 }
 
 .jb-footer__newsletter {
@@ -122,11 +122,11 @@
 
 .jb-footer__input:focus {
     outline: none;
-    border-color: #245b8a;
+    border-color: #1676B7;
 }
 
 .jb-footer__button {
-    background-color: #245b8a;
+    background-color: #1676B7;
     color: #fff;
     padding: .85rem 1.75rem;
     border: none;
@@ -253,7 +253,7 @@
 }
 
 .jb-footer__social-link:hover {
-    background-color: #245b8a;
+    background-color: #1676B7;
     transform: scale(1.08);
     box-shadow: 0 8px 25px rgba(6, 17, 31, .45);
     text-decoration: none;
@@ -275,7 +275,7 @@
 .jb-footer__section-divider {
     width: 4px;
     height: 1.5rem;
-    background-color: #245b8a;
+    background-color: #1676B7;
     border-radius: 4px;
 }
 
@@ -297,7 +297,7 @@
 }
 
 .jb-footer__link:hover {
-    color: #245b8a;
+    color: #1676B7;
 }
 
 .jb-footer__link i {
@@ -343,7 +343,7 @@
 }
 
 .jb-footer__contact-icon i {
-    color: #245b8a;
+    color: #1676B7;
 }
 
 .jb-footer__contact-details p {
@@ -368,7 +368,7 @@
 }
 
 .jb-footer__contact-details a:hover {
-    color: #245b8a;
+    color: #1676B7;
 }
 
 .jb-footer__bottom {
@@ -409,5 +409,5 @@
 }
 
 .jb-footer__bottom-links a:hover {
-    color: #245b8a;
+    color: #1676B7;
 }

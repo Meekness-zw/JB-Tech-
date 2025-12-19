@@ -430,9 +430,9 @@
         pointer-events: auto;
       }
       
-      /* Container doesn't block */
+      /* Container allows clicks - links inside handle pointer events */
       #new-navbar .navbar-container {
-        pointer-events: none;
+        pointer-events: auto;
       }
 
       .navbar-container {
@@ -1307,7 +1307,6 @@
         <ul class="jb-footer__links">
           <li><a href="services.html" class="jb-footer__link"><i class="fa-solid fa-arrow-right"></i><span>Cabling &amp; Networking</span></a></li>
           <li><a href="services.html" class="jb-footer__link"><i class="fa-solid fa-arrow-right"></i><span>Wireless &amp; DAS Solutions</span></a></li>
-          <li><a href="services.html" class="jb-footer__link"><i class="fa-solid fa-arrow-right"></i><span>Small Cell &amp; Tower</span></a></li>
           <li><a href="services.html" class="jb-footer__link"><i class="fa-solid fa-arrow-right"></i><span>Fire Alarm Systems</span></a></li>
         </ul>
       </div>
@@ -1328,7 +1327,7 @@
             <div class="jb-footer__contact-icon"><i class="fa-regular fa-clock"></i></div>
             <div class="jb-footer__contact-details">
               <p>Business Hours</p>
-              <p>Mon–Fri: 8 am – 5 pm</p>
+              <p>Mon–Fri: 8:00 AM – 5:00 PM</p>
               <p>Weekends: By appointment</p>
             </div>
           </li>
@@ -2041,8 +2040,16 @@
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Security & Access Control",
-              "description": "Commercial access control, CCTV installation, security camera installation"
+              "name": "Access Control",
+              "description": "Commercial access control systems, card access, door access control"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Security Systems",
+              "description": "CCTV installation, security camera installation, surveillance systems"
             }
           },
           {

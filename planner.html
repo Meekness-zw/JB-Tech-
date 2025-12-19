@@ -1192,9 +1192,9 @@
         pointer-events: auto;
       }
       
-      /* Container doesn't block */
+      /* Container allows clicks - links inside handle pointer events */
       #new-navbar .navbar-container {
-        pointer-events: none;
+        pointer-events: auto;
       }
 
       .navbar-container {
@@ -2682,14 +2682,14 @@
                     <i class="fa-solid fa-diagram-project"></i>
                 </div>
                 <h3>500+ Programs</h3>
-                <p>From corporate interiors to nationwide rollouts.</p>
+                <p>From corporate interiors to enterprise deployments.</p>
             </div>
             <div class="hero-card">
                 <div class="hero-icon">
                     <i class="fa-solid fa-building-shield"></i>
                 </div>
                 <h3>Mission-ready</h3>
-                <p>Secure hangars, data centers, labs, and more.</p>
+                <p>Secure data centers, labs, and more.</p>
             </div>
             <div class="hero-card">
                 <div class="hero-icon">
@@ -2899,7 +2899,6 @@
                             <button type="button" class="service-chip" data-value="Structured cabling">Structured Cabling</button>
                             <button type="button" class="service-chip" data-value="Wireless & DAS">Wireless / DAS</button>
                             <button type="button" class="service-chip" data-value="Security & access">Security & Access Control</button>
-                            <button type="button" class="service-chip" data-value="Nationwide rollouts">Nationwide Rollouts</button>
                         </div>
 
                         <div class="step-actions">
@@ -3211,7 +3210,7 @@
                 plannerForm.addEventListener('submit', handleSubmit);
             }
 
-            const SALES_EMAIL = 'sales@tbtecknologies.com';
+            const SALES_EMAIL = 'sales@jbtecknologies.com';
             const CRM_PARSER_EMAIL = 'mxh4xqc@parser.zohocrm.com';
             const FORM_ENDPOINT_BASE = 'https://formsubmit.co/ajax/';
 
@@ -3273,7 +3272,7 @@
                             recipients: [SALES_EMAIL, CRM_PARSER_EMAIL]
                         });
                         console.log('=== Project Planning Tool Submission Failed ===');
-                        alert('We could not send your project brief. Please email sales@tbtecknologies.com so we can assist.');
+                        alert('We could not send your project brief. Please email sales@jbtecknologies.com so we can assist.');
                     })
                     .finally(() => {
                         if (submitButton) {
@@ -3612,7 +3611,6 @@
                             <ul class="jb-footer__links">
                                 <li><a href="services.html" class="jb-footer__link"><i class="fa-solid fa-arrow-right"></i><span>Cabling &amp; Networking</span></a></li>
                                 <li><a href="services.html" class="jb-footer__link"><i class="fa-solid fa-arrow-right"></i><span>Wireless &amp; DAS Solutions</span></a></li>
-                                <li><a href="services.html" class="jb-footer__link"><i class="fa-solid fa-arrow-right"></i><span>Small Cell &amp; Tower</span></a></li>
                                 <li><a href="services.html" class="jb-footer__link"><i class="fa-solid fa-arrow-right"></i><span>Fire Alarm Systems</span></a></li>
                             </ul>
                         </div>
@@ -3633,7 +3631,7 @@
                             <div class="jb-footer__contact-icon"><i class="fa-regular fa-clock"></i></div>
                             <div class="jb-footer__contact-details">
                                 <p>Business Hours</p>
-                                <p>Mon–Fri: 8 am – 5 pm</p>
+                                <p>Mon–Fri: 8:00 AM – 5:00 PM</p>
                                 <p>Weekends: By appointment</p>
                             </div>
                         </li>
@@ -3648,7 +3646,7 @@
                             <div class="jb-footer__contact-icon"><i class="fa-regular fa-envelope"></i></div>
                             <div class="jb-footer__contact-details">
                                 <p>Email Us</p>
-                                <a href="mailto:sales@tbtecknologies.com">sales@tbtecknologies.com</a>
+                                <a href="mailto:sales@jbtecknologies.com">sales@jbtecknologies.com</a>
                             </div>
                         </li>
                     </ul>

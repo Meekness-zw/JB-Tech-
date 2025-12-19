@@ -1299,8 +1299,9 @@
         pointer-events: auto;
       }
       
+      /* Container allows clicks - links inside handle pointer events */
       #new-navbar .navbar-container {
-        pointer-events: none;
+        pointer-events: auto;
       }
 
       .navbar-container {
@@ -2203,7 +2204,7 @@
             // Form submission
             const generalForm = document.getElementById('generalForm');
             if (generalForm) {
-                const salesEmail = 'sales@tbtecknologies.com';
+                const salesEmail = 'sales@jbtecknologies.com';
                 const formEndpoint = `https://formsubmit.co/ajax/${encodeURIComponent(salesEmail)}`;
                 const statusMessage = document.getElementById('generalFormStatus');
                 const submitButton = generalForm.querySelector('button[type="submit"]');
@@ -2282,7 +2283,7 @@
                             endpoint: formEndpoint
                         });
                         console.log('=== General Form Submission Failed ===');
-                        updateStatus('error', 'We could not send your message. Please try again or email sales@tbtecknologies.com directly.');
+                        updateStatus('error', 'We could not send your message. Please try again or email sales@jbtecknologies.com directly.');
                     } finally {
                         if (submitButton) {
                             submitButton.disabled = false;
@@ -2722,7 +2723,7 @@
             // Booking form submission
             const bookingForm = document.getElementById('bookingForm');
             if (bookingForm) {
-                const salesEmail = 'sales@tbtecknologies.com';
+                const salesEmail = 'sales@jbtecknologies.com';
                 const formEndpoint = `https://formsubmit.co/ajax/${encodeURIComponent(salesEmail)}`;
                 const statusMessage = document.getElementById('bookingFormStatus');
                 const submitButton = document.getElementById('bookingSubmitBtn');
@@ -2826,7 +2827,7 @@
                         console.log('✅ Booking form submitted successfully to', salesEmail);
                         console.log('=== Booking Form Submission Success ===');
                         
-                        updateStatus('success', 'Thank you! Your appointment request has been submitted to sales@tbtecknologies.com. We will confirm your appointment via email shortly.');
+                        updateStatus('success', 'Thank you! Your appointment request has been submitted to sales@jbtecknologies.com. We will confirm your appointment via email shortly.');
                         bookingForm.reset();
                         
                         // Reset selections
@@ -2852,7 +2853,7 @@
                             endpoint: formEndpoint
                         });
                         console.log('=== Booking Form Submission Failed ===');
-                        updateStatus('error', 'We could not schedule your appointment. Please try again or email sales@tbtecknologies.com directly.');
+                        updateStatus('error', 'We could not schedule your appointment. Please try again or email sales@jbtecknologies.com directly.');
                     } finally {
                         if (submitButton) {
                             submitButton.disabled = false;
@@ -2999,7 +3000,6 @@
         <ul class="jb-footer__links">
           <li><a href="services.html" class="jb-footer__link"><i class="fa-solid fa-arrow-right"></i><span>Cabling &amp; Networking</span></a></li>
           <li><a href="services.html" class="jb-footer__link"><i class="fa-solid fa-arrow-right"></i><span>Wireless &amp; DAS Solutions</span></a></li>
-          <li><a href="services.html" class="jb-footer__link"><i class="fa-solid fa-arrow-right"></i><span>Small Cell &amp; Tower</span></a></li>
           <li><a href="services.html" class="jb-footer__link"><i class="fa-solid fa-arrow-right"></i><span>Fire Alarm Systems</span></a></li>
         </ul>
       </div>
@@ -3020,7 +3020,7 @@
             <div class="jb-footer__contact-icon"><i class="fa-regular fa-clock"></i></div>
             <div class="jb-footer__contact-details">
               <p>Business Hours</p>
-              <p>Mon–Fri: 8 am – 5 pm</p>
+              <p>Mon–Fri: 8:00 AM – 5:00 PM</p>
               <p>Weekends: By appointment</p>
             </div>
           </li>
